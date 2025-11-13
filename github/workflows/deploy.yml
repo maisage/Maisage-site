@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # If you later have a build step, put it here. For a plain index.html, nothing else is needed.
+      # If you later have a build step, put it here. For a plain index.html, nothing else is needed .
       - name: Copy site
         run: |
           mkdir -p dist
