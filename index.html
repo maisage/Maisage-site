@@ -47,61 +47,79 @@
             and meaningful for you.
           </p>
 
-          <!-- Start Here <!-- Start Here form -->
-<div id="start" class="mt-8 p-6 bg-emerald-50 rounded-xl shadow-sm">
-  <h2 class="text-xl font-semibold text-emerald-800 mb-4">Start Here</h2>
+          <!-- Start Here form -->
+          <div id="start" class="mt-8 p-6 bg-emerald-50 rounded-xl shadow-sm">
+            <h2 class="text-xl font-semibold text-emerald-800 mb-4">Start Here</h2>
 
-  <form action="https://formspree.io/f/meovorda"
-        method="POST"
-        class="grid gap-4">
+            <form
+              action="https://formspree.io/f/meovorda"
+              method="POST"
+              class="grid gap-4"
+            >
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Your Name</label>
+                <input
+                  name="name"
+                  required
+                  class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+                  placeholder="Enter your name"
+                />
+              </div>
 
-    <div>
-      <label class="block text-sm font-medium text-slate-700 mb-1">Your Name</label>
-      <input name="name" required
-             class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
-             placeholder="Enter your name" />
-    </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+                  placeholder="Enter your email"
+                />
+              </div>
 
-    <div>
-      <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
-      <input type="email" name="email" required
-             class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
-             placeholder="Enter your email" />
-    </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Zip Code</label>
+                <input
+                  name="zip"
+                  class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+                  placeholder="Enter your zip code"
+                />
+              </div>
 
-    <div>
-      <label class="block text-sm font-medium text-slate-700 mb-1">Zip Code</label>
-      <input name="zip"
-             class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
-             placeholder="Enter your zip code" />
-    </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                <textarea
+                  name="message"
+                  rows="3"
+                  class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+                  placeholder="Tell us how we can help or what you’re planning for."
+                ></textarea>
+              </div>
 
-    <div>
-      <label class="block text-sm font-medium text-slate-700 mb-1">Message</label>
-      <textarea name="message" rows="3"
-                class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
-                placeholder="Tell us how we can help or what you’re planning for."></textarea>
-    </div>
+              <!-- Subject -->
+              <input type="hidden" name="_subject" value="Maisage – Start Here submission" />
 
-    <!-- Subject -->
-    <input type="hidden" name="_subject" value="Maisage – Start Here submission" />
+              <!-- Redirect to thank-you page -->
+              <input
+                type="hidden"
+                name="_redirect"
+                value="https://maisage.github.io/maisage-site/thanks.html"
+              />
 
-    <!-- Redirect to thank-you page -->
-    <input type="hidden" name="_redirect" value="https://maisage.github.io/maisage-site/thanks.html">
+              <!-- Honeypot -->
+              <input type="text" name="_gotcha" style="display:none" />
 
-    <!-- Honeypot -->
-    <input type="text" name="_gotcha" style="display:none">
+              <!-- Tracking -->
+              <input type="hidden" name="page_source" value="home#index-start" />
 
-    <!-- Tracking -->
-    <input type="hidden" name="page_source" value="home#index-start">
-
-    <button type="submit"
-            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700">
-      Submit
-    </button>
-  </form>
-</div>
-              
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
 
         <!-- Right column (Quick Links) -->
@@ -113,18 +131,34 @@
             <div class="p-4 flex flex-col gap-4 w-full">
               <a href="#learn" class="border rounded-xl p-6 hover:bg-slate-50">
                 <h4 class="font-bold text-lg text-emerald-700">Learn</h4>
-                <p class="text-sm text-slate-600">Medicare, Medicaid, affordable medicines, and transparent cost information</p>
+                <p class="text-sm text-slate-600">
+                  Medicare, Medicaid, affordable medicines, and transparent cost information
+                </p>
               </a>
               <a href="#plan" class="border rounded-xl p-6 hover:bg-slate-50">
                 <h4 class="font-bold text-lg text-emerald-700">Plan</h4>
-                <p class="text-sm text-slate-600">Long-term care, home help, and real-world costs</p>
+                <p class="text-sm text-slate-600">
+                  Long-term care, home help, and real-world costs
+                </p>
               </a>
-              <a href="#scenarios" class="border rounded-xl p-6 hover:bg-slate-50">See Scenarios – real-world choices families face</a>
-              <a href="#tools" class="border rounded-xl p-6 hover:bg-slate-50">Tools – Calculators & navigators</a>
-              <a href="#map" class="border rounded-xl p-6 hover:bg-slate-50">Living Map – Costs & availability by area</a>
-              <a href="#membership" class="border rounded-xl p-6 hover:bg-slate-50">Membership & Reports – Tools, dashboards & PDF plans</a>
-              <a href="#community" class="border rounded-xl p-6 hover:bg-slate-50">Community & Volunteers – Join or learn from others</a>
-              <a href="#contact" class="border rounded-xl p-6 hover:bg-slate-50">Contact – Questions or corrections</a>
+              <a href="#scenarios" class="border rounded-xl p-6 hover:bg-slate-50">
+                See Scenarios – real-world choices families face
+              </a>
+              <a href="#tools" class="border rounded-xl p-6 hover:bg-slate-50">
+                Tools – Calculators & navigators
+              </a>
+              <a href="#map" class="border rounded-xl p-6 hover:bg-slate-50">
+                Living Map – Costs & availability by area
+              </a>
+              <a href="#membership" class="border rounded-xl p-6 hover:bg-slate-50">
+                Membership & Reports – Tools, dashboards & PDF plans
+              </a>
+              <a href="#community" class="border rounded-xl p-6 hover:bg-slate-50">
+                Community & Volunteers – Join or learn from others
+              </a>
+              <a href="#contact" class="border rounded-xl p-6 hover:bg-slate-50">
+                Contact – Questions or corrections
+              </a>
             </div>
           </div>
         </div>
@@ -149,7 +183,5 @@
         </p>
       </div>
     </footer>
-
-    
   </body>
 </html>
