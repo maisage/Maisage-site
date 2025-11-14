@@ -1,0 +1,28 @@
+<!-- Shared Footer for Maisage -->
+<footer class="border-t border-slate-200 bg-slate-50 py-10 mt-16">
+  <div class="max-w-5xl mx-auto px-4 text-sm text-slate-600 space-y-4">
+
+    <p>
+      <strong>Disclaimer:</strong>
+      Maisage provides information based solely on publicly available sources and independent review.
+      This site does not offer legal, financial, or medical advice. Always verify details with the
+      original source before making decisions.
+    </p>
+
+    <p>
+      Maisage does not accept commissions, referral fees, or promotional payments.
+      The goal is transparency, clarity, and helping you and/or your family make informed choices
+      without bias or conflict of interest.
+    </p>
+
+    <p class="text-xs text-slate-500">
+      © <span id="year"></span> Maisage. All rights reserved.
+    </p>
+
+  </div>
+
+  <script>
+    // Auto-update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</footer>
