@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plan – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-14">
+
+    <!-- Intro -->
+    <section>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Plan
+      </p>
+
+      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
+        Plan for care, home, and costs before it becomes an emergency
+      </h1>
+
+      <p class="mt-4 text-slate-700 max-w-3xl">
+        This page helps you think through the <strong>next phase of life</strong> — where you want to live,
+        how you want to be supported, and how to make the money and help last as long as possible.
+        Maisage doesn’t manage money or sell products. The goal is to help you see your options clearly.
+      </p>
+
+      <p class="mt-3 text-slate-700">
+        If Learn explains how the systems work, Plan is about how you might actually use — or avoid —
+        those systems in a way that fits your life.
+      </p>
+    </section>
+
+    <!-- How this page helps -->
+    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
+      <h2 class="text-xl font-semibold text-slate-900">What this page is — and isn’t</h2>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>It <strong>is</strong> a guide to help you frame decisions about home, care, and money.</li>
+        <li>It <strong>is not</strong> financial, legal, or medical advice.</li>
+        <li>It <strong>is</strong> about making tradeoffs visible before you are in crisis.</li>
+        <li>It <strong>is not</strong> a substitute for talking with your family and professionals.</li>
+      </ul>
+
+      <p class="text-xs text-slate-500">
+        Maisage stays neutral. We don’t tell you what to choose — we help you understand what each choice could mean.
+      </p>
+    </section>
+
+    <!-- Planning horizon -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Start with your time horizon</h2>
+
+      <p class="text-slate-700">
+        Planning looks different if you’re thinking about the next 2 years versus the next 20.
+        A simple way to start is to think in three buckets:
+      </p>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1 mt-1">
+        <li><strong>Near term (0–3 years):</strong> current home, early supports, safety and stability.</li>
+        <li><strong>Mid term (3–10 years):</strong> likely changes in health, mobility, and income.</li>
+        <li><strong>Later term (10+ years):</strong> higher care needs, end-of-life preferences, who will decide what.</li>
+      </ul>
+
+      <p class="text-sm text-slate-700 mt-2">
+        You don’t have to predict everything. The goal is to accept that needs and costs will change
+        and to build flexibility into your plan.
+      </p>
+    </section>
+
+    <!-- Core paths -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-emerald-900">Three common paths people plan around</h2>
+
+      <p class="text-slate-700">
+        Most real plans are some mix of these, but it helps to see the main paths clearly:
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-3">
+
+        <div class="border border-slate-200 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+            Staying at home
+          </h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Focus on keeping you in your own home or apartment as long as possible —
+            with layered support from family, paid helpers, and community services.
+          </p>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+            Hybrid / step-down
+          </h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Start at home with support, then move to assisted living or similar when safety,
+            isolation, or care needs change too much.
+          </p>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+            Facility-first
+          </h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Move earlier to a setting that can increase care as you need it — sometimes better
+            for those with high medical needs or little informal support.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="text-sm text-slate-700">
+        The <a href="scenarios.html" class="text-emerald-700 hover:underline">Scenarios</a> page walks through
+        example versions of these paths using simplified numbers.
+      </p>
+    </section>
+
+    <!-- Basic budget frame -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">A simple way to frame the money side</h2>
+
+      <p class="text-slate-700">
+        You don’t need a complicated spreadsheet to start. A basic planning frame can look like this:
+      </p>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1 mt-1">
+        <li><strong>Monthly income:</strong> Social Security, pension, annuities, rent, part-time work.</li>
+        <li><strong>Fixed monthly expenses:</strong> housing, utilities, insurance, medications, debts.</li>
+        <li><strong>Flexible costs:</strong> food, transport, personal spending.</li>
+        <li><strong>Care & support costs:</strong> help at home, adult day programs, assisted living, respite.</li>
+        <li><strong>Savings / assets:</strong> cash, investments, home equity.</li>
+      </ul>
+
+      <p class="text-sm text-slate-700 mt-2">
+        The goal is to see: <strong>How long does your money carry your preferred path</strong> —
+        and what happens if health or support needs change earlier than expected.
+      </p>
+    </section>
+
+    <!-- Family help vs Medicaid -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Family help and Medicaid – not either/or</h2>
+
+      <p class="text-slate-700">
+        Many families are told, “When the money runs out, Medicaid will take over.”
+        That might eventually be true, but it skips over years of possible choices.
+      </p>
+
+      <p class="text-sm font-semibold text-slate-700 mt-2">Questions to consider:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>How much support (time or money) can family realistically provide without burning out?</li>
+        <li>Is there a way to use family help to <strong>delay</strong> a spend-down to Medicaid?</li>
+        <li>Are there assets you want to protect — or is the priority maximum care and comfort?</li>
+        <li>Does everyone understand that Medicaid coverage may limit choices later?</li>
+      </ul>
+
+      <p class="text-sm text-slate-700 mt-2">
+        The goal is not to avoid Medicaid at all costs — it’s to avoid <strong>surprise</strong>.
+        You want to know how far family help and private resources can go, and what happens when they are gone.
+      </p>
+
+      <p class="text-sm text-slate-700">
+        The <a href="scenarios.html" class="text-emerald-700 hover:underline">Scenarios</a> page can help
+        you visualize different combinations of family support, private pay, and Medicaid.
+      </p>
+    </section>
+
+    <!-- Non-medical supports -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Using ordinary services to stretch independence</h2>
+
+      <p class="text-slate-700">
+        A lot of support for aging independently doesn’t come from “healthcare” at all. It comes from
+        regular services that many people already use — they just haven’t thought of them as part of a plan.
+      </p>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1 mt-1">
+        <li>Grocery delivery or meal services.</li>
+        <li>Cleaning or laundry help once or twice a month.</li>
+        <li>Rideshare, senior transport, or community shuttle.</li>
+        <li>Yard work or handyman services.</li>
+        <li>Automated bill pay and medication reminders.</li>
+      </ul>
+
+      <p class="text-sm text-slate-700 mt-2">
+        Each of these may cost far less per month than a major move or facility,
+        and together they can delay the point where intensive care is needed.
+      </p>
+    </section>
+
+    <!-- Questions to ask providers -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Questions to ask before choosing a path</h2>
+
+      <p class="text-slate-700">
+        Whether you’re talking to a home care agency, assisted living, or a financial professional,
+        having a few core questions ready can protect you from surprises.
+      </p>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1 mt-1">
+        <li>What does your service <strong>not</strong> include that people often assume it does?</li>
+        <li>How often do your prices increase, and how much notice do you give?</li>
+        <li>What happens if my care needs increase — can you support that, or would I need to move?</li>
+        <li>What happens if I outlive my savings — do you accept Medicaid or other programs?</li>
+        <li>Can you give an example of a client whose situation changed and how it was handled?</li>
+      </ul>
+
+      <p class="text-xs text-slate-500 mt-1">
+        These questions don’t guarantee a perfect outcome, but they often reveal hidden assumptions early,
+        when you still have room to adjust.
+      </p>
+    </section>
+
+    <!-- CTA to Scenarios + Start Here -->
+    <section
+      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div>
+        <h3 class="text-xl font-semibold text-emerald-900">
+          Ready to see how different paths might look?
+        </h3>
+        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
+          The Scenarios page walks through simplified examples of private pay, family support blends,
+          and Medicaid paths. If you want to talk through your own situation, you can also use the
+          Start Here page to share details you’re comfortable with.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="scenarios.html"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
+        >
+          View Scenarios
+        </a>
+        <a
+          href="start-here.html"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+        >
+          Start Here
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+</body>
+</html>
