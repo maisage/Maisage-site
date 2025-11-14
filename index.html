@@ -1,162 +1,131 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Maisage</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-  <body class="min-h-screen bg-white text-slate-900">
+<body class="min-h-screen bg-white text-slate-900">
 
-    <!-- Shared Header -->
-    <div id="site-header"></div>
-    <script>
-      fetch('header.html')
-        .then(r => r.text())
-        .then(html => (document.getElementById('site-header').innerHTML = html))
-        .catch(err => console.error('Header load failed:', err));
-    </script>
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
 
-    <!-- Main Hero Layout -->
-    <section id="home" class="relative overflow-hidden">
-      <div
-        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16 grid lg:grid-cols-12 gap-12 items-start"
-      >
+  <!-- Hero Section -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16 grid lg:grid-cols-12 gap-12 items-start">
 
-        <!-- LEFT COLUMN -->
-        <div class="lg:col-span-7 self-start">
-          <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-            Transparency • Independence • Dignity
+      <!-- LEFT COLUMN -->
+      <div class="lg:col-span-7 self-start">
+        <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+          Transparency • Independence • Dignity
+        </p>
+
+        <h1 class="mt-3 text-4xl sm:text-5xl font-bold leading-tight">
+          Guidance you can trust. Aging independent you can reach.
+        </h1>
+
+        <p class="mt-4 text-slate-700 max-w-2xl">
+          Maisage exists to guide you — to take control of your own aging, stay independent longer,
+          plan hospice intentionally, and involve your family in ways that are manageable for them
+          and meaningful for you.
+        </p>
+
+        <!-- FOCUS AREAS -->
+        <div id="focus-areas-container" class="mt-10"></div>
+        <script>
+          fetch('focus-areas.html')
+            .then(r => r.text())
+            .then(html => (document.getElementById('focus-areas-container').innerHTML = html))
+            .catch(err => console.error('Focus areas failed to load:', err));
+        </script>
+
+        <!-- CTA -->
+        <div class="mt-10 p-6 bg-emerald-50 rounded-xl shadow-sm">
+          <h2 class="text-xl font-semibold text-emerald-900 mb-2">
+            Ready to explore further?
+          </h2>
+
+          <p class="text-sm text-slate-700 mb-4">
+            Use the Quick Links to explore Learn, Plan, Scenarios, Tools, and more.
+            If you want help with your specific situation, use the Start Here page.
           </p>
 
-          <h1 class="mt-3 text-4xl sm:text-5xl font-bold leading-tight">
-            Guidance you can trust. Aging independent you can reach.
-          </h1>
+          <a
+            href="start-here.html"
+            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+          >
+            Start Here
+          </a>
+        </div>
+      </div>
 
-          <p class="mt-4 text-slate-600 max-w-2xl">
-            Maisage exists to guide you — to take control of your own aging, stay independent longer,
-            plan hospice intentionally, and involve your family in ways that are manageable for them
-            and meaningful for you.
-          </p>
+      <!-- RIGHT COLUMN: QUICK LINKS -->
+      <div class="lg:col-span-5 self-start">
+        <div class="rounded-xl border border-slate-200 bg-white shadow-md w-full">
+          <div class="p-4 border-b border-slate-200">
+            <h3 class="text-lg font-semibold">Quick Links</h3>
+          </div>
 
-          <!-- Focus Areas ABOVE the CTA -->
-          <div id="focus-areas-container" class="mt-10"></div>
-          <script>
-            fetch('focus-areas.html')
-              .then(r => r.text())
-              .then(html => (document.getElementById('focus-areas-container').innerHTML = html))
-              .catch(err => console.error('Focus areas load failed:', err));
-          </script>
+          <div class="p-4 flex flex-col gap-4">
 
-          <!-- CTA BELOW Focus Areas -->
-          <div class="mt-10 p-6 bg-emerald-50 rounded-xl shadow-sm">
-            <h2 class="text-xl font-semibold text-emerald-800 mb-2">
-              Ready to explore further?
-            </h2>
+            <a href="learn.html" class="border rounded-xl p-6 hover:bg-slate-50">
+              <h4 class="font-bold text-lg text-emerald-700">Learn</h4>
+              <p class="text-sm text-slate-600">Medicare, Medicaid, medicines, and cost transparency.</p>
+            </a>
 
-            <p class="text-sm text-slate-700 mb-4">
-              Use the Quick Links to dive into Learn, Plan, Scenarios, Tools, and more.  
-              If you’d like to share your situation or specific questions, you can use the Start Here page.
-            </p>
+            <a href="plan.html" class="border rounded-xl p-6 hover:bg-slate-50">
+              <h4 class="font-bold text-lg text-emerald-700">Plan</h4>
+              <p class="text-sm text-slate-600">Long-term care, home help, and cost planning.</p>
+            </a>
 
-            <div class="flex flex-wrap gap-3">
-              <a
-                href="start-here.html"
-                class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
-              >
-                Start Here
-              </a>
-            </div>
+            <a href="scenarios.html" class="border rounded-xl p-6 hover:bg-slate-50">
+              <h4 class="font-bold text-lg text-emerald-700">Scenarios</h4>
+              <p class="text-sm text-slate-600">Real-world situations families face.</p>
+            </a>
+
+            <a href="tools.html" class="border rounded-xl p-6 hover:bg-slate-50">
+              <h4 class="font-bold text-lg text-emerald-700">Tools</h4>
+              <p class="text-sm text-slate-600">Calculators and navigators.</p>
+            </a>
+
+            <a href="map.html" class="border rounded-xl p-6 hover:bg-slate-50">
+              <h4 class="font-bold text-lg text-emerald-700">Map</h4>
+              <p class="text-sm text-slate-600">Costs and availability by region.</p>
+            </a>
+
+            <a href="membership.html" class="border rounded-xl p-6 hover:bg-slate-50">
+              <h4 class="font-bold text-lg text-emerald-700">Membership</h4>
+              <p class="text-sm text-slate-600">Dashboards and personalized reports.</p>
+            </a>
+
+            <a href="community.html" class="border rounded-xl p-6 hover:bg-slate-50">
+              <h4 class="font-bold text-lg text-emerald-700">Community</h4>
+              <p class="text-sm text-slate-600">Volunteers and shared stories.</p>
+            </a>
+
           </div>
         </div>
-
-        <!-- RIGHT COLUMN — QUICK LINKS -->
-        <div class="lg:col-span-5 self-start">
-          <div id="quick-links" class="rounded-xl border border-slate-200 bg-white shadow-md w-full">
-            <div class="p-4 border-b border-slate-200">
-              <h3 class="text-lg font-semibold">Quick Links</h3>
-            </div>
-
-            <div class="p-4 flex flex-col gap-4">
-
-              <!-- Learn -->
-              <a href="learn.html" class="border rounded-xl p-6 hover:bg-slate-50">
-                <h4 class="font-bold text-lg text-emerald-700">Learn</h4>
-                <p class="text-sm text-slate-600">
-                  Medicare, Medicaid, affordable medicines, and transparent cost information.
-                </p>
-              </a>
-
-              <!-- Plan -->
-              <a href="plan.html" class="border rounded-xl p-6 hover:bg-slate-50">
-                <h4 class="font-bold text-lg text-emerald-700">Plan</h4>
-                <p class="text-sm text-slate-600">
-                  Long-term care, home help, and real-world cost planning.
-                </p>
-              </a>
-
-              <!-- Scenarios -->
-              <a href="scenarios.html" class="border rounded-xl p-6 hover:bg-slate-50">
-                <h4 class="font-bold text-lg text-emerald-700">Scenarios</h4>
-                <p class="text-sm text-slate-600">
-                  Real-world situations and choices families face.
-                </p>
-              </a>
-
-              <!-- Tools -->
-              <a href="tools.html" class="border rounded-xl p-6 hover:bg-slate-50">
-                <h4 class="font-bold text-lg text-emerald-700">Tools</h4>
-                <p class="text-sm text-slate-600">
-                  Calculators, navigators, and planning tools.
-                </p>
-              </a>
-
-              <!-- Map -->
-              <a href="map.html" class="border rounded-xl p-6 hover:bg-slate-50">
-                <h4 class="font-bold text-lg text-emerald-700">Map</h4>
-                <p class="text-sm text-slate-600">
-                  Costs and availability by region.
-                </p>
-              </a>
-
-              <!-- Membership -->
-              <a href="membership.html" class="border rounded-xl p-6 hover:bg-slate-50">
-                <h4 class="font-bold text-lg text-emerald-700">Membership</h4>
-                <p class="text-sm text-slate-600">
-                  Dashboards, tools, saved plans, and reports.
-                </p>
-              </a>
-
-              <!-- Community -->
-              <a href="community.html" class="border rounded-xl p-6 hover:bg-slate-50">
-                <h4 class="font-bold text-lg text-emerald-700">Community</h4>
-                <p class="text-sm text-slate-600">
-                  Volunteers, navigators, and shared stories.
-                </p>
-              </a>
-
-            </div>
-          </div>
-        </div>
-
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-slate-50 py-10 mt-16">
-      <div class="max-w-5xl mx-auto px-4 text-sm text-slate-600 space-y-4">
-        <p>
-          <strong>Disclaimer:</strong> All information on this site is based on publicly available sources
-          and independent analysis. Maisage does not receive commissions or referral fees and does not sell products.
-          Content is educational and should be independently verified.
-        </p>
-        <p>
-          Maisage aims to promote transparency and empower you and/or your family
-          to make informed, unbiased aging decisions.
-        </p>
-      </div>
-    </footer>
+    </div>
+  </section>
 
-  </body>
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+</body>
 </html>
