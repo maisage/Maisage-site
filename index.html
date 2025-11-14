@@ -8,34 +8,25 @@
   </head>
 
   <body class="min-h-screen bg-white text-slate-900">
-    <!-- Top Banner / Nav -->
-    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <a href="#home" class="flex items-center gap-2 font-semibold text-xl">
-          <span class="inline-block h-8 w-8 rounded-full bg-emerald-600"></span>
-          <span>Maisage</span>
-        </a>
 
-        <!-- UPDATED SMALLER + SHORTENED ONE-LINE NAV -->
-        <nav class="hidden md:flex items-center gap-3 text-[11px] font-medium">
-          <a href="about.html" class="hover:text-emerald-700">About</a>
-          <a href="#learn" class="hover:text-emerald-700">Learn</a>
-          <a href="#plan" class="hover:text-emerald-700">Plan</a>
-          <a href="#scenarios" class="hover:text-emerald-700">Scenarios</a>
-          <a href="#tools" class="hover:text-emerald-700">Tools</a>
-          <a href="#map" class="hover:text-emerald-700">Map</a>
-          <a href="#membership" class="hover:text-emerald-700">Membership</a>
-          <a href="#community" class="hover:text-emerald-700">Community</a>
-          <a href="#contact" class="hover:text-emerald-700">Contact</a>
-        </nav>
-      </div>
-    </header>
+    <!-- 🔹 Shared Header Loader -->
+    <div id="site-header"></div>
 
-    <!-- Hero -->
+    <script>
+      fetch('header.html')
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById('site-header').innerHTML = html;
+        })
+        .catch(err => console.error('Header load failed:', err));
+    </script>
+
+    <!-- 🔹 HERO SECTION -->
     <section id="home" class="relative overflow-hidden">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16 grid lg:grid-cols-12 gap-12 items-start">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16 
+                  grid lg:grid-cols-12 gap-12 items-start">
 
-        <!-- LEFT CONTENT -->
+        <!-- LEFT COLUMN -->
         <div class="lg:col-span-7 self-start">
           <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
             Transparency • Independence • Dignity
@@ -103,26 +94,39 @@
                 Submit
               </button>
             </form>
-
           </div>
         </div>
 
-        <!-- RIGHT (QUICK LINKS) -->
+        <!-- RIGHT COLUMN: QUICK LINKS -->
         <div class="lg:col-span-5 self-start">
           <div class="rounded-xl border border-slate-200 bg-white shadow-md w-full">
+
             <div class="p-4 border-b border-slate-200">
               <h3 class="text-lg font-semibold">Quick Links</h3>
             </div>
+
             <div class="p-4 flex flex-col gap-4 w-full">
+
+              <!-- About link -->
+              <a href="about.html" class="border rounded-xl p-6 hover:bg-slate-50">
+                <h4 class="font-bold text-lg text-emerald-700">About</h4>
+                <p class="text-sm text-slate-600">
+                  Learn the purpose, story, and mission behind Maisage.
+                </p>
+              </a>
 
               <a href="#learn" class="border rounded-xl p-6 hover:bg-slate-50">
                 <h4 class="font-bold text-lg text-emerald-700">Learn</h4>
-                <p class="text-sm text-slate-600">Medicare, Medicaid, affordable medicines, and transparent cost info</p>
+                <p class="text-sm text-slate-600">
+                  Medicare, Medicaid, affordable medicines, and transparent cost information
+                </p>
               </a>
 
               <a href="#plan" class="border rounded-xl p-6 hover:bg-slate-50">
                 <h4 class="font-bold text-lg text-emerald-700">Plan</h4>
-                <p class="text-sm text-slate-600">Long-term care, home help, and real-world costs</p>
+                <p class="text-sm text-slate-600">
+                  Long-term care, home help, and real-world costs
+                </p>
               </a>
 
               <a href="#scenarios" class="border rounded-xl p-6 hover:bg-slate-50">
@@ -156,46 +160,51 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="border-t border-slate-200 bg-slate-50 py-10 mt-16">
       <div class="max-w-5xl mx-auto px-4 text-sm text-slate-600 space-y-4">
+
         <p>
-          <strong>Disclaimer:</strong> The information provided by Maisage is based solely on publicly available data
-          and independent analysis. Maisage does not receive commissions or compensation from any provider, product, or service.
-          All content is educational only. Verify independently before making decisions.
+          <strong>Disclaimer:</strong> All information on this site is based on publicly available sources
+          and independent analysis. Maisage does not receive commissions or referral fees and does not sell products.
+          Content is educational and should be independently verified before making decisions.
         </p>
+
         <p>
-          Maisage aims to promote transparency and empower you and/or your family to make informed choices without bias.
+          Maisage aims to promote transparency and empower you and/or your family to make informed,
+          unbiased aging decisions.
         </p>
+
       </div>
     </footer>
 
-    <!-- AJAX FORM HANDLER -->
+    <!-- FORM HANDLER -->
     <script>
       const form = document.getElementById('start-form');
 
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
+      if (form) {
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          const data = new FormData(form);
 
-        const data = new FormData(form);
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: data,
+              headers: { 'Accept': 'application/json' }
+            });
 
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (res.ok) {
-            form.reset();
-            alert("Thank you — your message was sent.");
-          } else {
-            alert("Something went wrong. Please try again.");
+            if (res.ok) {
+              form.reset();
+              alert("Thank you — your message was sent.");
+            } else {
+              alert("Something went wrong. Please try again.");
+            }
+          } catch (err) {
+            alert("Network error. Please try again.");
           }
-        } catch (err) {
-          alert("Network error. Please try again.");
-        }
-      });
+        });
+      }
     </script>
 
   </body>
