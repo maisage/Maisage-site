@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Learn – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-14">
+
+    <!-- Intro -->
+    <section>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn
+      </p>
+
+      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
+        Learn how the systems work — then decide what fits you
+      </h1>
+
+      <p class="mt-4 text-slate-700 max-w-3xl">
+        This page is not here to sell you anything or replace official sources.  
+        Its only job is to help you:
+      </p>
+
+      <ul class="mt-3 list-disc ml-6 text-slate-700 space-y-1">
+        <li>Know <strong>where</strong> to look for reliable information.</li>
+        <li>Understand in plain language <strong>what you’re seeing</strong>.</li>
+        <li>Ask better questions before you sign, enroll, or commit.</li>
+      </ul>
+
+      <p class="mt-4 text-slate-700">
+        Maisage does not store, control, or change outside data.  
+        We point you to official or reputable public sources and explain what to pay attention to.
+      </p>
+    </section>
+
+    <!-- How Maisage uses outside data -->
+    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
+      <h2 class="text-xl font-semibold text-slate-900">How Maisage uses other people’s information</h2>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>We link to official and non-commercial sources (Medicare.gov, Medicaid.gov, etc.).</li>
+        <li>We summarize in plain language so it’s easier to understand.</li>
+        <li>We do <strong>not</strong> host or rewrite full documents.</li>
+        <li>We do <strong>not</strong> accept commissions or referral fees.</li>
+        <li>You should always verify details on the original site.</li>
+      </ul>
+
+      <p class="text-xs text-slate-500">
+        Think of Maisage as a navigation layer: we help you find and interpret what’s already out there.
+      </p>
+    </section>
+
+    <!-- Medicare -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Medicare – where to look, what to watch</h2>
+
+      <p class="text-slate-700">
+        Medicare is the federal program that covers hospital and medical care for people over 65.  
+        It has limits — especially around long-term care and daily home support.
+      </p>
+
+      <p class="text-sm font-semibold text-slate-700 mt-2">Where to go for official information:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li><a href="https://www.medicare.gov" class="text-emerald-700 hover:underline">Medicare.gov – Official site</a></li>
+        <li><a href="https://www.medicare.gov/coverage" class="text-emerald-700 hover:underline">What Medicare Covers</a></li>
+        <li><a href="https://www.medicare.gov/basics/costs" class="text-emerald-700 hover:underline">Costs & Premiums</a></li>
+      </ul>
+
+      <p class="text-sm font-semibold text-slate-700 mt-3">What to pay attention to:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>Medicare covers treatment, not long-term custodial care.</li>
+        <li>Advantage plans may limit networks and approvals.</li>
+        <li>Copays and deductibles can stack quickly.</li>
+      </ul>
+    </section>
+
+    <!-- Medicaid -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Medicaid – eligibility, spend-down, estate recovery</h2>
+
+      <p class="text-slate-700">
+        Medicaid can help with long-term care once income and assets are low enough.  
+        Rules depend on your state.
+      </p>
+
+      <p class="text-sm font-semibold text-slate-700 mt-2">Where to go:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li><a href="https://www.medicaid.gov" class="text-emerald-700 hover:underline">Medicaid.gov – Federal overview</a></li>
+        <li>Your state’s Medicaid site (look up “&lt;your state&gt; Medicaid LTC eligibility”).</li>
+      </ul>
+
+      <p class="text-sm font-semibold text-slate-700 mt-3">What to pay attention to:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>Income and asset tests.</li>
+        <li>Home care vs facility coverage differences.</li>
+        <li>Estate recovery rules after death.</li>
+      </ul>
+
+      <p class="text-xs text-slate-500">
+        Maisage does not interpret state law — we highlight what to read carefully.
+      </p>
+    </section>
+
+    <!-- Hospice "Did you know?" -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-emerald-900">Hospice – what most people don’t know</h2>
+
+      <div class="border-l-4 border-emerald-600 bg-emerald-50 p-4 rounded-md">
+        <h3 class="text-lg font-semibold text-emerald-900">Did you know?</h3>
+        <p class="text-slate-700 mt-1">
+          Hospice care does <strong>not</strong> cover room and board.  
+          This surprises almost every family. Hospice pays for medications, equipment, and nursing visits —
+          but not the place where you live.
+        </p>
+        <p class="text-slate-700 mt-2">
+          If hospice is provided inside assisted living, memory care, or a nursing facility,
+          those facility charges still have to be paid separately.
+        </p>
+      </div>
+
+      <p class="text-sm text-slate-700 mt-2">
+        This is why planning matters — so room and board costs don’t become a late-stage crisis.
+      </p>
+
+      <p class="text-sm text-slate-700">
+        Official information:
+        <a href="https://www.medicare.gov/coverage/hospice-care" class="text-emerald-700 hover:underline">
+          Medicare.gov – Hospice Coverage
+        </a>
+      </p>
+    </section>
+
+    <!-- Affordable Medicines -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Medicines – finding lower prices without guesses</h2>
+
+      <p class="text-slate-700">
+        Medication prices vary wildly between pharmacies and payment methods. Maisage does not sell
+        medications — we show you how to compare.
+      </p>
+
+      <p class="text-sm font-semibold text-slate-700 mt-2">Examples of tools to check:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>Major pharmacies’ own price-check tools.</li>
+        <li>Non-insurance discount programs that list cash prices.</li>
+        <li>Manufacturer assistance program pages.</li>
+      </ul>
+
+      <p class="text-sm font-semibold text-slate-700 mt-3">Questions to ask:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>Is this price for brand or generic?</li>
+        <li>Cash, discount, or insurance price?</li>
+        <li>Is there another pharmacy offering a lower cash rate?</li>
+      </ul>
+
+      <p class="text-xs text-slate-500">
+        Maisage does not recommend specific pharmacies — only how to compare safely.
+      </p>
+    </section>
+
+    <!-- Care Costs -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Care options & costs – grounding decisions in reality</h2>
+
+      <p class="text-slate-700">
+        Costs vary based on region, provider, and support needs. Instead of quoting numbers that change,
+        Maisage shows you where to find current ranges and how to interpret them.
+      </p>
+
+      <p class="text-sm font-semibold text-slate-700 mt-2">Where to look:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>State aging agencies.</li>
+        <li>Regional cost-of-care surveys from non-profits.</li>
+        <li>Local facility and home-care websites.</li>
+      </ul>
+    </section>
+
+    <!-- Sources block -->
+    <section class="border border-slate-200 rounded-2xl p-6 space-y-3">
+      <h2 class="text-xl font-semibold text-slate-900">Sources & references</h2>
+
+      <p class="text-sm text-slate-700">
+        Maisage prioritizes:
+      </p>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>Official government sites (Medicare.gov, Medicaid.gov).</li>
+        <li>Non-profit organizations with transparent methods.</li>
+        <li>Sources that publish update dates, limitations, and methodology.</li>
+      </ul>
+
+      <p class="text-xs text-slate-500">
+        Always confirm details directly from official pages. Maisage is a guide, not an authority.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:justify-between gap-4"
+    >
+      <div>
+        <h3 class="text-xl font-semibold text-emerald-900">
+          Want help sorting through what you're seeing?
+        </h3>
+        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
+          If you’d like support organizing information or figuring out your next steps,
+          you can share your situation on the Start Here page.
+        </p>
+      </div>
+
+      <a
+        href="start-here.html"
+        class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+      >
+        Start Here
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-slate-50 py-10 mt-16">
+    <div class="max-w-5xl mx-auto px-4 text-sm text-slate-600 space-y-4">
+      <p>
+        <strong>Disclaimer:</strong>
+        This page is for educational purposes only.  
+        It relies on publicly available sources and does not provide legal, medical, or financial advice.
+      </p>
+      <p>
+        Maisage does not accept commissions or promotional payments.  
+        Our role is to help you and/or your family find and understand information — final decisions are always yours.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
