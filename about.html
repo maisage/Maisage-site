@@ -9,34 +9,35 @@
 
   <body class="min-h-screen bg-white text-slate-900">
 
-    <!-- 🔹 Shared Header Loader -->
+    <!-- Shared Header -->
     <div id="site-header"></div>
-
     <script>
       fetch('header.html')
         .then(response => response.text())
         .then(html => {
           document.getElementById('site-header').innerHTML = html;
         })
-        .catch(err => console.error('Header load failed:', err));
+        .catch(err => console.error("Header load failed:", err));
     </script>
 
-    <!-- 🔹 Main Content -->
+    <!-- Main Content -->
     <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
 
-      <!-- Intro section -->
+      <!-- Intro -->
       <section>
         <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
           About Maisage
         </p>
+
         <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
           Why Maisage exists — and who it’s for
         </h1>
+
         <p class="mt-4 text-slate-700 max-w-3xl">
           Maisage was created to give people and families clear, grounded guidance for aging,
           care, and end-of-life decisions — without sales pressure, hidden incentives, or confusing jargon.
-          Its purpose is to help you understand the full cost picture, plan ahead, and stay in control
-          of your own life for as long as possible.
+          Its purpose is to help you understand the full cost picture, plan ahead, and stay in control of your
+          own life for as long as possible.
         </p>
       </section>
 
@@ -52,11 +53,11 @@
         <p class="text-slate-700">
           I watched my mother, my mother-in-law, and now my husband’s brother each walk their own
           end-of-life path. Every one of them faced a maze of paperwork, inflated costs, and missing information.
-          Families weren’t failing their loved ones — the system was failing you.
+          Families weren’t failing their loved ones — the system was failing the families.
         </p>
 
         <p class="text-slate-700">
-          Over and over, I heard the same sentence — from doctors, social workers, friends, even other families:
+          Over and over, I heard the same sentence — from doctors, social workers, friends, and even other families:
         </p>
 
         <p class="italic text-slate-800 text-lg">
@@ -64,15 +65,15 @@
         </p>
 
         <p class="text-slate-700">
-          That single line has become the unspoken plan for aging in America. Families cling to it because
-          no one shows them another path. Medicaid, while essential, was never meant to be the only plan —
-          it steps in when independence is already gone.
+          That single line has become the unspoken plan for aging in America. Families cling to it because no one
+          shows them another way. Medicaid, while essential, was never meant to be the only plan — it steps in when
+          independence is already gone.
         </p>
 
         <p class="text-slate-700">
           And the people making decisions at that point? Often they barely know you — estranged family,
-          ex-spouses, or healthcare professionals who have known you for only days. Decisions about the
-          rest of your life can end up made by people who were never part of your life.
+          ex-spouses, or healthcare professionals who may have known you for only days. Decisions about the rest of
+          your life can end up made by people who were never part of your life.
         </p>
 
         <p class="text-slate-700">
@@ -83,12 +84,12 @@
           Maisage exists to help you take control of your own aging, stay independent longer,
           and design an ending that reflects your values. It guides you through in-home hospice planning,
           understanding coverage, and engaging family in ways that are meaningful and manageable —
-          before the crisis arrives.
+          before a crisis arrives.
         </p>
 
         <p class="text-slate-700">
           Maisage isn’t about managing care — it’s about managing life with foresight, grace, and self-respect.
-          It’s for anyone who wants to make the next 30 years as intentional as the life they’ve already lived.
+          It’s for anyone who wants to make the next chapter of life as intentional as the ones already lived.
         </p>
 
         <p class="font-semibold text-slate-900">
@@ -96,55 +97,29 @@
         </p>
       </section>
 
-      <!-- Focus Areas -->
-      <section class="space-y-8">
-        <h2 class="text-2xl font-semibold text-slate-900">What Maisage focuses on</h2>
-
-        <div class="grid gap-6 md:grid-cols-3">
-
-          <div class="border border-slate-200 rounded-xl p-4">
-            <h3 class="text-sm font-semibold text-emerald-800 uppercase tracking-wide">Transparency</h3>
-            <p class="mt-2 text-sm text-slate-700">
-              Honest, accessible explanations of care systems and costs — so you and your family can see clearly
-              and avoid financial or emotional surprises.
-            </p>
-          </div>
-
-          <div class="border border-slate-200 rounded-xl p-4">
-            <h3 class="text-sm font-semibold text-emerald-800 uppercase tracking-wide">Independence</h3>
-            <p class="mt-2 text-sm text-slate-700">
-              Tools, guides, and scenarios to help you stay in control of where and how you live
-              for as long as possible.
-            </p>
-          </div>
-
-          <div class="border border-slate-200 rounded-xl p-4">
-            <h3 class="text-sm font-semibold text-emerald-800 uppercase tracking-wide">Dignity</h3>
-            <p class="mt-2 text-sm text-slate-700">
-              Support and planning that begin with you — your comfort, your boundaries, your values —
-              and help your family align around respectful decisions.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
       <!-- CTA -->
-      <section class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <section
+        class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+      >
         <div>
-          <h2 class="text-xl font-semibold text-emerald-900">Ready to keep exploring?</h2>
+          <h2 class="text-xl font-semibold text-emerald-900">Ready to explore more?</h2>
           <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
-            Visit the main page to explore Learn, Plan, and real-world Scenarios — or send a message using
-            the Start Here form.
+            Visit the main page to explore Learn, Plan, and real-world Scenarios — or share your questions using the Start Here page.
           </p>
         </div>
+
         <div class="flex gap-3">
-          <a href="index.html#home"
-             class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700">
+          <a
+            href="index.html#home"
+            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+          >
             Back to Home
           </a>
-          <a href="start-here.html"
-             class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50">
+
+          <a
+            href="start-here.html"
+            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
+          >
             Start Here
           </a>
         </div>
@@ -155,13 +130,13 @@
     <footer class="border-t border-slate-200 bg-slate-50 py-10 mt-16">
       <div class="max-w-5xl mx-auto px-4 text-sm text-slate-600 space-y-4">
         <p>
-          <strong>Disclaimer:</strong> The information provided by Maisage is based solely on publicly
-          available sources and independent analysis. It is not legal, medical, or financial advice.
-          Verify independently before making decisions.
+          <strong>Disclaimer:</strong>
+          The information provided by Maisage is based on publicly available sources and independent analysis.
+          It is not legal, medical, or financial advice. Verify details independently before making decisions.
         </p>
         <p>
-          Maisage does not accept commissions or promotional fees. Our purpose is to help you and/or your
-          family make informed choices without bias.
+          Maisage does not accept commissions or promotional fees. Our purpose is to help you and/or your family
+          make informed choices with clarity and confidence.
         </p>
       </div>
     </footer>
