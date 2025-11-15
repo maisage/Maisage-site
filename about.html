@@ -15,70 +15,177 @@
     fetch('header.html')
       .then(r => r.text())
       .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed:", err));
+      .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+  <!-- Main Content -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-10">
 
+    <!-- Intro Section -->
     <section>
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">About</p>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        About
+      </p>
 
       <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
-        Why Maisage exists — and who it’s for
+        Helping you plan the years ahead with clarity, calm, and control
       </h1>
 
-      <p class="mt-4 text-slate-700 max-w-3xl">
-        Maisage was created to give families clear, grounded guidance for aging, care, and end-of-life decisions
-        — without sales pressure, hidden incentives, or confusion.
+      <p class="mt-4 text-slate-700">
+        You deserve to understand your options long before someone else has to decide for you.
+        Maisage gives you the information, tools, and confidence to plan your future in a way that
+        reflects who you are — not what a crisis or circumstance forces on you.
       </p>
     </section>
 
-    <!-- Founding Story Box -->
-    <section class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
-      <h2 class="text-2xl font-semibold text-slate-900">The Founding Story</h2>
+    <!-- Founding Story (updated) -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-emerald-900">Why Maisage began</h2>
 
       <p class="text-slate-700">
-        Maisage began from a deeply personal place — born out of love, exhaustion, and the realization that
-        the aging support system often leaves families to fend for themselves.
+        Maisage began from a deeply personal place — born out of love, exhaustion, and the realization that 
+        although there is a lot of information about aging and care, most of it isn’t clear or easy to understand.
       </p>
 
       <p class="text-slate-700">
-        I watched my mother, my mother-in-law, and my husband’s brother face the end of life while navigating
-        paperwork, inflated costs, and incomplete information. Families weren’t failing their loved ones —
-        the system was failing the families.
-      </p>
-
-      <p class="italic text-slate-800 text-lg">
-        “When the money runs out, Medicaid will take over.”
+        I watched my mother, my mother-in-law, and now my husband’s brother each walk their own end-of-life path.
+        Every one of them faced a maze of paperwork, inflated costs, and missing information.
       </p>
 
       <p class="text-slate-700">
-        This belief has become the unspoken plan for aging in America — but Medicaid steps in only after
-        independence is already gone. Decisions then fall to people who may barely know you.
+        Over and over, I heard the same line — from doctors, social workers, friends, even other families trying to help:<br>
+        <span class="font-semibold">“When the money runs out, Medicaid will take over.”</span>
       </p>
 
       <p class="text-slate-700">
-        Maisage exists to change that pattern — helping you stay in control longer and design an ending
-        that reflects your values.
+        That single line has become the unspoken plan for aging in America.  
+        It’s what many families hold onto when money begins to run low, because no one has shown them another option.
+        But Medicaid, while essential, was never meant to be the only plan. It steps in only after independence is already gone —
+        when choices are no longer fully yours.
       </p>
     </section>
 
-    <!-- CTA -->
-    <section class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:justify-between gap-4">
+    <!-- Crisis-mode Decision Making Section -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-emerald-900">Why early planning matters</h2>
+
+      <p class="text-slate-700">
+        And the people making those choices? Too often, they barely know you.
+        Estranged adult children, ex-spouses, or distant relatives may suddenly step in after years of silence.
+        Health-care professionals who’ve only known you for a week or two are expected to make decisions that shape the rest of your life.
+      </p>
+
+      <p class="text-slate-700">
+        They haven’t had daily interactions with you, nor any meaningful period of time to understand
+        your routines, your values, or what brings you comfort.
+        It’s a little like going on a few dates and then getting married — no one would expect a lifetime of understanding from such
+        a short connection. Yet that is often what happens when decisions fall into <strong>crisis mode</strong>.
+      </p>
+
+      <p class="text-slate-700 font-medium">
+        It’s not fair to you — and it’s certainly not fair to the person who suddenly has to step in and make life-shaping decisions on your behalf.
+      </p>
+    </section>
+
+    <!-- Maisage Purpose Section -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-emerald-900">What Maisage helps you do</h2>
+
+      <p class="text-slate-700">
+        I built Maisage to change that pattern.
+        You deserve better than last-minute decisions made in fear, confusion, or pressure. 
+        You deserve clear information long before you need it — not during a crisis when choices are limited.
+      </p>
+
+      <p class="text-slate-700">
+        <strong>Maisage helps you cut through the noise and build a Golden Years life plan that fits the way you want to live.</strong>
+      </p>
+
+      <p class="text-slate-700">
+        It arms you with the knowledge and information you need to make informed decisions.
+      </p>
+
+      <p class="text-slate-700">
+        It also helps you understand the realities of aging and care — what different services actually cover,
+        what they don’t, and how the costs fit together.
+        Whether you're looking at Medicare, Medicaid, home support, assisted living, hospice, or simply staying independent longer,
+        Maisage gives you the clarity to make choices that fit your life.
+      </p>
+
+      <p class="text-slate-700">
+        With better understanding, you can plan to live where you feel most comfortable, avoid unexpected costs,
+        and prevent the kind of last-minute decisions that disrupt your independence.
+      </p>
+    </section>
+
+    <!-- Family Section -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-emerald-900">Bringing loved ones in early</h2>
+
+      <p class="text-slate-700">
+        Maisage also helps you bring your loved ones into the picture early — not to burden them, but to give them
+        awareness and clarity long before decisions become urgent.
+      </p>
+
+      <p class="text-slate-700">
+        When everyone understands your preferences, routines, and comfort level ahead of time, your family can support you
+        in ways that feel manageable for them and meaningful for you.
+        Early conversations prevent confusion, reduce stress, and make sure your wishes are honored without guesswork.
+      </p>
+    </section>
+
+    <!-- Values Section -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-semibold text-emerald-900">The values behind Maisage</h2>
+
       <div>
-        <h2 class="text-xl font-semibold text-emerald-900">Ready to explore more?</h2>
-        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
-          Visit the main page to explore Learn, Plan, and Scenarios — or share your questions on the Start Here page.
+        <h3 class="text-lg font-semibold text-emerald-800">Transparency</h3>
+        <p class="text-sm text-slate-700">
+          Clear, publicly sourced information — no hidden motives, no sales pressure, no conflict of interest.
         </p>
       </div>
 
-      <div class="flex gap-3">
-        <a href="index.html#home" class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700">
-          Back to Home
-        </a>
+      <div>
+        <h3 class="text-lg font-semibold text-emerald-800">Independence</h3>
+        <p class="text-sm text-slate-700">
+          Giving you the tools to understand your options early so you stay in control of how and where you live.
+        </p>
+      </div>
 
-        <a href="start-here.html" class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50">
+      <div>
+        <h3 class="text-lg font-semibold text-emerald-800">Dignity</h3>
+        <p class="text-sm text-slate-700">
+          Centering your comfort, your values, and your way of living — your wishes always come first.
+        </p>
+      </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section
+      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div>
+        <h3 class="text-xl font-semibold text-emerald-900">
+          The next chapter starts whenever you're ready
+        </h3>
+        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
+          You deserve a plan shaped by your voice and your values — not by crisis or circumstance.  
+          <strong>Let’s make the next chapter your chapter — lived the way you choose.</strong>
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="start-here.html"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+        >
           Start Here
+        </a>
+        <a
+          href="learn.html"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
+        >
+          Go to Learn
         </a>
       </div>
     </section>
@@ -91,7 +198,7 @@
     fetch('footer.html')
       .then(r => r.text())
       .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed:", err));
+      .catch(err => console.error("Footer failed to load:", err));
   </script>
 
 </body>
