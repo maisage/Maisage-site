@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Membership & Reports – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-14">
+
+    <!-- Intro -->
+    <section>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Membership & Reports
+      </p>
+
+      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
+        Keep your plan in one place — without giving up control
+      </h1>
+
+      <p class="mt-4 text-slate-700 max-w-3xl">
+        Maisage starts as a free resource: plain-language guides, planning ideas, and tools you can print
+        or adapt on your own. Membership and paid reports are optional layers for people who want more structure,
+        storage, or help turning all the pieces into one clear plan.
+      </p>
+
+      <p class="mt-3 text-slate-700">
+        The goal is simple: <strong>cover the cost of thoughtful work</strong> without turning your decisions
+        into a sales funnel.
+      </p>
+    </section>
+
+    <!-- Money & transparency message -->
+    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
+      <h2 class="text-xl font-semibold text-slate-900">Money and transparency come together here</h2>
+
+      <p class="text-sm text-slate-700">
+        If Maisage ever offers paid options, they will follow the same rules as the free content:
+      </p>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>No commissions, referral fees, or kickbacks from providers, plans, or products.</li>
+        <li>Clear, simple pricing — no surprise add-ons.</li>
+        <li>You keep ownership of your decisions. We help you see options, not choose for you.</li>
+      </ul>
+
+      <p class="text-xs text-slate-500">
+        Anything described on this page is about structure and intent. Actual pricing and availability
+        may change over time and should always be confirmed on the most current version of this site.
+      </p>
+    </section>
+
+    <!-- Free layer -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Free layer – use the tools without paying a cent</h2>
+
+      <p class="text-slate-700">
+        The free layer is for anyone who wants to learn, plan, and compare options on their own, using public
+        information and simple frameworks.
+      </p>
+
+      <div class="border border-slate-200 rounded-2xl p-4 mt-2">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+          Always free access to:
+        </h3>
+        <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
+          <li><strong>Learn:</strong> plain-language guides on Medicare, Medicaid, hospice, and medicines.</li>
+          <li><strong>Plan:</strong> frameworks for thinking about home, care paths, and long-term costs.</li>
+          <li><strong>Scenarios:</strong> example paths like Medicaid spend-down, family support hybrids, and equity blends.</li>
+          <li><strong>Tools:</strong> printable-style worksheets, checklists, and comparison tables.</li>
+          <li><strong>Living Map:</strong> a method for building your own local view of options and costs.</li>
+        </ul>
+      </div>
+
+      <p class="text-xs text-slate-500">
+        You can use the free materials privately, with your family, or with professionals you already trust.
+      </p>
+    </section>
+
+    <!-- Membership concept -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-emerald-900">Membership – for people who want structure and tracking</h2>
+
+      <p class="text-slate-700">
+        A future membership option is intended for people who want a private place to save their inputs,
+        track revisions, and get guided prompts — without turning their data into a product.
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="border border-slate-200 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+            What membership is meant to include
+          </h3>
+          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
+            <li>Digital versions of planning tools with saved entries.</li>
+            <li>A simple dashboard to see key details in one view (income, supports, care paths).</li>
+            <li>History of changes, so you can see how your plan has evolved.</li>
+            <li>Guided questions based on what you’ve already entered — not random checklists.</li>
+          </ul>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+            Pricing philosophy (example)
+          </h3>
+          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
+            <li>Simple monthly range (for example, around $10–$15/month) if/when membership launches.</li>
+            <li>No long-term contracts or lock-ins — cancel whenever it stops being useful.</li>
+            <li>Clear explanation of what is and is not included before you pay anything.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-500">
+        Exact pricing and features may change. The constant is the commitment to neutrality and transparency.
+      </p>
+    </section>
+
+    <!-- One-time report -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-emerald-900">Personalized “Family Aging Plan” report</h2>
+
+      <p class="text-slate-700">
+        Some families don’t want a subscription. They want a one-time, structured document they can print,
+        share, and update on their own. A future option is a personalized “Family Aging Plan” PDF.
+      </p>
+
+      <div class="border border-slate-200 rounded-2xl p-4">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+          What this type of report could include
+        </h3>
+        <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
+          <li>Summary of your current situation (in your own words, organized clearly).</li>
+          <li>Overview of likely care paths you’re considering (home, hybrid, facility-first, etc.).</li>
+          <li>Pros, limitations, and questions to ask for each path — tailored to your inputs.</li>
+          <li>Space for notes from family meetings and professional conversations.</li>
+        </ul>
+      </div>
+
+      <p class="text-sm text-slate-700">
+        A sample price point for this type of report might be in the range of <strong>around $75</strong>,
+        depending on how much human review is included. The exact structure and pricing would be clearly
+        listed whenever this becomes available.
+      </p>
+
+      <p class="text-xs text-slate-500">
+        The goal is to pay for the time and thinking involved — not to steer you toward any particular product,
+        provider, or legal/financial decision.
+      </p>
+    </section>
+
+    <!-- Who this is / is not for -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Who membership and reports are for (and not for)</h2>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="border border-slate-200 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+            A good fit if:
+          </h3>
+          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
+            <li>You like seeing everything organized in one place.</li>
+            <li>You want to keep track of your own planning over months or years.</li>
+            <li>Your family needs a neutral framework to look at the same information.</li>
+            <li>You’re okay paying a modest amount for structure and clarity — not for products.</li>
+          </ul>
+        </div>
+
+        <div class="border border-amber-200 bg-amber-50 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-amber-800">
+            Not a good fit if:
+          </h3>
+          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
+            <li>You want someone else to take over decisions or manage finances for you.</li>
+            <li>You’re looking for investment products, insurance sales, or legal documents.</li>
+            <li>You expect real-time crisis case management or 24/7 on-call support.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ-style clarifications -->
+    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
+      <h2 class="text-xl font-semibold text-slate-900">Common questions</h2>
+
+      <div class="space-y-3 text-sm text-slate-700">
+        <div>
+          <p class="font-semibold">Does paying for membership change the advice I get?</p>
+          <p>
+            No. Paying would only change the <em>format</em> (dashboards, storage, reports),
+            not the values or neutrality. Maisage does not receive money from providers, plans,
+            or products — only from you, if you choose to pay for extra structure.
+          </p>
+        </div>
+
+        <div>
+          <p class="font-semibold">Will my information be used for marketing?</p>
+          <p>
+            The intent is to keep any collected information limited to your use and necessary service
+            operation — not to sell or lease it to third parties. Details would be spelled out in any
+            future privacy policy before you sign up.
+          </p>
+        </div>
+
+        <div>
+          <p class="font-semibold">Is this a replacement for professional advice?</p>
+          <p>
+            No. Membership and reports are for clarity, organization, and navigation. They are not legal,
+            financial, or medical advice and do not replace working with licensed professionals.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div>
+        <h3 class="text-xl font-semibold text-emerald-900">
+          Want to start with the free tools first?
+        </h3>
+        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
+          You don’t need a membership to begin planning. Use the Learn, Plan, Scenarios, Tools,
+          and Living Map pages to get oriented. If you later decide you want more structure or a
+          written plan, you can come back here.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="tools.html"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
+        >
+          Explore Tools
+        </a>
+        <a
+          href="start-here.html"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+        >
+          Start Here
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+</body>
+</html>
