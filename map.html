@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Living Map – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-14">
+
+    <!-- Intro -->
+    <section>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Living Map
+      </p>
+
+      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
+        Build a “Living Map” of your real options — not just averages
+      </h1>
+
+      <p class="mt-4 text-slate-700 max-w-3xl">
+        National averages don’t decide your life. Your decisions happen in a specific city, with specific
+        providers, at today’s prices. This page helps you build your own “living map” of care options,
+        costs, and supports where you actually live.
+      </p>
+
+      <p class="mt-3 text-slate-700">
+        Maisage doesn’t host a master database of prices. Instead, we show you how to collect and organize
+        what you find from public sources, facility websites, and conversations — in a way you can update
+        over time.
+      </p>
+    </section>
+
+    <!-- How to use the map concept -->
+    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
+      <h2 class="text-xl font-semibold text-slate-900">How to build your Living Map</h2>
+
+      <ol class="list-decimal ml-6 text-sm text-slate-700 space-y-1">
+        <li>Pick the area that actually matters (for example: county, metro area, or radius from family).</li>
+        <li>List the kinds of supports you might realistically use — at home and outside the home.</li>
+        <li>Use public sources, provider sites, and phone calls to fill in rough ranges and notes.</li>
+        <li>Update over time instead of starting over every time something changes.</li>
+      </ol>
+
+      <p class="text-xs text-slate-500">
+        You don’t need perfect data. You need a clear enough picture to compare options and ask better questions.
+      </p>
+    </section>
+
+    <!-- Step 1: Define your area -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Step 1 – Define your real “map area”</h2>
+
+      <p class="text-slate-700">
+        Most families are not choosing between all 50 states. They’re choosing between a few cities,
+        neighborhoods, or regions that keep them close enough to support and medical care.
+      </p>
+
+      <p class="text-sm font-semibold text-slate-700 mt-2">Questions to answer:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>Which cities or zip codes are truly realistic for you?</li>
+        <li>Who needs to be within driving distance — children, siblings, close friends?</li>
+        <li>Are there hospitals or medical networks you’d strongly prefer to stay near?</li>
+      </ul>
+    </section>
+
+    <!-- Step 2: List key supports -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Step 2 – List the types of support you might use</h2>
+
+      <p class="text-slate-700">
+        Your Living Map is not just about facilities. It includes anything that helps you stay safe,
+        connected, and supported — at home or elsewhere.
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-2 mt-2">
+        <div class="border border-slate-200 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+            Home-based supports
+          </h3>
+          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
+            <li>Non-medical home care / aides</li>
+            <li>Home health (short-term skilled care)</li>
+            <li>Meal delivery or community meals</li>
+            <li>Transportation or ride programs</li>
+            <li>Adult day programs</li>
+          </ul>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
+            Housing & facility options
+          </h3>
+          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
+            <li>Senior apartments / independent living</li>
+            <li>Assisted living</li>
+            <li>Memory care</li>
+            <li>Nursing facilities</li>
+            <li>Hospice providers (home-based or facility partners)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: Capture what you find -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Step 3 – Capture what you find on one page</h2>
+
+      <p class="text-slate-700">
+        The goal is not to record every detail, but to capture enough to compare options side by side.
+        You can start with a simple table like this and fill it in as you go.
+      </p>
+
+      <div class="overflow-x-auto mt-3">
+        <table class="min-w-full text-sm border border-slate-200 rounded-lg overflow-hidden">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-4 py-2 text-left font-semibold text-slate-800">Type of support</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-800">Provider / example</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-800">Notes on cost</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-800">What’s included / not included</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-slate-200">
+              <td class="px-4 py-2 text-slate-800">Home care (non-medical)</td>
+              <td class="px-4 py-2 text-slate-700">Agency A, Agency B</td>
+              <td class="px-4 py-2 text-slate-700">Hourly rate range; minimum hours per visit</td>
+              <td class="px-4 py-2 text-slate-700">Help with bathing, dressing, meals; no medical tasks</td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="px-4 py-2 text-slate-800">Assisted living</td>
+              <td class="px-4 py-2 text-slate-700">Community X, Community Y</td>
+              <td class="px-4 py-2 text-slate-700">Base rate range; separate levels-of-care fees</td>
+              <td class="px-4 py-2 text-slate-700">Meals, housekeeping, activities; higher care billed separately</td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="px-4 py-2 text-slate-800">Adult day program</td>
+              <td class="px-4 py-2 text-slate-700">Center Z</td>
+              <td class="px-4 py-2 text-slate-700">Daily or half-day rates; program days per week</td>
+              <td class="px-4 py-2 text-slate-700">Supervision, activities, some personal care; transportation may be extra</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-xs text-slate-500 mt-2">
+        The entries above are examples of how to structure your notes, not recommendations or real prices.
+        You should always verify directly with providers.
+      </p>
+    </section>
+
+    <!-- Where to find information -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Where to look for local information</h2>
+
+      <p class="text-slate-700">
+        Building your map usually means combining information from multiple places.
+        Start with sources that are as neutral and public as possible, then layer in specific providers.
+      </p>
+
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1 mt-1">
+        <li>State or county aging agencies and long-term care ombudsman programs.</li>
+        <li>Non-profit organizations that publish local or regional cost-of-care summaries.</li>
+        <li>Facility and agency websites (“pricing” or “what’s included” pages).</li>
+        <li>Direct phone calls asking for “typical ranges” and “what’s not included.”</li>
+      </ul>
+
+      <p class="text-xs text-slate-500 mt-1">
+        Maisage does not rate or endorse specific providers. The focus is on helping you collect and compare
+        what you find in a structured way.
+      </p>
+    </section>
+
+    <!-- Keeping it updated -->
+    <section class="space-y-3">
+      <h2 class="text-2xl font-semibold text-emerald-900">Keeping your Living Map alive</h2>
+
+      <p class="text-slate-700">
+        Prices change. Programs open and close. People move. The value of a Living Map is that it can be
+        updated without starting from zero every time.
+      </p>
+
+      <p class="text-sm font-semibold text-slate-700 mt-2">Simple habits that help:</p>
+      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
+        <li>Write down the “as of” month and year when you record a price or range.</li>
+        <li>Note who you spoke with at a facility, if you called.</li>
+        <li>Update one section at a time — for example, just home care providers this month.</li>
+        <li>Review the map after any major health or housing change.</li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div>
+        <h3 class="text-xl font-semibold text-emerald-900">
+          Want help deciding what to put on your map first?
+        </h3>
+        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
+          You can use the Plan and Scenarios pages to think through which supports are most likely for you,
+          then use Start Here if you’d like guidance on where to look and how to structure your notes.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a
+          href="plan.html"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
+        >
+          Go to Plan
+        </a>
+        <a
+          href="start-here.html"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+        >
+          Start Here
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+</body>
+</html>
