@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Medicare & Medicare Advantage – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+
+    <!-- Intro -->
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">Learn</p>
+
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Medicare & Medicare Advantage in plain language
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Medicare is a federal health insurance program, mainly for people 65 and older and for some younger
+        people with disabilities. This page offers a simplified overview of the major parts of Medicare and
+        how Medicare Advantage differs from Original Medicare.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        For detailed, official information, always refer to Medicare.gov, Social Security, or your plan’s
+        own documents. Rules and options can change over time.
+      </p>
+    </section>
+
+    <!-- Medicare Basics -->
+    <section class="space-y-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
+        Two main paths: Original Medicare and Medicare Advantage
+      </h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        At a high level, there are two main ways to receive Medicare coverage:
+        staying with Original Medicare or enrolling in a Medicare Advantage plan.
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <!-- Original Medicare -->
+        <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">Original Medicare</h3>
+          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
+            <li><strong>Part A</strong> – hospital coverage.</li>
+            <li><strong>Part B</strong> – medical and outpatient coverage.</li>
+            <li>You can add a separate drug plan (<strong>Part D</strong>).</li>
+            <li>You can buy a supplemental policy (Medigap) in many states to help with deductibles and coinsurance.</li>
+            <li>Generally allows you to see providers who accept Medicare across the country.</li>
+          </ul>
+        </div>
+
+        <!-- Medicare Advantage -->
+        <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-sm">
+          <h3 class="text-sm font-semibold text-slate-900">Medicare Advantage (Part C)</h3>
+          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
+            <li>Offered by private insurance companies approved by Medicare.</li>
+            <li>Must cover at least what Original Medicare covers.</li>
+            <li>Often includes drug coverage and may offer extra benefits (such as dental or vision).</li>
+            <li>Typically uses provider networks (HMO, PPO, etc.).</li>
+            <li>May require prior authorizations or referrals for some services.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        Official information and tools about Parts A, B, C, and D, plus Medigap policies and enrollment windows,
+        are available at Medicare.gov.
+      </p>
+    </section>
+
+    <!-- Medicare Advantage Details -->
+    <section class="space-y-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
+        Looking more closely at Medicare Advantage (Part C)
+      </h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Medicare Advantage plans are an alternative way to receive Medicare benefits through private insurance
+        companies. Instead of Original Medicare paying providers directly, the plan is paid by Medicare to manage
+        your coverage.
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="text-sm font-semibold text-slate-900">What these plans typically do</h3>
+          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
+            <li>Combine hospital, medical, and often drug coverage into a single plan.</li>
+            <li>Set their own copays, coinsurance, and out-of-pocket limits within Medicare rules.</li>
+            <li>Use provider networks (you may pay more or have no coverage out of network, depending on the plan).</li>
+            <li>May require prior authorization for certain tests, procedures, or medications.</li>
+          </ul>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <h3 class="text-sm font-semibold text-slate-900">Things to pay attention to</h3>
+          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
+            <li>Whether your doctors, hospitals, and pharmacies are in-network.</li>
+            <li>How your medications are covered (tiers, prior authorizations, quantity limits).</li>
+            <li>The annual out-of-pocket maximum and how it is calculated.</li>
+            <li>Rules for getting care while traveling or outside your usual service area.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        Plan details can change each year. For current, plan-specific information, use the Medicare Plan Finder,
+        your plan’s official materials, or your State Health Insurance Assistance Program (SHIP).
+      </p>
+    </section>
+
+    <!-- Educational reminder -->
+    <section class="space-y-3 border border-emerald-100 bg-emerald-50 rounded-2xl p-5 sm:p-6">
+      <h2 class="text-lg sm:text-xl font-semibold text-emerald-900">Use this as a starting point</h2>
+      <p class="text-sm sm:text-base text-emerald-900/90">
+        This page is meant to help you understand overall structure — not to recommend one path over another.
+        What works best depends on your health needs, finances, where you live, and which providers you want
+        to keep.
+      </p>
+      <p class="text-xs sm:text-sm text-emerald-900/80">
+        Always confirm details with official sources such as Medicare.gov, your plan’s documents, your state
+        Medicaid office, or licensed professionals before making decisions.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+</body>
+</html>
