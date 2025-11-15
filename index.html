@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Maisage</title>
+  <title>Maisage – Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -18,105 +18,125 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Hero Section -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16 grid lg:grid-cols-12 gap-12 items-start">
+  <!-- Hero + What is Maisage + Quick Links -->
+  <main>
+    <section id="home" class="relative overflow-hidden">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16 grid lg:grid-cols-12 gap-12 items-start">
 
-      <!-- LEFT COLUMN -->
-      <div class="lg:col-span-7 self-start">
-        <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-          Transparency • Independence • Dignity
-        </p>
-
-        <h1 class="mt-3 text-4xl sm:text-5xl font-bold leading-tight">
-          Guidance you can trust. Aging independent you can reach.
-        </h1>
-
-        <p class="mt-4 text-slate-700 max-w-2xl">
-          Maisage exists to guide you — to take control of your own aging, stay independent longer,
-          plan hospice intentionally, and involve your family in ways that are manageable for them
-          and meaningful for you.
-        </p>
-
-        <!-- FOCUS AREAS -->
-        <div id="focus-areas-container" class="mt-10"></div>
-        <script>
-          fetch('focus-areas.html')
-            .then(r => r.text())
-            .then(html => (document.getElementById('focus-areas-container').innerHTML = html))
-            .catch(err => console.error('Focus areas failed to load:', err));
-        </script>
-
-        <!-- CTA -->
-        <div class="mt-10 p-6 bg-emerald-50 rounded-xl shadow-sm">
-          <h2 class="text-xl font-semibold text-emerald-900 mb-2">
-            Ready to explore further?
-          </h2>
-
-          <p class="text-sm text-slate-700 mb-4">
-            Use the Quick Links to explore Learn, Plan, Scenarios, Tools, and more.
-            If you want help with your specific situation, use the Start Here page.
+        <!-- Left Column -->
+        <div class="lg:col-span-7 self-start">
+          <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+            Transparency • Independence • Dignity
           </p>
 
-          <a
-            href="start-here.html"
-            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
-          >
-            Start Here
-          </a>
+          <h1 class="mt-3 text-4xl sm:text-5xl font-bold leading-tight">
+            Cut through the confusion. Plan your future with confidence — not in crisis.
+          </h1>
+
+          <p class="mt-4 text-slate-600 max-w-2xl">
+            Maisage gives you clear, trustworthy guidance to help you stay independent longer, understand
+            your options, and make informed decisions before pressure or emergencies take that choice away.
+          </p>
+
+          <!-- What is Maisage? -->
+          <section class="mt-6 border border-slate-200 bg-slate-50 rounded-2xl p-5 sm:p-6">
+            <h2 class="text-lg sm:text-xl font-semibold text-emerald-900 mb-2">
+              What is Maisage?
+            </h2>
+
+            <p class="text-sm sm:text-base text-slate-700">
+              Maisage helps you cut through confusing information about aging, care, and costs so you can
+              make decisions with confidence — not in crisis.
+            </p>
+
+            <p class="mt-2 text-sm sm:text-base text-slate-700">
+              It gives you clear, easy-to-understand guidance about Medicare, Medicaid, long-term care,
+              hospice, home support, and staying independent longer.
+            </p>
+
+            <p class="mt-2 text-sm sm:text-base text-slate-700">
+              You get the knowledge you need to build a Golden Years life plan that reflects how you want
+              to live — and to bring your family into the conversation early, while things are calm.
+            </p>
+
+            <p class="mt-3 text-xs sm:text-sm text-slate-600">
+              You can explore on your own using the Quick Links, or share your situation on the
+              <a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a> page if you’d like guided help.
+            </p>
+          </section>
         </div>
-      </div>
 
-      <!-- RIGHT COLUMN: QUICK LINKS -->
-      <div class="lg:col-span-5 self-start">
-        <div class="rounded-xl border border-slate-200 bg-white shadow-md w-full">
-          <div class="p-4 border-b border-slate-200">
-            <h3 class="text-lg font-semibold">Quick Links</h3>
-          </div>
+        <!-- Right Column: Quick Links -->
+        <div class="lg:col-span-5 self-start">
+          <div class="rounded-xl border border-slate-200 bg-white shadow-md w-full">
+            <div class="p-4 border-b border-slate-200">
+              <h3 class="text-lg font-semibold">Quick Links</h3>
+            </div>
+            <div class="p-4 flex flex-col gap-4 w-full text-sm">
 
-          <div class="p-4 flex flex-col gap-4">
+              <a href="learn.html" class="border rounded-xl p-5 hover:bg-slate-50">
+                <h4 class="font-bold text-base text-emerald-700">Learn</h4>
+                <p class="mt-1 text-slate-700">
+                  Medicare, Medicaid, hospice, medicines, and cost transparency explained in plain language.
+                </p>
+              </a>
 
-            <a href="learn.html" class="border rounded-xl p-6 hover:bg-slate-50">
-              <h4 class="font-bold text-lg text-emerald-700">Learn</h4>
-              <p class="text-sm text-slate-600">Medicare, Medicaid, medicines, and cost transparency.</p>
-            </a>
+              <a href="plan.html" class="border rounded-xl p-5 hover:bg-slate-50">
+                <h4 class="font-bold text-base text-emerald-700">Plan</h4>
+                <p class="mt-1 text-slate-700">
+                  Map out housing, care paths, support, and real-world costs for the years ahead.
+                </p>
+              </a>
 
-            <a href="plan.html" class="border rounded-xl p-6 hover:bg-slate-50">
-              <h4 class="font-bold text-lg text-emerald-700">Plan</h4>
-              <p class="text-sm text-slate-600">Long-term care, home help, and cost planning.</p>
-            </a>
+              <a href="scenarios.html" class="border rounded-xl p-5 hover:bg-slate-50">
+                <h4 class="font-bold text-base text-emerald-700">Scenarios</h4>
+                <p class="mt-1 text-slate-700">
+                  See example paths: Medicaid spend-down, family support blends, equity strategies, and tradeoffs.
+                </p>
+              </a>
 
-            <a href="scenarios.html" class="border rounded-xl p-6 hover:bg-slate-50">
-              <h4 class="font-bold text-lg text-emerald-700">Scenarios</h4>
-              <p class="text-sm text-slate-600">Real-world situations families face.</p>
-            </a>
+              <a href="tools.html" class="border rounded-xl p-5 hover:bg-slate-50">
+                <h4 class="font-bold text-base text-emerald-700">Tools</h4>
+                <p class="mt-1 text-slate-700">
+                  Worksheets and checklists to organize information, compare options, and prepare conversations.
+                </p>
+              </a>
 
-            <a href="tools.html" class="border rounded-xl p-6 hover:bg-slate-50">
-              <h4 class="font-bold text-lg text-emerald-700">Tools</h4>
-              <p class="text-sm text-slate-600">Calculators and navigators.</p>
-            </a>
+              <a href="map.html" class="border rounded-xl p-5 hover:bg-slate-50">
+                <h4 class="font-bold text-base text-emerald-700">Map</h4>
+                <p class="mt-1 text-slate-700">
+                  A “Living Map” idea to help you build your own local picture of costs, options, and supports.
+                </p>
+              </a>
 
-            <a href="map.html" class="border rounded-xl p-6 hover:bg-slate-50">
-              <h4 class="font-bold text-lg text-emerald-700">Map</h4>
-              <p class="text-sm text-slate-600">Costs and availability by region.</p>
-            </a>
+              <a href="membership.html" class="border rounded-xl p-5 hover:bg-slate-50">
+                <h4 class="font-bold text-base text-emerald-700">Membership</h4>
+                <p class="mt-1 text-slate-700">
+                  How future tools, dashboards, and reports could be structured while staying neutral and transparent.
+                </p>
+              </a>
 
-            <a href="membership.html" class="border rounded-xl p-6 hover:bg-slate-50">
-              <h4 class="font-bold text-lg text-emerald-700">Membership</h4>
-              <p class="text-sm text-slate-600">Dashboards and personalized reports.</p>
-            </a>
+              <a href="community.html" class="border rounded-xl p-5 hover:bg-slate-50">
+                <h4 class="font-bold text-base text-emerald-700">Community</h4>
+                <p class="mt-1 text-slate-700">
+                  Ideas for volunteers, Navigators, and shared experience — without sales or referrals.
+                </p>
+              </a>
 
-            <a href="community.html" class="border rounded-xl p-6 hover:bg-slate-50">
-              <h4 class="font-bold text-lg text-emerald-700">Community</h4>
-              <p class="text-sm text-slate-600">Volunteers and shared stories.</p>
-            </a>
+              <a href="start-here.html" class="border rounded-xl p-5 hover:bg-slate-50">
+                <h4 class="font-bold text-base text-emerald-700">Start Here</h4>
+                <p class="mt-1 text-slate-700">
+                  Share your situation and questions so guidance can be tailored to what you’re facing.
+                </p>
+              </a>
 
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
 
   <!-- Shared Footer -->
   <div id="site-footer"></div>
