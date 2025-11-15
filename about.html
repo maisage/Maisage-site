@@ -38,7 +38,7 @@
       </p>
     </section>
 
-    <!-- Founding Story (updated) -->
+    <!-- Founding Story -->
     <section class="space-y-4">
       <h2 class="text-2xl font-semibold text-emerald-900">Why Maisage began</h2>
 
@@ -134,30 +134,15 @@
       </p>
     </section>
 
-    <!-- Values Section -->
-    <section class="space-y-6">
-      <h2 class="text-2xl font-semibold text-emerald-900">The values behind Maisage</h2>
-
-      <div>
-        <h3 class="text-lg font-semibold text-emerald-800">Transparency</h3>
-        <p class="text-sm text-slate-700">
-          Clear, publicly sourced information — no hidden motives, no sales pressure, no conflict of interest.
-        </p>
-      </div>
-
-      <div>
-        <h3 class="text-lg font-semibold text-emerald-800">Independence</h3>
-        <p class="text-sm text-slate-700">
-          Giving you the tools to understand your options early so you stay in control of how and where you live.
-        </p>
-      </div>
-
-      <div>
-        <h3 class="text-lg font-semibold text-emerald-800">Dignity</h3>
-        <p class="text-sm text-slate-700">
-          Centering your comfort, your values, and your way of living — your wishes always come first.
-        </p>
-      </div>
+    <!-- Values Section (now shared via focus-areas.html) -->
+    <section>
+      <div id="focus-areas"></div>
+      <script>
+        fetch('focus-areas.html')
+          .then(r => r.text())
+          .then(html => (document.getElementById('focus-areas').innerHTML = html))
+          .catch(err => console.error("Focus Areas failed to load on About page:", err));
+      </script>
     </section>
 
     <!-- Closing Section -->
@@ -169,7 +154,7 @@
           The next chapter starts whenever you're ready
         </h3>
         <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
-          You deserve a plan shaped by your voice and your values — not by crisis or circumstance.  
+          You deserve a plan shaped by your voice and your values — not by crisis or circumstance.<br />
           <strong>Let’s make the next chapter your chapter — lived the way you choose.</strong>
         </p>
       </div>
