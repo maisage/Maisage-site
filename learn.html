@@ -19,7 +19,7 @@
   </script>
 
   <!-- Main Content -->
-  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-10">
 
     <!-- Intro -->
     <section class="space-y-3">
@@ -30,282 +30,129 @@
       </h1>
 
       <p class="text-sm sm:text-base text-slate-700">
-        This page explains, in plain language, how some of the major systems around aging — especially
-        medication pricing and Medicare — actually work. It is for education only. It does not tell you
-        what to choose and does not replace advice from licensed professionals.
+        This section is for education only. Each topic explains, in plain language, how a part of the
+        system works — medication pricing, Medicare, Medicaid, care settings, and more. The goal is to
+        give you a clearer map, not to tell you what to choose.
       </p>
 
       <p class="text-xs sm:text-sm text-slate-500">
-        Information here is based on publicly available sources such as Medicare.gov, state agencies, and
-        consumer-facing materials. Programs and rules change over time — always verify details through
-        official sources before making decisions.
+        Information is based on publicly available sources like Medicare.gov, state agencies, VA resources,
+        and consumer materials. Programs and rules change over time — always verify details through official
+        sources before making decisions.
       </p>
     </section>
 
-    <!-- How to use this page -->
-    <section class="space-y-3 border border-slate-200 rounded-2xl p-5 bg-slate-50">
-      <h2 class="text-xl font-semibold text-emerald-900">How to use this page</h2>
-      <p class="text-sm sm:text-base text-slate-700">
-        Think of this as a map, not instructions. The goal is to help you:
-      </p>
-      <ul class="list-disc list-inside text-sm sm:text-base text-slate-700 space-y-1">
-        <li>Understand how money and decisions move through the system</li>
-        <li>See where costs can rise, and what questions to ask</li>
-        <li>Recognize the difference between types of coverage and programs</li>
-      </ul>
-      <p class="text-xs sm:text-sm text-slate-600">
-        Examples here are simplified. Real plans, prices, and rules depend on where you live, your income,
-        your health coverage, and current law.
-      </p>
-    </section>
+    <!-- Topic Cards -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-emerald-900">Topics you can explore</h2>
 
-    <!-- Medication Cost Section -->
-    <section class="space-y-6">
-      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
-        Understanding Medication Costs
-      </h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-      <p class="text-sm sm:text-base text-slate-700">
-        Most people assume medications have a single price. In reality, three pricing systems operate at
-        the same time, and each one can give you a different number at the counter.
-      </p>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        <strong>This is just how the system operates, and understanding it helps you navigate it more confidently.</strong>
-        Just like driving:
-      </p>
-      <ul class="list-disc list-inside text-sm sm:text-base text-slate-700 space-y-1">
-        <li>you learn how the car works</li>
-        <li>you learn the rules of the road</li>
-        <li>you choose the route that gets you where you want to go</li>
-      </ul>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        Medication pricing works the same way. There are different “roads,” different “routes,” and
-        different “rules,” and your cost depends on which path you take.
-      </p>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        Maisage is built to make this structure clearer so you can choose a more transparent, efficient,
-        and cost-aware route for your situation.
-      </p>
-
-      <!-- Three Systems -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-emerald-900">The three pricing systems</h3>
-
-        <!-- Insurance Price -->
-        <div class="border border-slate-200 rounded-2xl p-5 bg-white shadow-sm space-y-2">
-          <h4 class="text-base font-semibold text-slate-900">1. The insurance price</h4>
-          <p class="text-sm sm:text-base text-slate-700">
-            This is the price you get when you use your insurance. It depends on:
+        <!-- Medication Costs -->
+        <a href="learn-medication-costs.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">Understanding Medication Costs</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            How insurance, pharmacy cash prices, and discount programs can all show different prices for the
+            same drug — and how to compare them.
           </p>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1">
-            <li>your deductible</li>
-            <li>copay or coinsurance rules</li>
-            <li>the drug’s formulary tier (Tier 1, Tier 2, etc.)</li>
-            <li>prior authorization requirements</li>
-            <li>whether the pharmacy is preferred for your plan</li>
-            <li>rates your insurer and its partners have negotiated</li>
-          </ul>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Two people on different insurance plans can pay completely different prices for the same medication.
-          </p>
-        </div>
+        </a>
 
-        <!-- Pharmacy Cash Price -->
-        <div class="border border-slate-200 rounded-2xl p-5 bg-white shadow-sm space-y-2">
-          <h4 class="text-base font-semibold text-slate-900">2. The pharmacy cash price</h4>
-          <p class="text-sm sm:text-base text-slate-700">
-            Every pharmacy sets its own cash price. It is not tied to your insurance plan.
-            It is influenced by:
+        <!-- Medicare -->
+        <a href="learn-medicare.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">Medicare & Medicare Advantage</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            A plain-language overview of Original Medicare, Medicare Advantage, and what to watch for when
+            comparing coverage, networks, and costs.
           </p>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1">
-            <li>how the pharmacy purchases the drug</li>
-            <li>store markups and pricing strategy</li>
-            <li>how quickly the medication moves</li>
-            <li>local business decisions</li>
-          </ul>
-          <p class="text-xs sm:text-sm text-slate-600">
-            This is why one pharmacy may charge $8 for a generic and another may charge $132 for the same drug.
-          </p>
-        </div>
+        </a>
 
-        <!-- Discount Program Price -->
-        <div class="border border-slate-200 rounded-2xl p-5 bg-white shadow-sm space-y-2">
-          <h4 class="text-base font-semibold text-slate-900">3. The discount program price</h4>
-          <p class="text-sm sm:text-base text-slate-700">
-            Discount programs (such as common coupon or savings cards) use their own contracts. Their prices are:
+        <!-- Medicaid -->
+        <a href="learn-medicaid.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">Understanding Medicaid</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            How Medicaid works as a safety-net program, basic eligibility concepts, spend-down, and why
+            states can differ in what they cover.
           </p>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1">
-            <li>separate from insurance pricing</li>
-            <li>separate from the pharmacy cash price</li>
-            <li>sometimes lower than both</li>
-          </ul>
-          <p class="text-xs sm:text-sm text-slate-600">
-            These programs are essentially a third pricing route that sits alongside your insurance and the
-            pharmacy’s own cash price.
+        </a>
+
+        <!-- Hospice -->
+        <a href="learn-hospice.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">Hospice Care</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            What hospice typically covers, what it does not cover (including room and board in many settings),
+            and how it fits into end-of-life planning.
           </p>
-        </div>
+        </a>
+
+        <!-- Assisted Living -->
+        <a href="learn-assisted-living.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">Assisted Living</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            What assisted living usually provides, how it differs from nursing homes, and common ways people
+            pay for it.
+          </p>
+        </a>
+
+        <!-- Nursing Facilities -->
+        <a href="learn-nursing-facilities.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">Nursing Homes & Skilled Nursing</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            The role of full nursing facilities, short-term rehab vs. long-term care, and how Medicare and
+            Medicaid treat these settings differently.
+          </p>
+        </a>
+
+        <!-- Memory Care -->
+        <a href="learn-memory-care.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">Memory Care</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            What memory care communities focus on, how they differ from general assisted living, and typical
+            cost considerations.
+          </p>
+        </a>
+
+        <!-- In-Home Caregivers -->
+        <a href="learn-home-caregivers.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">In-Home Caregivers & Home Support</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            The difference between home health, non-medical caregivers, and ordinary services like cleaners,
+            errands, and meal support.
+          </p>
+        </a>
+
+        <!-- Private Pay -->
+        <a href="learn-private-pay.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">Private Pay & Out-of-Pocket Costs</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            How families use savings, income, and assets to pay for care, and how this interacts with future
+            eligibility for programs like Medicaid.
+          </p>
+        </a>
+
+        <!-- VA Benefits -->
+        <a href="learn-va-benefits.html"
+           class="block border border-slate-200 rounded-2xl p-5 bg-white shadow-sm hover:bg-slate-50 transition">
+          <h3 class="text-base font-semibold text-emerald-900">VA Benefits for Older Adults</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            An overview of common VA health and support programs for eligible veterans and spouses, and how
+            they may coordinate with Medicare or other coverage.
+          </p>
+        </a>
+
       </div>
 
-      <!-- Which price is real -->
-      <div class="space-y-2">
-        <h3 class="text-lg font-semibold text-emerald-900">Which price is the “real” price?</h3>
-        <p class="text-sm sm:text-base text-slate-700">
-          All of them — it depends on which route you choose.
-        </p>
-        <p class="text-sm sm:text-base text-slate-700">
-          Just like driving, you can take the highway, side streets, or toll roads and still reach the same
-          destination, but with different costs and timing. Medication pricing works the same way: different
-          pricing systems can all lead to the same medication, but not at the same price.
-        </p>
-      </div>
-
-      <!-- Why it's hard to "fix" -->
-      <div class="space-y-3">
-        <h3 class="text-lg font-semibold text-emerald-900">
-          Why it’s difficult for anyone to “fix” drug pricing on their own
-        </h3>
-        <p class="text-sm sm:text-base text-slate-700">
-          People sometimes imagine that someone with enough money or influence could step in and straighten
-          everything out. In reality, medication pricing is not a single system. It is many overlapping systems,
-          each with its own rules and contracts.
-        </p>
-
-        <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1">
-          <li>
-            Manufacturers, insurers, pharmacies, benefit managers, and discount networks all use different contracts
-            and pricing structures.
-          </li>
-          <li>
-            Many parts of pricing are governed by federal and state regulations, as well as private agreements.
-          </li>
-          <li>
-            Pharmacies and insurers must follow binding contracts and cannot simply change them for individual situations.
-          </li>
-        </ul>
-
-        <p class="text-sm sm:text-base text-slate-700">
-          <strong>The medication pricing system is complicated because it has many separate parts working at once.
-          No single person or company can change all of them.</strong>
-        </p>
-      </div>
-
-      <!-- How to compare prices -->
-      <div class="space-y-3 border border-emerald-100 bg-emerald-50 rounded-2xl p-5 sm:p-6">
-        <h3 class="text-lg font-semibold text-emerald-900">
-          A simple way to compare medication prices
-        </h3>
-        <ol class="list-decimal list-inside text-sm sm:text-base text-emerald-900/90 space-y-1">
-          <li>Check your insurance price using your plan’s website, app, or pharmacy tool.</li>
-          <li>Ask the pharmacy for its cash price.</li>
-          <li>Look up the same medication on one or two reputable discount programs.</li>
-          <li>Confirm whether your pharmacy is preferred in your insurance network.</li>
-          <li>Ask your doctor or pharmacist if there are generic or lower-tier alternatives that may be appropriate.</li>
-        </ol>
-        <p class="text-xs sm:text-sm text-emerald-900/80">
-          These steps are based on publicly available information and questions you are allowed to ask. For
-          specific decisions, always check with your prescriber, pharmacist, or health plan.
-        </p>
-      </div>
-    </section>
-
-    <!-- Medicare Basics -->
-    <section class="space-y-6">
-      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
-        Medicare in plain language
-      </h2>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        Medicare is a federal health insurance program, mainly for people 65 and older and for some younger
-        people with disabilities. At a high level, there are two main paths: Original Medicare and Medicare
-        Advantage.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <!-- Original Medicare -->
-        <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-sm">
-          <h3 class="text-sm font-semibold text-slate-900">Original Medicare</h3>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
-            <li><strong>Part A</strong> – hospital coverage</li>
-            <li><strong>Part B</strong> – medical and outpatient coverage</li>
-            <li>You can add a separate drug plan (<strong>Part D</strong>).</li>
-            <li>You can buy a supplemental policy (Medigap) in many states to help with deductibles and coinsurance.</li>
-            <li>Generally allows you to see providers who accept Medicare across the country.</li>
-          </ul>
-        </div>
-
-        <!-- Medicare Advantage -->
-        <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-sm">
-          <h3 class="text-sm font-semibold text-slate-900">Medicare Advantage (Part C)</h3>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
-            <li>Offered by private insurance companies approved by Medicare.</li>
-            <li>Must cover at least what Original Medicare covers.</li>
-            <li>Often includes drug coverage and may offer extra benefits (such as dental or vision).</li>
-            <li>Typically uses provider networks (HMO, PPO, etc.).</li>
-            <li>May require prior authorizations or referrals for some services.</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="text-xs sm:text-sm text-slate-600">
-        Official information and tools are available at Medicare.gov, including details about Parts A, B, C, and D,
-        Medigap policies, and annual enrollment periods.
-      </p>
-    </section>
-
-    <!-- Medicare Advantage Details -->
-    <section class="space-y-6">
-      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
-        Understanding Medicare Advantage (Part C)
-      </h2>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        Medicare Advantage plans are an alternative way to receive Medicare benefits through private
-        insurance companies. Instead of having Original Medicare as your primary coverage, you enroll
-        in a plan that manages your benefits for you.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
-          <h3 class="text-sm font-semibold text-slate-900">What these plans typically do</h3>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
-            <li>Combine hospital, medical, and often drug coverage into one plan.</li>
-            <li>Set their own copays, coinsurance, and out-of-pocket limits within Medicare rules.</li>
-            <li>Use provider networks (you may pay more or have no coverage out of network).</li>
-            <li>May require prior authorization for certain services or treatments.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
-          <h3 class="text-sm font-semibold text-slate-900">Things to pay attention to</h3>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
-            <li>Which doctors, hospitals, and pharmacies are in-network.</li>
-            <li>How your medications are covered (tier, prior authorization, limits).</li>
-            <li>Annual out-of-pocket maximums and how they are calculated.</li>
-            <li>Rules for getting care while traveling or outside your usual area.</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="text-xs sm:text-sm text-slate-600">
-        Plan details can change every year. For up-to-date plan-specific information, use the Medicare Plan Finder,
-        your plan’s official materials, or your State Health Insurance Assistance Program (SHIP) for counseling.
-      </p>
-    </section>
-
-    <!-- Educational reminder -->
-    <section class="space-y-3 border border-emerald-100 bg-emerald-50 rounded-2xl p-5 sm:p-6">
-      <h2 class="text-lg sm:text-xl font-semibold text-emerald-900">Use this as a starting point</h2>
-      <p class="text-sm sm:text-base text-emerald-900/90">
-        This page is meant to help you ask better questions and recognize patterns — not to tell you what
-        to choose. Coverage, costs, and rules depend on where you live, your income, your health situation,
-        and current law.
-      </p>
-      <p class="text-xs sm:text-sm text-emerald-900/80">
-        Always confirm details with official sources such as Medicare.gov, your plan’s documents,
-        your state Medicaid office, or licensed professionals before making decisions.
+      <p class="text-xs sm:text-sm text-slate-500">
+        Each topic is meant to give you a clearer view of how the system works so you can ask better questions
+        and plan ahead. Details should always be checked against current, official sources.
       </p>
     </section>
 
