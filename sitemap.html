@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Site Map – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-10">
+    <section>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Site Map
+      </p>
+      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
+        Overview of Maisage pages
+      </h1>
+      <p class="mt-4 text-slate-700 max-w-3xl">
+        This page lists the main sections of Maisage so you can quickly jump to the information you need.
+      </p>
+    </section>
+
+    <section class="space-y-6 text-sm text-slate-800">
+      <div>
+        <h2 class="text-lg font-semibold text-emerald-900">Core pages</h2>
+        <ul class="mt-2 list-disc ml-5 space-y-1">
+          <li><a href="index.html" class="text-emerald-700 hover:underline">Home</a></li>
+          <li><a href="about.html" class="text-emerald-700 hover:underline">About</a></li>
+          <li><a href="contact.html" class="text-emerald-700 hover:underline">Contact</a></li>
+          <li><a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-emerald-900">Guidance pages</h2>
+        <ul class="mt-2 list-disc ml-5 space-y-1">
+          <li><a href="learn.html" class="text-emerald-700 hover:underline">Learn</a> – Medicare, Medicaid, hospice, medicines, and cost transparency.</li>
+          <li><a href="plan.html" class="text-emerald-700 hover:underline">Plan</a> – Planning for home, care paths, and long-term costs.</li>
+          <li><a href="scenarios.html" class="text-emerald-700 hover:underline">Scenarios</a> – Example paths like Medicaid spend-down, family support hybrid, and equity blends.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-emerald-900">Tools & mapping</h2>
+        <ul class="mt-2 list-disc ml-5 space-y-1">
+          <li><a href="tools.html" class="text-emerald-700 hover:underline">Tools</a> – Worksheets, checklists, and comparison frameworks.</li>
+          <li><a href="map.html" class="text-emerald-700 hover:underline">Living Map</a> – How to build your own local view of options and costs.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-emerald-900">Support, community & structure</h2>
+        <ul class="mt-2 list-disc ml-5 space-y-1">
+          <li><a href="membership.html" class="text-emerald-700 hover:underline">Membership & Reports</a> – Philosophy and structure for any future paid layers.</li>
+          <li><a href="community.html" class="text-emerald-700 hover:underline">Community & Volunteers</a> – Navigators, lived experience, and collaboration.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-emerald-900">System pages</h2>
+        <ul class="mt-2 list-disc ml-5 space-y-1">
+          <li><a href="404.html" class="text-emerald-700 hover:underline">404 – Page not found</a> (used automatically when a page doesn’t exist).</li>
+          <li><a href="thanks.html" class="text-emerald-700 hover:underline">Thank You</a> (used as a redirect target for forms, if enabled).</li>
+          <li><a href="sitemap.html" class="text-emerald-700 hover:underline">Site Map</a> (this page).</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+</body>
+</html>
