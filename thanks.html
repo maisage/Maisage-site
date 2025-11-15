@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thank You – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 space-y-8 text-center">
+    <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+      Thank you
+    </p>
+
+    <h1 class="text-3xl sm:text-4xl font-bold leading-tight">
+      Your message has been sent
+    </h1>
+
+    <p class="mt-4 text-slate-700">
+      If you used a form powered by Formspree, you should see a confirmation email shortly.
+      Replies are handled as capacity allows — Maisage is not an emergency or crisis service.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+      <a
+        href="index.html#home"
+        class="inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+      >
+        Back to Home
+      </a>
+      <a
+        href="learn.html"
+        class="inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
+      >
+        Explore Learn
+      </a>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+</body>
+</html>
