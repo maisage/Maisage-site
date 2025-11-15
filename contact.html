@@ -1,31 +1,161 @@
-<!-- Contact Details -->
-<section class="space-y-3">
-  <h2 class="text-2xl font-semibold text-emerald-900">Contact Details</h2>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-  <p class="text-slate-700">
-    You can reach out directly using the information below:
-  </p>
+<body class="min-h-screen bg-white text-slate-900">
 
-  <p class="text-sm text-slate-800"><strong>Name:</strong> M. Lindsey</p>
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
 
-  <p class="text-sm text-slate-800">
-    <strong>Email:</strong>
-    <a href="mailto:samai@maisage.com" class="text-emerald-700 hover:underline">
-      samai@maisage.com
-    </a>
-  </p>
+  <!-- Main Content -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 space-y-12">
 
-  <p class="text-sm text-slate-800">
-    <strong>Phone:</strong>
-    <a href="tel:8322485340" class="text-emerald-700 hover:underline">832-248-5340</a>
-  </p>
+    <!-- Page Title -->
+    <section class="text-center space-y-3">
+      <h1 class="text-3xl font-bold text-slate-900">Contact</h1>
+      <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
+        Have a question? Need help understanding your options?  
+        Reach out anytime — you’ll hear directly from <strong>Mai Lindsey</strong>.
+      </p>
+    </section>
 
-  <p class="text-sm text-slate-700 mt-2">
-    You can email or call for corrections, suggestions, or questions about the content or structure of the site.
-  </p>
+    <!-- Contact Block -->
+    <section class="border border-slate-200 bg-white shadow-sm rounded-2xl p-6 sm:p-8 space-y-6">
+      <div class="space-y-1">
+        <h2 class="text-xl font-semibold text-emerald-900">Get in touch</h2>
+        <p class="text-sm text-slate-700">
+          You can contact me directly using the details below. There’s no intake fee, no signup,
+          and no obligation to book a paid session.
+        </p>
+      </div>
 
-  <p class="text-xs text-slate-500 mt-1">
-    Please note: calls may not be answered immediately, but messages will be returned as capacity allows.
-    This is not an emergency or crisis service.
-  </p>
-</section>
+      <div class="space-y-4">
+        <div class="p-4 border rounded-xl bg-slate-50">
+          <p class="text-sm font-semibold text-slate-900">Contact name</p>
+          <p class="text-sm text-slate-700">Mai Lindsey</p>
+        </div>
+
+        <div class="p-4 border rounded-xl bg-slate-50">
+          <p class="text-sm font-semibold text-slate-900">Email</p>
+          <p class="text-sm text-emerald-700 break-all">
+            <a href="mailto:samai@maisage.com" class="hover:text-emerald-900">
+              samai@maisage.com
+            </a>
+          </p>
+        </div>
+
+        <div class="p-4 border rounded-xl bg-slate-50">
+          <p class="text-sm font-semibold text-slate-900">Phone</p>
+          <p class="text-sm text-slate-700">
+            <a href="tel:8322485340" class="hover:text-emerald-700">
+              832-248-5340
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Why contact + response time -->
+      <div class="pt-4 border-t border-slate-200 space-y-3">
+        <h3 class="text-lg font-semibold text-slate-900">Why contact Maisage?</h3>
+        <p class="text-sm text-slate-700">
+          Most people reach out when they’re trying to make sense of care options, costs, or programs
+          like Medicare, Medicaid, or hospice — and don’t want a sales pitch. If you’re feeling unsure
+          where to start, a short email or call is often enough to see what kind of help makes sense.
+        </p>
+
+        <p class="text-xs text-slate-600">
+          I usually reply within 1–2 business days. If things are time-sensitive, mention that in your message.
+        </p>
+      </div>
+
+      <!-- Start Here CTA -->
+      <div class="pt-4 border-t border-slate-200">
+        <h3 class="text-lg font-semibold text-slate-900">Not sure what to say?</h3>
+        <p class="text-sm text-slate-700 mt-1">
+          You can also use the Start Here page to briefly describe your situation and what you’re hoping to understand.
+        </p>
+
+        <a
+          href="start-here.html"
+          class="mt-4 inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium
+                 bg-emerald-600 text-white hover:bg-emerald-700"
+        >
+          Go to Start Here
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-emerald-900">Common questions</h2>
+
+      <div class="space-y-4 text-sm sm:text-base text-slate-700">
+
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <p class="font-semibold text-slate-900">
+            Do I have to book a paid session to contact you?
+          </p>
+          <p class="mt-1">
+            No. You’re welcome to email or call with a brief overview of your situation first.
+            From there, we can decide together whether a paid navigation session would actually be helpful.
+          </p>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <p class="font-semibold text-slate-900">
+            What kind of information can you help with?
+          </p>
+          <p class="mt-1">
+            I focus on understanding options and costs: programs like Medicare and Medicaid, levels of care,
+            what hospice or home health typically cover, and how different choices affect independence and spending.
+            Everything is based on public information and plain-language explanation.
+          </p>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <p class="font-semibold text-slate-900">
+            Will you tell me which doctor, facility, or pharmacy to use?
+          </p>
+          <p class="mt-1">
+            No. I don’t make specific provider recommendations or receive any referral fees.
+            Instead, I help you understand how to compare options, what questions to ask, and how to spot cost or coverage issues.
+          </p>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+          <p class="font-semibold text-slate-900">
+            Do I need to share medical records or detailed health information?
+          </p>
+          <p class="mt-1">
+            No. Useful guidance can be provided using general information about age, living situation, and goals.
+            You should only share what you’re comfortable with, and Maisage does not request access to medical portals or records.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+</body>
+</html>
