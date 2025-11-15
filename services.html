@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Services – Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+
+    <!-- Intro -->
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">Services</p>
+
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Services designed to help you make informed, confident decisions
+      </h1>
+
+      <p class="text-slate-700 text-sm sm:text-base">
+        Maisage offers fee-only guidance. No commissions. No sales. No incentives to steer your choices.
+        You pay only for the time, research, and support you request.
+      </p>
+    </section>
+
+    <!-- Core Service: Navigation Sessions -->
+    <section class="space-y-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
+        Paid Navigation Sessions
+      </h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        The primary service Maisage offers is one-on-one navigation support for families who want help
+        understanding options, comparing costs, and planning next steps. These sessions are structured as
+        professional services — not sales conversations.
+      </p>
+
+      <!-- Summary Card -->
+      <div class="border border-slate-200 rounded-2xl bg-white shadow-sm p-6">
+        <h3 class="text-lg font-semibold text-emerald-800 mb-2">What’s included</h3>
+
+        <ul class="space-y-2 text-slate-700 text-sm sm:text-base list-disc ml-5">
+          <li>Medication cost research and comparison using publicly available data</li>
+          <li>Provider search (care facilities, home care, hospice, etc.) with no referrals or incentives</li>
+          <li>Care planning — mapping realistic paths and timelines</li>
+          <li>Understanding Medicare, Medicaid, hospice, home health, private duty, and care levels</li>
+          <li>System navigation — knowing who to call and what to ask</li>
+        </ul>
+
+        <a
+          href="navigation-sessions.html"
+          class="mt-4 inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium 
+                 bg-emerald-600 text-white hover:bg-emerald-700"
+        >
+          Learn more about Navigation Sessions
+        </a>
+      </div>
+    </section>
+
+    <!-- Optional Future Services -->
+    <section class="space-y-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
+        Optional services (available by request)
+      </h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        These services may be offered on an as-needed basis. All work is based on publicly available information
+        and neutral analysis.
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-2">
+
+        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm">
+          <h3 class="text-lg font-semibold text-emerald-800">Customized Planning Reports</h3>
+          <p class="text-sm text-slate-700 mt-1">
+            A written summary of long-term care pathways, cost considerations, and next steps based on your goals.
+            Fee based on time required.
+          </p>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm">
+          <h3 class="text-lg font-semibold text-emerald-800">Medication Cost Comparison Summary</h3>
+          <p class="text-sm text-slate-700 mt-1">
+            A structured comparison using publicly available pricing tools to help families identify
+            more affordable medication options.
+          </p>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm md:col-span-2">
+          <h3 class="text-lg font-semibold text-emerald-800">Care Options Exploration Session</h3>
+          <p class="text-sm text-slate-700 mt-1">
+            A session dedicated to exploring care levels (home support, assisted living, memory care,
+            skilled nursing), timelines, tradeoffs, and cost planning.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PHI Safety -->
+    <section class="space-y-3">
+      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
+        No medical records needed
+      </h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Meaningful guidance can be provided without sharing personal health records.
+        You can keep things general: age, living situation, goals, and concerns.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        Any personal details shared are voluntary and should be limited to what you are comfortable with.
+        Maisage does not request patient portal access or store medical information.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 
+             sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div>
+        <h3 class="text-xl font-semibold text-emerald-900">Want help exploring your options?</h3>
+        <p class="mt-2 text-sm sm:text-base text-emerald-900/80 max-w-xl">
+          Start by sharing your situation. If a paid navigation session makes sense,
+          you can decide that later — no pressure.
+        </p>
+      </div>
+
+      <a
+        href="start-here.html"
+        class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium 
+               bg-emerald-600 text-white hover:bg-emerald-700"
+      >
+        Start Here
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load.", err));
+  </script>
+
+</body>
+</html>
