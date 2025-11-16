@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <!-- This line is critical for iPhone/iPad sizing -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <title>PAGE TITLE HERE – Maisage</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Main content wrapper -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 space-y-8">
+    <!--
+      Put your actual page content here.
+
+      For example, for Learn pages:
+      - Intro section
+      - Content sections
+      - At the bottom, the shared contact block loader (if needed)
+    -->
+
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">Section Label</p>
+
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Page main heading goes here
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Your page content goes here. The container width and padding here are chosen to read well
+        on iPhone, iPad, and desktop without you having to fight it.
+      </p>
+    </section>
+
+    <!-- More sections as needed... -->
+
+    <!-- Optional shared contact block (if you want it on this page) -->
+    <!--
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+    -->
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+</body>
+</html>
