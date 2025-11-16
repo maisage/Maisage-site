@@ -109,7 +109,7 @@
     </section>
 
     <!-- Focus Areas (pulled from separate file) -->
-    <section class="space-y-4">
+    <section>
       <div id="focus-areas"></div>
       <script>
         fetch('focus-areas.html')
@@ -124,11 +124,13 @@
       <h2 class="text-lg sm:text-xl font-semibold text-emerald-900">
         Don’t wait for a crisis to start the conversation
       </h2>
+
       <p class="text-sm sm:text-base text-emerald-900/90">
         You don’t have to solve everything at once. A good first step is simply understanding what’s on the
         table — how Medicare, Medicaid, medication costs, housing, and day-to-day support fit together for
         you. From there, you can start building a plan and bringing the right people into the loop.
       </p>
+
       <p class="text-sm sm:text-base text-emerald-900/90">
         If you’d like to explore your situation in more detail, you can start with a simple form and a
         conversation.
@@ -142,15 +144,6 @@
         </a>
       </div>
     </section>
-
-    <!-- Shared Contact Block -->
-    <div id="contact-block"></div>
-    <script>
-      fetch('contact-block.html')
-        .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
-    </script>
 
   </main>
 
