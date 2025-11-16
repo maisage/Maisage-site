@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Critical for iPhone / iPad sizing -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
   <title>About – Maisage</title>
+
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -19,161 +23,134 @@
   </script>
 
   <!-- Main Content -->
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-10">
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-12">
 
-    <!-- Intro Section -->
-    <section>
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        About
-      </p>
+    <!-- Intro / Founding Story -->
+    <section class="space-y-4">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">About</p>
 
-      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
-        Helping you plan the years ahead with clarity, calm, and control
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Why Maisage exists
       </h1>
 
-      <p class="mt-4 text-slate-700">
-        You deserve to understand your options long before someone else has to decide for you.
-        Maisage gives you the information, tools, and confidence to plan your future in a way that
-        reflects who you are — not what a crisis or circumstance forces on you.
+      <p class="text-sm sm:text-base text-slate-700">
+        Maisage began from a deeply personal place — born out of love, exhaustion, and a quiet realization
+        that the information meant to support aging adults is often scattered, confusing, and hard to act on.
+      </p>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        I watched my mother, my mother-in-law, and now my husband’s brother each walk their own end-of-life
+        path. Every one of them faced a maze of paperwork, inflated costs, and missing information. Families
+        were trying to do the right thing, but they were constantly bumping into rules, programs, and
+        financial realities that no one had clearly explained.
+      </p>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Over and over, I heard the same sentence — from doctors, social workers, friends, and other families:
+      </p>
+
+      <p class="text-sm sm:text-base text-slate-900 italic">
+        “When the money runs out, Medicaid will take over.”
+      </p>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        That single line has quietly become the “default plan” for aging in America. It’s what many families
+        cling to when savings start to run low, because no one has walked them through other paths in a
+        practical, transparent way. But Medicaid, while essential, was never meant to be the only plan. It
+        often steps in when independence is already gone and choices are narrowed.
+      </p>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        And the people making those choices? Too often, they haven’t had much day-to-day interaction with you
+        for any meaningful length of time. It’s a little like deciding to marry someone after only a few weeks
+        and expecting a lifetime of deep understanding — except now it’s about your health, your comfort, and
+        your future. Decisions fall in crisis mode, and everyone scrambles.
+      </p>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        It is not fair to you, and it is certainly not fair to the person who suddenly has to step in and make
+        decisions with limited context and limited time.
       </p>
     </section>
 
-    <!-- Founding Story -->
+    <!-- What Maisage Does -->
     <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Why Maisage began</h2>
+      <h2 class="text-xl sm:text-2xl font-semibold text-slate-900">
+        What Maisage is here to do
+      </h2>
 
-      <p class="text-slate-700">
-        Maisage began from a deeply personal place — born out of love, exhaustion, and the realization that 
-        although there is a lot of information about aging and care, most of it isn’t clear or easy to understand.
+      <p class="text-sm sm:text-base text-slate-700">
+        Maisage exists to help filter through the massive amount of information that’s already out there and
+        guide you toward a golden-years life plan that actually makes sense for you.
       </p>
 
-      <p class="text-slate-700">
-        I watched my mother, my mother-in-law, and now my husband’s brother each walk their own end-of-life path.
-        Every one of them faced a maze of paperwork, inflated costs, and missing information.
+      <p class="text-sm sm:text-base text-slate-700">
+        It doesn’t sell products, manage investments, or replace your professionals. Instead, it focuses on
+        helping you understand the landscape — how programs, costs, and care options fit together — so you
+        can plan with open eyes instead of reacting in a crisis.
       </p>
 
-      <p class="text-slate-700">
-        Over and over, I heard the same line — from doctors, social workers, friends, even other families trying to help:<br>
-        <span class="font-semibold">“When the money runs out, Medicaid will take over.”</span>
+      <p class="text-sm sm:text-base text-slate-700">
+        Maisage:
       </p>
 
-      <p class="text-slate-700">
-        That single line has become the unspoken plan for aging in America.  
-        It’s what many families hold onto when money begins to run low, because no one has shown them another option.
-        But Medicaid, while essential, was never meant to be the only plan. It steps in only after independence is already gone —
-        when choices are no longer fully yours.
+      <ul class="list-disc list-inside text-sm sm:text-base text-slate-700 space-y-1">
+        <li>organizes public information into clear, practical explanations</li>
+        <li>arms you with knowledge and information to enable you to make informed decisions</li>
+        <li>helps you think through how medication costs, care settings, and support services affect your plan</li>
+        <li>encourages you to bring family into the conversation early — for awareness, not just emergencies</li>
+      </ul>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        The goal isn’t to manage your care for you. The goal is to help you stay in control of your own
+        choices for as long as possible, and to give your loved ones a clearer map instead of a last-minute
+        scramble when something goes wrong.
       </p>
     </section>
 
-    <!-- Crisis-mode Decision Making Section -->
+    <!-- Focus Areas (pulled from separate file) -->
     <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Why early planning matters</h2>
-
-      <p class="text-slate-700">
-        And the people making those choices? Too often, they barely know you.
-        Estranged adult children, ex-spouses, or distant relatives may suddenly step in after years of silence.
-        Health-care professionals who’ve only known you for a week or two are expected to make decisions that shape the rest of your life.
-      </p>
-
-      <p class="text-slate-700">
-        They haven’t had daily interactions with you, nor any meaningful period of time to understand
-        your routines, your values, or what brings you comfort.
-        It’s a little like going on a few dates and then getting married — no one would expect a lifetime of understanding from such
-        a short connection. Yet that is often what happens when decisions fall into <strong>crisis mode</strong>.
-      </p>
-
-      <p class="text-slate-700 font-medium">
-        It’s not fair to you — and it’s certainly not fair to the person who suddenly has to step in and make life-shaping decisions on your behalf.
-      </p>
-    </section>
-
-    <!-- Maisage Purpose Section -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">What Maisage helps you do</h2>
-
-      <p class="text-slate-700">
-        I built Maisage to change that pattern.
-        You deserve better than last-minute decisions made in fear, confusion, or pressure. 
-        You deserve clear information long before you need it — not during a crisis when choices are limited.
-      </p>
-
-      <p class="text-slate-700">
-        <strong>Maisage helps you cut through the noise and build a Golden Years life plan that fits the way you want to live.</strong>
-      </p>
-
-      <p class="text-slate-700">
-        It arms you with the knowledge and information you need to make informed decisions.
-      </p>
-
-      <p class="text-slate-700">
-        It also helps you understand the realities of aging and care — what different services actually cover,
-        what they don’t, and how the costs fit together.
-        Whether you're looking at Medicare, Medicaid, home support, assisted living, hospice, or simply staying independent longer,
-        Maisage gives you the clarity to make choices that fit your life.
-      </p>
-
-      <p class="text-slate-700">
-        With better understanding, you can plan to live where you feel most comfortable, avoid unexpected costs,
-        and prevent the kind of last-minute decisions that disrupt your independence.
-      </p>
-    </section>
-
-    <!-- Family Section -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Bringing loved ones in early</h2>
-
-      <p class="text-slate-700">
-        Maisage also helps you bring your loved ones into the picture early — not to burden them, but to give them
-        awareness and clarity long before decisions become urgent.
-      </p>
-
-      <p class="text-slate-700">
-        When everyone understands your preferences, routines, and comfort level ahead of time, your family can support you
-        in ways that feel manageable for them and meaningful for you.
-        Early conversations prevent confusion, reduce stress, and make sure your wishes are honored without guesswork.
-      </p>
-    </section>
-
-    <!-- Values Section (now shared via focus-areas.html) -->
-    <section>
       <div id="focus-areas"></div>
       <script>
         fetch('focus-areas.html')
           .then(r => r.text())
           .then(html => (document.getElementById('focus-areas').innerHTML = html))
-          .catch(err => console.error("Focus Areas failed to load on About page:", err));
+          .catch(err => console.error("Focus areas failed to load:", err));
       </script>
     </section>
 
-    <!-- Closing Section -->
-    <section
-      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-    >
-      <div>
-        <h3 class="text-xl font-semibold text-emerald-900">
-          The next chapter starts whenever you're ready
-        </h3>
-        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
-          You deserve a plan shaped by your voice and your values — not by crisis or circumstance.<br />
-          <strong>Let’s make the next chapter your chapter — lived the way you choose.</strong>
-        </p>
-      </div>
+    <!-- Call to Action -->
+    <section class="space-y-3 border border-emerald-100 bg-emerald-50 rounded-2xl p-5 sm:p-6">
+      <h2 class="text-lg sm:text-xl font-semibold text-emerald-900">
+        Don’t wait for a crisis to start the conversation
+      </h2>
+      <p class="text-sm sm:text-base text-emerald-900/90">
+        You don’t have to solve everything at once. A good first step is simply understanding what’s on the
+        table — how Medicare, Medicaid, medication costs, housing, and day-to-day support fit together for
+        you. From there, you can start building a plan and bringing the right people into the loop.
+      </p>
+      <p class="text-sm sm:text-base text-emerald-900/90">
+        If you’d like to explore your situation in more detail, you can start with a simple form and a
+        conversation.
+      </p>
 
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a
-          href="start-here.html"
-          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
-        >
+      <div>
+        <a href="start-here.html"
+           class="inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium
+                  bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm">
           Start Here
-        </a>
-        <a
-          href="learn.html"
-          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
-        >
-          Go to Learn
         </a>
       </div>
     </section>
+
+    <!-- Shared Contact Block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
 
   </main>
 
