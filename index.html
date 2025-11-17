@@ -18,10 +18,21 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Breadcrumb -->
-  <p class="text-xs text-slate-500 mt-4 mb-2 px-4 sm:px-6 lg:px-8">
-    <span class="text-slate-700">Home</span>
-  </p>
+  <!-- Shared Breadcrumb (hidden on Home) -->
+  <script>
+    // Home page: breadcrumb component will hide itself when current = "Home"
+    window.breadcrumbCurrent = "Home";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
 
   <!-- Main content -->
   <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
@@ -165,11 +176,11 @@
               </p>
             </a>
 
-            <!-- Facility Explorer -->
+            <!-- Review facilities (Explorer / Dashboard) -->
             <a href="facility-explorer.html" class="border rounded-xl p-6 hover:bg-slate-50">
               <h4 class="font-bold text-lg text-emerald-700">Review facilities (Explorer / Dashboard)</h4>
               <p class="text-sm text-slate-600">
-                Review and compare facilities using public CMS and state data.
+                See inspection trends, staffing patterns, and safety signals using public data.
               </p>
             </a>
 
