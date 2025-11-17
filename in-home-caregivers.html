@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>In-home caregivers and home support | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+  <!-- Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParent = "Learn";
+    window.breadcrumbParentLink = "learn.html";
+    window.breadcrumbCurrent = "In-home caregivers and home support";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn · In-Home Support
+      </p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        In-home caregivers and home support
+      </h1>
+      <p class="text-sm sm:text-base text-slate-700">
+        Staying at home with the right help is a priority for many people. In-home support can range
+        from short nursing visits to ongoing personal care to everyday services like cleaning and
+        rides. Understanding the different types matters for both cost and expectations.
+      </p>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Terms and regulations vary by state. This page focuses on common categories you are likely
+        to encounter.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Types of in-home services
+      </h2>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li><span class="font-medium">Home health</span> – usually short-term, medically focused care (nurses, therapists) ordered by a doctor, often covered under certain conditions by Medicare or insurance.</li>
+        <li><span class="font-medium">Personal care/attendant care</span> – help with daily activities such as bathing, dressing, toileting, and meal preparation, often paid privately or through Medicaid or other programs.</li>
+        <li><span class="font-medium">Private-duty or agency caregivers</span> – caregivers arranged through agencies or directly by families, with hourly rates and schedules determined case by case.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        The same person may receive a mix of these over time, so clarity about what is covered and
+        what is private pay is important.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Using ordinary services to extend independence
+      </h2>
+      <p class="text-sm text-slate-700">
+        Not all support has to be labeled “care.” Many people use:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Meal delivery or local meal programs.</li>
+        <li>Grocery delivery and pharmacy delivery.</li>
+        <li>Transportation services or rides from family and friends.</li>
+        <li>Housekeeping or yard services.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        These can reduce strain and risk without immediately moving into a long-term care setting,
+        and they can be easier for family to share or rotate.
+      </p>
+    </section>
+
+    <!-- Contact block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+</body>
+</html>
