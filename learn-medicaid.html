@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Medicaid and long-term care | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+  <!-- Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb: Home / Learn / Medicaid -->
+  <script>
+    window.breadcrumbParent = "Learn";
+    window.breadcrumbParentLink = "learn.html";
+    window.breadcrumbCurrent = "Medicaid and long-term care";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn · Medicaid
+      </p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Medicaid and long-term care
+      </h1>
+      <p class="text-sm sm:text-base text-slate-700">
+        Medicaid is a joint federal–state program that can pay for long-term care when certain
+        financial and eligibility rules are met. For many people, it becomes the default plan only
+        after savings are gone — often without much advance planning.
+      </p>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Rules vary by state and change over time. This page gives general concepts only. For your
+        specific situation, state Medicaid offices and qualified professionals are essential
+        resources.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Basic ideas behind Medicaid and long-term care
+      </h2>
+      <p class="text-sm text-slate-700">
+        In many states, Medicaid is a primary payer for long-term nursing facility care. To qualify,
+        a person usually must:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Meet medical or functional criteria (needing a certain level of care).</li>
+        <li>Have income and assets below specific limits, with some protections for a spouse.</li>
+        <li>Follow rules about transfers and gifts within a “lookback” period.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Details such as asset limits, protections for a spouse, and home treatment differ by state.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        What “spend-down” means
+      </h2>
+      <p class="text-sm text-slate-700">
+        Many families hear the phrase “you have to spend down to qualify for Medicaid.” In practice,
+        this can mean:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Paying for care and other allowed expenses until assets fall below Medicaid thresholds.</li>
+        <li>Converting certain resources into exempt forms (according to state rules).</li>
+        <li>Tracking timing to avoid penalties related to gifts or transfers made within the lookback period.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Because the rules are technical, many people choose to consult with elder law or Medicaid
+        planning professionals when they approach this stage.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Estate recovery and why it matters
+      </h2>
+      <p class="text-sm text-slate-700">
+        In many cases, states are required to seek recovery of certain Medicaid payments from a
+        person’s estate after death, especially for long-term care services.
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Estate recovery rules vary by state and can depend on factors like surviving spouses or disabled children.</li>
+        <li>In some situations, claims may be delayed or waived; in others, they may result in liens or claims on property.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Understanding estate recovery early can help families avoid surprises later.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Using Medicaid as one part of the plan
+      </h2>
+      <p class="text-sm text-slate-700">
+        Medicaid can be an essential safety net, but relying on “Medicaid will take over” as the
+        only plan can leave you with fewer choices and more stress. Many families:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Use private pay and family support earlier in the journey.</li>
+        <li>Plan for a possible Medicaid phase later, with realistic expectations.</li>
+        <li>Talk openly about what matters most if choice becomes more limited.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Understanding the basics now makes it easier to fit Medicaid into a broader plan instead of
+        turning to it only in an emergency.
+      </p>
+    </section>
+
+    <!-- Contact block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+</body>
+</html>
