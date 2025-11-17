@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>VA benefits and support for veterans | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+  <!-- Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParent = "Learn";
+    window.breadcrumbParentLink = "learn.html";
+    window.breadcrumbCurrent = "VA benefits and support for veterans";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html);
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn · VA Benefits
+      </p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        VA benefits and support for veterans
+      </h1>
+      <p class="text-sm sm:text-base text-slate-700">
+        Veterans and their families may have access to programs that can help with health care,
+        long-term care, and other supports. Understanding what exists is the first step; figuring
+        out which programs apply to your situation often requires direct contact with VA or
+        accredited advisors.
+      </p>
+      <p class="text-xs sm:text-sm text-slate-500">
+        This page offers a high-level orientation, not a complete list of programs or eligibility
+        rules.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Types of VA-related support
+      </h2>
+      <p class="text-sm text-slate-700">
+        Depending on service history and other factors, veterans may have access to:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>VA health care services.</li>
+        <li>Long-term care options through VA or contracted facilities.</li>
+        <li>Programs that may help with in-home care or caregiver support.</li>
+        <li>Disability compensation and pension programs, in eligible cases.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Each program has its own criteria and application process. Official VA resources and
+        accredited representatives are key for up-to-date details.
+      </p>
+    </section>
+
+    <!-- Contact block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+</body>
+</html>
