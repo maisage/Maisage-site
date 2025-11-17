@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Medicare & Medicare Advantage – Maisage</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Medicare basics and Medicare Advantage | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="min-h-screen bg-white text-slate-900">
-
   <!-- Shared Header -->
   <div id="site-header"></div>
   <script>
@@ -18,125 +17,125 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Main Content -->
-  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+  <!-- Breadcrumb: Home / Learn / Medicare -->
+  <script>
+    window.breadcrumbParent = "Learn";
+    window.breadcrumbParentLink = "learn.html";
+    window.breadcrumbCurrent = "Medicare basics and Medicare Advantage";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
 
-    <!-- Intro -->
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
     <section class="space-y-3">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">Learn</p>
-
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn · Medicare
+      </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Medicare & Medicare Advantage in plain language
+        Medicare basics and Medicare Advantage
       </h1>
-
       <p class="text-sm sm:text-base text-slate-700">
-        Medicare is a federal health insurance program, mainly for people 65 and older and for some younger
-        people with disabilities. This page offers a simplified overview of the major parts of Medicare and
-        how Medicare Advantage differs from Original Medicare.
+        Medicare is the federal health insurance program for most people age 65 and older and some
+        younger people with disabilities. It covers many medical services, but it does not cover
+        everything, and it does not automatically cover long-term custodial care.
       </p>
-
-      <p class="text-xs sm:text-sm text-slate-600">
-        For detailed, official information, always refer to Medicare.gov, Social Security, or your plan’s
-        own documents. Rules and options can change over time.
+      <p class="text-xs sm:text-sm text-slate-500">
+        This page gives a plain-language overview. It is not legal or financial advice. For
+        detailed, current rules and options, always check official Medicare resources or speak with
+        a qualified professional.
       </p>
     </section>
 
-    <!-- Medicare Basics -->
-    <section class="space-y-6">
-      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
-        Two main paths: Original Medicare and Medicare Advantage
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Original Medicare at a glance
       </h2>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        At a high level, there are two main ways to receive Medicare coverage:
-        staying with Original Medicare or enrolling in a Medicare Advantage plan.
+      <p class="text-sm text-slate-700">
+        Original Medicare is made up of:
       </p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <!-- Original Medicare -->
-        <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-sm">
-          <h3 class="text-sm font-semibold text-slate-900">Original Medicare</h3>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
-            <li><strong>Part A</strong> – hospital coverage.</li>
-            <li><strong>Part B</strong> – medical and outpatient coverage.</li>
-            <li>You can add a separate drug plan (<strong>Part D</strong>).</li>
-            <li>You can buy a supplemental policy (Medigap) in many states to help with deductibles and coinsurance.</li>
-            <li>Generally allows you to see providers who accept Medicare across the country.</li>
-          </ul>
-        </div>
-
-        <!-- Medicare Advantage -->
-        <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-sm">
-          <h3 class="text-sm font-semibold text-slate-900">Medicare Advantage (Part C)</h3>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
-            <li>Offered by private insurance companies approved by Medicare.</li>
-            <li>Must cover at least what Original Medicare covers.</li>
-            <li>Often includes drug coverage and may offer extra benefits (such as dental or vision).</li>
-            <li>Typically uses provider networks (HMO, PPO, etc.).</li>
-            <li>May require prior authorizations or referrals for some services.</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="text-xs sm:text-sm text-slate-600">
-        Official information and tools about Parts A, B, C, and D, plus Medigap policies and enrollment windows,
-        are available at Medicare.gov.
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li><span class="font-medium">Part A</span> – hospital insurance (inpatient hospital, some skilled nursing, some home health, hospice).</li>
+        <li><span class="font-medium">Part B</span> – medical insurance (doctor visits, outpatient care, certain tests, durable medical equipment).</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Many people add a Part D drug plan and may purchase a Medigap (supplement) policy to help
+        with deductibles and coinsurance. These add-ons have separate rules and costs.
       </p>
     </section>
 
-    <!-- Medicare Advantage Details -->
-    <section class="space-y-6">
-      <h2 class="text-xl sm:text-2xl font-semibold text-emerald-900">
-        Looking more closely at Medicare Advantage (Part C)
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        How Medicare Advantage is different
       </h2>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        Medicare Advantage plans are an alternative way to receive Medicare benefits through private insurance
-        companies. Instead of Original Medicare paying providers directly, the plan is paid by Medicare to manage
-        your coverage.
+      <p class="text-sm text-slate-700">
+        Medicare Advantage (Part C) plans are offered by private companies that contract with
+        Medicare. When you enroll in a Medicare Advantage plan, the plan becomes your main way of
+        receiving Medicare-covered services.
       </p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
-          <h3 class="text-sm font-semibold text-slate-900">What these plans typically do</h3>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
-            <li>Combine hospital, medical, and often drug coverage into a single plan.</li>
-            <li>Set their own copays, coinsurance, and out-of-pocket limits within Medicare rules.</li>
-            <li>Use provider networks (you may pay more or have no coverage out of network, depending on the plan).</li>
-            <li>May require prior authorization for certain tests, procedures, or medications.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
-          <h3 class="text-sm font-semibold text-slate-900">Things to pay attention to</h3>
-          <ul class="list-disc list-inside text-xs sm:text-sm text-slate-700 space-y-1 mt-1">
-            <li>Whether your doctors, hospitals, and pharmacies are in-network.</li>
-            <li>How your medications are covered (tiers, prior authorizations, quantity limits).</li>
-            <li>The annual out-of-pocket maximum and how it is calculated.</li>
-            <li>Rules for getting care while traveling or outside your usual service area.</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="text-xs sm:text-sm text-slate-600">
-        Plan details can change each year. For current, plan-specific information, use the Medicare Plan Finder,
-        your plan’s official materials, or your State Health Insurance Assistance Program (SHIP).
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Plans often include drug coverage and extra benefits like vision or dental.</li>
+        <li>They may use networks and require referrals or prior authorizations.</li>
+        <li>Your out-of-pocket costs and rules depend on the specific plan you choose.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Advantage plans can be helpful for some people and limiting for others. The details of the
+        plan matter more than the advertising headline.
       </p>
     </section>
 
-    <!-- Educational reminder -->
-    <section class="space-y-3 border border-emerald-100 bg-emerald-50 rounded-2xl p-5 sm:p-6">
-      <h2 class="text-lg sm:text-xl font-semibold text-emerald-900">Use this as a starting point</h2>
-      <p class="text-sm sm:text-base text-emerald-900/90">
-        This page is meant to help you understand overall structure — not to recommend one path over another.
-        What works best depends on your health needs, finances, where you live, and which providers you want
-        to keep.
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        What Medicare generally does not cover
+      </h2>
+      <p class="text-sm text-slate-700">
+        Medicare is mainly designed for medical and short-term skilled care. It generally does
+        <span class="font-semibold">not</span> cover:
       </p>
-      <p class="text-xs sm:text-sm text-emerald-900/80">
-        Always confirm details with official sources such as Medicare.gov, your plan’s documents, your state
-        Medicaid office, or licensed professionals before making decisions.
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Long-term custodial care in a nursing facility (help with daily activities on an ongoing basis).</li>
+        <li>Most assisted living or memory care room and board.</li>
+        <li>24-hour in-home custodial care.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        This gap is one reason many people end up relying on a mix of private pay, family help,
+        long-term care insurance (if available), or Medicaid later in life.
       </p>
     </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Questions to ask when reviewing options
+      </h2>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Are my doctors and preferred hospitals in-network (if considering an Advantage plan)?</li>
+        <li>What are the maximum out-of-pocket costs in a year under this plan?</li>
+        <li>How does the plan handle prior authorizations for common services?</li>
+        <li>Would I be comfortable with the tradeoff between extra benefits and network rules?</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        These questions can help you look beyond monthly premiums and focus on how the plan might
+        work in real situations.
+      </p>
+    </section>
+
+    <!-- Contact / navigation block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
 
   </main>
 
@@ -148,6 +147,5 @@
       .then(html => (document.getElementById('site-footer').innerHTML = html))
       .catch(err => console.error("Footer failed to load:", err));
   </script>
-
 </body>
 </html>
