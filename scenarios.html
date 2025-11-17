@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Scenarios – Maisage</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Family scenarios – planning paths | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -18,295 +18,123 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Main Content -->
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-14">
+  <!-- Shared Breadcrumb: Home / Plan / Family Scenarios -->
+  <script>
+    window.breadcrumbParent = "Plan";
+    window.breadcrumbParentLink = "plan.html";
+    window.breadcrumbCurrent = "Family Scenarios";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main content -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
 
     <!-- Intro -->
-    <section>
+    <section class="space-y-3">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Scenarios
+        Plan · Scenarios
       </p>
-
-      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
-        Three example paths real families follow
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Family scenarios: how different paths can unfold
       </h1>
-
-      <p class="mt-4 text-slate-700 max-w-3xl">
-        These scenarios are not recommendations. They are simple, realistic patterns that show how care,
-        money, and family involvement can interact over time.
-        The goal is to help you see tradeoffs more clearly — not to choose for you.
+      <p class="text-sm sm:text-base text-slate-700">
+        These scenarios are not advice. They are illustrations to help you see the tradeoffs between
+        different ways of paying for and arranging care — especially over time. They can be used as
+        starting points for discussion with your family and trusted advisors.
       </p>
-
-      <p class="mt-3 text-slate-700">
-        All examples are simplified and use rounded ideas, not real client data. You should always
-        confirm details for your own state, income, and health situation.
+      <p class="text-xs sm:text-sm text-slate-500">
+        The numbers and timelines here are simplified. Real situations will vary by state, health
+        needs, family, and resources.
       </p>
     </section>
 
-    <!-- How to use this page -->
-    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">How to use these scenarios</h2>
-
-      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
-        <li>Look for what sounds emotionally familiar — not just financially.</li>
-        <li>Notice who is doing what: you, family, paid helpers, facilities, programs.</li>
-        <li>Ask, “If we followed this path, what would be the biggest risk for us?”</li>
-        <li>Use this page together with the <a href="plan.html" class="text-emerald-700 hover:underline">Plan</a> and <a href="learn.html" class="text-emerald-700 hover:underline">Learn</a> pages.</li>
+    <!-- Scenario 1 -->
+    <section class="space-y-2">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Scenario 1: Medicaid spend-down
+      </h2>
+      <p class="text-sm text-slate-700">
+        In this path, a person pays privately for care until savings and countable assets drop below
+        the Medicaid threshold. Once eligible, Medicaid becomes the primary payer for long-term care
+        in a nursing facility.
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Often involves selling or spending down assets over time.</li>
+        <li>Gives access to care when private funds are gone, but with fewer choices.</li>
+        <li>May trigger estate recovery after death, depending on the state.</li>
       </ul>
+    </section>
 
-      <p class="text-xs text-slate-500">
-        These scenarios are for thinking and conversation. They are not financial, legal, or medical advice.
+    <!-- Scenario 2 -->
+    <section class="space-y-2">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Scenario 2: Family-supported hybrid
+      </h2>
+      <p class="text-sm text-slate-700">
+        Here, family members contribute time, money, or both — for example, helping with housing
+        costs, sharing caregiving, or paying for additional in-home support so that a move to a
+        facility can be delayed or avoided.
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Can preserve more independence and flexibility, especially early on.</li>
+        <li>Requires honest conversation about what each person can realistically sustain.</li>
+        <li>Benefits from written expectations so one person is not silently carrying the load.</li>
+      </ul>
+    </section>
+
+    <!-- Scenario 3 -->
+    <section class="space-y-2">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Scenario 3: Using home equity as part of the plan
+      </h2>
+      <p class="text-sm text-slate-700">
+        In this path, home equity might be used — for example through a sale, downsizing, or other
+        tools — to fund care needs for a period of time, with Medicaid as a possible later step if
+        funds are eventually exhausted.
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Can increase the years of flexibility and choice earlier in the plan.</li>
+        <li>May reduce the value of the estate passed to heirs.</li>
+        <li>Needs careful review with professionals to understand tax and legal implications.</li>
+      </ul>
+    </section>
+
+    <!-- Reflection -->
+    <section class="space-y-2">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Using scenarios in your own planning
+      </h2>
+      <p class="text-sm text-slate-700">
+        Rather than trying to copy any scenario exactly, you can use them to ask:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Which parts of each path feel acceptable to me?</li>
+        <li>Which parts would I strongly like to avoid?</li>
+        <li>What would my family need to understand now, while there is time to plan?</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        These questions can help you and your family move from “we’ll figure it out later” to “we
+        have at least a shared direction and some boundaries.”
       </p>
     </section>
 
-    <!-- Scenario 1: Medicaid Spend-Down -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Scenario 1 – Medicaid spend-down</h2>
-
-      <p class="text-slate-700">
-        In this path, the person continues living largely as they are until money runs low, then
-        spends down savings and assets to qualify for Medicaid-funded long-term care.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            What it can look like
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Stays at home or in current setting while private money lasts.</li>
-            <li>Pays privately for home care or facility until assets drop below limits.</li>
-            <li>Applies for Medicaid when savings are nearly exhausted.</li>
-            <li>May need to move to a facility that accepts Medicaid once approved.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Where this path can fit
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>There is limited or no family support available.</li>
-            <li>Assets and income are modest and will not last long-term.</li>
-            <li>The priority is maximum care coverage once funds are gone.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-amber-200 bg-amber-50 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-amber-800">
-            Tradeoffs and risks
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Less control over which facility or provider is available under Medicaid.</li>
-            <li>Estate recovery may claim some assets after death, depending on state rules.</li>
-            <li>Families may feel rushed when the money finally runs out.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-800">
-            Questions to ask if this sounds familiar
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>How long will current savings likely last at today’s spending level?</li>
-            <li>Which facilities nearby accept Medicaid, and what are their wait lists like?</li>
-            <li>What does your state’s Medicaid estate recovery program look like?</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Scenario 2: Family support hybrid -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Scenario 2 – Family support hybrid</h2>
-
-      <p class="text-slate-700">
-        In this path, family members share some of the support — time, money, or both —
-        to stretch independence and delay a full spend-down to Medicaid or a facility move.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            What it can look like
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Person stays at home or in a small apartment.</li>
-            <li>Adult children or relatives help with errands, meals, or appointments.</li>
-            <li>Paid helpers fill in gaps for tasks family can’t reliably cover.</li>
-            <li>Family may contribute monthly funds to cover part of care costs.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Where this path can fit
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>There are a few family members willing to coordinate and communicate.</li>
-            <li>Income or savings alone are not enough for full private-pay care.</li>
-            <li>The person strongly prefers to remain at home as long as safely possible.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-amber-200 bg-amber-50 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-amber-800">
-            Tradeoffs and risks
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Family burnout if roles and limits are not clearly discussed.</li>
-            <li>Uneven contributions can create resentment over time.</li>
-            <li>Unexpected health changes can make the family plan no longer safe or realistic.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-800">
-            Questions to ask if this sounds familiar
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>What can each family member realistically commit to — and for how long?</li>
-            <li>How will you track who is doing what, so no one feels taken for granted?</li>
-            <li>What’s the backup plan if a key helper becomes unavailable?</li>
-            <li>Are you comfortable being honest about limits before resentment builds?</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Scenario 3: Reverse equity blend -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Scenario 3 – Reverse equity blend</h2>
-
-      <p class="text-slate-700">
-        In this path, home equity or other assets are purposely used to fund care and independence,
-        often through selling the home, downsizing, or using borrowing tools like a reverse mortgage
-        (where appropriate and fully understood).
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            What it can look like
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Person sells a large home and moves to a smaller, safer place.</li>
-            <li>Freed-up equity is used deliberately to pay for home help or assisted living.</li>
-            <li>In some cases, a reverse mortgage is used — after understanding fees and risks.</li>
-            <li>Family may coordinate to balance “inheritance later” vs “quality of life now.”</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Where this path can fit
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>There is meaningful home equity or assets that could be converted to income.</li>
-            <li>The person is open to moving or restructuring how assets are used.</li>
-            <li>The family can have honest discussions about tradeoffs between legacy and current care.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-amber-200 bg-amber-50 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-amber-800">
-            Tradeoffs and risks
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Less inheritance or reduced estate for heirs.</li>
-            <li>Complex products (like reverse mortgages) can be expensive or misused if not well understood.</li>
-            <li>Once certain assets are sold or borrowed against, reversing the decision can be difficult.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-800">
-            Questions to ask if this sounds familiar
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Have you clearly compared costs and terms from multiple providers?</li>
-            <li>Is everyone clear on how much equity might be used — and for what?</li>
-            <li>What does “enough for you to feel secure” look like before thinking about inheritance?</li>
-            <li>Have you checked independent, non-sales-based explanations of any product being considered?</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Simple comparison summary -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Putting the three paths side by side</h2>
-
-      <div class="overflow-x-auto">
-        <table class="min-w-full text-sm border border-slate-200 rounded-lg overflow-hidden">
-          <thead class="bg-slate-50">
-            <tr>
-              <th class="px-4 py-2 text-left font-semibold text-slate-800">Scenario</th>
-              <th class="px-4 py-2 text-left font-semibold text-slate-800">Main idea</th>
-              <th class="px-4 py-2 text-left font-semibold text-slate-800">Key risk</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-t border-slate-200">
-              <td class="px-4 py-2 font-medium text-slate-900">Medicaid spend-down</td>
-              <td class="px-4 py-2 text-slate-700">Use private funds until gone, then rely on Medicaid.</td>
-              <td class="px-4 py-2 text-slate-700">Less control over options once on Medicaid; possible estate recovery.</td>
-            </tr>
-            <tr class="border-t border-slate-200">
-              <td class="px-4 py-2 font-medium text-slate-900">Family support hybrid</td>
-              <td class="px-4 py-2 text-slate-700">Blend family help, private pay, and lower-cost supports.</td>
-              <td class="px-4 py-2 text-slate-700">Burnout or conflict if expectations aren’t clear and realistic.</td>
-            </tr>
-            <tr class="border-t border-slate-200">
-              <td class="px-4 py-2 font-medium text-slate-900">Reverse equity blend</td>
-              <td class="px-4 py-2 text-slate-700">Intentionally use assets or home equity to fund care and options.</td>
-              <td class="px-4 py-2 text-slate-700">Reduced inheritance; risk if products are not fully understood.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="text-xs text-slate-500">
-        These descriptions are simplified. Real-life plans often combine elements from more than one scenario.
-      </p>
-    </section>
-
-    <!-- CTA -->
-    <section
-      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-    >
-      <div>
-        <h3 class="text-xl font-semibold text-emerald-900">
-          See a path that feels close to yours?
-        </h3>
-        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
-          You can use the Plan page to think through your own time horizon, budget, and supports.
-          If you’d like help mapping your situation against one or more of these scenarios,
-          you can also share details on the Start Here page.
-        </p>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a
-          href="plan.html"
-          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
-        >
-          Go to Plan
-        </a>
-        <a
-          href="start-here.html"
-          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
-        >
-          Start Here
-        </a>
-      </div>
-    </section>
+    <!-- Contact / navigation block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
 
   </main>
 
