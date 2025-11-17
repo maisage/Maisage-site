@@ -1,0 +1,35 @@
+<!-- Shared Breadcrumb Component -->
+
+<p class="text-xs sm:text-sm text-slate-600 mt-4 mb-3 px-4 sm:px-6 lg:px-8 leading-relaxed">
+  <a href="index.html" class="hover:text-emerald-700 underline-offset-2 hover:underline">
+    Home
+  </a>
+
+  <!-- Parent section if provided -->
+  <span id="breadcrumb-parent-wrapper" class="hidden">
+    <span class="mx-1 text-slate-400">/</span>
+    <a id="breadcrumb-parent-link" href="#" class="hover:text-emerald-700 underline-offset-2 hover:underline"></a>
+  </span>
+
+  <!-- Current page -->
+  <span class="mx-1 text-slate-400">/</span>
+  <span id="breadcrumb-current" class="text-slate-800 font-semibold"></span>
+</p>
+
+<script>
+  (function () {
+    const current = window.breadcrumbCurrent || "";
+    const parent = window.breadcrumbParent || null;
+    const parentLink = window.breadcrumbParentLink || null;
+
+    // apply current label
+    document.getElementById("breadcrumb-current").textContent = current;
+
+    // handle parent section
+    if (parent && parentLink) {
+      document.getElementById("breadcrumb-parent-wrapper").classList.remove("hidden");
+      document.getElementById("breadcrumb-parent-link").textContent = parent;
+      document.getElementById("breadcrumb-parent-link").href = parentLink;
+    }
+  })();
+</script>
