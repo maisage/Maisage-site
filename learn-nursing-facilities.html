@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Nursing facilities and skilled care | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+  <!-- Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParent = "Learn";
+    window.breadcrumbParentLink = "learn.html";
+    window.breadcrumbCurrent = "Nursing facilities and skilled care";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn · Nursing Facilities
+      </p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Nursing facilities and skilled care
+      </h1>
+      <p class="text-sm sm:text-base text-slate-700">
+        Nursing facilities (often called nursing homes) provide a mix of medical care, rehabilitation
+        services, and help with daily activities. Some stays are short-term for recovery; others are
+        long-term when ongoing support is required.
+      </p>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Many facilities participate in Medicare and Medicaid, and they are subject to specific
+        regulations and inspections. Public data about them is available, but it has limits.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Short-term rehab versus long-term placement
+      </h2>
+      <p class="text-sm text-slate-700">
+        It can help to distinguish:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li><span class="font-medium">Short-term rehabilitation</span> – often after a hospital stay, focused on recovery and returning home, sometimes covered by Medicare for limited periods when criteria are met.</li>
+        <li><span class="font-medium">Long-term custodial care</span> – ongoing residence when someone needs daily help with many activities and cannot safely live elsewhere.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Different funding sources and rules can apply to each type of stay, even within the same
+        building.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Understanding public ratings and reports
+      </h2>
+      <p class="text-sm text-slate-700">
+        In the United States, facilities that participate in Medicare or Medicaid are typically
+        listed on federal and state websites with:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Overall star ratings and domain-specific ratings (staffing, health inspections, quality measures).</li>
+        <li>Inspection reports and citations.</li>
+        <li>Ownership and sometimes staffing information.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        These resources are useful, but they may lag real-time conditions and do not capture every
+        aspect of daily life in a facility. They work best when combined with visits, conversations,
+        and ongoing observation.
+      </p>
+    </section>
+
+    <!-- Contact block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+</body>
+</html>
