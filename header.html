@@ -1,55 +1,60 @@
-<header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
-  <!-- Hidden checkbox drives the mobile menu (no JS required) -->
-  <input id="nav-toggle" type="checkbox" class="peer hidden" />
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
-  <!-- Top row: logo + desktop nav + mobile menu button -->
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 h-16">
-    <!-- Logo / Brand -->
-    <a href="index.html" class="flex items-center gap-2 font-semibold text-base sm:text-lg">
-      <span class="inline-block h-7 w-7 rounded-full bg-emerald-600"></span>
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2 font-semibold text-xl">
+      <span class="inline-block h-8 w-8 rounded-full bg-emerald-600"></span>
       <span>Maisage</span>
     </a>
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex items-center gap-3 text-[11px] sm:text-xs font-medium">
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-4 text-[11px] font-medium">
+
       <a href="about.html" class="hover:text-emerald-700">About</a>
       <a href="learn.html" class="hover:text-emerald-700">Learn</a>
       <a href="plan.html" class="hover:text-emerald-700">Plan</a>
-      <a href="scenarios.html" class="hover:text-emerald-700">Scenarios</a>
+
+      <!-- Facility Explorer is now a major feature -->
+      <a href="facility-explorer.html" class="hover:text-emerald-700">Facility Explorer</a>
+
       <a href="tools.html" class="hover:text-emerald-700">Tools</a>
       <a href="map.html" class="hover:text-emerald-700">Map</a>
       <a href="services.html" class="hover:text-emerald-700">Services</a>
       <a href="community.html" class="hover:text-emerald-700">Community</a>
       <a href="contact.html" class="hover:text-emerald-700">Contact</a>
+
     </nav>
 
-    <!-- Mobile Menu Button -->
-    <label for="nav-toggle"
-           class="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-slate-300 text-slate-700 hover:bg-slate-100 cursor-pointer">
-      <span class="sr-only">Toggle navigation</span>
-      <!-- Simple hamburger icon -->
-      <svg class="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 7h16M4 12h16M4 17h16"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round" />
-      </svg>
-    </label>
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md border border-slate-300">
+      <span class="text-slate-600 text-xs">MENU</span>
+    </button>
   </div>
 
-  <!-- Mobile Nav (slides open/closed) -->
-  <nav class="md:hidden max-h-0 peer-checked:max-h-96 overflow-hidden transition-all duration-300 ease-out border-t border-slate-200 bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-3 flex flex-col gap-2 text-xs font-medium">
-      <a href="about.html" class="py-1 hover:text-emerald-700">About</a>
-      <a href="learn.html" class="py-1 hover:text-emerald-700">Learn</a>
-      <a href="plan.html" class="py-1 hover:text-emerald-700">Plan</a>
-      <a href="scenarios.html" class="py-1 hover:text-emerald-700">Scenarios</a>
-      <a href="tools.html" class="py-1 hover:text-emerald-700">Tools</a>
-      <a href="map.html" class="py-1 hover:text-emerald-700">Map</a>
-      <a href="services.html" class="py-1 hover:text-emerald-700">Services</a>
-      <a href="community.html" class="py-1 hover:text-emerald-700">Community</a>
-      <a href="contact.html" class="py-1 hover:text-emerald-700">Contact</a>
+  <!-- Mobile Nav Menu -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white">
+    <div class="px-4 py-3 space-y-2 text-sm">
+
+      <a href="about.html" class="block hover:text-emerald-700">About</a>
+      <a href="learn.html" class="block hover:text-emerald-700">Learn</a>
+      <a href="plan.html" class="block hover:text-emerald-700">Plan</a>
+      <a href="facility-explorer.html" class="block hover:text-emerald-700">Facility Explorer</a>
+      <a href="tools.html" class="block hover:text-emerald-700">Tools</a>
+      <a href="map.html" class="block hover:text-emerald-700">Map</a>
+      <a href="services.html" class="block hover:text-emerald-700">Services</a>
+      <a href="community.html" class="block hover:text-emerald-700">Community</a>
+      <a href="contact.html" class="block hover:text-emerald-700">Contact</a>
+
     </div>
-  </nav>
+  </div>
+
+  <script>
+    const btn = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    }
+  </script>
 </header>
