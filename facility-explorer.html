@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Facility Explorer – Maisage</title>
+  <title>Facility Insights – using public data | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -18,166 +18,115 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Breadcrumb -->
-  <p class="text-xs text-slate-500 mt-4 mb-2 px-4 sm:px-6 lg:px-8">
-    <a href="index.html" class="hover:text-emerald-700">Home</a>
-    <span class="mx-1">/</span>
-    <span class="text-slate-700">Facility Explorer</span>
-  </p>
+  <!-- Shared Breadcrumb: Home / Facility Insights -->
+  <script>
+    window.breadcrumbCurrent = "Facility Insights";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
 
   <!-- Main content -->
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
 
-    <!-- Intro / Hero for Facility Explorer -->
+    <!-- Intro -->
     <section class="space-y-3">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Tools · Facility Explorer
+        Facility Insights
       </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Facility Explorer – turning public data into usable guidance
+        Facility Insights: using public data to see how places are really operating
       </h1>
       <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        Facility Explorer is where Maisage pulls together public information about nursing homes,
-        assisted living, and related care settings — and turns it into clearer signals for you and
-        your family. Instead of relying only on star ratings, the goal is to show patterns:
-        staffing stability, emergency activity, incidents, and regulatory history.
+        This section explores how Maisage can use public information — such as CMS data, state
+        inspection reports, and other official records — to give you a clearer view of how a
+        facility has been functioning over time. The intent is not to “rate” facilities for you, but
+        to surface patterns and signals that can guide your questions and decisions.
       </p>
       <p class="text-xs sm:text-sm text-slate-500 max-w-3xl">
-        All tools here are built on publicly available data (CMS, state health agencies, court and
-        emergency service records where available). No resident-level information or private health
-        data is used. The purpose is transparency and understanding, not marketing or referral fees.
+        Any views shown here are built from public data sources only. They do not replace in-person
+        visits, medical advice, or state-level guidance, and they do not accept any payments or
+        incentives from facilities.
       </p>
     </section>
 
-    <!-- Current Prototypes -->
+    <!-- Cards: Explorer and Example -->
     <section class="space-y-4">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Current prototypes
+        Prototypes and examples
       </h2>
 
       <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
-        <!-- Facility list / CMS explorer -->
-        <a href="tx-facilities.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <h3 class="text-sm sm:text-base font-semibold text-slate-900">
-              Facility list – public CMS data (Texas prototype)
-            </h3>
-            <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] sm:text-[11px]">
-              Prototype
-            </span>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-700">
-            A table view that reads a simplified CSV you prepare from CMS datasets: facility name,
-            location, overall rating, deficiencies, staffing levels, and whether they accept Medicaid.
-            Filters help you narrow by city, ZIP, and minimum rating.
-          </p>
-          <p class="mt-2 text-[11px] text-slate-500">
-            When you’re ready, you can point this at real CMS-derived data for Texas or other states,
-            all hosted as CSV in this site.
-          </p>
-        </a>
 
-        <!-- Facility safety signals example -->
-        <a href="facility-safety-example.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <h3 class="text-sm sm:text-base font-semibold text-slate-900">
-              Facility Safety Signals – single-facility view
-            </h3>
-            <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] sm:text-[11px]">
-              Example
-            </span>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-700">
-            A prototype dashboard for one facility, combining staffing trends, EMS / emergency
-            activity, serious reportable incidents, and regulatory actions into a simple “safety
-            pulse” view. Numbers are mocked now but illustrate the kind of insight Maisage can offer.
-          </p>
-          <p class="mt-2 text-[11px] text-slate-500">
-            This page is designed to evolve later into a template that can be fed by real data for
-            specific facilities.
-          </p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Learning / context section -->
-    <section class="space-y-4">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Learn how to interpret facility data
-      </h2>
-
-      <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
-        <!-- Inspections explainer -->
-        <a href="learn-facility-inspections.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            How facility inspections and ratings really work
+        <!-- High-level explorer description -->
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-2">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+            Review facilities (Explorer / Dashboard)
           </h3>
           <p class="text-xs sm:text-sm text-slate-700">
-            A plain-language explanation of star ratings, inspection cycles, deficiencies,
-            staffing data, and why annual reports often lag behind what’s happening inside a
-            building today.
+            Over time, this area can grow into a way to review facilities in your area side-by-side
+            using public metrics: inspection history, staffing patterns, and other observable
+            signals.
           </p>
-          <p class="mt-2 text-[11px] text-slate-500">
-            If this page isn’t created yet, you can add it later and keep this link ready.
-          </p>
-        </a>
-
-        <!-- Safety signals explainer (future) -->
-        <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50/60 p-4 sm:p-5">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            Understanding Maisage’s safety signals
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            A future Learn page can walk families through what “staffing stability,” “emergency
-            activity,” “incident pressure,” and “regulatory stability” mean — and how to use those
-            patterns to ask better questions before choosing a facility.
-          </p>
-          <p class="mt-2 text-[11px] text-slate-500">
-            For now, this section is a placeholder to remind you where that content will live.
+          <p class="text-[11px] text-slate-500">
+            For now, this page describes the concept and links to a single “example facility”
+            dashboard so you can see what a Safety Pulse view might look like.
           </p>
         </div>
+
+        <!-- Link to example facility -->
+        <a href="facility-safety-example.html"
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+              Example facility Safety Pulse
+            </h3>
+            <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] sm:text-[11px]">
+              Mock data
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700">
+            A sample view that combines staffing trends, reported incidents, and regulatory actions
+            into a single “safety pulse” snapshot for one mock facility, using the type of public
+            data that could be available in many states.
+          </p>
+          <p class="mt-2 text-[11px] text-slate-500">
+            Use this as a visual aid for what Maisage may eventually provide on a facility-by-facility
+            basis, not as a reflection of any real location.
+          </p>
+        </a>
+
       </div>
     </section>
 
-    <!-- Future tools roadmap -->
+    <!-- Philosophy / guardrails -->
     <section class="space-y-3">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Future tools Facility Explorer could grow into
+        How Maisage thinks about facility data
       </h2>
-      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-2 text-xs sm:text-sm text-slate-700">
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 text-xs sm:text-sm text-slate-700 space-y-2">
         <p>
-          Over time, this area can evolve from simple views of public data into a richer set of tools:
+          Many rating systems reduce complex operations into a single score. Maisage is more
+          interested in patterns: how staffing changes over weekends or holidays, how often EMS is
+          called, whether harm-level citations repeat, and how ownership or management changes over
+          time.
         </p>
-        <ul class="list-disc pl-5 space-y-1.5">
-          <li>
-            <span class="font-medium">Weekly safety watchlists</span> – highlighting facilities with
-            rising EMS calls, staffing drops, or repeated incident reports.
-          </li>
-          <li>
-            <span class="font-medium">Medicaid-readiness signals</span> – showing where Medicaid
-            beds are more stable, and how facilities balance private pay and Medicaid residents.
-          </li>
-          <li>
-            <span class="font-medium">Memory care safety indicators</span> – focusing on elopements,
-            supervision issues, and dementia-specific staffing patterns.
-          </li>
-          <li>
-            <span class="font-medium">End-of-life care signals</span> – for facilities working closely
-            with hospice, tracking patterns that affect comfort and dignity at the end of life.
-          </li>
-        </ul>
-        <p class="text-[11px] text-slate-500">
-          Even as these tools expand, the core goal stays the same: help you see how a place is really
-          functioning, using only public information and clear explanations — no paid listings or
-          hidden incentives.
+        <p>
+          No single number can tell you whether a facility is “good” or “bad.” But trends and
+          signals can help you ask sharper questions, choose where to visit, and decide what to
+          monitor if someone you love lives there.
         </p>
       </div>
     </section>
 
-    <!-- Optional contact / navigation block -->
+    <!-- Contact / navigation block -->
     <div id="contact-block"></div>
     <script>
       fetch('contact-block.html')
