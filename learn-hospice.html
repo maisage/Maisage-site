@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Hospice care – what it covers and what it doesn’t | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+  <!-- Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb: Home / Learn / Hospice -->
+  <script>
+    window.breadcrumbParent = "Learn";
+    window.breadcrumbParentLink = "learn.html";
+    window.breadcrumbCurrent = "Hospice care and coverage";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn · Hospice
+      </p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Hospice care: what it does—and what it does not—cover
+      </h1>
+      <p class="text-sm sm:text-base text-slate-700">
+        Hospice is a model of care focused on comfort, symptom management, and quality of life when
+        a serious illness is not expected to be cured. It is about support and dignity, not giving
+        up. Many people and families are surprised by what hospice does and does not pay for.
+      </p>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Coverage details depend on the payer (for example, Medicare vs. private insurance) and local
+        policies. This page focuses on general patterns that are often misunderstood.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        What hospice is designed to provide
+      </h2>
+      <p class="text-sm text-slate-700">
+        Hospice services commonly include:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Regular visits from a hospice team (nurses, aides, social workers, chaplains).</li>
+        <li>Medications related to comfort and symptom control for the terminal diagnosis.</li>
+        <li>Certain medical equipment and supplies (for example, hospital bed, oxygen, dressings).</li>
+        <li>Support for caregivers, including training, respite options, and grief support.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Hospice care can be provided at home, in a facility, or in dedicated inpatient hospice
+        units, depending on the situation and local availability.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        A key point: hospice usually does not pay for room and board
+      </h2>
+      <p class="text-sm text-slate-700">
+        One of the most important clarifications is that hospice <span class="font-semibold">does
+        not usually cover room and board costs</span> in a facility such as assisted living or a
+        nursing home.
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Hospice may pay for the hospice team and related services.</li>
+        <li>The daily “bed” charge in a facility is often billed separately and remains the patient’s or family’s responsibility, unless another payer (like Medicaid) is involved.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        This distinction can have a major impact on costs, especially if someone moves to a
+        facility for the first time while starting hospice.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Hospice at home versus in a facility
+      </h2>
+      <p class="text-sm text-slate-700">
+        Many people receive hospice at home, where the patient or family does not pay “room and
+        board” in the same way. The main questions at home often involve:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Who will provide day-to-day hands-on care?</li>
+        <li>Whether additional paid caregivers are needed, beyond what hospice staff can provide.</li>
+        <li>How family and friends can share responsibilities in a manageable way.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        In a facility, the hospice team is added on top of the facility’s own staff and charges,
+        which can make the financial picture more complex.
+      </p>
+    </section>
+
+    <!-- Contact block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+</body>
+</html>
