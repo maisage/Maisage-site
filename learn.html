@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Learn – Aging systems and options | Maisage</title>
+  <title>Learn – Medicare, Medicaid, care options & costs | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -18,7 +18,7 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Shared Breadcrumb: Home / Learn -->
+  <!-- Breadcrumb: Home / Learn -->
   <script>
     window.breadcrumbCurrent = "Learn";
   </script>
@@ -34,143 +34,141 @@
   </script>
 
   <!-- Main content -->
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10">
 
     <!-- Intro -->
-    <section class="space-y-3">
+    <section class="space-y-3 max-w-3xl">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
         Learn
       </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Learn how Medicare, Medicaid, care settings, and costs really work
+        Learn about Medicare, Medicaid, care options, and real-world costs
       </h1>
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        This section is about understanding the systems around aging — not selling you a plan or
-        steering you toward any provider. Everything here is based on publicly available information
-        and plain-language explanations. The goal is to help you see how things fit together so you
-        can make clearer decisions.
+      <p class="text-sm sm:text-base text-slate-700">
+        This section is about clarity. Each topic below focuses on explaining how a part of the
+        system works — Medicare, Medicaid, medications, hospice, housing, and more — in plain
+        language, using publicly available information.
       </p>
-      <p class="text-xs sm:text-sm text-slate-500 max-w-3xl">
-        These pages do not replace legal, financial, or medical advice. They are meant to give you a
-        starting point for questions and conversations with your family and your professional
-        advisors.
+      <p class="text-xs sm:text-sm text-slate-500">
+        Nothing here is personalized advice or a recommendation. The goal is to help you understand
+        the structure of your options so you can ask better questions, plan ahead, and decide what
+        fits your life and your values.
       </p>
     </section>
 
-    <!-- Topic grid -->
+    <!-- Learn topic cards -->
     <section class="space-y-4">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
         Topics you can explore
       </h2>
 
-      <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
+      <div class="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
 
         <!-- Medicare -->
         <a href="learn-medicare.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            Medicare basics and Medicare Advantage
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+            Medicare basics & Medicare Advantage
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            How Medicare works, what it covers, how Medicare Advantage plans differ from traditional
-            Medicare, and what to pay attention to when considering a plan.
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            How Medicare Parts A and B work, what Medicare Advantage is, and why coverage is not the
+            same as long-term care.
           </p>
         </a>
 
         <!-- Medicaid -->
         <a href="learn-medicaid.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
             Medicaid and long-term care
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            How Medicaid eligibility works, what “spend-down” means, what estate recovery is, and
-            why Medicaid often becomes the default plan when other options are not explored early.
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            Core ideas behind eligibility, spend-down, and estate recovery, and how Medicaid can
+            fit into a broader plan instead of becoming the only plan by default.
           </p>
         </a>
 
         <!-- Medication costs -->
         <a href="learn-medication-costs.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
             All about medication costs
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            How the pharmacy and drug distribution model works, where markups happen, and why the
-            same prescription can cost very different amounts depending on where and how it’s filled.
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            Why the same medication can cost different amounts, the roles of PBMs, insurers, and
+            pharmacies, and questions you can ask when filling prescriptions.
           </p>
         </a>
 
-        <!-- Hospice care -->
+        <!-- Hospice -->
         <a href="learn-hospice.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            Hospice care and what it does (and does not) cover
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+            Hospice care & coverage
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            What hospice is designed to do, where it can be provided, what Medicare covers, and why
-            room and board are typically not included — even when someone is in a facility.
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            What hospice is designed to provide, and why hospice usually does not cover room and
+            board in a facility.
           </p>
         </a>
 
-        <!-- Assisted living & memory care -->
+        <!-- Assisted living -->
         <a href="learn-assisted-living.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            Assisted living and memory care
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+            Assisted living & memory care
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            How assisted living and memory care communities operate, what they typically provide,
-            how they are regulated, and how costs are usually structured.
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            What these communities typically offer, how costs are structured, and what to look for
+            when comparing options.
           </p>
         </a>
 
         <!-- Nursing facilities -->
         <a href="learn-nursing-facilities.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            Nursing facilities and skilled care
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+            Nursing facilities & skilled care
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            The difference between rehabilitation stays and long-term placement, how nursing homes
-            are regulated, what CMS star ratings are, and where their limitations are.
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            The difference between short-term rehab and long-term stays, and how public ratings and
+            inspection reports fit into the picture.
           </p>
         </a>
 
         <!-- In-home caregivers -->
         <a href="learn-in-home-caregivers.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            In-home caregivers and home support
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+            In-home caregivers & home support
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            Differences between home health, personal care, and private-duty caregivers — and how
-            ordinary services like meal delivery, transportation, and housekeeping can extend
-            independence without being labeled “long-term care.”
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            Types of in-home services and how ordinary supports like meals, rides, and cleaning can
+            extend independence.
           </p>
         </a>
 
         <!-- Private pay -->
         <a href="learn-private-pay.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            Private pay, savings, and family contributions
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+            Private pay, savings & family contributions
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            How private payments typically work, what families often underestimate, and how family
-            support can be structured in a way that is transparent, sustainable, and fair.
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            Ways families combine income, savings, home equity, and shared contributions—and how to
+            make those arrangements more visible and realistic.
           </p>
         </a>
 
         <!-- VA benefits -->
         <a href="learn-va-benefits.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            VA benefits and support for veterans
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+            VA benefits & support for veterans
           </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            An overview of VA-related programs that may help with health care, long-term care, and
-            support for veterans and their spouses, along with questions to ask when exploring them.
+          <p class="mt-1.5 text-xs sm:text-sm text-slate-700">
+            A high-level orientation to VA health care, long-term care options, caregiver support,
+            and where to look for official guidance.
           </p>
         </a>
 
