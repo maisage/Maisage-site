@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Private pay, savings, and family contributions | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+  <!-- Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParent = "Learn";
+    window.breadcrumbParentLink = "learn.html";
+    window.breadcrumbCurrent = "Private pay, savings, and family contributions";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn · Private Pay
+      </p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Private pay, savings, and family contributions
+      </h1>
+      <p class="text-sm sm:text-base text-slate-700">
+        Many care arrangements are paid for from a mix of sources: monthly income, savings,
+        proceeds from selling a home, and help from family members. Seeing how these pieces fit
+        together can make discussions more concrete and less emotional.
+      </p>
+      <p class="text-xs sm:text-sm text-slate-500">
+        This page does not tell you what you should do. It offers a framework for thinking and
+        talking about who pays what, for how long, and under what conditions.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Common building blocks
+      </h2>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Monthly income (Social Security, pensions, annuities).</li>
+        <li>Savings and investments.</li>
+        <li>Home equity (if a home is sold or borrowed against).</li>
+        <li>Family contributions, either ongoing or short-term.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Each family will weigh these pieces differently. What matters is that everyone understands
+        the general picture and the tradeoffs.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Family help: making it visible
+      </h2>
+      <p class="text-sm text-slate-700">
+        When family members contribute, it can help to:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Write down who is contributing what (money, time, housing, coordination).</li>
+        <li>Talk about how long each contribution is realistic.</li>
+        <li>Consider what happens if one person’s situation changes.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Clear expectations do not remove all stress, but they can reduce misunderstandings and hurt
+        feelings later on.
+      </p>
+    </section>
+
+    <!-- Contact block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+</body>
+</html>
