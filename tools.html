@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
   <title>Tools – Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -18,272 +18,182 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Main Content -->
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-14">
+  <!-- Breadcrumb -->
+  <p class="text-xs text-slate-500 mt-4 mb-2 px-4 sm:px-6 lg:px-8">
+    <a href="index.html" class="hover:text-emerald-700">Home</a>
+    <span class="mx-1">/</span>
+    <span class="text-slate-700">Tools</span>
+  </p>
+
+  <!-- Main content -->
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
 
     <!-- Intro -->
-    <section>
+    <section class="space-y-3">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
         Tools
       </p>
-
-      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
-        Simple tools to make complex decisions easier to see
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Tools to help you see your options more clearly
       </h1>
-
-      <p class="mt-4 text-slate-700 max-w-3xl">
-        These tools are meant to help you organize what you already know, what you’re being told,
-        and what you still need to find out. They don’t replace professional advice or official
-        sources — they help you walk into those conversations more prepared.
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        This page gathers the tools Maisage offers (and is building) to help you understand costs,
+        compare facilities, and navigate choices around aging, care, and support. Everything here is
+        designed to be informational and neutral — no referral fees, no paid placement, and no
+        hidden incentives.
       </p>
-
-      <p class="mt-3 text-slate-700">
-        Many of these can start as printed checklists or simple tables. Over time, some may become
-        interactive calculators or dashboards — but the core idea stays the same:
-        <strong>clear, transparent, and on your side.</strong>
-      </p>
-    </section>
-
-    <!-- How to use the tools -->
-    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">How to use these tools</h2>
-
-      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
-        <li>Use them to see the whole picture on one page — not scattered in emails and notes.</li>
-        <li>Bring them to family meetings, provider visits, or financial reviews.</li>
-        <li>Update them as things change instead of starting from scratch each time.</li>
-      </ul>
-
-      <p class="text-xs text-slate-500">
-        These tools are for planning and clarity. They are not legal, financial, or medical documents.
+      <p class="text-xs sm:text-sm text-slate-500 max-w-3xl">
+        Many of these tools use public data only (from CMS, state health agencies, and other
+        official sources) and simple inputs from you. They are meant to give you a clearer view of
+        tradeoffs and patterns so that decisions feel more informed and less rushed.
       </p>
     </section>
 
-    <!-- Planning & budget tools -->
-    <section class="space-y-3">
-      <h2 class="text-2xl font-semibold text-emerald-900">Planning & budget tools</h2>
+    <!-- Facility-focused tools -->
+    <section class="space-y-4">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Facility data and safety tools
+      </h2>
 
-      <p class="text-slate-700">
-        These tools focus on helping you see how income, expenses, and care costs fit together
-        over time. They don’t tell you what to choose — they help show what each choice might mean.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2 mt-3">
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Monthly Life & Care Budget
-          </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A simple worksheet for listing income, fixed bills, flexible spending,
-            and current or future care costs on one page.
+      <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
+        <!-- Facility Explorer -->
+        <a href="facility-explorer.html"
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+              Facility Explorer – public data on facilities
+            </h3>
+            <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] sm:text-[11px]">
+              Prototype
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700">
+            A hub page for exploring how Maisage can use public data (CMS, state health agencies,
+            and other official records) to help you review and compare facilities. This includes
+            inspection history, staffing patterns, and other key signals.
           </p>
-          <ul class="mt-2 list-disc ml-5 text-xs text-slate-600 space-y-1">
-            <li>Social Security, pension, and other income.</li>
-            <li>Housing, utilities, insurance, and medications.</li>
-            <li>Home help, transportation, and other support costs.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            3–10 Year Planning Snapshot
-          </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A forward-looking view that asks: what if health, housing, or support needs change
-            in 3, 5, or 10 years?
+          <p class="mt-2 text-[11px] text-slate-500">
+            As the platform grows, this area can expand into state-level lists, comparison tables,
+            and watchlists for facilities in your area.
           </p>
-          <ul class="mt-2 list-disc ml-5 text-xs text-slate-600 space-y-1">
-            <li>Current situation vs “if nothing changes.”</li>
-            <li>Early move vs late move into higher-support housing.</li>
-            <li>How long savings might last under different paths.</li>
-          </ul>
-        </div>
+        </a>
 
+        <!-- Facility Safety Signals example -->
+        <a href="facility-safety-example.html"
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <h3 class="text-sm sm:text-base font-semibold text-slate-900">
+              Facility Safety Signals – single-facility view
+            </h3>
+            <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] sm:text-[11px]">
+              Example
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700">
+            A prototype dashboard showing how staffing changes, EMS activity, reportable incidents,
+            and regulatory actions could be combined into a “safety pulse” view for one facility,
+            using only public information.
+          </p>
+          <p class="mt-2 text-[11px] text-slate-500">
+            The data on this page is mocked for illustration, but the structure is ready to be
+            connected to real data later.
+          </p>
+        </a>
       </div>
     </section>
 
-    <!-- Care comparison tools -->
-    <section class="space-y-3">
-      <h2 class="text-2xl font-semibold text-emerald-900">Care path comparison tools</h2>
+    <!-- Planning and cost tools -->
+    <section class="space-y-4">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Planning and cost tools
+      </h2>
 
-      <p class="text-slate-700">
-        These tools help you compare different care options side by side — home support,
-        assisted living, memory care, or nursing facilities — so you can see tradeoffs more clearly.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2 mt-3">
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Home vs Assisted Living Comparison
+      <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
+        <!-- Long-term care / cost planning (future) -->
+        <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50/70 p-4 sm:p-5">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
+            Long-term care and cost planner (coming soon)
           </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A table to compare staying at home with support versus moving into assisted living.
+          <p class="text-xs sm:text-sm text-slate-700">
+            A tool to help you estimate the cost of different paths — staying at home with support,
+            moving to assisted living, or entering a nursing facility — and compare those paths to
+            your income, savings, and family contributions.
           </p>
-          <ul class="mt-2 list-disc ml-5 text-xs text-slate-600 space-y-1">
-            <li>Monthly costs at home versus facility base rates.</li>
-            <li>What’s included vs extra at each option.</li>
-            <li>Impact on independence, social contact, and safety.</li>
-          </ul>
+          <p class="mt-2 text-[11px] text-slate-500">
+            This planner will be based on public cost estimates and simple inputs from you, not on
+            selling any particular product or placement.
+          </p>
         </div>
 
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Scenario Comparison Sheet
+        <!-- Scenarios link -->
+        <a href="scenarios.html"
+           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
+            Family scenarios – see how different paths play out
           </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A worksheet that mirrors the three main scenarios:
-            Medicaid spend-down, family support hybrid, and reverse equity blend.
+          <p class="text-xs sm:text-sm text-slate-700">
+            Walk through example situations (Medicaid spend-down, family-supported hybrid, reverse
+            equity blends) to see how costs, control, and timing change across each approach.
           </p>
-          <ul class="mt-2 list-disc ml-5 text-xs text-slate-600 space-y-1">
-            <li>Summarizes assumptions for each path.</li>
-            <li>Notes likely timeline and main risks.</li>
-            <li>Links back to the <a href="scenarios.html" class="text-emerald-700 hover:underline">Scenarios page</a>.</li>
-          </ul>
-        </div>
-
+          <p class="mt-2 text-[11px] text-slate-500">
+            These are illustrations only — not advice — meant to help you think through tradeoffs
+            before you’re forced to choose in a crisis.
+          </p>
+        </a>
       </div>
     </section>
 
-    <!-- Medication & health info tracking -->
-    <section class="space-y-3">
-      <h2 class="text-2xl font-semibold text-emerald-900">Medication & health information tracking</h2>
+    <!-- Map / geographic tools -->
+    <section class="space-y-4">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Location and availability tools
+      </h2>
 
-      <p class="text-slate-700">
-        These tools are about keeping information coordinated — so you don’t have to start from zero
-        every time someone asks, “What medications are you on?” or “Who is your main doctor?”
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2 mt-3">
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Medication & Pharmacy List
-          </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A simple list you can keep updated and bring to appointments or use
-            when checking medication prices.
-          </p>
-          <ul class="mt-2 list-disc ml-5 text-xs text-slate-600 space-y-1">
-            <li>Drug name, dose, and how/when it’s taken.</li>
-            <li>Prescribing doctor and primary pharmacy.</li>
-            <li>Notes for alternatives or generic options to ask about.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Health & Provider Snapshot
-          </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A one-page summary of key conditions, providers, and emergency information
-            for quick reference.
-          </p>
-          <ul class="mt-2 list-disc ml-5 text-xs text-slate-600 space-y-1">
-            <li>Primary care and key specialists.</li>
-            <li>Major diagnoses and allergies.</li>
-            <li>Preferred hospital or system, if any.</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Conversation & documentation helpers -->
-    <section class="space-y-3">
-      <h2 class="text-2xl font-semibold text-emerald-900">Conversation & documentation helpers</h2>
-
-      <p class="text-slate-700">
-        These tools are about keeping people on the same page — you, your family, and your providers.
-        They don’t replace formal documents, but they help you prepare for them.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2 mt-3">
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Family Meeting Outline
-          </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A simple structure for conversations about support, expectations, and limits.
-          </p>
-          <ul class="mt-2 list-disc ml-5 text-xs text-slate-600 space-y-1">
-            <li>What you want to stay in control of.</li>
-            <li>What support you’re asking for — and what you’re not.</li>
-            <li>How decisions will be revisited as things change.</li>
-          </ul>
-        </div>
-
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            Questions for Professionals
-          </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A reusable list of questions for doctors, social workers, financial planners,
-            and facility staff — with space to record answers.
-          </p>
-          <ul class="mt-2 list-disc ml-5 text-xs text-slate-600 space-y-1">
-            <li>“What does this not include that people assume it does?”</li>
-            <li>“What are common problems families run into with this option?”</li>
-            <li>“What would you recommend if this were your own parent or partner?”</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Future interactive tools note -->
-    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Future interactive tools</h2>
-
-      <p class="text-sm text-slate-700">
-        Over time, some of these worksheets may be offered as interactive calculators or dashboards.
-        Even then, the rules stay the same:
-      </p>
-
-      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
-        <li>Clear assumptions.</li>
-        <li>Transparent logic — no black boxes.</li>
-        <li>Links to underlying public information where possible.</li>
-      </ul>
-
-      <p class="text-xs text-slate-500">
-        Maisage does not store or sell personal financial or medical data. Any future interactive tools
-        will be designed to keep you in control of what you enter and what you share.
-      </p>
-    </section>
-
-    <!-- CTA -->
-    <section
-      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-    >
-      <div>
-        <h3 class="text-xl font-semibold text-emerald-900">
-          Want help choosing which tools to start with?
-        </h3>
-        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
-          You can use the Plan and Scenarios pages to think through your situation,
-          then use the Start Here page if you’d like guidance on which tools fit
-          your stage, your support network, and your priorities.
+      <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50/70 p-4 sm:p-5 text-xs sm:text-sm text-slate-700 space-y-2">
+        <p>
+          In the future, the Living Map section will help you understand how options and costs vary
+          by location — for example, how many facilities accept Medicaid in your area, how assisted
+          living prices shift across regions, and where waitlists are more common.
+        </p>
+        <p class="text-[11px] text-slate-500">
+          For now, this is a placeholder to show where those geographic and “by ZIP code” tools will
+          live once the underlying data is prepared.
+        </p>
+        <p class="text-[11px] text-slate-500">
+          Any maps or location tools added here will continue to rely on public data and clearly
+          describe their sources and limitations.
         </p>
       </div>
+    </section>
 
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a
-          href="plan.html"
-          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
-        >
-          Go to Plan
-        </a>
-        <a
-          href="start-here.html"
-          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
-        >
-          Start Here
-        </a>
+    <!-- Neutrality / transparency reminder -->
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Why these tools exist
+      </h2>
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 text-xs sm:text-sm text-slate-700 space-y-2">
+        <p>
+          Most tools in the aging and care space are tied, directly or indirectly, to placement fees,
+          referral contracts, or product sales. Maisage is built to be different: the tools here are
+          meant to help you see how systems and options really work, using public information and
+          simple, transparent calculations.
+        </p>
+        <p>
+          These tools do not decide for you. They are here to support your judgment, your values, and
+          your pace — and to give your family a clearer shared picture when you’re ready to bring
+          them in.
+        </p>
       </div>
     </section>
+
+    <!-- Contact / navigation block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
 
   </main>
 
