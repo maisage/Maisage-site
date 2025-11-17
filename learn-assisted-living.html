@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Assisted living and memory care | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+  <!-- Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParent = "Learn";
+    window.breadcrumbParentLink = "learn.html";
+    window.breadcrumbCurrent = "Assisted living and memory care";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+    <section class="space-y-3">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Learn · Assisted Living
+      </p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Assisted living and memory care
+      </h1>
+      <p class="text-sm sm:text-base text-slate-700">
+        Assisted living and memory care communities are designed to provide housing, meals, and
+        help with daily activities, with varying levels of support and supervision. They are not the
+        same as nursing homes, and they are often paid for differently.
+      </p>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Regulations, services, and costs vary widely by state and by community. This page focuses on
+        patterns to pay attention to when you are comparing options.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        What assisted living typically offers
+      </h2>
+      <p class="text-sm text-slate-700">
+        Many assisted living communities include:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>A private or semi-private apartment or room.</li>
+        <li>Meals, housekeeping, and basic maintenance.</li>
+        <li>Help with daily activities such as bathing, dressing, or medication reminders.</li>
+        <li>Social activities, transportation options, and on-site staff availability.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Memory care units are usually designed for people living with dementia and may have higher
+        supervision, secure environments, and different staffing patterns.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        How costs are often structured
+      </h2>
+      <p class="text-sm text-slate-700">
+        Assisted living and memory care are often paid for privately, with:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>A base monthly rate (housing, basic services).</li>
+        <li>Additional charges for higher levels of care or extra services.</li>
+        <li>Separate fees for things like transportation, supplies, or special programs.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Understanding what is included in the base rate versus billed separately can make a big
+        difference when comparing communities.
+      </p>
+    </section>
+
+    <!-- Contact block -->
+    <div id="contact-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('contact-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+</body>
+</html>
