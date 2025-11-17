@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Facility Safety Signals – Maisage</title>
+  <title>Example facility Safety Pulse | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -18,201 +18,79 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Breadcrumb -->
-  <p class="text-xs text-slate-500 mt-4 mb-2 px-4 sm:px-6 lg:px-8">
-    <a href="index.html" class="hover:text-emerald-700">Home</a>
-    <span class="mx-1">/</span>
-    <span class="text-slate-700">Facility Safety Signals (Example)</span>
-  </p>
+  <!-- Shared Breadcrumb: Home / Facility Insights / Example Facility -->
+  <script>
+    window.breadcrumbParent = "Facility Insights";
+    window.breadcrumbParentLink = "facility-explorer.html";
+    window.breadcrumbCurrent = "Example Facility Safety Pulse";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
 
   <!-- Main content -->
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
 
     <!-- Intro -->
     <section class="space-y-3">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Tools · Prototype
+        Facility Insights · Example
       </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Facility Safety Signals – Example View
+        Example Facility Safety Pulse (mock data)
       </h1>
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        This example shows how Maisage could combine weekly and monthly public data into a simple
-        view for one facility. The numbers here are sample values, not live data. The goal is to
-        help families see patterns that matter, not just star ratings.
+      <p class="text-sm sm:text-base text-slate-700">
+        This page shows a mock “Safety Pulse” view for a fictional facility. It is here to
+        illustrate how different pieces of public information could be combined into a single,
+        readable snapshot — not to represent any real-world location.
       </p>
-      <p class="text-xs sm:text-sm text-slate-500 max-w-3xl">
-        All information would come from public sources such as CMS, state health agencies, EMS / fire
-        logs, police call logs, and court records. No resident-level information or private health data
-        is used.
+      <p class="text-xs sm:text-sm text-slate-500">
+        In a live system, these views would be built from actual state and CMS data, refreshed
+        regularly, and clearly annotated with data sources and update dates.
       </p>
     </section>
 
-    <!-- Facility header card -->
-    <section>
-      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div class="space-y-1">
-          <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-            Example Heights Care Center
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Houston, TX 77008 · Skilled Nursing Facility (SNF) · Medicare &amp; Medicaid certified
-          </p>
-          <p class="text-xs sm:text-sm text-slate-500">
-            <span class="font-semibold text-slate-700">Current overall CMS rating:</span> 3 ★ (context only – see safety signals below)
-          </p>
-        </div>
-        <div class="mt-2 sm:mt-0 text-xs sm:text-sm text-right space-y-1">
-          <p class="font-semibold text-slate-700">Maisage Safety Pulse (example)</p>
-          <p class="inline-flex items-center rounded-full bg-amber-50 text-amber-800 px-3 py-1 text-[11px] sm:text-xs border border-amber-200">
-            ● Watch – mixed signals, ask questions
-          </p>
-          <p class="text-[11px] text-slate-500">
-            Last updated: Feb 2025 (mock data)
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Signal categories grid -->
-    <section class="grid gap-4 sm:gap-6 md:grid-cols-2">
-      <!-- Staffing stability -->
-      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-2">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
-            Staffing stability
-          </h3>
-          <span class="inline-flex items-center rounded-full bg-red-50 text-red-700 border border-red-200 px-2 py-0.5 text-[11px]">
-            High concern
-          </span>
-        </div>
-        <ul class="text-xs sm:text-sm text-slate-700 space-y-1.5">
-          <li><span class="font-medium">RN hours:</span> 0.49 hrs/resident/day (down from 0.78 three months ago).</li>
-          <li><span class="font-medium">Total nurse staffing:</span> 3.1 hrs/resident/day (below state average).</li>
-          <li><span class="font-medium">Weekend coverage:</span> consistently lower than weekdays.</li>
-          <li><span class="font-medium">Turnover:</span> high nurse aide turnover in past 12 months.</li>
-        </ul>
-        <p class="mt-2 text-[11px] text-slate-500">
-          <strong>Why it matters:</strong> Sudden staffing drops often show up weeks or months before
-          formal inspection reports or star rating changes.
-        </p>
-      </div>
-
-      <!-- Emergency activity -->
-      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-2">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
-            EMS / emergency activity
-          </h3>
-          <span class="inline-flex items-center rounded-full bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 text-[11px]">
-            Elevated
-          </span>
-        </div>
-        <ul class="text-xs sm:text-sm text-slate-700 space-y-1.5">
-          <li><span class="font-medium">EMS calls (last 30 days):</span> 12 (↑ from 4 in the prior 30 days).</li>
-          <li><span class="font-medium">Common reasons:</span> falls with injury, breathing problems, unresponsive resident.</li>
-          <li><span class="font-medium">Fire / alarm calls:</span> 2 triggered evacuations, no fire damage reported.</li>
-        </ul>
-        <p class="mt-2 text-[11px] text-slate-500">
-          <strong>Why it matters:</strong> Frequent 911 calls may mean residents are not being monitored
-          or supported early enough to prevent emergencies.
-        </p>
-      </div>
-
-      <!-- Reportable incidents -->
-      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-2">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
-            Serious reportable incidents
-          </h3>
-          <span class="inline-flex items-center rounded-full bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 text-[11px]">
-            Mixed
-          </span>
-        </div>
-        <ul class="text-xs sm:text-sm text-slate-700 space-y-1.5">
-          <li><span class="font-medium">State incident reports (90 days):</span> 4 filed with state health agency.</li>
-          <li><span class="font-medium">Types (example):</span> 1 suspected neglect, 1 elopement, 2 significant falls.</li>
-          <li><span class="font-medium">Abuse / neglect findings:</span> no substantiated abuse in past 12 months, 1 neglect finding 18 months ago.</li>
-        </ul>
-        <p class="mt-2 text-[11px] text-slate-500">
-          <strong>Why it matters:</strong> State incident reports often appear before full inspection
-          reports and can show patterns of risk.
-        </p>
-      </div>
-
-      <!-- Regulatory & legal -->
-      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-2">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900">
-            Regulatory &amp; legal actions
-          </h3>
-          <span class="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 text-[11px]">
-            Stable
-          </span>
-        </div>
-        <ul class="text-xs sm:text-sm text-slate-700 space-y-1.5">
-          <li><span class="font-medium">CMS enforcement:</span> no current fines or payment bans reported in the past 12 months.</li>
-          <li><span class="font-medium">Ownership:</span> no ownership changes in past 3 years.</li>
-          <li><span class="font-medium">Court filings:</span> no new public negligence or wrongful death cases in the last 12 months (example).</li>
-        </ul>
-        <p class="mt-2 text-[11px] text-slate-500">
-          <strong>Why it matters:</strong> Patterns of fines, ownership changes, and repeated lawsuits can
-          point to deeper stability or culture issues.
-        </p>
-      </div>
-    </section>
-
-    <!-- Inspection / annual context -->
+    <!-- Safety Pulse summary -->
     <section class="space-y-3">
-      <h2 class="text-sm sm:text-base font-semibold text-slate-900">
-        Annual inspection and quality context
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Safety Pulse overview
       </h2>
-      <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5 space-y-2 text-xs sm:text-sm text-slate-700">
-        <p>
-          <span class="font-medium">Most recent full health inspection (example):</span>
-          October 2023 · 8 total deficiencies · none at harm (G–L) level.
-        </p>
-        <p>
-          <span class="font-medium">Key areas cited:</span>
-          care planning, documentation, and call light response times.
-        </p>
-        <p>
-          <span class="font-medium">Quality measures (summary):</span>
-          hospital readmissions are slightly above state average; pressure ulcers and falls with major
-          injury are within average range.
-        </p>
-        <p class="text-[11px] text-slate-500">
-          These annual and quarterly measures are helpful background, but they often reflect problems
-          months after they start. Weekly and monthly signals above can give earlier warning.
-        </p>
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-2 text-xs sm:text-sm text-slate-700">
+        <p><span class="font-medium">Staffing trend:</span> Stable RN coverage on weekdays, slightly lower on weekends, no prolonged gaps in the past 12 months.</p>
+        <p><span class="font-medium">Inspection history:</span> Recent inspection with a small number of non-harm-level deficiencies, all noted as corrected.</p>
+        <p><span class="font-medium">Incident signals:</span> Occasional state-reportable events, but no recent pattern of repeated harm-level incidents.</p>
+        <p><span class="font-medium">Regulatory actions:</span> No current payment denials or active enforcement actions in the last reporting period.</p>
       </div>
     </section>
 
-    <!-- Guidance to families -->
+    <!-- How to use a view like this -->
     <section class="space-y-3">
-      <h2 class="text-sm sm:text-base font-semibold text-slate-900">
-        How to use this kind of information
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        How a Safety Pulse view could help you
       </h2>
-      <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 space-y-2 text-xs sm:text-sm text-slate-700">
-        <p>
-          This type of view is meant to help you ask better questions, not to make decisions for you.
-          Even when signals look concerning, you can still visit, observe, and speak directly with staff
-          and leadership.
-        </p>
-        <ul class="list-disc pl-5 space-y-1.5">
-          <li>Ask about recent staffing changes and how they’re being addressed.</li>
-          <li>Ask how the facility reviews emergency calls and prevents repeat events.</li>
-          <li>Ask how incidents are reported to the state and what was done afterward.</li>
-          <li>Ask how leadership monitors patterns over time, not just individual events.</li>
-        </ul>
-        <p class="text-[11px] text-slate-500">
-          Maisage’s goal is to filter and translate public information so you can see patterns that
-          matter and feel more prepared, not more frightened.
-        </p>
-      </div>
+      <p class="text-sm text-slate-700">
+        A view like this does not replace a visit, conversations with staff, or advice from
+        professionals. Instead, it might help you:
+      </p>
+      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Decide which facilities to visit first.</li>
+        <li>Prepare more focused questions about staffing, incidents, or changes in ownership.</li>
+        <li>Monitor whether patterns are improving, staying stable, or becoming more concerning over time.</li>
+      </ul>
+      <p class="text-xs sm:text-sm text-slate-500">
+        In the future, Maisage could allow you to track facilities over time, create shortlists, and
+        receive simple alerts when public information changes in meaningful ways.
+      </p>
     </section>
 
-    <!-- Optional contact block reuse -->
+    <!-- Contact / navigation block -->
     <div id="contact-block"></div>
     <script>
       fetch('contact-block.html')
