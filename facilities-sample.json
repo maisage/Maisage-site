@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Oakview Care Center (sample)",
+    "city": "Houston",
+    "state": "TX",
+    "type": "Nursing facility",
+    "beds": 120,
+    "medicaidPercent": 68,
+    "lastInspection": "2024-10-15",
+    "safetyPulse": "green",
+    "safetyNote": "No recent enforcement actions; staffing near state average."
+  },
+  {
+    "name": "Bayou Gardens (sample)",
+    "city": "Houston",
+    "state": "TX",
+    "type": "Assisted living",
+    "beds": 80,
+    "medicaidPercent": 25,
+    "lastInspection": "2024-07-02",
+    "safetyPulse": "yellow",
+    "safetyNote": "Mixed inspection history; staffing dips and above-average complaints."
+  }
+]
