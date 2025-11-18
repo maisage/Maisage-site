@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Facility Insights dashboard (JSON test) | Maisage</title>
+  <title>Facility Insights dashboard | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -18,11 +18,11 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Breadcrumb -->
+  <!-- Breadcrumb: Home / Facility Insights / Facility Insights dashboard -->
   <script>
     window.breadcrumbParentLabel = "Facility Insights";
     window.breadcrumbParentHref = "facility-insights.html";
-    window.breadcrumbCurrent = "Facility Insights (JSON demo)";
+    window.breadcrumbCurrent = "Facility Insights dashboard";
   </script>
   <div id="breadcrumb"></div>
   <script>
@@ -35,26 +35,119 @@
       .catch(err => console.error("Breadcrumb failed to load:", err));
   </script>
 
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+  <!-- Main content -->
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10">
 
-    <section class="space-y-3 max-w-3xl">
+    <!-- Hero / Intro -->
+    <section class="space-y-4 max-w-3xl">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Facility Insights – JSON demo
+        Facility Insights dashboard
       </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Facilities loaded from JSON (sample)
+        Facility Insights dashboard – facilities near you
       </h1>
-      <p class="text-xs sm:text-sm text-slate-700">
-        This page shows how facility rows can be generated automatically from a JSON file instead of
-        being hard-coded into HTML.
+      <p class="text-sm sm:text-base text-slate-700">
+        This page shows how Maisage could organize facilities in your area using public data — inspections,
+        staffing, complaints, enforcement actions, and ownership stability — so you can decide where to look
+        closer and what to ask when you visit.
       </p>
-      <p class="text-[11px] text-slate-500">
-        Data source: <code>facilities-sample.json</code> in this repository.
+      <p class="text-[11px] sm:text-xs text-slate-500">
+        The table below is powered by a JSON file (<code>facility-sample.json</code>) in this repository.
+        In a live version, each row would reflect current CMS and state data.
       </p>
     </section>
 
-    <!-- Table shell -->
+    <!-- Filters (static for now) -->
     <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Filter facilities by area and type
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-700 max-w-3xl">
+        These filters show how you might narrow the search around your ZIP code and needs. In this mock,
+        they do not change the sample table yet.
+      </p>
+
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3 text-xs sm:text-sm">
+        <div class="grid gap-4 sm:grid-cols-4">
+          <div class="space-y-1">
+            <label class="block font-medium text-slate-800">ZIP code</label>
+            <input
+              type="text"
+              inputmode="numeric"
+              placeholder="e.g., 77008"
+              class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600"
+            />
+          </div>
+          <div class="space-y-1">
+            <label class="block font-medium text-slate-800">Radius</label>
+            <select class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600">
+              <option>10 miles</option>
+              <option>25 miles</option>
+              <option>50 miles</option>
+              <option>State-wide</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="block font-medium text-slate-800">Facility type</label>
+            <select class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600">
+              <option>All types</option>
+              <option>Nursing facility (NF/SNF)</option>
+              <option>Assisted living</option>
+              <option>Memory care</option>
+              <option>Inpatient rehab</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="block font-medium text-slate-800">Payer mix focus</label>
+            <select class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600">
+              <option>Any mix</option>
+              <option>High Medicaid %</option>
+              <option>Mostly private pay</option>
+              <option>Mixed payer types</option>
+            </select>
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-500">
+          In the future, these filters can drive real queries against the JSON-backed dataset.
+        </p>
+      </div>
+    </section>
+
+    <!-- Safety Pulse legend -->
+    <section class="space-y-2 max-w-3xl">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Safety Pulse – quick color guide
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-700">
+        Each facility row includes a Safety Pulse indicator. It summarizes patterns in public data and is
+        meant to guide where you look closer — not to make the decision for you.
+      </p>
+      <div class="grid gap-3 sm:grid-cols-3 text-xs sm:text-sm">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1">
+          <p class="font-semibold text-slate-900">🟩 Generally stable</p>
+          <p class="text-slate-700">No unusual patterns in inspections, staffing, or enforcement.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1">
+          <p class="font-semibold text-slate-900">🟨 Mixed signals</p>
+          <p class="text-slate-700">Some signals suggest a closer look, like repeat citations or staffing dips.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1">
+          <p class="font-semibold text-slate-900">🟥 Elevated concern</p>
+          <p class="text-slate-700">Recent or repeated issues; deserves careful review and specific questions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facility list table (JSON-driven) -->
+    <section class="space-y-3">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Facilities in your current view
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-700 max-w-3xl">
+        These rows are generated from <code>facility-sample.json</code>. As you refine the data file,
+        this table will update automatically without editing the HTML.
+      </p>
+
       <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
         <table class="min-w-full text-xs sm:text-sm">
           <thead class="bg-slate-50 text-slate-700">
@@ -66,6 +159,7 @@
               <th class="px-3 py-2 text-right font-medium">% Medicaid</th>
               <th class="px-3 py-2 text-left font-medium">Last inspection</th>
               <th class="px-3 py-2 text-left font-medium">Safety Pulse</th>
+              <th class="px-3 py-2 text-right font-medium">Details</th>
             </tr>
           </thead>
           <tbody id="facility-rows" class="divide-y divide-slate-100">
@@ -77,7 +171,20 @@
       <p id="facility-error" class="text-[11px] text-red-600 hidden">
         There was a problem loading the facility data. Please check the JSON file name and path.
       </p>
+
+      <p class="text-[11px] sm:text-xs text-slate-500 max-w-3xl">
+        In a future implementation, each detail link can point to a facility-specific page generated from
+        the same JSON data, using the facility detail template.
+      </p>
     </section>
+
+    <!-- Light inline CTA -->
+    <p class="text-center text-xs sm:text-sm text-slate-600 mt-8">
+      Need help making sense of facility patterns for your family?
+      <a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a>
+      or
+      <a href="contact.html" class="text-emerald-700 hover:underline">contact Maisage</a>.
+    </p>
 
   </main>
 
@@ -97,19 +204,18 @@
       const errorEl = document.getElementById('facility-error');
 
       try {
-        const res = await fetch('facilities-sample.json');
+        // This must match your JSON filename exactly
+        const res = await fetch('facility-sample.json');
         if (!res.ok) throw new Error('HTTP ' + res.status);
 
         const facilities = await res.json();
 
-        // Clear existing rows just in case
         tbody.innerHTML = '';
 
         facilities.forEach(fac => {
           const tr = document.createElement('tr');
           tr.className = 'hover:bg-slate-50';
 
-          // Safety Pulse label based on safetyPulse field
           let safetyLabel = '';
           let badgeClass = '';
 
@@ -151,24 +257,4 @@
                 <span class="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-medium ${badgeClass}">
                   ${safetyLabel}
                 </span>
-                <span class="text-[11px] text-slate-600">
-                  ${fac.safetyNote || ''}
-                </span>
-              </div>
-            </td>
-          `;
-
-          tbody.appendChild(tr);
-        });
-
-      } catch (err) {
-        console.error('Error loading facilities:', err);
-        if (errorEl) errorEl.classList.remove('hidden');
-      }
-    }
-
-    loadFacilities();
-  </script>
-
-</body>
-</html>
+                <span class="text-[
