@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Facility Insights – Example Facility | Maisage</title>
+  <title>Facility Detail Template | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -18,11 +18,11 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Breadcrumb: Home / Facility Insights / Facility Insights dashboard / Example Facility -->
+  <!-- Breadcrumb: Home / Facility Insights / Facility Insights dashboard / Facility detail -->
   <script>
     window.breadcrumbParentLabel = "Facility Insights dashboard";
     window.breadcrumbParentHref = "facility-explorer.html";
-    window.breadcrumbCurrent = "Example facility";
+    window.breadcrumbCurrent = "Facility detail";
   </script>
   <div id="breadcrumb"></div>
   <script>
@@ -38,329 +38,158 @@
   <!-- Main content -->
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10">
 
-    <!-- Header / facility identity -->
+    <!-- Facility identity -->
     <section class="space-y-3">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Facility Insights – example facility (mock)
+        Facility Insights – template
       </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Oakview Care Center (sample) – Houston, TX
+        [Facility Name Placeholder] — [City, State Placeholder]
       </h1>
       <p class="text-xs sm:text-sm text-slate-600 max-w-3xl">
-        This page shows a mock layout for how Maisage could present a deeper, facility-level view using
-        publicly available data (CMS and state inspection records). All names and values below are placeholders.
-      </p>
-      <p class="text-[11px] text-slate-500 max-w-3xl">
-        In a real deployment, this page would be populated from current public datasets and clearly date-stamped.
-        Maisage would not add scores or ratings — only organize and summarize the data so you can ask better questions.
+        This is a template layout for generating individual facility pages using publicly available data.
+        Replace all placeholder items with actual information from CMS and your state's inspection
+        datasets when you create a real facility page.
       </p>
     </section>
 
-    <!-- Safety Pulse overview -->
+    <!-- Safety Pulse placeholder -->
     <section class="space-y-4">
-      <div class="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <div class="space-y-1.5">
-          <p class="text-xs font-semibold uppercase tracking-wide text-emerald-900">
-            Safety Pulse – overall pattern (mock)
-          </p>
-          <p class="inline-flex items-center gap-2 text-base sm:text-lg font-semibold text-emerald-900">
-            🟨 Moderately elevated signals
-          </p>
-          <p class="text-xs sm:text-sm text-emerald-900/80 max-w-xl">
-            Public indicators for this sample facility show mixed patterns in inspections and staffing.
-            This does not mean the facility is unsafe — it means a more detailed review and specific questions
-            are recommended.
-          </p>
-        </div>
-        <div class="text-[11px] sm:text-xs text-emerald-900/80">
-          <p class="font-semibold mb-1">What this is:</p>
-          <ul class="list-disc pl-4 space-y-0.5">
-            <li>A color summary of public data patterns</li>
-            <li>Based on inspections, staffing, complaints, and ownership records</li>
-          </ul>
-          <p class="font-semibold mt-2 mb-1">What this is not:</p>
-          <ul class="list-disc pl-4 space-y-0.5">
-            <li>A grade or star rating</li>
-            <li>Advice to choose or avoid any facility</li>
-          </ul>
-        </div>
+      <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5 space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-wide text-slate-800">
+          Safety Pulse – overall pattern
+        </p>
+
+        <!-- Placeholder indicator -->
+        <p class="inline-flex items-center gap-2 text-base sm:text-lg font-semibold text-slate-700">
+          [Choose 🟩 / 🟨 / 🟥 when adding real data]
+        </p>
+
+        <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
+          Replace this text with a summary of the overall pattern you see in public indicators:
+          inspections, staffing, complaints, enforcement activity, and ownership history.
+        </p>
       </div>
     </section>
 
-    <!-- Grid of detailed sections -->
+    <!-- Detailed sections -->
     <section class="space-y-8">
 
       <!-- Inspection patterns -->
       <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3">
-        <div class="flex items-start justify-between gap-3">
-          <div>
-            <h2 class="text-base sm:text-lg font-semibold text-slate-900">
-              Inspection patterns (mock)
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
-              A summary of recent health inspections and citation patterns reported in public records.
-            </p>
-          </div>
-          <span class="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-[11px] font-medium text-amber-800">
-            🟨 Mixed signals
-          </span>
-        </div>
+        <h2 class="text-base sm:text-lg font-semibold text-slate-900">
+          Inspection patterns
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
+          Replace with summary of the most recent inspections.
+        </p>
 
-        <div class="grid gap-3 sm:grid-cols-2 text-xs sm:text-sm text-slate-700">
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Last standard health inspection: <strong>2024-10-15</strong> (mock)</li>
-            <li>Total citations at last inspection: <strong>10</strong> (medium range)</li>
-            <li>Harm-level findings in last 3 years: <strong>1</strong> (isolated incident)</li>
-            <li>Repeat citation area: <strong>infection control</strong></li>
-          </ul>
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>No immediate-jeopardy status reported in the last survey cycle (mock).</li>
-            <li>Complaint-driven inspections: <strong>2</strong> in the last 24 months.</li>
-            <li>All cited issues listed as “corrected” in follow-up documentation.</li>
-          </ul>
-        </div>
-
-        <div class="border-t border-slate-100 pt-3 mt-2">
-          <p class="text-[11px] font-semibold text-slate-900 mb-1">
-            Questions you may want to ask about inspections:
-          </p>
-          <ul class="list-disc pl-5 text-[11px] sm:text-xs text-slate-700 space-y-1.5">
-            <li>“What changes did you make after your most recent inspection?”</li>
-            <li>“Have any issues come up again since they were marked corrected?”</li>
-            <li>“Can you explain how you monitor infection control on nights and weekends?”</li>
-          </ul>
-        </div>
+        <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1.5">
+          <li>Last standard inspection: <strong>[Date]</strong></li>
+          <li>Total citations: <strong>[Number]</strong></li>
+          <li>Harm-level citations (past 3 years): <strong>[Number]</strong></li>
+          <li>Repeat issues: <strong>[Area/None]</strong></li>
+        </ul>
       </div>
 
       <!-- Staffing signals -->
       <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3">
-        <div class="flex items-start justify-between gap-3">
-          <div>
-            <h2 class="text-base sm:text-lg font-semibold text-slate-900">
-              Staffing signals (mock)
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
-              How reported staffing compares with state norms, including RN coverage, CNA support, and reliance
-              on agency staff.
-            </p>
-          </div>
-          <span class="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-[11px] font-medium text-amber-800">
-            🟨 Yellow–red mix
-          </span>
-        </div>
+        <h2 class="text-base sm:text-lg font-semibold text-slate-900">
+          Staffing signals
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
+          Replace with summary of how staffing compares to state averages.
+        </p>
 
-        <div class="grid gap-3 sm:grid-cols-2 text-xs sm:text-sm text-slate-700">
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>RN hours per resident per day: <strong>below state average</strong> (mock)</li>
-            <li>CNA hours per resident: <strong>slightly below state average</strong></li>
-            <li>Weekend staffing: reported dips compared with weekdays</li>
-          </ul>
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Agency/contract nurse usage: <strong>high</strong> (approx. 40%, mock)</li>
-            <li>Recent staffing alerts submitted to regulators: <strong>yes</strong> (mock)</li>
-            <li>Administrator tenure: <strong>under 2 years</strong> at this facility</li>
-          </ul>
-        </div>
-
-        <div class="border-t border-slate-100 pt-3 mt-2">
-          <p class="text-[11px] font-semibold text-slate-900 mb-1">
-            Questions you may want to ask about staffing:
-          </p>
-          <ul class="list-disc pl-5 text-[11px] sm:text-xs text-slate-700 space-y-1.5">
-            <li>“What does a typical weekday and weekend staffing pattern look like?”</li>
-            <li>“How many permanent nurses and CNAs are assigned to this unit on nights?”</li>
-            <li>“What is your plan to reduce reliance on agency staff, if any?”</li>
-          </ul>
-        </div>
+        <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1.5">
+          <li>RN hours per resident: <strong>[Value]</strong></li>
+          <li>CNA hours per resident: <strong>[Value]</strong></li>
+          <li>Agency staff use: <strong>[Percentage]</strong></li>
+          <li>Weekend vs weekday staffing: <strong>[Comment]</strong></li>
+        </ul>
       </div>
 
       <!-- Complaints & incidents -->
       <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3">
-        <div class="flex items-start justify-between gap-3">
-          <div>
-            <h2 class="text-base sm:text-lg font-semibold text-slate-900">
-              Complaints & incident activity (mock)
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
-              Complaint-driven investigations and incident-related findings based on public records.
-            </p>
-          </div>
-          <span class="inline-flex items-center rounded-full bg-rose-50 px-3 py-1 text-[11px] font-medium text-rose-800">
-            🟥 Elevated concern
-          </span>
-        </div>
+        <h2 class="text-base sm:text-lg font-semibold text-slate-900">
+          Complaints & incident activity
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
+          Replace with summary of complaint-driven investigations and substantiated issues.
+        </p>
 
-        <div class="grid gap-3 sm:grid-cols-2 text-xs sm:text-sm text-slate-700">
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Substantiated complaints (last 12 months): <strong>5</strong> (above typical range, mock)</li>
-            <li>Complaint-driven investigations: <strong>3</strong></li>
-            <li>Primary themes: communication delays, call light response, staff availability</li>
-          </ul>
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Enforcement penalties: <strong>1 civil monetary penalty</strong> in last 24 months</li>
-            <li>Corrective action plans submitted and accepted (mock)</li>
-            <li>No current payment suspensions reported</li>
-          </ul>
-        </div>
-
-        <div class="border-t border-slate-100 pt-3 mt-2">
-          <p class="text-[11px] font-semibold text-slate-900 mb-1">
-            Questions you may want to ask about complaints:
-          </p>
-          <ul class="list-disc pl-5 text-[11px] sm:text-xs text-slate-700 space-y-1.5">
-            <li>“What changes have you made in response to recent complaints?”</li>
-            <li>“How can residents and families raise concerns without fear of retaliation?”</li>
-            <li>“Can you show me how you track and resolve complaints internally?”</li>
-          </ul>
-        </div>
+        <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1.5">
+          <li>Substantiated complaints (last 12 months): <strong>[Number]</strong></li>
+          <li>Enforcement penalties: <strong>[Details]</strong></li>
+          <li>Patterns in complaints: <strong>[Themes]</strong></li>
+        </ul>
       </div>
 
       <!-- Ownership & stability -->
       <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3">
-        <div class="flex items-start justify-between gap-3">
-          <div>
-            <h2 class="text-base sm:text-lg font-semibold text-slate-900">
-              Ownership & stability (mock)
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
-              Who operates the facility, how often ownership changes, and how stable leadership appears to be.
-            </p>
-          </div>
-          <span class="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-[11px] font-medium text-amber-800">
-            🟨 Mixed stability
-          </span>
-        </div>
+        <h2 class="text-base sm:text-lg font-semibold text-slate-900">
+          Ownership & stability
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
+          Replace with ownership, chain affiliation, and leadership stability details.
+        </p>
 
-        <div class="grid gap-3 sm:grid-cols-2 text-xs sm:text-sm text-slate-700">
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Ownership type: <strong>multi-facility chain</strong> (mock)</li>
-            <li>Number of facilities in portfolio: <strong>12</strong></li>
-            <li>Last ownership change: <strong>2022</strong></li>
-          </ul>
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Administrator turnover: <strong>2 administrators in 5 years</strong> (mock)</li>
-            <li>No current license revocation actions reported</li>
-            <li>Some facilities in portfolio with mixed inspection histories</li>
-          </ul>
-        </div>
-
-        <div class="border-t border-slate-100 pt-3 mt-2">
-          <p class="text-[11px] font-semibold text-slate-900 mb-1">
-            Questions you may want to ask about ownership:
-          </p>
-          <ul class="list-disc pl-5 text-[11px] sm:text-xs text-slate-700 space-y-1.5">
-            <li>“What improvements were made after the last ownership change?”</li>
-            <li>“How long has the current administrator and director of nursing been in place?”</li>
-            <li>“How do you respond when other buildings in your chain have issues?”</li>
-          </ul>
-        </div>
+        <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1.5">
+          <li>Ownership type: <strong>[Chain/Nonprofit/For-profit]</strong></li>
+          <li>Administrator tenure: <strong>[Years]</strong></li>
+          <li>Past ownership changes: <strong>[Details]</strong></li>
+        </ul>
       </div>
 
       <!-- Quality & outcomes -->
       <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3">
-        <div class="flex items-start justify-between gap-3">
-          <div>
-            <h2 class="text-base sm:text-lg font-semibold text-slate-900">
-              Quality & outcomes (mock)
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
-              Selected clinical and outcome-related indicators where public data is available.
-            </p>
-          </div>
-          <span class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-medium text-emerald-800">
-            🟩 No major pattern of concern
-          </span>
-        </div>
+        <h2 class="text-base sm:text-lg font-semibold text-slate-900">
+          Quality & outcomes
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
+          Replace with any clinical outcome indicators available in public data.
+        </p>
 
-        <div class="grid gap-3 sm:grid-cols-2 text-xs sm:text-sm text-slate-700">
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Hospitalizations: within state norms for similar facilities (mock)</li>
-            <li>Emergency room transfers: within expected range</li>
-            <li>Reported pressure ulcers: no significant pattern of concern</li>
-          </ul>
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Falls with major injury: no recurring pattern reported</li>
-            <li>Infection-related hospitalizations: slightly elevated during seasonal peaks</li>
-            <li>Vaccination rates: aligned with state benchmarks (mock)</li>
-          </ul>
-        </div>
-
-        <div class="border-t border-slate-100 pt-3 mt-2">
-          <p class="text-[11px] font-semibold text-slate-900 mb-1">
-            Questions you may want to ask about outcomes:
-          </p>
-          <ul class="list-disc pl-5 text-[11px] sm:text-xs text-slate-700 space-y-1.5">
-            <li>“How do you track falls, pressure ulcers, and infections over time?”</li>
-            <li>“What happens when a resident has a sudden change in condition?”</li>
-            <li>“How quickly are families notified if something goes wrong?”</li>
-          </ul>
-        </div>
+        <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1.5">
+          <li>Hospitalizations: <strong>[Comment]</strong></li>
+          <li>Emergency transfers: <strong>[Comment]</strong></li>
+          <li>Pressure ulcers: <strong>[Comment]</strong></li>
+          <li>Falls with injury: <strong>[Comment]</strong></li>
+        </ul>
       </div>
 
       <!-- Beds & payer mix -->
       <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3">
-        <div class="flex items-start justify-between gap-3">
-          <div>
-            <h2 class="text-base sm:text-lg font-semibold text-slate-900">
-              Beds & payer mix (capacity view – mock)
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
-              How the facility’s licensed bed capacity is structured on paper — Medicaid, Medicare, and
-              estimated private-pay. This does not show today’s occupancy or open beds.
-            </p>
-          </div>
-          <span class="inline-flex items-center rounded-full bg-slate-50 px-3 py-1 text-[11px] font-medium text-slate-800">
-            📊 Capacity snapshot
-          </span>
-        </div>
+        <h2 class="text-base sm:text-lg font-semibold text-slate-900">
+          Beds & payer mix (capacity view)
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-700 max-w-xl">
+          Replace with licensed beds and certification categories.
+        </p>
 
-        <div class="grid gap-3 sm:grid-cols-2 text-xs sm:text-sm text-slate-700">
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Licensed beds (state license): <strong>120</strong> (mock)</li>
-            <li>Medicaid-certified beds (CMS): <strong>80</strong></li>
-            <li>Medicare SNF beds (CMS): <strong>40</strong></li>
-          </ul>
-          <ul class="list-disc pl-5 space-y-1.5">
-            <li>Estimated private-pay capacity: about <strong>40 beds</strong></li>
-            <li>State Veterans Home: <strong>No</strong> (not listed as a State Veterans Home)</li>
-            <li>Real-time occupancy and wait lists: typically only available by calling the facility</li>
-          </ul>
-        </div>
-
-        <div class="border-t border-slate-100 pt-3 mt-2">
-          <p class="text-[11px] font-semibold text-slate-900 mb-1">
-            How families can use this view:
-          </p>
-          <ul class="list-disc pl-5 text-[11px] sm:text-xs text-slate-700 space-y-1.5">
-            <li>Understand whether the facility leans more toward Medicaid, short-term Medicare rehab, or private-pay.</li>
-            <li>Ask how many Medicaid beds are typically available, and how wait lists are managed.</li>
-            <li>Combine this with cost estimates and your own financial planning for long-term care.</li>
-          </ul>
-        </div>
+        <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1.5">
+          <li>Licensed beds: <strong>[Number]</strong></li>
+          <li>Medicaid-certified beds: <strong>[Number]</strong></li>
+          <li>Medicare SNF beds: <strong>[Number]</strong></li>
+          <li>Estimated private-pay capacity: <strong>[Number]</strong></li>
+        </ul>
       </div>
 
       <!-- How to use this page -->
       <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5 space-y-2 max-w-3xl text-xs sm:text-sm text-slate-700">
         <h2 class="text-base sm:text-lg font-semibold text-slate-900">
-          How to use this facility view
+          How to use this template
         </h2>
         <p>
-          This kind of dashboard is meant to help you ask sharper questions and notice patterns that may not be
-          obvious on a simple star-rating page.
-        </p>
-        <ul class="list-disc pl-5 space-y-1.5">
-          <li>Use the Safety Pulse indicator as a starting point, not a final decision.</li>
-          <li>Bring some of the questions from each section to your tour or care conference.</li>
-          <li>Compare what you see here with what you observe on the unit: staffing, call light response, how people are treated.</li>
-        </ul>
-        <p>
-          Maisage’s role is to help you see more of the picture — the decision and the priorities remain yours.
+          Replace each placeholder with accurate information from CMS datasets, state inspection archives,
+          and any publicly available quality indicators. This format is meant to help families ask deeper
+          questions, not to label facilities as good or bad.
         </p>
       </div>
 
     </section>
 
-    <!-- Contact / navigation block -->
+    <!-- Contact Block -->
     <div id="contact-block" class="mt-8"></div>
     <script>
       fetch('contact-block.html')
