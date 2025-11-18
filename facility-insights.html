@@ -45,19 +45,18 @@
         Facility Insights – understand patterns before you zoom in
       </h1>
       <p class="text-sm sm:text-base text-slate-700">
-        This page gives a state-level starting point before you drill down to ZIP codes or specific facilities.
-        It is a mockup using sample numbers to show how Maisage could organize public data such as CMS records
-        and state inspection reports.
+        This view helps you explore state-level patterns before drilling down to ZIP codes or individual
+        facilities. All numbers are mock examples meant to show layout and structure only.
       </p>
       <p class="text-xs sm:text-sm text-slate-500">
-        All examples below are placeholders, not live data. In a real version, every number would come from
-        public sources and show when it was last updated.
+        In a live version, all values would come from public CMS datasets and state inspection archives.
       </p>
 
       <div class="mt-4 rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3 text-sm">
         <label for="state-select" class="block text-xs font-medium text-slate-800 uppercase tracking-wide">
           Select a state to view a mock overview
         </label>
+
         <select
           id="state-select"
           class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
@@ -66,247 +65,208 @@
           <option value="TX">Texas (sample overview)</option>
           <option value="OTHER">Other states (coming later)</option>
         </select>
+
         <p class="text-[11px] text-slate-500">
-          For now, only Texas has a detailed mock layout. Other states will use the same structure when added.
+          For now, only Texas has a detailed mock example.
         </p>
       </div>
     </section>
 
-    <!-- Safety Pulse legend (applies everywhere) -->
+    <!-- Safety Pulse legend -->
     <section class="space-y-3 max-w-3xl">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Safety Pulse – how the color indicators work
+        Safety Pulse – what the colors mean
       </h2>
       <p class="text-xs sm:text-sm text-slate-700">
-        Safety Pulse is a simple traffic-light summary of public data patterns. It is not a score, grade,
-        or recommendation. It is meant to guide where you look closer and what questions you ask.
+        The Safety Pulse indicator summarizes patterns in publicly available data. It is not a grade or
+        recommendation — it’s simply a guide for where you may want to look closer.
       </p>
+
       <div class="grid gap-3 sm:grid-cols-3 text-xs sm:text-sm">
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1.5">
           <p class="font-semibold text-slate-900">🟩 Green – Generally stable</p>
           <p class="text-slate-700">
-            Public indicators show no unusual patterns. You should still visit, ask questions, and trust
-            your own impressions.
+            Public indicators show no concerning patterns.
           </p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1.5">
           <p class="font-semibold text-slate-900">🟨 Yellow – Mixed signals</p>
           <p class="text-slate-700">
-            Some patterns in inspections, staffing, complaints, or enforcement suggest a closer look.
+            Some signals in inspections or staffing suggest closer review.
           </p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1.5">
           <p class="font-semibold text-slate-900">🟥 Red – Elevated concern</p>
           <p class="text-slate-700">
-            Repeated or recent issues in public data. This does not mean “avoid,” but it does mean careful,
-            specific questions and follow-up.
+            Recent harm-level or repeated issues reported in public records.
           </p>
         </div>
       </div>
-      <p class="text-[11px] text-slate-500">
-        In a live dashboard, these indicators would be recalculated when new inspections, staffing reports,
-        or enforcement actions are published.
-      </p>
     </section>
 
-    <!-- State-specific containers -->
-    <section id="state-tx" class="hidden space-y-8">
+    <!-- Texas overview -->
+    <section id="state-tx" class="hidden space-y-10">
 
-      <!-- Texas overview summary tiles -->
+      <!-- Summary tiles -->
       <div class="space-y-3">
-        <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-          Texas – Facility Insights overview (sample)
-        </h2>
-        <p class="text-sm text-slate-700 max-w-3xl">
-          This section shows how a state-level view for Texas could look. All numbers are mock examples,
-          meant to demonstrate structure, not real conditions.
-        </p>
+        <h2 class="text-lg sm:text-xl font-semibold text-slate-900">Texas – Facility Insights (mock)</h2>
 
         <div class="grid gap-4 sm:gap-6 md:grid-cols-4 text-xs sm:text-sm">
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 space-y-1.5">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">
-              Certified facilities (mock)
-            </p>
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Certified facilities</p>
             <p class="text-xl sm:text-2xl font-bold text-slate-900">1,220</p>
-            <p class="text-[11px] text-slate-500">
-              Medicare/Medicaid-certified nursing facilities across Texas.
-            </p>
+            <p class="text-[11px] text-slate-500">Mock example</p>
           </div>
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 space-y-1.5">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">
-              Harm-level citations (3 yrs, mock)
-            </p>
+
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Harm-level citations</p>
             <p class="text-xl sm:text-2xl font-bold text-slate-900">28%</p>
-            <p class="text-[11px] text-slate-500">
-              Facilities with at least one harm-level citation over the last 3 years.
-            </p>
+            <p class="text-[11px] text-slate-500">Last 3 years</p>
           </div>
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 space-y-1.5">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">
-              Staffing signals (mock)
-            </p>
+
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Staffing signals</p>
             <p class="text-xl sm:text-2xl font-bold text-slate-900">35%</p>
-            <p class="text-[11px] text-slate-500">
-              Facilities with nursing hours per resident below the state average.
-            </p>
+            <p class="text-[11px] text-slate-500">Below state average</p>
           </div>
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 space-y-1.5">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">
-              Complaints & enforcement (mock)
-            </p>
+
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Enforcement activity</p>
             <p class="text-xl sm:text-2xl font-bold text-slate-900">65</p>
-            <p class="text-[11px] text-slate-500">
-              Facilities with recent enforcement actions in the past 24 months.
-            </p>
+            <p class="text-[11px] text-slate-500">Past 24 months</p>
           </div>
         </div>
-        <p class="text-[11px] text-slate-500">
-          In production, all values would come from CMS and Texas state health department datasets,
-          with clear source and date stamps.
-        </p>
       </div>
 
-      <!-- Patterns to pay attention to -->
+      <!-- Patterns worth attention -->
       <div class="space-y-3">
         <h3 class="text-base sm:text-lg font-semibold text-slate-900">
           Patterns that may deserve a closer look (mock)
         </h3>
+
         <div class="grid gap-4 md:grid-cols-3 text-xs sm:text-sm">
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 space-y-1">
+
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
             <p class="font-semibold text-slate-900">🟥 Counties with more harm-level findings</p>
             <p class="text-slate-700">
-              Some Texas counties show a higher share of facilities with recent harm-level citations
-              (for example, certain dense urban or high-poverty areas). This does not mean all
-              facilities there are unsafe, but it suggests a more careful review of inspection history.
+              Certain Texas counties show a higher share of facilities with harm-level citations.
             </p>
           </div>
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 space-y-1">
-            <p class="font-semibold text-slate-900">🟨 Mixed staffing and inspection patterns</p>
+
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+            <p class="font-semibold text-slate-900">🟨 Mixed performance regions</p>
             <p class="text-slate-700">
-              Large metro regions (such as the Houston or Dallas–Fort Worth areas) can have both
-              very strong facilities and facilities with mixed or concerning signals. Patterns often
-              vary block by block.
+              Large metros like Houston and DFW often show both strong and concerning facilities.
             </p>
           </div>
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 space-y-1">
-            <p class="font-semibold text-slate-900">🟩 Areas with relatively stable indicators</p>
+
+          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
+            <p class="font-semibold text-slate-900">🟩 Regions with stable indicators</p>
             <p class="text-slate-700">
-              Some regions may show fewer enforcement actions and more consistent staffing. Even so,
-              on-site visits and conversations with staff and residents remain essential.
+              Some regions may show fewer enforcement actions and more consistent staffing.
             </p>
           </div>
+
         </div>
       </div>
 
-      <!-- Bed composition at state level (mock) -->
+      <!-- Beds & payer mix -->
       <div class="space-y-3 max-w-3xl">
         <h3 class="text-base sm:text-lg font-semibold text-slate-900">
           Licensed beds & payer mix in Texas (mock)
         </h3>
         <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1.5">
-          <li>Approximate total licensed beds in nursing facilities: <span class="font-semibold">145,000</span> (mock).</li>
-          <li>Medicaid-certified beds: about <span class="font-semibold">90,000</span> (mock).</li>
-          <li>Medicare SNF-certified beds: about <span class="font-semibold">75,000</span> (mock).</li>
-          <li>State Veterans Homes: <span class="font-semibold">sample count &amp; beds</span> in a real view, based on VA public data.</li>
-          <li>Private-pay capacity is typically the remainder after Medicaid and Medicare-certified capacity.</li>
+          <li>Approx. licensed beds statewide: <strong>145,000</strong></li>
+          <li>Medicaid-certified beds: <strong>90,000</strong></li>
+          <li>Medicare SNF beds: <strong>75,000</strong></li>
+          <li>State Veterans Homes: mock count based on public VA listings</li>
+          <li>Private-pay capacity is typically the remainder</li>
         </ul>
-        <p class="text-[11px] text-slate-500">
-          Real-time occupancy, wait lists, and “open beds today” are not publicly available. Those details
-          almost always require a direct call to the facility.
-        </p>
       </div>
 
-      <!-- Drill-down controls -->
+      <!-- Drill-down -->
       <div class="space-y-3">
         <h3 class="text-base sm:text-lg font-semibold text-slate-900">
           Drill down to facilities in your area
         </h3>
-        <p class="text-xs sm:text-sm text-slate-700 max-w-3xl">
-          After you have a sense of the statewide picture, you can narrow your search to facilities near
-          where you live or where your family member might move.
-        </p>
 
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3 text-xs sm:text-sm">
           <div class="grid gap-4 sm:grid-cols-3">
-            <div class="space-y-1">
+            <div>
               <label class="block font-medium text-slate-800">ZIP code</label>
-              <input
-                type="text"
-                inputmode="numeric"
-                placeholder="e.g., 77008"
-                class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600"
-              />
+              <input type="text" placeholder="e.g., 77008" class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600"/>
             </div>
-            <div class="space-y-1">
+
+            <div>
               <label class="block font-medium text-slate-800">Radius</label>
-              <select class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600">
+              <select class="w-full rounded-md border border-slate-300 px-3 py-2">
                 <option>10 miles</option>
                 <option>25 miles</option>
                 <option>50 miles</option>
                 <option>State-wide</option>
               </select>
             </div>
-            <div class="space-y-1">
+
+            <div>
               <label class="block font-medium text-slate-800">Facility type</label>
-              <select class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600">
+              <select class="w-full rounded-md border border-slate-300 px-3 py-2">
                 <option>All types</option>
-                <option>Nursing facility (NF/SNF)</option>
+                <option>Nursing facility</option>
                 <option>Assisted living</option>
                 <option>Memory care</option>
                 <option>Inpatient rehab</option>
               </select>
             </div>
           </div>
+
           <p class="text-[11px] text-slate-500">
-            In a live system, clicking through would show you a facility list and Safety Pulse indicators
-            for facilities that match your filters. For now, you can use the Facilities dashboard mock at:
+            Use these filters to narrow your search. To see a mock facility list layout:
             <a href="facility-explorer.html" class="text-emerald-700 hover:underline">Facility Insights dashboard</a>.
           </p>
         </div>
       </div>
 
-      <!-- How to use this state view -->
+      <!-- How to use this view -->
       <div class="space-y-2 max-w-3xl text-xs sm:text-sm text-slate-700">
         <h3 class="text-base sm:text-lg font-semibold text-slate-900">
           How to use this state view
         </h3>
         <p>
-          This state-level mock is meant to show how Maisage could help families understand patterns before
-          they get lost in details. It is not labeling any facility or region as good or bad.
+          This is a mock version of how Maisage could help families make sense of statewide care patterns,
+          not a judgment of any region or facility.
         </p>
         <ul class="list-disc pl-5 space-y-1.5">
-          <li>Use it to decide where you may want to spend more time reviewing facilities.</li>
-          <li>Combine these patterns with your own visits, conversations, and instincts.</li>
-          <li>Remember that every facility is unique, even within the same county or city.</li>
+          <li>Use the patterns to know where to ask deeper questions.</li>
+          <li>Look at individual facilities, not just regional averages.</li>
+          <li>Your own visit and impressions remain the most important data point.</li>
         </ul>
       </div>
+
+      <!-- Inline CTA -->
+      <p class="text-center text-xs sm:text-sm text-slate-600 mt-6">
+        Need help understanding what this means for your situation?
+        <a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a>
+        or
+        <a href="contact.html" class="text-emerald-700 hover:underline">contact Maisage</a>.
+      </p>
+
     </section>
 
     <!-- Placeholder for other states -->
-    <section id="state-other" class="hidden space-y-4 max-w-3xl text-xs sm:text-sm text-slate-700">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Other states – coming soon
-      </h2>
+    <section id="state-other" class="hidden text-xs sm:text-sm space-y-4 max-w-3xl text-slate-700">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">Other states – coming soon</h2>
       <p>
-        This page will eventually support similar mock or data-backed overviews for other states using
-        the same structure: summary tiles, patterns to watch, a beds & payer mix snapshot, and a drill-down
-        into facility-level dashboards.
+        Future versions of this dashboard will include similar overviews for all states using the same
+        patterns and layout.
       </p>
-      <p>
-        For now, you can explore the layout by reviewing the Texas example or going directly to the
-        <a href="facility-explorer.html" class="text-emerald-700 hover:underline">Facility Insights dashboard</a>
-        mock.
+
+      <p class="text-center text-xs sm:text-sm text-slate-600 mt-6">
+        Want help while this section is being built?
+        <a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a>
+        or
+        <a href="contact.html" class="text-emerald-700 hover:underline">contact Maisage</a>.
       </p>
     </section>
-
-    <!-- Contact / navigation block -->
-    <div id="contact-block"></div>
-    <script>
-      fetch('contact-block.html')
-        .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
-    </script>
 
   </main>
 
@@ -319,30 +279,20 @@
       .catch(err => console.error("Footer failed to load:", err));
   </script>
 
-  <!-- Simple state toggle logic -->
+  <!-- Simple state toggle -->
   <script>
     (function () {
-      const sel = document.getElementById('state-select');
+      const select = document.getElementById('state-select');
       const tx = document.getElementById('state-tx');
       const other = document.getElementById('state-other');
 
-      function updateStateView() {
-        const val = sel.value;
-        if (val === 'TX') {
-          tx.classList.remove('hidden');
-          other.classList.add('hidden');
-        } else if (val === 'OTHER') {
-          tx.classList.add('hidden');
-          other.classList.remove('hidden');
-        } else {
-          tx.classList.add('hidden');
-          other.classList.add('hidden');
-        }
+      function update() {
+        const v = select.value;
+        tx.classList.toggle('hidden', v !== 'TX');
+        other.classList.toggle('hidden', v !== 'OTHER');
       }
 
-      if (sel) {
-        sel.addEventListener('change', updateStateView);
-      }
+      select.addEventListener('change', update);
     })();
   </script>
 
