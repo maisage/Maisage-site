@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Facility Insights dashboard (JSON test) | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParentLabel = "Facility Insights";
+    window.breadcrumbParentHref = "facility-insights.html";
+    window.breadcrumbCurrent = "Facility Insights (JSON demo)";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById('breadcrumb');
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+    <section class="space-y-3 max-w-3xl">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Facility Insights – JSON demo
+      </p>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Facilities loaded from JSON (sample)
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-700">
+        This page shows how facility rows can be generated automatically from a JSON file instead of
+        being hard-coded into HTML.
+      </p>
+      <p class="text-[11px] text-slate-500">
+        Data source: <code>facilities-sample.json</code> in this repository.
+      </p>
+    </section>
+
+    <!-- Table shell -->
+    <section class="space-y-3">
+      <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <table class="min-w-full text-xs sm:text-sm">
+          <thead class="bg-slate-50 text-slate-700">
+            <tr>
+              <th class="px-3 py-2 text-left font-medium">Facility</th>
+              <th class="px-3 py-2 text-left font-medium">City</th>
+              <th class="px-3 py-2 text-left font-medium">Type</th>
+              <th class="px-3 py-2 text-right font-medium">Beds</th>
+              <th class="px-3 py-2 text-right font-medium">% Medicaid</th>
+              <th class="px-3 py-2 text-left font-medium">Last inspection</th>
+              <th class="px-3 py-2 text-left font-medium">Safety Pulse</th>
+            </tr>
+          </thead>
+          <tbody id="facility-rows" class="divide-y divide-slate-100">
+            <!-- JavaScript will inject rows here -->
+          </tbody>
+        </table>
+      </div>
+
+      <p id="facility-error" class="text-[11px] text-red-600 hidden">
+        There was a problem loading the facility data. Please check the JSON file name and path.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+  <!-- JavaScript: load JSON and build table -->
+  <script>
+    async function loadFacilities() {
+      const tbody = document.getElementById('facility-rows');
+      const errorEl = document.getElementById('facility-error');
+
+      try {
+        const res = await fetch('facilities-sample.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+
+        const facilities = await res.json();
+
+        // Clear existing rows just in case
+        tbody.innerHTML = '';
+
+        facilities.forEach(fac => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-50';
+
+          // Safety Pulse label based on safetyPulse field
+          let safetyLabel = '';
+          let badgeClass = '';
+
+          if (fac.safetyPulse === 'green') {
+            safetyLabel = '🟩 Generally stable';
+            badgeClass = 'bg-emerald-50 text-emerald-800';
+          } else if (fac.safetyPulse === 'yellow') {
+            safetyLabel = '🟨 Mixed signals';
+            badgeClass = 'bg-amber-50 text-amber-800';
+          } else if (fac.safetyPulse === 'red') {
+            safetyLabel = '🟥 Elevated concern';
+            badgeClass = 'bg-rose-50 text-rose-800';
+          } else {
+            safetyLabel = 'Pattern not set';
+            badgeClass = 'bg-slate-50 text-slate-700';
+          }
+
+          tr.innerHTML = `
+            <td class="px-3 py-3 align-top">
+              <div class="font-semibold text-slate-900">${fac.name}</div>
+            </td>
+            <td class="px-3 py-3 align-top">
+              ${fac.city}, ${fac.state}
+            </td>
+            <td class="px-3 py-3 align-top">
+              ${fac.type}
+            </td>
+            <td class="px-3 py-3 align-top text-right">
+              ${fac.beds}
+            </td>
+            <td class="px-3 py-3 align-top text-right">
+              ${fac.medicaidPercent}%
+            </td>
+            <td class="px-3 py-3 align-top">
+              ${fac.lastInspection}
+            </td>
+            <td class="px-3 py-3 align-top">
+              <div class="inline-flex flex-col gap-0.5">
+                <span class="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-medium ${badgeClass}">
+                  ${safetyLabel}
+                </span>
+                <span class="text-[11px] text-slate-600">
+                  ${fac.safetyNote || ''}
+                </span>
+              </div>
+            </td>
+          `;
+
+          tbody.appendChild(tr);
+        });
+
+      } catch (err) {
+        console.error('Error loading facilities:', err);
+        if (errorEl) errorEl.classList.remove('hidden');
+      }
+    }
+
+    loadFacilities();
+  </script>
+
+</body>
+</html>
