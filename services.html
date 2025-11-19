@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1,maximum-scale=1"
-  />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
   <title>Services & Navigation Support | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -21,7 +18,7 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
-  <!-- Breadcrumb: Home / Services -->
+  <!-- Breadcrumb -->
   <script>
     window.breadcrumbParentLabel = "Home";
     window.breadcrumbParentHref = "index.html";
@@ -31,264 +28,271 @@
   <script>
     fetch('breadcrumb.html')
       .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById('breadcrumb');
-        if (el) el.innerHTML = html;
-      })
-      .catch(err => console.error("Breadcrumb failed to load:", err));
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html));
   </script>
 
-  <!-- Main content -->
+  <!-- Main -->
   <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">
 
     <!-- Intro -->
     <section class="space-y-4">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Services &amp; navigation sessions
-      </p>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">Services</p>
+
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Practical help turning information into a plan
+        Practical help for navigating aging, care, Medicare, and planning
       </h1>
+
       <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        Maisage is for people who don’t just need information — they need someone to sift through it,
-        connect the dots, and help them see realistic options. All work is based on publicly available
-        information and your goals. You stay in control; Maisage helps you understand the landscape and
-        trade-offs in front of you.
+        Maisage helps you understand your options and turn them into a clear plan. 
+        You stay in control — Maisage provides structure, research, plain-language explanations, 
+        and support to help you make decisions that fit your goals.
       </p>
+
       <p class="text-[11px] sm:text-xs text-slate-500 max-w-3xl">
-        These services do not provide legal, tax, financial, or medical advice, and they do not recommend
-        or sell specific products, plans, or facilities. The focus is transparency, planning, and plain-language
-        explanation so you can make your own decisions.
+        All services use publicly available information. No legal, financial, medical, or plan-selection advice is provided.
       </p>
     </section>
 
-    <!-- How pricing works -->
-    <section class="rounded-2xl border border-emerald-100 bg-emerald-50/70 p-4 sm:p-5 space-y-3 text-xs sm:text-sm text-slate-800">
+    <!-- Pricing Overview -->
+    <section class="rounded-2xl border border-emerald-100 bg-emerald-50/70 p-5 space-y-4">
+
       <h2 class="text-sm sm:text-base font-semibold text-emerald-900">
         How pricing works
       </h2>
-      <p>
-        To keep things simple and predictable, Maisage uses a mix of fixed prices and time-and-materials (T&amp;M) for
-        deeper work. You always know what’s included before anything starts.
+
+      <p class="text-xs sm:text-sm text-slate-800">
+        A simple structure: clear fixed prices for core work, plus optional time-and-materials (T&amp;M) if you need deeper research.
       </p>
-      <ul class="list-disc pl-5 space-y-1.5">
-        <li><span class="font-semibold">Core navigation sessions – fixed price:</span> a flat fee for a one-on-one session plus a short written summary of what we discussed and your options.</li>
-        <li><span class="font-semibold">Written summaries / plans – fixed price:</span> a clear document you can share with family (for example, a Family Aging Plan).</li>
-        <li><span class="font-semibold">Extra research or modeling – T&amp;M:</span> if you want deeper, custom work beyond the core session, it is billed hourly — only after we agree on scope and a cap.</li>
+
+      <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-800 space-y-1.5">
+        <li><strong>Core Navigation Session — $150:</strong>  
+          A structured working session + written summary + one follow-up clarification.</li>
+
+        <li><strong>Family Aging Plan / Written Plan — $75:</strong>  
+          A shareable PDF summarizing your situation, goals, and options.</li>
+
+        <li><strong>Additional Research (T&amp;M) — $75/hr:</strong>  
+          Only billed if you ask for extra work. Always pre-agreed with a clear scope and a cap.  
+          <span class="text-slate-600 text-[11px]">No surprise hours — ever.</span></li>
       </ul>
+
       <p class="text-[11px] text-slate-600">
-        Numbers below are example starting points. You can adjust them as your services evolve.
+        These numbers are examples and can be adjusted later if your services evolve.
       </p>
-      <div class="grid gap-3 sm:grid-cols-3 text-[11px] sm:text-xs">
-        <div class="rounded-xl border border-emerald-100 bg-white/70 p-3 space-y-1">
-          <p class="font-semibold text-slate-900">Core navigation session</p>
-          <p class="text-slate-700">Example: <span class="font-semibold">$150</span> per session, including a short summary.</p>
-        </div>
-        <div class="rounded-xl border border-emerald-100 bg-white/70 p-3 space-y-1">
-          <p class="font-semibold text-slate-900">Family Aging Plan / written report</p>
-          <p class="text-slate-700">Example: <span class="font-semibold">$75</span> per PDF plan.</p>
-        </div>
-        <div class="rounded-xl border border-emerald-100 bg-white/70 p-3 space-y-1">
-          <p class="font-semibold text-slate-900">Additional research (T&amp;M)</p>
-          <p class="text-slate-700">Example: <span class="font-semibold">$75/hour</span>, always pre-agreed with a cap.</p>
-        </div>
-      </div>
+
     </section>
 
-    <!-- Core service categories -->
+    <!-- Services Grid -->
     <section class="space-y-5">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Navigation &amp; research services
+        Navigation & Research Services
       </h2>
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        These are the kinds of work people most often ask for. In many cases, one core navigation session is enough.
-        When you need deeper, custom work, we can agree on extra research billed hourly.
-      </p>
 
       <div class="grid gap-5 md:grid-cols-2">
 
-        <!-- Consult – clarify situation -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3 text-sm sm:text-base text-slate-700">
+        <!-- Core Navigation Session -->
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Consult – clarify your situation and options
+            Core navigation session – clarify your situation &amp; map options
           </h3>
-          <p>
-            A focused session to sort out where you are now and what realistic paths you have over the next
-            few years — at home, in assisted living, or in facility care.
+
+          <p class="text-sm text-slate-700">
+            A structured session to get your situation out of your head and into a clear, usable outline.
           </p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Identify 2–3 realistic care paths for your situation.</li>
-            <li>Talk through trade-offs in independence, cost, and risk.</li>
-            <li>Leave with a short written summary you can share with family.</li>
+
+          <p class="font-semibold text-slate-900 text-sm">What’s included ($150):</p>
+
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li><strong>Pre-session intake:</strong> A short optional questionnaire so we start with the basics already captured.</li>
+            <li><strong>One focused session (~60 minutes):</strong> Clarify goals, identify 2–3 realistic care paths, and talk through trade-offs.</li>
+            <li><strong>Plain-language written summary:</strong>  
+              A recap of your situation, scenarios, and questions to ask next.</li>
+            <li><strong>One follow-up clarification:</strong>  
+              A short email reply if something in the summary needs clarification.</li>
           </ul>
+
           <p class="text-xs text-slate-600">
-            Typically covered by one core navigation session.
+            Uses only public information. No plan recommendations or legal/financial advice.
           </p>
         </div>
 
         <!-- Medicare Options & Plan Map -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3 text-sm sm:text-base text-slate-700">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900">
             Medicare Options &amp; Plan Map
           </h3>
-          <p>
-            A one-on-one session to map how Medicare fits with your doctors, travel, income, and medications —
-            without steering you to specific plans or companies.
+
+          <p class="text-sm text-slate-700">
+            A one-on-one session to help you understand Medicare’s structure and how each path fits your doctors,
+            medications, travel, and financial picture.
           </p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Compare Original Medicare + Medigap + Part D with Medicare Advantage at a high level.</li>
-            <li>Consider how retiree coverage, VA benefits, or Medicaid change the picture.</li>
-            <li>Receive a simple written map of your realistic paths and key questions to ask SHIP, HR, or plan reps.</li>
+
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li>Compare Original Medicare + Medigap + Part D with Medicare Advantage in clear terms.</li>
+            <li>Review how retiree coverage, VA benefits, or Medicaid change your choices.</li>
+            <li>Receive a plain-language map you can take to SHIP, HR/benefits, or plan reps.</li>
           </ul>
+
           <p class="text-xs text-slate-600">
-            Typically one core navigation session; deeper comparisons can use hourly research with your approval.
+            Usually fits within the $150 core session; deeper comparisons may use T&amp;M with a pre-agreed cap.
           </p>
         </div>
 
         <!-- Medication & Cost Research -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3 text-sm sm:text-base text-slate-700">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900">
             Medication &amp; cost research
           </h3>
-          <p>
-            Help understanding why medication prices vary so much and what options might exist within your situation,
-            using only public and plan-published information.
+          <p class="text-sm text-slate-700">
+            Help understanding why medication costs vary so widely and where the biggest price differences come from.
           </p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Compare cash prices, insurance copays, discount programs, and mail-order.</li>
-            <li>Highlight where the largest cost differences appear to come from.</li>
-            <li>Provide a clear, plain-language comparison table for your current meds.</li>
+
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li>Compare insurance, cash, discount, and mail-order pricing.</li>
+            <li>Explain markup layers in plain language.</li>
+            <li>Create a simple medication cost comparison summary.</li>
           </ul>
+
           <p class="text-xs text-slate-600">
-            Often starts with a core session; complex sets of medications may require agreed hourly research.
+            Often fits in one session; deeper research billed T&amp;M if you request it.
           </p>
         </div>
 
-        <!-- Facility Deep-Dive -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3 text-sm sm:text-base text-slate-700">
+        <!-- Facility Deep Dive -->
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900">
             Facility deep-dive &amp; shortlist review
           </h3>
-          <p>
-            A closer look at a small set of facilities you are considering, using public inspection, complaint,
-            staffing, and ownership data where available.
+
+          <p class="text-sm text-slate-700">
+            A closer look at facilities you’re considering using public inspection, staffing, complaint, and ownership data.
           </p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Create a shortlist of facilities around your target area.</li>
-            <li>Summarize inspection patterns, complaints, and enforcement activity.</li>
-            <li>Provide a list of specific questions to ask on tours or calls.</li>
+
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li>Create a shortlist of facilities by ZIP/city.</li>
+            <li>Summarize inspection patterns and red flags.</li>
+            <li>Provide tailored questions to ask on tours or calls.</li>
           </ul>
+
           <p class="text-xs text-slate-600">
-            Usually one core session plus some agreed research time, depending on how many facilities you want reviewed.
+            Mix of core session + optional T&amp;M depending on how many facilities you want reviewed.
           </p>
         </div>
 
         <!-- Care Path & Budget Planning -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3 text-sm sm:text-base text-slate-700">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900">
             Care path &amp; budget planning
           </h3>
-          <p>
-            For families who want to see how different paths (stay home, move, hybrid) might play out financially
-            over the next several years.
+
+          <p class="text-sm text-slate-700">
+            Plain-language scenarios showing how different care paths might play out over the next several years.
           </p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Outline 2–3 scenarios (home-first, facility-first, hybrid, Medicaid path, etc.).</li>
-            <li>Show, at a high level, how costs and resources may line up under each path.</li>
-            <li>Highlight when savings might be exhausted and what that could trigger.</li>
+
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li>Outline 2–3 paths (home-first, hybrid, facility-first, Medicaid path, etc.).</li>
+            <li>Estimate costs and timing at a high level.</li>
+            <li>Highlight when savings may run out and what that means.</li>
           </ul>
+
           <p class="text-xs text-slate-600">
-            Often requires one core session plus some T&amp;M modeling, always with a pre-agreed cap.
+            Often needs a core session + a bit of T&amp;M modeling (pre-agreed with a cap).
           </p>
         </div>
 
         <!-- Family Aging Plan -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3 text-sm sm:text-base text-slate-700">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900">
             Family Aging Plan (shareable summary)
           </h3>
-          <p>
-            A written summary you can print or email to family — capturing your goals, preferred paths,
-            and key numbers in one place.
+
+          <p class="text-sm text-slate-700">
+            A written PDF summarizing what matters most to you, the care paths you're considering, 
+            and key questions to revisit as circumstances change.
           </p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Outline what matters most to you (independence, location, type of care).</li>
-            <li>Summarize the care paths you are considering.</li>
-            <li>Include a short checklist of questions to revisit each year.</li>
+
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li>Goals and non-negotiables.</li>
+            <li>Summary of your care paths.</li>
+            <li>Checklist of questions to revisit each year.</li>
           </ul>
+
           <p class="text-xs text-slate-600">
-            Typically added as a fixed-fee follow-up to a navigation session.
+            Fixed fee: $75 per plan PDF.
           </p>
         </div>
 
-        <!-- Focused Topic Research -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3 text-sm sm:text-base text-slate-700">
+        <!-- Focused research -->
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900">
             Focused topic research
           </h3>
-          <p>
-            When you need someone to dig into a specific question grounded in public information —
-            such as a benefit program, state rule, or local service model.
+
+          <p class="text-sm text-slate-700">
+            When you need deeper digging on a specific question using public sources.
           </p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Clarify the exact question you are trying to answer.</li>
-            <li>Pull together public sources in one place, in plain language.</li>
-            <li>Provide links back to original materials so you can verify and share.</li>
+
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li>Clarify the question you’re trying to answer.</li>
+            <li>Summarize public sources in plain language.</li>
+            <li>Provide links to original documentation.</li>
           </ul>
+
           <p class="text-xs text-slate-600">
-            Usually billed as T&amp;M, with a clear scope and hour cap agreed in advance.
+            T&amp;M billed at $75/hr, with scope and maximum hours agreed in advance.
           </p>
         </div>
 
-        <!-- Ongoing Navigation Support -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3 text-sm sm:text-base text-slate-700">
+        <!-- Ongoing support -->
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900">
             Ongoing navigation check-ins
           </h3>
-          <p>
-            For situations where you want light, periodic support instead of a one-time session — especially
-            when health, family, or finances are changing.
+
+          <p class="text-sm text-slate-700">
+            Periodic touchpoints to adjust plans as health, finances, or family support changes.
           </p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Agree on a simple cadence (for example, every 3–6 months).</li>
-            <li>Review what has changed and whether your plan still fits.</li>
-            <li>Adjust scenarios and questions as needed over time.</li>
+
+          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+            <li>Quarterly or semiannual check-ins.</li>
+            <li>Review changes and update scenarios.</li>
+            <li>Maintain alignment with your goals.</li>
           </ul>
+
           <p class="text-xs text-slate-600">
-            Can be structured as a small recurring fee or occasional T&amp;M, depending on your preference.
+            Can be a small recurring fee or occasional T&amp;M.
           </p>
         </div>
 
       </div>
     </section>
 
-    <!-- How to get started -->
-    <section class="space-y-3 text-center">
+    <!-- How to start -->
+    <section class="text-center space-y-3">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
         How to get started
       </h2>
+
       <p class="text-sm sm:text-base text-slate-700 max-w-2xl mx-auto">
-        If you see a service that fits your situation, the easiest way to begin is a short note describing
-        where you are and what you are worried about. From there, we can confirm scope, price, and whether
-        a core session is enough or if extra research makes sense.
+        You don’t need to know exactly which service you need. 
+        Start with a short message about your situation and what you're trying to solve.
       </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-2 text-sm">
-        <a
-          href="start-here.html"
-          class="inline-flex items-center justify-center rounded-md bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
-        >
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mt-3">
+        <a href="start-here.html"
+           class="inline-flex items-center justify-center px-4 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-700">
           Start Here – tell your story
         </a>
-        <a
-          href="contact.html"
-          class="inline-flex items-center justify-center rounded-md border border-emerald-600 px-4 py-2 font-medium text-emerald-700 hover:bg-emerald-50"
-        >
-          Contact Maisage with questions
+
+        <a href="contact.html"
+           class="inline-flex items-center justify-center px-4 py-2 border border-emerald-600 text-emerald-700 rounded-md hover:bg-emerald-50">
+          Contact Maisage
         </a>
       </div>
-      <p class="text-[11px] sm:text-xs text-slate-500 max-w-2xl mx-auto">
-        When you are ready to pay for a session, you’ll use a secure checkout link (such as Stripe or PayPal).
-        Maisage does not collect or store your card details directly on this site.
+
+      <p class="text-[11px] text-slate-500 max-w-xl mx-auto">
+        Payments are handled through secure third-party checkout (Stripe, PayPal, etc.). 
+        Maisage does not collect or store card information.
       </p>
     </section>
 
@@ -299,8 +303,7 @@
   <script>
     fetch('footer.html')
       .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
+      .then(html => (document.getElementById('site-footer').innerHTML = html));
   </script>
 
 </body>
