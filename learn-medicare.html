@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Medicare basics and Medicare Advantage | Maisage</title>
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1"
+  />
+  <title>Learn – Medicare & Your Plan | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="min-h-screen bg-white text-slate-900">
+
   <!-- Shared Header -->
   <div id="site-header"></div>
   <script>
@@ -19,9 +23,9 @@
 
   <!-- Breadcrumb: Home / Learn / Medicare -->
   <script>
-    window.breadcrumbParent = "Learn";
-    window.breadcrumbParentLink = "learn.html";
-    window.breadcrumbCurrent = "Medicare basics and Medicare Advantage";
+    window.breadcrumbParentLabel = "Learn";
+    window.breadcrumbParentHref = "learn.html";
+    window.breadcrumbCurrent = "Medicare";
   </script>
   <div id="breadcrumb"></div>
   <script>
@@ -34,107 +38,321 @@
       .catch(err => console.error("Breadcrumb failed to load:", err));
   </script>
 
-  <!-- Main -->
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+  <!-- Main content -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">
 
-    <section class="space-y-3">
+    <!-- Intro -->
+    <section class="space-y-4">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Learn · Medicare
+        Learn
       </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Medicare basics and Medicare Advantage
+        Medicare and your long-term plan
       </h1>
       <p class="text-sm sm:text-base text-slate-700">
-        Medicare is the federal health insurance program for most people age 65 and older and some
-        younger people with disabilities. It covers many medical services, but it does not cover
-        everything, and it does not automatically cover long-term custodial care.
+        Medicare is one part of the picture — not the whole plan. This page is here to help you understand
+        how Medicare fits with everything else: aging at home, facility care, medications, Medicaid, and
+        family support. It doesn’t tell you which plan to pick. Instead, it gives you enough structure to
+        ask better questions and see your options more clearly.
       </p>
-      <p class="text-xs sm:text-sm text-slate-500">
-        This page gives a plain-language overview. It is not legal or financial advice. For
-        detailed, current rules and options, always check official Medicare resources or speak with
-        a qualified professional.
+      <p class="text-[11px] sm:text-xs text-slate-500">
+        This page is for education only. It uses publicly available information and does not provide legal,
+        financial, or medical advice, and it does not recommend specific plans, companies, or products.
       </p>
     </section>
 
+    <!-- What Medicare is (and isn’t) -->
     <section class="space-y-3">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Original Medicare at a glance
+        What Medicare is (and isn’t)
       </h2>
-      <p class="text-sm text-slate-700">
-        Original Medicare is made up of:
+      <p class="text-sm sm:text-base text-slate-700">
+        Medicare is federal health coverage for people 65+ and for some younger adults with disabilities.
+        It helps with hospital care, doctor visits, and many medically necessary services.
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li><span class="font-medium">Part A</span> – hospital insurance (inpatient hospital, some skilled nursing, some home health, hospice).</li>
-        <li><span class="font-medium">Part B</span> – medical insurance (doctor visits, outpatient care, certain tests, durable medical equipment).</li>
+      <p class="text-sm sm:text-base text-slate-700">
+        Medicare takes care of medical necessities. But the larger work of planning your later years —
+        housing, support, long-term care, day-to-day help — still needs its own plan.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700">
+        Medicare does <span class="font-semibold">not</span>:
+      </p>
+      <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1.5">
+        <li>Guarantee long-term custodial care (help with bathing, dressing, eating) over the long run.</li>
+        <li>Remove the need to plan for where you will live and who will help you day to day.</li>
+        <li>Cover every doctor, facility, or medication in the same way under every path.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Many people add a Part D drug plan and may purchase a Medigap (supplement) policy to help
-        with deductibles and coinsurance. These add-ons have separate rules and costs.
+      <p class="text-xs sm:text-sm text-slate-600">
+        Thinking of Medicare as one building block — not the entire structure — makes it easier to see why
+        planning ahead matters.
       </p>
     </section>
 
+    <!-- Two main paths -->
+    <section class="space-y-4">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        The two main paths through Medicare
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700">
+        Almost every Medicare decision eventually flows into one of two big paths. Understanding these
+        paths helps you make sense of everything else you see in the mail, online, and on TV.
+      </p>
+
+      <!-- Path A -->
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3">
+        <h3 class="text-base sm:text-lg font-semibold text-slate-900">
+          Path A – Original Medicare (with optional Medigap and Part D)
+        </h3>
+        <p class="text-sm sm:text-base text-slate-700">
+          Original Medicare is coverage directly through the federal government:
+        </p>
+        <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1.5">
+          <li>Part A – hospital coverage.</li>
+          <li>Part B – medical coverage (doctors, tests, outpatient care).</li>
+        </ul>
+        <p class="text-sm sm:text-base text-slate-700">
+          Many people add:
+        </p>
+        <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1.5">
+          <li>A <span class="font-semibold">Medigap</span> (supplement) policy to help with deductibles and coinsurance.</li>
+          <li>A separate <span class="font-semibold">Part D</span> prescription drug plan.</li>
+        </ul>
+        <div class="grid gap-3 sm:grid-cols-2 text-sm sm:text-base">
+          <div class="space-y-1.5">
+            <p class="font-semibold text-slate-900">Pros (in plain language)</p>
+            <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+              <li>You can see any provider who accepts Medicare.</li>
+              <li>Fewer network and prior authorization headaches in many cases.</li>
+              <li>Often easier if you travel or spend time in more than one state.</li>
+            </ul>
+          </div>
+          <div class="space-y-1.5">
+            <p class="font-semibold text-slate-900">Consider carefully</p>
+            <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+              <li>Medigap and Part D add monthly premiums.</li>
+              <li>Returning to Medigap later can be harder or more expensive in some states.</li>
+              <li>Extra benefits (dental, vision, hearing) usually require separate policies.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Path B -->
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3">
+        <h3 class="text-base sm:text-lg font-semibold text-slate-900">
+          Path B – Medicare Advantage (Part C)
+        </h3>
+        <p class="text-sm sm:text-base text-slate-700">
+          With Medicare Advantage, you still have Medicare, but your coverage is delivered through a private
+          insurance plan that usually includes hospital, medical, and often prescription drugs in one card.
+        </p>
+        <div class="grid gap-3 sm:grid-cols-2 text-sm sm:text-base">
+          <div class="space-y-1.5">
+            <p class="font-semibold text-slate-900">Pros</p>
+            <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+              <li>Lower or even $0 monthly premiums in many areas.</li>
+              <li>Out-of-pocket maximums (if you stay in-network).</li>
+              <li>Often includes some dental, vision, hearing, or other extras.</li>
+            </ul>
+          </div>
+          <div class="space-y-1.5">
+            <p class="font-semibold text-slate-900">Consider carefully</p>
+            <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+              <li>Provider networks: your doctors and hospitals must be in the plan.</li>
+              <li>Prior authorizations for certain tests, treatments, or rehab stays.</li>
+              <li>Travel and living in multiple places can be more limited.</li>
+              <li>Rules and benefits vary widely by carrier and zip code.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medicare Options Map -->
+    <section class="space-y-4">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Medicare Options Map – questions that shape your path
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700">
+        This map is not here to tell you which plan to choose. It is here to highlight the kinds of questions
+        that matter most for you before you talk with SHIP, a plan representative, HR/benefits, or a broker.
+      </p>
+
+      <!-- Q1 -->
+      <div class="space-y-1.5">
+        <p class="text-sm sm:text-base font-semibold text-slate-900">
+          1. Do you have doctors or hospitals you strongly want to keep?
+        </p>
+        <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1">
+          <li>
+            <span class="font-semibold">Yes, I have “must keep” providers:</span>
+            start by understanding <span class="font-semibold">Original Medicare + Medigap + Part D</span>
+            and then check whether those providers are also in any local Advantage plans you are considering.
+          </li>
+          <li>
+            <span class="font-semibold">No strong preferences:</span>
+            either path could work; your next questions are cost, travel, and flexibility.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Q2 -->
+      <div class="space-y-1.5">
+        <p class="text-sm sm:text-base font-semibold text-slate-900">
+          2. Will you live or spend long periods in more than one state?
+        </p>
+        <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1">
+          <li>
+            <span class="font-semibold">Yes:</span>
+            Original Medicare often provides more consistent flexibility across locations.
+          </li>
+          <li>
+            <span class="font-semibold">No:</span>
+            both Original + Medigap and Advantage may work, depending on providers and networks.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Q3 -->
+      <div class="space-y-1.5">
+        <p class="text-sm sm:text-base font-semibold text-slate-900">
+          3. What matters more: predictable access or predictable monthly premiums?
+        </p>
+        <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1">
+          <li>
+            <span class="font-semibold">Predictable access to providers:</span>
+            Original + Medigap is usually easier to understand — if they accept Medicare, you are generally in.
+          </li>
+          <li>
+            <span class="font-semibold">Predictable premiums and “one card” simplicity:</span>
+            Medicare Advantage can feel simpler month to month, but you still need to look closely at copays,
+            coinsurance, and out-of-pocket maximums.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Q4 -->
+      <div class="space-y-1.5">
+        <p class="text-sm sm:text-base font-semibold text-slate-900">
+          4. Do you have retiree coverage from an employer, union, or municipality?
+        </p>
+        <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1">
+          <li>
+            <span class="font-semibold">Yes:</span>
+            changing or dropping retiree coverage can be permanent. Your first step should be to talk to
+            HR/benefits and understand exactly what changes if you move to a different structure or plan.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Q5 -->
+      <div class="space-y-1.5">
+        <p class="text-sm sm:text-base font-semibold text-slate-900">
+          5. Do you qualify for Medicaid or have very limited income/resources?
+        </p>
+        <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1">
+          <li>
+            <span class="font-semibold">Yes / Maybe:</span>
+            you may be “dual eligible” or close to it. That changes how Medicare and Medicaid interact and may
+            open special plan types. Because rules differ by state, it is safest to confirm details with SHIP
+            and your state Medicaid office before making changes.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Q6 -->
+      <div class="space-y-1.5">
+        <p class="text-sm sm:text-base font-semibold text-slate-900">
+          6. Are medications a major driver in your decision?
+        </p>
+        <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1">
+          <li>
+            <span class="font-semibold">Yes – I have high-cost or complex medications:</span>
+            you will want to compare formularies, drug tiers, copays, and prior authorization rules for any
+            stand-alone Part D or Advantage plans you are studying.
+          </li>
+          <li>
+            <span class="font-semibold">No – most medications are low-cost generics:</span>
+            coverage may be less of a deciding factor, but it is still important to confirm that your exact
+            medications are covered on any plan you consider.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- How to use the map -->
     <section class="space-y-3">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        How Medicare Advantage is different
+        How to use this map
       </h2>
-      <p class="text-sm text-slate-700">
-        Medicare Advantage (Part C) plans are offered by private companies that contract with
-        Medicare. When you enroll in a Medicare Advantage plan, the plan becomes your main way of
-        receiving Medicare-covered services.
+      <p class="text-sm sm:text-base text-slate-700">
+        This map is meant to help you see the structure of your choices — not to choose a plan for you. It can:
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Plans often include drug coverage and extra benefits like vision or dental.</li>
-        <li>They may use networks and require referrals or prior authorizations.</li>
-        <li>Your out-of-pocket costs and rules depend on the specific plan you choose.</li>
+      <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1.5">
+        <li>Clarify which questions matter most in your situation.</li>
+        <li>Give you a starting point for conversations with SHIP, HR, plan representatives, or brokers.</li>
+        <li>Help you explain trade-offs to family members who are helping you think ahead.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Advantage plans can be helpful for some people and limiting for others. The details of the
-        plan matter more than the advertising headline.
+      <p class="text-xs sm:text-sm text-slate-600">
+        Maisage does not enroll you in plans or receive any commission. The goal is to help you understand the
+        landscape so you can make informed choices with the right people.
       </p>
     </section>
 
+    <!-- Official sources / neutral help -->
     <section class="space-y-3">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        What Medicare generally does not cover
+        Neutral, official sources to use with this map
       </h2>
-      <p class="text-sm text-slate-700">
-        Medicare is mainly designed for medical and short-term skilled care. It generally does
-        <span class="font-semibold">not</span> cover:
+      <p class="text-sm sm:text-base text-slate-700">
+        You can use this map alongside official, neutral resources:
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Long-term custodial care in a nursing facility (help with daily activities on an ongoing basis).</li>
-        <li>Most assisted living or memory care room and board.</li>
-        <li>24-hour in-home custodial care.</li>
+      <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1.5">
+        <li><span class="font-semibold">Medicare.gov:</span> coverage details, plan finder, and official rules.</li>
+        <li><span class="font-semibold">State Health Insurance Assistance Program (SHIP):</span> free counseling
+          in your state from trained volunteers and staff.</li>
+        <li><span class="font-semibold">Social Security:</span> for enrollment timing and questions about Part A and Part B.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        This gap is one reason many people end up relying on a mix of private pay, family help,
-        long-term care insurance (if available), or Medicaid later in life.
+      <p class="text-xs sm:text-sm text-slate-600">
+        Whenever possible, it is a good idea to confirm what you read or hear with these sources before making
+        changes that are hard to reverse.
       </p>
     </section>
 
+    <!-- When a paid Medicare Options & Plan Map might help -->
     <section class="space-y-3">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Questions to ask when reviewing options
+        When a one-on-one Medicare options map might be useful
       </h2>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Are my doctors and preferred hospitals in-network (if considering an Advantage plan)?</li>
-        <li>What are the maximum out-of-pocket costs in a year under this plan?</li>
-        <li>How does the plan handle prior authorizations for common services?</li>
-        <li>Would I be comfortable with the tradeoff between extra benefits and network rules?</li>
+      <p class="text-sm sm:text-base text-slate-700">
+        Some people are comfortable using this map and official tools on their own. Others prefer to talk it
+        through and have someone organize the information for them in writing.
+      </p>
+      <p class="text-sm sm:text-base text-slate-700">
+        A one-on-one Medicare Options &amp; Plan Map session can help you:
+      </p>
+      <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1.5">
+        <li>Apply this map to your specific situation (providers, travel, income, medications).</li>
+        <li>Understand how your options change if you have retiree coverage, VA benefits, or Medicaid.</li>
+        <li>Turn the discussion into a short written summary you can share with family.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        These questions can help you look beyond monthly premiums and focus on how the plan might
-        work in real situations.
+      <p class="text-xs sm:text-sm text-slate-600">
+        If you’d like that kind of help, you can read more on the
+        <a href="services.html" class="text-emerald-700 hover:underline">Services</a> page. Any paid work is
+        still based only on public information and does not recommend specific plans or companies.
       </p>
     </section>
 
-    <!-- Contact / navigation block -->
-    <div id="contact-block"></div>
+    <!-- Reusable contact / navigation block -->
+    <div id="contact-prompt"></div>
     <script>
-      fetch('contact-block.html')
+      fetch('contact-prompt.html')
         .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
+        .then(html => {
+          const el = document.getElementById('contact-prompt');
+          if (el) el.innerHTML = html;
+        })
+        .catch(err => console.error("Contact prompt failed to load:", err));
     </script>
 
   </main>
@@ -147,5 +365,6 @@
       .then(html => (document.getElementById('site-footer').innerHTML = html))
       .catch(err => console.error("Footer failed to load:", err));
   </script>
+
 </body>
 </html>
