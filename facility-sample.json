@@ -1,24 +1,90 @@
 [
   {
-    "name": "Oakview Care Center (sample)",
+    "name": "Oakview Care Center (Sample)",
     "city": "Houston",
     "state": "TX",
-    "type": "Nursing facility",
-    "beds": 120,
-    "medicaidPercent": 68,
-    "lastInspection": "2024-10-15",
-    "safetyPulse": "green",
-    "safetyNote": "No recent enforcement actions; staffing near state average."
+    "type": "Nursing Facility (NF/SNF)",
+    "beds": 130,
+    "medicaidPercent": 72,
+    "lastInspection": "2024-11-05",
+    "safetyPulse": "yellow",
+    "safetyNote": "Repeat deficiencies in infection control; staffing levels improved but remain below state average."
   },
   {
-    "name": "Bayou Gardens (sample)",
+    "name": "Bayou Gardens Assisted Living (Sample)",
     "city": "Houston",
     "state": "TX",
-    "type": "Assisted living",
+    "type": "Assisted Living",
     "beds": 80,
-    "medicaidPercent": 25,
-    "lastInspection": "2024-07-02",
+    "medicaidPercent": 18,
+    "lastInspection": "2024-07-22",
+    "safetyPulse": "green",
+    "safetyNote": "Stable inspection history with no harm-level citations in the past 3 years."
+  },
+  {
+    "name": "Heights Village Memory Care (Sample)",
+    "city": "Houston",
+    "state": "TX",
+    "type": "Memory Care",
+    "beds": 54,
+    "medicaidPercent": 0,
+    "lastInspection": "2024-10-01",
     "safetyPulse": "yellow",
-    "safetyNote": "Mixed inspection history; staffing dips and above-average complaints."
+    "safetyNote": "High staff turnover; several complaint investigations but no enforcement actions."
+  },
+  {
+    "name": "Willowbend Rehabilitation & Nursing (Sample)",
+    "city": "Houston",
+    "state": "TX",
+    "type": "Nursing Facility (NF/SNF)",
+    "beds": 200,
+    "medicaidPercent": 84,
+    "lastInspection": "2024-09-18",
+    "safetyPulse": "red",
+    "safetyNote": "Recent immediate-jeopardy citation; strong indicators for closer review and follow-up questions."
+  },
+  {
+    "name": "Cypress Lakes Senior Living (Sample)",
+    "city": "Houston",
+    "state": "TX",
+    "type": "Assisted Living",
+    "beds": 112,
+    "medicaidPercent": 10,
+    "lastInspection": "2024-06-09",
+    "safetyPulse": "green",
+    "safetyNote": "Good staffing patterns and above-average resident/family satisfaction scores."
+  },
+  {
+    "name": "Magnolia Post-Acute Center (Sample)",
+    "city": "Houston",
+    "state": "TX",
+    "type": "Nursing Facility (NF/SNF)",
+    "beds": 165,
+    "medicaidPercent": 61,
+    "lastInspection": "2024-08-30",
+    "safetyPulse": "yellow",
+    "safetyNote": "Mixed history: strong therapy outcomes but inconsistent CNA staffing levels on weekends."
+  },
+  {
+    "name": "Briarwood Retirement & Assisted Living (Sample)",
+    "city": "Houston",
+    "state": "TX",
+    "type": "Assisted Living",
+    "beds": 95,
+    "medicaidPercent": 0,
+    "lastInspection": "2024-05-21",
+    "safetyPulse": "green",
+    "safetyNote": "Well-maintained facility with stable leadership and low complaint volume."
+  },
+  {
+    "name": "Parkview Long-Term Care (Sample)",
+    "city": "Houston",
+    "state": "TX",
+    "type": "Nursing Facility (NF/SNF)",
+    "beds": 150,
+    "medicaidPercent": 90,
+    "lastInspection": "2024-10-14",
+    "safetyPulse": "red",
+    "safetyNote": "Multiple harm-level citations in back-to-back inspections; state-directed plan of correction active."
   }
 ]
