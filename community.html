@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Community & Volunteers – Maisage</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Community & Volunteers | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -18,214 +18,140 @@
       .catch(err => console.error("Header failed to load:", err));
   </script>
 
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParentLabel = "Home";
+    window.breadcrumbParentHref = "index.html";
+    window.breadcrumbCurrent = "Community";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
   <!-- Main Content -->
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-14">
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">
 
     <!-- Intro -->
-    <section>
+    <section class="space-y-4">
       <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
         Community & Volunteers
       </p>
 
-      <h1 class="mt-3 text-3xl sm:text-4xl font-bold leading-tight">
-        No one should have to navigate this alone
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Building a community of clarity, care, and support
       </h1>
 
-      <p class="mt-4 text-slate-700 max-w-3xl">
-        Maisage is built from lived experience — and it works best when that experience is shared.
-        This page is about the people side: volunteers, navigators, family members, and professionals
-        who care about transparency, independence, and dignity in aging.
-      </p>
-
-      <p class="mt-3 text-slate-700">
-        There are no referral fees, commissions, or “preferred providers” here. The goal is to connect
-        insight, not to steer you toward any product or facility.
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Maisage is not just a website — it's a community of people who want aging to be clearer,
+        calmer, and more human. Whether you're someone planning for your own future, helping
+        a loved one, or simply interested in improving how families navigate aging, there’s
+        a place for you here.
       </p>
     </section>
 
-    <!-- How community fits -->
-    <section class="border border-slate-200 bg-slate-50 rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">What “community” means in Maisage</h2>
+    <!-- Become a Navigator -->
+    <section class="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 space-y-4">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Become a Maisage Navigator
+      </h2>
 
-      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
-        <li>Families sharing what they’ve learned the hard way, so others don’t have to.</li>
-        <li>Volunteers and navigators helping people understand options, not sell solutions.</li>
-        <li>Professionals contributing insight without turning it into an advertisement.</li>
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Navigators are volunteers who help gather information, share experiences, or help identify
+        real gaps in the system. You don’t need credentials or certifications — only honesty,
+        commitment, and a willingness to help others find clarity.
+      </p>
+
+      <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1 max-w-3xl">
+        <li>Help review local resources and agencies in your area.</li>
+        <li>Contribute insight about housing, home care, or facility quality.</li>
+        <li>Share experiences that may help others avoid confusion or crisis.</li>
+        <li>Assist in gathering publicly available data for the Living Map.</li>
       </ul>
 
-      <p class="text-xs text-slate-500">
-        This is not a social network or crisis hotline. It is a slow, steady effort to make real-world
-        experience more visible and usable — without exploiting it.
-      </p>
+      <a
+        href="start-here.html"
+        class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-emerald-600 text-white text-sm hover:bg-emerald-700"
+      >
+        Sign up to learn more
+      </a>
     </section>
 
-    <!-- Become a Maisage Navigator -->
+    <!-- Volunteer Map -->
     <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Become a Maisage Navigator</h2>
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Volunteer coverage (mock example)
+      </h2>
 
-      <p class="text-slate-700">
-        A Maisage Navigator is someone who helps others understand the landscape — not someone who gives
-        orders or sells services. Navigators might be adult children who’ve been through this once already,
-        retired professionals, or people who simply care about clear information.
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        As the community grows, this map will show where Navigators are available to help
+        families find information, review facility options, or gather facts about local services.
       </p>
 
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-emerald-800">
-            What Navigators might do
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Help someone list their options in plain language.</li>
-            <li>Walk through Learn, Plan, and Scenarios pages with a family.</li>
-            <li>Point people to official sources for their state or situation.</li>
-            <li>Flag confusing language or hidden assumptions in materials.</li>
-          </ul>
-        </div>
-
-        <div class="border border-amber-200 bg-amber-50 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-amber-800">
-            What Navigators do <span class="underline">not</span> do
-          </h3>
-          <ul class="mt-2 list-disc ml-5 text-sm text-slate-700 space-y-1">
-            <li>Give legal, financial, or medical advice.</li>
-            <li>Guarantee outcomes or promote specific providers.</li>
-            <li>Pressure anyone into a decision or product.</li>
-            <li>Collect or sell personal data.</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="text-sm text-slate-700">
-        If a Navigator program is formally launched, expectations, training, and boundaries will be clearly defined
-        before anyone is matched with families.
-      </p>
-
-      <!-- Simple interest form (non-Formspree, just conceptual placeholder) -->
-      <div class="border border-slate-200 rounded-2xl p-4 bg-slate-50">
-        <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-900">
-          Interested in becoming a Navigator?
-        </h3>
-        <p class="mt-2 text-sm text-slate-700">
-          For now, the simplest way to express interest is to use the
-          <a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a> page
-          and mention that you’d like to help as a Navigator. Over time, this may become its own form.
+      <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 flex items-center justify-center">
+        <p class="text-xs text-slate-500 text-center">
+          Volunteer map coming soon — this will display regions with active Navigators.<br />
+          (Mock placeholder here)
         </p>
       </div>
     </section>
 
-    <!-- Coverage by region (conceptual) -->
+    <!-- Testimonials -->
     <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Coverage by region (concept, not a directory)</h2>
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+        Stories from the community
+      </h2>
 
-      <p class="text-slate-700">
-        The idea of a “coverage map” is simple: show where volunteer Navigators, lived experience,
-        and local knowledge are available — not just where facilities are located.
-      </p>
-
-      <p class="text-sm text-slate-700">
-        Until there are enough Navigators to make a real map useful, this section stays conceptual.
-        When it goes live, the principles will be:
-      </p>
-
-      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
-        <li>No paid placement or “premium listing” for providers.</li>
-        <li>Clear labels for volunteers vs professionals.</li>
-        <li>No public display of personal contact info without consent.</li>
-        <li>Ability for families to search by region and type of help (guidance only, not services).</li>
-      </ul>
-
-      <p class="text-xs text-slate-500">
-        Any future map would be about visibility and connection, not ratings or rankings.
-      </p>
-    </section>
-
-    <!-- Stories & testimonials (anonymized / consent-based) -->
-    <section class="space-y-4">
-      <h2 class="text-2xl font-semibold text-emerald-900">Stories and lessons from real families</h2>
-
-      <p class="text-slate-700">
-        Honest stories are often more useful than any brochure. Over time, this section can include
-        anonymized or consented stories that highlight what went right, what was harder than expected,
-        and what people wish they had known earlier.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-900">
-            Example: “We thought hospice covered everything”
-          </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            A family discovers late that hospice does not cover room and board — and how that changed
-            their decisions about where their loved one stayed and how long private funds lasted.
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div class="border border-slate-200 rounded-xl p-4 bg-white">
+          <p class="text-sm text-slate-700">
+            “I wish I had this when my dad needed care — it would have saved months of stress.
+            Thank you for making this information finally accessible.”
           </p>
+          <p class="mt-2 text-xs text-slate-500">— Community Member</p>
         </div>
 
-        <div class="border border-slate-200 rounded-2xl p-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-900">
-            Example: “Three siblings, three expectations”
-          </h3>
-          <p class="mt-2 text-sm text-slate-700">
-            Siblings with different incomes and beliefs about inheritance use a structured conversation
-            to agree on who can do what — and what happens if someone’s situation changes.
+        <div class="border border-slate-200 rounded-xl p-4 bg-white">
+          <p class="text-sm text-slate-700">
+            “Helping send in a few facility reports felt small, but knowing it helps someone else
+            understand their options makes it worth it.”
           </p>
+          <p class="mt-2 text-xs text-slate-500">— Volunteer Navigator</p>
         </div>
       </div>
 
       <p class="text-xs text-slate-500">
-        These are illustrative patterns, not actual case files. Any real stories shared in the future
-        would require explicit consent and careful anonymization where appropriate.
+        (These are illustrative placeholders — real community stories will be added later.)
       </p>
     </section>
 
-    <!-- Partnerships & acknowledgments -->
+    <!-- Contact CTA -->
     <section class="space-y-3">
-      <h2 class="text-2xl font-semibold text-emerald-900">Partners and acknowledgments</h2>
+      <h2 class="text-sm sm:text-base font-semibold text-slate-900">
+        Want to get involved?
+      </h2>
 
-      <p class="text-slate-700">
-        If Maisage ever collaborates with non-profits, academic groups, or community organizations,
-        this is where those relationships will be named — along with exactly what they do and
-        how money (if any) flows.
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Whether you're looking to share your experience, help gather data, or simply want to be
+        notified when new volunteer opportunities open, we’d love to hear from you.
       </p>
-
-      <ul class="list-disc ml-6 text-sm text-slate-700 space-y-1">
-        <li>Clear listing of any organizations that help improve the content or tools.</li>
-        <li>Disclosure of any funding or grants, if they ever exist.</li>
-        <li>No “silent partners” whose influence is hidden from families.</li>
-      </ul>
-
-      <p class="text-xs text-slate-500">
-        Right now, this is an intention, not a list. The principle is that any partnership must
-        support transparency and independence, not undermine them.
-      </p>
-    </section>
-
-    <!-- CTA -->
-    <section
-      class="border border-emerald-100 bg-emerald-50 rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-    >
-      <div>
-        <h3 class="text-xl font-semibold text-emerald-900">
-          Want to help — or need help — right now?
-        </h3>
-        <p class="mt-2 text-sm text-emerald-900/80 max-w-xl">
-          If you’d like to share what you’ve learned, explore becoming a Navigator, or ask for guidance
-          on your own situation, the simplest next step is to use the Start Here page and explain what
-          you’re looking for.
-        </p>
-      </div>
 
       <div class="flex flex-col sm:flex-row gap-3">
         <a
           href="start-here.html"
-          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-emerald-600 text-white text-sm hover:bg-emerald-700"
         >
           Start Here
         </a>
+
         <a
-          href="index.html#home"
-          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
+          href="contact.html"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-md border border-emerald-600 text-emerald-700 text-sm hover:bg-emerald-50"
         >
-          Back to Home
+          Contact Maisage
         </a>
       </div>
     </section>
