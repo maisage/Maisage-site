@@ -47,24 +47,24 @@
         Facility Insights dashboard – facilities near you
       </h1>
       <p class="text-sm sm:text-base text-slate-700">
-        This page shows a mock layout of how Maisage could organize facilities in your area using public
-        data — inspections, staffing, complaints, enforcement actions, and ownership stability — so you
-        can decide where to look closer and what to ask when you visit.
+        This page lays out how Maisage can organize facilities in your area using public data — inspections,
+        staffing, complaints, enforcement actions, and ownership stability — so you can decide where to look
+        closer and what to ask when you visit.
       </p>
       <p class="text-[11px] sm:text-xs text-slate-500">
-        All facility names and values below are placeholders for design only. In a live version, each row
-        would be driven by current CMS and state datasets with clear source dates.
+        The table below is powered by <code>facility-sample.json</code> in this repository. In a live version,
+        each row would reflect up-to-date CMS and state data with clear source dates.
       </p>
     </section>
 
-    <!-- Filters -->
+    <!-- Filters (static for now) -->
     <section class="space-y-3">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
         Filter facilities by area and type
       </h2>
       <p class="text-xs sm:text-sm text-slate-700 max-w-3xl">
-        These filters show how you might narrow the search around your ZIP code and needs. In this mock,
-        they do not change the sample table below.
+        These filters show how you might narrow the search around your ZIP code and needs. In this mock layout,
+        they don’t yet change the sample table — they’re here to show how filtering could work.
       </p>
 
       <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3 text-xs sm:text-sm">
@@ -108,51 +108,44 @@
           </div>
         </div>
         <p class="text-[11px] text-slate-500">
-          In a future version, these filters would drive real queries against public datasets. Here they are
-          to demonstrate how narrowing the list could work.
+          In a future implementation, these filters can drive real queries on the JSON-backed dataset or external feeds.
         </p>
       </div>
     </section>
 
-    <!-- Safety Pulse legend (short) -->
+    <!-- Safety Pulse legend -->
     <section class="space-y-2 max-w-3xl">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
         Safety Pulse – quick color guide
       </h2>
       <p class="text-xs sm:text-sm text-slate-700">
-        Each facility row includes a Safety Pulse indicator. It summarizes patterns in public data and is
-        meant to guide where you look closer — not to make the decision for you.
+        Each facility row includes a Safety Pulse indicator. It summarizes patterns in public data and is meant to
+        guide where you look closer — not to make the decision for you.
       </p>
       <div class="grid gap-3 sm:grid-cols-3 text-xs sm:text-sm">
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1">
           <p class="font-semibold text-slate-900">🟩 Generally stable</p>
-          <p class="text-slate-700">
-            No unusual patterns in inspections, staffing, or enforcement.
-          </p>
+          <p class="text-slate-700">No unusual patterns in inspections, staffing, or enforcement.</p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1">
           <p class="font-semibold text-slate-900">🟨 Mixed signals</p>
-          <p class="text-slate-700">
-            Some signals suggest a closer look, like repeat citations or staffing dips.
-          </p>
+          <p class="text-slate-700">Some signals suggest a closer look, like repeat citations or staffing dips.</p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1">
           <p class="font-semibold text-slate-900">🟥 Elevated concern</p>
-          <p class="text-slate-700">
-            Recent or repeated issues; deserves careful review and specific questions.
-          </p>
+          <p class="text-slate-700">Recent or repeated issues; deserves careful review and specific questions.</p>
         </div>
       </div>
     </section>
 
-    <!-- Facility list table -->
+    <!-- Facility list table (JSON-driven) -->
     <section class="space-y-3">
       <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Facilities in your current view (mock examples)
+        Facilities in your current view
       </h2>
       <p class="text-xs sm:text-sm text-slate-700 max-w-3xl">
-        These rows show how facility information could appear once data connections are in place.
-        Names and values are placeholders, not real facilities.
+        These rows are generated from <code>facility-sample.json</code>. As you refine that data file, this table
+        will update automatically without editing the HTML.
       </p>
 
       <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -163,115 +156,31 @@
               <th class="px-3 py-2 text-left font-medium">City</th>
               <th class="px-3 py-2 text-left font-medium">Type</th>
               <th class="px-3 py-2 text-right font-medium">Beds</th>
-              <th class="px-3 py-2 text-right font-medium">% Medicaid (approx.)</th>
+              <th class="px-3 py-2 text-right font-medium">% Medicaid</th>
               <th class="px-3 py-2 text-left font-medium">Last inspection</th>
               <th class="px-3 py-2 text-left font-medium">Safety Pulse</th>
               <th class="px-3 py-2 text-right font-medium">Details</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100">
-
-            <!-- Row 1 -->
-            <tr class="hover:bg-slate-50">
-              <td class="px-3 py-3 align-top">
-                <div class="font-semibold text-slate-900">
-                  Oakview Care Center (sample)
-                </div>
-              </td>
-              <td class="px-3 py-3 align-top">Houston, TX</td>
-              <td class="px-3 py-3 align-top">Nursing facility</td>
-              <td class="px-3 py-3 align-top text-right">120</td>
-              <td class="px-3 py-3 align-top text-right">68%</td>
-              <td class="px-3 py-3 align-top">2024-10-15 (mock)</td>
-              <td class="px-3 py-3 align-top">
-                <div class="inline-flex flex-col gap-0.5">
-                  <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800">
-                    🟩 Generally stable
-                  </span>
-                  <span class="text-[11px] text-slate-600">
-                    No recent enforcement actions; staffing near state average. (Mock)
-                  </span>
-                </div>
-              </td>
-              <td class="px-3 py-3 align-top text-right">
-                <a href="facility-detail-template.html" class="text-emerald-700 hover:underline text-xs sm:text-sm">
-                  View details &rarr;
-                </a>
-              </td>
-            </tr>
-
-            <!-- Row 2 -->
-            <tr class="hover:bg-slate-50">
-              <td class="px-3 py-3 align-top">
-                <div class="font-semibold text-slate-900">
-                  Bayou Gardens (sample)
-                </div>
-              </td>
-              <td class="px-3 py-3 align-top">Houston, TX</td>
-              <td class="px-3 py-3 align-top">Assisted living</td>
-              <td class="px-3 py-3 align-top text-right">80</td>
-              <td class="px-3 py-3 align-top text-right">25%</td>
-              <td class="px-3 py-3 align-top">2024-07-02 (mock)</td>
-              <td class="px-3 py-3 align-top">
-                <div class="inline-flex flex-col gap-0.5">
-                  <span class="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-800">
-                    🟨 Mixed signals
-                  </span>
-                  <span class="text-[11px] text-slate-600">
-                    Mixed inspection history; staffing dips and above-average complaints. (Mock)
-                  </span>
-                </div>
-              </td>
-              <td class="px-3 py-3 align-top text-right">
-                <a href="facility-detail-template.html" class="text-emerald-700 hover:underline text-xs sm:text-sm">
-                  View details &rarr;
-                </a>
-              </td>
-            </tr>
-
-            <!-- Row 3 -->
-            <tr class="hover:bg-slate-50">
-              <td class="px-3 py-3 align-top">
-                <div class="font-semibold text-slate-900">
-                  Heights Long-Term Care (sample)
-                </div>
-              </td>
-              <td class="px-3 py-3 align-top">Houston, TX</td>
-              <td class="px-3 py-3 align-top">Nursing facility</td>
-              <td class="px-3 py-3 align-top text-right">95</td>
-              <td class="px-3 py-3 align-top text-right">82%</td>
-              <td class="px-3 py-3 align-top">2024-05-19 (mock)</td>
-              <td class="px-3 py-3 align-top">
-                <div class="inline-flex flex-col gap-0.5">
-                  <span class="inline-flex items-center rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-medium text-rose-800">
-                    🟥 Elevated concern
-                  </span>
-                  <span class="text-[11px] text-slate-600">
-                    Recent harm-level citations and one enforcement action. (Mock)
-                  </span>
-                </div>
-              </td>
-              <td class="px-3 py-3 align-top text-right">
-                <a href="facility-detail-template.html" class="text-emerald-700 hover:underline text-xs sm:text-sm">
-                  View details &rarr;
-                </a>
-              </td>
-            </tr>
-
+          <tbody id="facility-rows" class="divide-y divide-slate-100">
+            <!-- JavaScript will inject rows here -->
           </tbody>
         </table>
       </div>
 
+      <p id="facility-error" class="text-[11px] text-red-600 hidden">
+        There was a problem loading the facility data. Please check the JSON file name, path, or format.
+      </p>
+
       <p class="text-[11px] sm:text-xs text-slate-500 max-w-3xl">
-        In a live version, each row would be connected to the underlying inspection, staffing, complaints,
-        enforcement, and licensing records. Safety Pulse would update automatically when new public data
-        is published.
+        In a more advanced version, each detail link can point to a facility-specific page built from the same JSON
+        (using <code>facility-detail-template.html</code>) so you don’t have to copy content by hand.
       </p>
     </section>
 
-    <!-- Light inline CTA instead of full contact block -->
+    <!-- Light inline CTA -->
     <p class="text-center text-xs sm:text-sm text-slate-600 mt-8">
-      Need help making sense of facility patterns for your family?
+      Need help making sense of these patterns for your own situation?
       <a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a>
       or
       <a href="contact.html" class="text-emerald-700 hover:underline">contact Maisage</a>.
@@ -286,6 +195,89 @@
       .then(r => r.text())
       .then(html => (document.getElementById('site-footer').innerHTML = html))
       .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+  <!-- JavaScript: load JSON and build table -->
+  <script>
+    async function loadFacilities() {
+      const tbody = document.getElementById('facility-rows');
+      const errorEl = document.getElementById('facility-error');
+
+      try {
+        // Must match your JSON filename exactly:
+        const res = await fetch('facility-sample.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+
+        const facilities = await res.json();
+        tbody.innerHTML = '';
+
+        facilities.forEach(fac => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-50';
+
+          let safetyLabel = '';
+          let badgeClass = '';
+
+          if (fac.safetyPulse === 'green') {
+            safetyLabel = '🟩 Generally stable';
+            badgeClass = 'bg-emerald-50 text-emerald-800';
+          } else if (fac.safetyPulse === 'yellow') {
+            safetyLabel = '🟨 Mixed signals';
+            badgeClass = 'bg-amber-50 text-amber-800';
+          } else if (fac.safetyPulse === 'red') {
+            safetyLabel = '🟥 Elevated concern';
+            badgeClass = 'bg-rose-50 text-rose-800';
+          } else {
+            safetyLabel = 'Pattern not set';
+            badgeClass = 'bg-slate-50 text-slate-700';
+          }
+
+          tr.innerHTML = `
+            <td class="px-3 py-3 align-top">
+              <div class="font-semibold text-slate-900">${fac.name}</div>
+            </td>
+            <td class="px-3 py-3 align-top">
+              ${fac.city}, ${fac.state}
+            </td>
+            <td class="px-3 py-3 align-top">
+              ${fac.type}
+            </td>
+            <td class="px-3 py-3 align-top text-right">
+              ${fac.beds}
+            </td>
+            <td class="px-3 py-3 align-top text-right">
+              ${fac.medicaidPercent}%
+            </td>
+            <td class="px-3 py-3 align-top">
+              ${fac.lastInspection}
+            </td>
+            <td class="px-3 py-3 align-top">
+              <div class="inline-flex flex-col gap-0.5">
+                <span class="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-medium ${badgeClass}">
+                  ${safetyLabel}
+                </span>
+                <span class="text-[11px] text-slate-600">
+                  ${fac.safetyNote || ''}
+                </span>
+              </div>
+            </td>
+            <td class="px-3 py-3 align-top text-right">
+              <a href="facility-detail-template.html" class="text-emerald-700 hover:underline text-xs sm:text-sm">
+                View details &rarr;
+              </a>
+            </td>
+          `;
+
+          tbody.appendChild(tr);
+        });
+
+      } catch (err) {
+        console.error('Error loading facilities:', err);
+        if (errorEl) errorEl.classList.remove('hidden');
+      }
+    }
+
+    loadFacilities();
   </script>
 
 </body>
