@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Feedback | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParentLabel = "Home";
+    window.breadcrumbParentHref = "index.html";
+    window.breadcrumbCurrent = "Feedback";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">
+
+    <!-- Intro -->
+    <section class="space-y-4">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Feedback
+      </p>
+
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Share feedback about Maisage
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Maisage is in early community preview. Your feedback is one of the most important inputs
+        shaping what gets built next — what to add, what to simplify, and what real-world problems
+        to focus on first.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600 max-w-3xl">
+        This form goes directly to email. Please avoid including highly sensitive details
+        (full medical records, Social Security numbers, full account numbers, etc.).
+      </p>
+    </section>
+
+    <!-- Feedback Form -->
+    <section class="rounded-2xl border border-slate-200 bg-slate-50/80 p-6 space-y-4">
+      <h2 class="text-sm sm:text-base font-semibold text-slate-900">
+        Feedback form
+      </h2>
+
+      <form id="feedback-form"
+            action="https://formspree.io/f/meovorda"
+            method="POST"
+            class="grid gap-4 text-sm">
+
+        <!-- Name (optional) -->
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">
+            Your name (optional)
+          </label>
+          <input
+            type="text"
+            name="name"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+            placeholder="You can share a first name, initials, or leave this blank"
+          />
+        </div>
+
+        <!-- Email (optional but helpful) -->
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">
+            Email (optional, if you’d like a reply)
+          </label>
+          <input
+            type="email"
+            name="email"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+            placeholder="example@domain.com"
+          />
+        </div>
+
+        <!-- Topic -->
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">
+            What is this feedback about?
+          </label>
+          <select
+            name="topic"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+          >
+            <option value="">Select one (optional)</option>
+            <option value="learn-pages">Learn pages / information clarity</option>
+            <option value="services">Services & pricing</option>
+            <option value="facility-insights">Facility Insights / facility data</option>
+            <option value="navigation">Navigation / layout / usability</option>
+            <option value="bugs">Something broken or confusing</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- What were you trying to do? -->
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">
+            What were you trying to do?
+          </label>
+          <textarea
+            name="goal"
+            rows="2"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+            placeholder="For example: I was trying to understand Medicaid vs private pay for my mom..."
+          ></textarea>
+        </div>
+
+        <!-- What worked well -->
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">
+            What worked well or felt helpful?
+          </label>
+          <textarea
+            name="worked"
+            rows="2"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+            placeholder="Anything that was especially clear, reassuring, or useful."
+          ></textarea>
+        </div>
+
+        <!-- What was confusing -->
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">
+            What was confusing, missing, or frustrating?
+          </label>
+          <textarea
+            name="confusing"
+            rows="3"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
+            placeholder="Specifics are very helpful — page name, section, or wording."
+          ></textarea>
+        </div>
+
+        <!-- Hidden subject for Formspree -->
+        <input type="hidden" name="_subject" value="Maisage – Feedback submission" />
+
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <!-- Tracking -->
+        <input type="hidden" name="page_source" id="page_source" />
+
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700"
+        >
+          Submit feedback
+        </button>
+
+        <p id="form-success" class="hidden text-emerald-700 text-xs mt-1">
+          Thank you — your feedback was sent.
+        </p>
+        <p id="form-error" class="hidden text-red-600 text-xs mt-1">
+          Something went wrong sending your feedback. Please try again or email
+          <a href="mailto:samai@maisage.com" class="underline">samai@maisage.com</a>.
+        </p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+  <!-- Feedback form logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('feedback-form');
+      const ok = document.getElementById('form-success');
+      const err = document.getElementById('form-error');
+      const pageSource = document.getElementById('page_source');
+
+      if (pageSource) {
+        pageSource.value = window.location.href + (document.referrer ? ' | ref: ' + document.referrer : '');
+      }
+
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            form.reset();
+            ok.classList.remove('hidden');
+            err.classList.add('hidden');
+          } else {
+            err.classList.remove('hidden');
+            ok.classList.add('hidden');
+          }
+        } catch (e) {
+          console.error(e);
+          err.classList.remove('hidden');
+          ok.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+  <!-- Floating Feedback Link -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg
+            bg-emerald-600 hover:bg-emerald-700 text-white
+            px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
+
+</body>
+</html>
