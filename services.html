@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Services & Navigation Support | Maisage</title>
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1"
+  />
+  <title>Services & Payments | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -22,350 +25,241 @@
   <script>
     window.breadcrumbParentLabel = "Home";
     window.breadcrumbParentHref = "index.html";
-    window.breadcrumbCurrent = "Services";
+    window.breadcrumbCurrent = "Services & Payments";
   </script>
   <div id="breadcrumb"></div>
   <script>
     fetch('breadcrumb.html')
       .then(r => r.text())
-      .then(html => (document.getElementById('breadcrumb').innerHTML = html));
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
+      .catch(err => console.error("Breadcrumb failed to load:", err));
   </script>
 
-  <!-- Main -->
+  <!-- Main Content -->
   <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">
 
     <!-- Intro -->
     <section class="space-y-4">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">Services</p>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
+        Services & Payments
+      </p>
 
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Practical help for navigating aging, care, Medicare, and planning
+        Services to help you make sense of your options
       </h1>
 
       <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        Maisage helps you understand your options and turn them into a clear plan.
-        You stay in control — Maisage provides structure, research, plain-language explanations,
-        and support to help you make decisions that fit your goals.
+        Maisage is built around clear information and calm planning. When you’re ready for
+        more personal help, these services are meant to give you focused support — without
+        selling products, taking commissions, or steering you toward any particular provider.
       </p>
 
-      <p class="text-[11px] sm:text-xs text-slate-500 max-w-3xl">
-        All services use publicly available information. No legal, financial, medical, or plan-selection advice is provided.
+      <p class="text-xs sm:text-sm text-slate-600 max-w-3xl">
+        All sessions and work are based on publicly available information and your goals.
+        Nothing here is legal, financial, or medical advice — it’s guidance to help you see
+        your options more clearly so you can make informed decisions.
       </p>
-    </section>
-
-    <!-- Pricing Overview + Payment Buttons -->
-    <section class="rounded-2xl border border-emerald-100 bg-emerald-50/70 p-5 space-y-4">
-
-      <h2 class="text-sm sm:text-base font-semibold text-emerald-900">
-        How pricing works
-      </h2>
-
-      <p class="text-xs sm:text-sm text-slate-800">
-        A simple structure: clear fixed prices for core work, plus optional time-and-materials (T&amp;M) if you need deeper research.
-      </p>
-
-      <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-800 space-y-1.5">
-        <li>
-          <strong>Your Care Path Session — $150:</strong>
-          A warm, structured session focused on your situation, plus a written summary and one follow-up clarification.
-        </li>
-
-        <li>
-          <strong>Family Aging Plan / Written Plan — $75:</strong>
-          A shareable PDF summarizing your situation, goals, and options.
-        </li>
-
-        <li>
-          <strong>Additional Research (T&amp;M) — $75/hr:</strong>
-          Only billed if you ask for extra work. Always pre-agreed with a clear scope and a cap.
-          <span class="text-slate-600 text-[11px]">No surprise hours — ever.</span>
-        </li>
-      </ul>
-
-      <p class="text-[11px] text-slate-600">
-        These numbers are examples and can be adjusted later if your services evolve.
-      </p>
-
-      <!-- Payment Buttons (Square placeholders) -->
-      <div class="mt-4 border-t border-emerald-100 pt-4 space-y-2">
-        <p class="text-xs sm:text-sm font-semibold text-emerald-900">
-          When you're ready, you’ll be able to use secure payment links for sessions and plans:
-        </p>
-        <div class="flex flex-wrap gap-3 text-sm">
-
-          <!-- Replace href values with your real Square payment links later -->
-          <a
-            href="https://square.link/YOUR-CARE-PATH-SESSION-LINK"
-            class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-emerald-600 text-white hover:bg-emerald-700"
-          >
-            Pay $150 – Your Care Path Session
-          </a>
-
-          <a
-            href="https://square.link/YOUR-FAMILY-AGING-PLAN-LINK"
-            class="inline-flex items-center justify-center px-4 py-2 rounded-md border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
-          >
-            Pay $75 – Family Aging Plan
-          </a>
-
-          <a
-            href="https://square.link/YOUR-CUSTOM-AMOUNT-LINK"
-            class="inline-flex items-center justify-center px-4 py-2 rounded-md border border-slate-300 text-slate-700 hover:bg-slate-50"
-          >
-            Pay agreed amount (hourly / custom)
-          </a>
-
-        </div>
-        <p class="text-[11px] text-slate-500">
-          <!-- Instruction comment for you, not users -->
-          <!-- Replace each https://square.link/... placeholder above with your actual Square payment link URLs. -->
-          Payments are processed through a secure third-party provider. Maisage does not collect or store card information.
-        </p>
-      </div>
     </section>
 
     <!-- Services Grid -->
-    <section class="space-y-5">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Services rooted in clarity, care, and realism
-      </h2>
+    <section class="grid gap-6 md:grid-cols-2">
 
-      <div class="grid gap-5 md:grid-cols-2">
-
-        <!-- Your Care Path Session -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Your Care Path Session – understanding your options with clarity and care
-          </h3>
-
-          <p class="text-sm text-slate-700">
-            A warm, structured conversation to help you see where you are, what paths are realistic,
-            and what comes next — without crisis pressure.
+      <!-- Your Care Path Session -->
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+        <div class="space-y-3">
+          <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+            Your Care Path Session
+          </h2>
+          <p class="text-sm sm:text-base text-slate-700">
+            A one-on-one conversation focused on <span class="font-semibold">your situation</span> —
+            where you are now, what you’re worried about, and what you want your next years
+            to look like.
           </p>
 
-          <p class="font-semibold text-slate-900 text-sm">
-            What’s typically included for $150:
-          </p>
-
+          <p class="text-sm text-slate-700">Together, we walk through:</p>
           <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-            <li>
-              <strong>Pre-session intake:</strong>
-              A short optional questionnaire so basic details are captured before we talk.
-            </li>
-            <li>
-              <strong>One Care Path Session (~60 minutes):</strong>
-              Clarify your goals and non-negotiables, identify 2–3 realistic care paths
-              (home-first, hybrid, facility-first, etc.), and talk through trade-offs in plain language.
-            </li>
-            <li>
-              <strong>Plain-language written summary:</strong>
-              A recap of your situation, the paths we discussed, and key questions to ask next
-              (facilities, agencies, doctors, SHIP, or advisors).
-            </li>
-            <li>
-              <strong>One follow-up clarification by email:</strong>
-              A brief written clarification if something in the summary isn’t clear.
-            </li>
+            <li>Your current situation and what you’re trying to solve.</li>
+            <li>Major care and support options that realistically fit your context.</li>
+            <li>How Medicare, Medicaid, private pay, and family support can interact.</li>
+            <li>Ways to stay independent longer with practical supports.</li>
+            <li>How to bring family into the conversation without waiting for a crisis.</li>
           </ul>
 
           <p class="text-xs text-slate-600">
-            Uses only public information and your own details. No legal, tax, financial, or medical advice,
-            and no recommendations for specific products, plans, or facilities.
+            After payment, you’ll receive an email within 24 hours to schedule your session.
+          </p>
+
+          <p class="mt-2 text-sm font-semibold text-slate-900">
+            Price: $150 (single session)
           </p>
         </div>
 
-        <!-- Medicare Options & Plan Map -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Medicare Options &amp; Plan Map
-          </h3>
+        <div class="mt-4">
+          <a
+            href="#"
+            class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 rounded-md bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-700"
+          >
+            Pay $150 – Your Care Path Session
+          </a>
+          <p class="mt-1 text-[11px] text-slate-500">
+            Payment button will be connected to a secure Square checkout link.
+          </p>
+        </div>
+      </article>
 
-          <p class="text-sm text-slate-700">
-            A dedicated Care Path Session focused on Medicare — helping you understand how the main paths
-            (Original + Medigap + Part D vs. Medicare Advantage) intersect with your doctors, travel,
-            medications, and income.
+      <!-- Family Aging Plan PDF -->
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+        <div class="space-y-3">
+          <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+            Family Aging Plan (PDF)
+          </h2>
+          <p class="text-sm sm:text-base text-slate-700">
+            A concise written summary of your goals, care paths, cost expectations,
+            and next steps — something you can review, share with family, and update.
           </p>
 
+          <p class="text-sm text-slate-700">A Family Aging Plan can include:</p>
           <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-            <li>
-              Walk through the Medicare Options Map from the Learn page in the context of your life.
-            </li>
-            <li>
-              Consider how retiree coverage, VA benefits, or Medicaid may affect your choices.
-            </li>
-            <li>
-              Receive a short written map you can take to SHIP, HR/benefits, or plan representatives.
-            </li>
+            <li>Your goals and preferences for independence, care, and living setting.</li>
+            <li>Coverage notes (Medicare, Medicaid, private pay, VA where applicable).</li>
+            <li>Possible care paths with rough cost and support implications.</li>
+            <li>Questions to ask providers or facilities.</li>
+            <li>Suggested topics for early family conversations.</li>
           </ul>
 
           <p class="text-xs text-slate-600">
-            Often fits within Your Care Path Session pricing; deeper comparison work can use T&amp;M
-            if you request more detailed research.
+            After payment, you’ll receive an email within 24 hours to begin the plan.
+          </p>
+
+          <p class="mt-2 text-sm font-semibold text-slate-900">
+            Price: $75 (PDF plan)
           </p>
         </div>
 
-        <!-- Medication & Cost Research -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Medication &amp; cost research
-          </h3>
-          <p class="text-sm text-slate-700">
-            Help understanding how medication pricing works in practice and where the biggest cost differences
-            may be for your current prescriptions.
+        <div class="mt-4">
+          <a
+            href="#"
+            class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 rounded-md bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-700"
+          >
+            Pay $75 – Family Aging Plan
+          </a>
+          <p class="mt-1 text-[11px] text-slate-500">
+            Payment button will be connected to a secure Square checkout link.
+          </p>
+        </div>
+      </article>
+
+      <!-- Additional Research / Custom Work -->
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+        <div class="space-y-3">
+          <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+            Additional research & custom work
+          </h2>
+          <p class="text-sm sm:text-base text-slate-700">
+            Deeper assistance for complex questions — such as medication cost comparisons,
+            reviewing multiple facilities, or mapping out several potential care paths.
           </p>
 
+          <p class="text-sm text-slate-700">Examples include:</p>
           <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-            <li>Compare insurance, cash, discount program, and mail-order options using public information.</li>
-            <li>Explain the main “layers” that affect what you pay in plain language.</li>
-            <li>Provide a simple cost comparison summary you can use with your prescriber or family.</li>
+            <li>Medication price comparisons using public pharmacy data.</li>
+            <li>Reviewing several facilities based on public inspection records.</li>
+            <li>Comparing “stay at home,” “move closer to family,” or “facility care.”</li>
+            <li>Preparing questions and information for upcoming provider meetings.</li>
           </ul>
 
           <p class="text-xs text-slate-600">
-            Often starts as a Care Path Session with follow-up written work; deeper research can be T&amp;M
-            if you choose.
+            After payment, you’ll receive an email within 24 hours to begin the work.
+          </p>
+
+          <p class="mt-2 text-sm font-semibold text-slate-900">
+            Pricing: hourly, with an agreed estimate before starting.
           </p>
         </div>
 
-        <!-- Facility Deep Dive -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Facility deep-dive &amp; shortlist review
-          </h3>
+        <div class="mt-4">
+          <a
+            href="#"
+            class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 rounded-md bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-700"
+          >
+            Pay for additional work (custom amount)
+          </a>
+          <p class="mt-1 text-[11px] text-slate-500">
+            Payment button will be connected to a Square checkout link where you can enter the agreed amount.
+          </p>
+        </div>
+      </article>
 
-          <p class="text-sm text-slate-700">
-            A closer look at facilities on your short list, using public inspection, staffing, complaint,
-            and ownership data where available.
+      <!-- Donations -->
+      <article class="rounded-2xl border border-slate-200 bg-emerald-50/70 p-6 flex flex-col justify-between">
+        <div class="space-y-3">
+          <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
+            Support Maisage — donations from $1
+          </h2>
+
+          <p class="text-sm sm:text-base text-slate-700">
+            Maisage stays independent by not accepting commissions or referral fees.
+            If the information helps you and you’d like to support the work, you can make a small contribution.
           </p>
 
           <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-            <li>Create or refine a shortlist of facilities based on location and basic criteria.</li>
-            <li>Summarize inspection and complaint patterns to highlight where to look closer.</li>
-            <li>Provide a tailored list of questions to bring to tours, calls, or meetings.</li>
+            <li>Helps fund research and updates to public data.</li>
+            <li>Supports clearer tools for families comparing care options.</li>
+            <li>Helps keep core information free of conflicts of interest.</li>
           </ul>
 
           <p class="text-xs text-slate-600">
-            Often a mix of Your Care Path Session plus agreed T&amp;M research depending on how many facilities 
-            you want reviewed.
+            After payment, you'll receive a simple confirmation email.
+          </p>
+
+          <p class="mt-2 text-sm font-semibold text-slate-900">
+            Amount: any amount, starting at $1
           </p>
         </div>
 
-        <!-- Care Path & Budget Planning -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Care path &amp; budget planning
-          </h3>
-
-          <p class="text-sm text-slate-700">
-            Scenario-style planning to see how different care paths might affect your finances and options
-            over the next several years.
-          </p>
-
-          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-            <li>Outline 2–3 realistic care paths (home-first, hybrid, facility-first, Medicaid path, etc.).</li>
-            <li>Estimate high-level cost and timing impacts for each scenario.</li>
-            <li>Highlight when savings may be strained and what that might trigger.</li>
-          </ul>
-
-          <p class="text-xs text-slate-600">
-            Usually combines a Care Path Session with some T&amp;M modeling, always with a pre-agreed cap.
+        <div class="mt-4">
+          <a
+            href="#"
+            class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 rounded-md bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-700"
+          >
+            Contribute — from $1
+          </a>
+          <p class="mt-1 text-[11px] text-slate-500">
+            Donation button will be connected to a secure Square link.
           </p>
         </div>
+      </article>
 
-        <!-- Family Aging Plan -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Family Aging Plan (shareable summary)
-          </h3>
-
-          <p class="text-sm text-slate-700">
-            A written PDF you can print or email to family, capturing what matters most to you and the paths 
-            you are considering — to reduce confusion later.
-          </p>
-
-          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-            <li>Your goals, values, and non-negotiables.</li>
-            <li>A summary of your care paths and key assumptions.</li>
-            <li>A short checklist of questions to revisit each year.</li>
-          </ul>
-
-          <p class="text-xs text-slate-600">
-            Fixed fee: $75 per plan PDF. Often prepared after Your Care Path Session once directions are clearer.
-          </p>
-        </div>
-
-        <!-- Focused research -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Focused topic research
-          </h3>
-
-          <p class="text-sm text-slate-700">
-            When you need deeper digging on a specific question that can be answered with public information
-            and clear explanation.
-          </p>
-
-          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-            <li>Clarify the question and how you will use the answer.</li>
-            <li>Collect and summarize relevant public sources in plain language.</li>
-            <li>Provide links back to original materials so you can verify and share.</li>
-          </ul>
-
-          <p class="text-xs text-slate-600">
-            T&amp;M billed at $75/hr, with scope and a maximum hours cap agreed in advance.
-          </p>
-        </div>
-
-        <!-- Ongoing support -->
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5 space-y-3">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-            Ongoing check-ins &amp; support
-          </h3>
-
-          <p class="text-sm text-slate-700">
-            Light, periodic touchpoints to adjust your care path as health, finances, or family support change.
-          </p>
-
-          <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-            <li>Quarterly or semiannual check-ins.</li>
-            <li>Review what has changed and whether your plan still fits.</li>
-            <li>Keep everyone aligned without waiting for a crisis.</li>
-          </ul>
-
-          <p class="text-xs text-slate-600">
-            Can be structured as a small recurring fee or occasional T&amp;M, based on your preference.
-          </p>
-        </div>
-
-      </div>
     </section>
 
-    <!-- How to start -->
-    <section class="text-center space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        How to get started
-      </h2>
-
-      <p class="text-sm sm:text-base text-slate-700 max-w-2xl mx-auto">
-        You don’t need to know exactly which service you need. 
-        The best first step is often simply sharing where you are and what you’re worried about.
+    <!-- Note about payments -->
+    <section class="rounded-2xl border border-slate-200 bg-slate-50 p-4 space-y-2 text-xs sm:text-sm text-slate-700">
+      <p class="font-semibold text-slate-900">
+        About payments & security
       </p>
-
-      <div class="flex flex-col sm:flex-row gap-3 justify-center mt-3">
-        <a href="start-here.html"
-           class="inline-flex items-center justify-center px-4 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-700">
-          Start Here – tell your story
-        </a>
-
-        <a href="contact.html"
-           class="inline-flex items-center justify-center px-4 py-2 border border-emerald-600 text-emerald-700 rounded-md hover:bg-emerald-50">
-          Contact Maisage
-        </a>
-      </div>
-
-      <p class="text-[11px] text-slate-500 max-w-xl mx-auto">
-        When you’re ready to pay for a session or plan, you can use the secure payment buttons above.
-        Payments are handled through a third-party provider; Maisage does not collect or store card details.
+      <p>
+        Payments will be processed through Square using secure, industry-standard checkout pages.
+        Maisage does not store your card information.
       </p>
+      <p class="text-[11px] text-slate-500">
+        Until links are fully configured, these buttons act as placeholders.
+      </p>
+    </section>
+
+    <!-- Links -->
+    <section class="flex flex-col sm:flex-row gap-3">
+      <a
+        href="learn.html"
+        class="inline-flex items-center justify-center px-4 py-2 rounded-md border border-slate-300 text-slate-800 text-sm hover:bg-slate-50"
+      >
+        Explore Learn pages
+      </a>
+      <a
+        href="start-here.html"
+        class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-emerald-600 text-white text-sm hover:bg-emerald-700"
+      >
+        Start Here — tell your story
+      </a>
     </section>
 
   </main>
@@ -375,14 +269,17 @@
   <script>
     fetch('footer.html')
       .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html));
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
   </script>
-<!-- Floating Feedback Link -->
-<a href="feedback.html"
-   class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg
-          bg-emerald-600 hover:bg-emerald-700 text-white
-          px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
-  Give Feedback
-</a>
+
+  <!-- Floating Feedback Link -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg
+            bg-emerald-600 hover:bg-emerald-700 text-white
+            px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
+
 </body>
 </html>
