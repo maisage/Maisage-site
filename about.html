@@ -258,6 +258,12 @@
       .then(html => (document.getElementById('site-footer').innerHTML = html))
       .catch(err => console.error("Footer failed to load:", err));
   </script>
-
+<!-- Floating Feedback Link -->
+<a href="feedback.html"
+   class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg
+          bg-emerald-600 hover:bg-emerald-700 text-white
+          px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+  Give Feedback
+</a>
 </body>
 </html>
