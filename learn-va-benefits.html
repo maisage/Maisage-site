@@ -2,97 +2,209 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>VA benefits and support for veterans | Maisage</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>VA Benefits & Support for Veterans | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="min-h-screen bg-white text-slate-900">
-  <!-- Header -->
+
+  <!-- Shared Header -->
   <div id="site-header"></div>
   <script>
     fetch('header.html')
-      .then(r => r.text())
+      .then(res => res.text())
       .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
+      .catch(err => console.error("Header load failed:", err));
   </script>
 
   <!-- Breadcrumb -->
   <script>
-    window.breadcrumbParent = "Learn";
-    window.breadcrumbParentLink = "learn.html";
-    window.breadcrumbCurrent = "VA benefits and support for veterans";
+    window.breadcrumbParentLabel = "Learn";
+    window.breadcrumbParentHref = "learn.html";
+    window.breadcrumbCurrent = "VA Benefits";
   </script>
   <div id="breadcrumb"></div>
   <script>
     fetch('breadcrumb.html')
-      .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById('breadcrumb');
-        if (el) el.innerHTML = html);
-      })
-      .catch(err => console.error("Breadcrumb failed to load:", err));
+      .then(res => res.text())
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html));
   </script>
 
-  <!-- Main -->
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+  <!-- MAIN CONTENT -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
 
+    <!-- Title Block -->
     <section class="space-y-3">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Learn · VA Benefits
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">VA Benefits & Support for Veterans</h1>
+
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Veterans and surviving spouses may qualify for certain benefits that can help with care,
+        income support, or long-term living expenses. This page explains commonly available VA
+        benefits using publicly available information — especially Aid & Attendance — in simple,
+        clear terms.
       </p>
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        VA benefits and support for veterans
-      </h1>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        This is not legal or financial advice. VA programs change over time; always verify with
+        official VA sources.
+      </p>
+    </section>
+
+    <!-- What VA Benefits Include -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">What VA benefits can help with</h2>
+
       <p class="text-sm sm:text-base text-slate-700">
-        Veterans and their families may have access to programs that can help with health care,
-        long-term care, and other supports. Understanding what exists is the first step; figuring
-        out which programs apply to your situation often requires direct contact with VA or
-        accredited advisors.
+        VA support varies based on service history, disability, income, and need. Benefits fall into
+        a few broad categories:
       </p>
-      <p class="text-xs sm:text-sm text-slate-500">
-        This page offers a high-level orientation, not a complete list of programs or eligibility
-        rules.
-      </p>
-    </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Types of VA-related support
-      </h2>
-      <p class="text-sm text-slate-700">
-        Depending on service history and other factors, veterans may have access to:
-      </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>VA health care services.</li>
-        <li>Long-term care options through VA or contracted facilities.</li>
-        <li>Programs that may help with in-home care or caregiver support.</li>
-        <li>Disability compensation and pension programs, in eligible cases.</li>
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li><strong>Disability compensation</strong> — for service-connected injuries or conditions.</li>
+        <li><strong>Pension programs</strong> — income support for low-income wartime veterans.</li>
+        <li><strong>Aid & Attendance</strong> — extra monthly funds for veterans or surviving spouses who need help with daily activities.</li>
+        <li><strong>VA health care</strong> — medical services for eligible veterans.</li>
+        <li><strong>Caregiver support programs</strong> — help for family caregivers.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Each program has its own criteria and application process. Official VA resources and
-        accredited representatives are key for up-to-date details.
+
+      <p class="text-sm text-slate-700">
+        Two benefits come up most often for older adults: VA pension and Aid & Attendance.
       </p>
     </section>
 
-    <!-- Contact block -->
-    <div id="contact-block"></div>
+    <!-- Aid & Attendance -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Aid & Attendance (A&A)</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Aid & Attendance is an <strong>add-on</strong> to the VA pension program. It helps veterans or surviving spouses
+        who need help with everyday activities, such as:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>bathing</li>
+        <li>dressing</li>
+        <li>medication reminders</li>
+        <li>meal preparation</li>
+        <li>supervision for safety</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Veterans who already receive <strong>VA disability compensation</strong> usually cannot receive A&A
+        at the same time — but there are exceptions depending on benefit level.
+      </p>
+    </section>
+
+    <!-- Eligibility Basics -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Basic eligibility (public information summary)</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">Eligibility for A&A typically includes:</p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>served at least 90 days of active duty</li>
+        <li>with at least one day during a wartime period (as defined by the VA)</li>
+        <li>age, disability, or care needs requiring regular help</li>
+        <li>meeting income and asset guidelines</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Surviving spouses may also qualify if they were married to the veteran at the time of death,
+        have not remarried, and meet asset/income guidelines.
+      </p>
+    </section>
+
+    <!-- What A&A Pays -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">What Aid & Attendance helps pay for</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        A&A is paid as a monthly stipend — there is no restriction on how the money must be used.
+        Families commonly use it to help offset:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>in-home caregivers</li>
+        <li>assisted living costs (partially)</li>
+        <li>medical supplies and support needs</li>
+        <li>personal care assistance</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        A&A does <strong>not</strong> cover room and board fully, and does not replace Medicaid or Medicare.
+      </p>
+    </section>
+
+    <!-- Applying -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Applying for VA benefits</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Applications require documentation of service, financial information, and medical need.
+        Many families prepare by gathering:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm sm:text-base text-slate-700 space-y-1">
+        <li>DD-214 or discharge records</li>
+        <li>marriage certificates (for surviving spouse cases)</li>
+        <li>medical statements or proof of care needs</li>
+        <li>income and asset information</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Some families complete the application themselves; others use accredited VA representatives.
+        Maisage does not file or submit applications — but can help explain the process using public
+        information to prepare you.
+      </p>
+    </section>
+
+    <!-- How VA Benefits Fit Into Planning -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">How VA benefits fit into long-term planning</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        VA benefits rarely cover all care needs, but they can be an important piece of the picture:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>can help pay for in-home caregivers</li>
+        <li>can supplement retirement income</li>
+        <li>can support assisted living costs</li>
+        <li>can help delay Medicaid spend-down</li>
+        <li>can ease financial stress on spouses</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        When combined with Medicare, personal savings, and family involvement, VA programs can help
+        build a more sustainable care path.
+      </p>
+    </section>
+
+    <!-- Return Block -->
+    <div id="return-block"></div>
     <script>
       fetch('contact-block.html')
         .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
+        .then(h => (document.getElementById('return-block').innerHTML = h));
     </script>
 
   </main>
 
-  <!-- Footer -->
+  <!-- Shared Footer -->
   <div id="site-footer"></div>
   <script>
     fetch('footer.html')
       .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
+      .then(html => (document.getElementById('site-footer').innerHTML = html));
   </script>
+
+  <!-- Floating Feedback Link -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
+
 </body>
 </html>
