@@ -3,132 +3,208 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Hospice care – what it covers and what it doesn’t | Maisage</title>
+  <title>Hospice Care & End-of-Life Support | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="min-h-screen bg-white text-slate-900">
-  <!-- Header -->
+
+  <!-- Shared Header -->
   <div id="site-header"></div>
   <script>
     fetch('header.html')
       .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
+      .then(h => (document.getElementById('site-header').innerHTML = h))
+      .catch(e => console.error("Header failed:", e));
   </script>
 
-  <!-- Breadcrumb: Home / Learn / Hospice -->
+  <!-- Breadcrumb -->
   <script>
-    window.breadcrumbParent = "Learn";
-    window.breadcrumbParentLink = "learn.html";
-    window.breadcrumbCurrent = "Hospice care and coverage";
+    window.breadcrumbParentLabel = "Learn";
+    window.breadcrumbParentHref = "learn.html";
+    window.breadcrumbCurrent = "Hospice Care & End-of-Life Support";
   </script>
   <div id="breadcrumb"></div>
   <script>
     fetch('breadcrumb.html')
       .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById('breadcrumb');
-        if (el) el.innerHTML = html;
-      })
-      .catch(err => console.error("Breadcrumb failed to load:", err));
+      .then(h => (document.getElementById('breadcrumb').innerHTML = h));
   </script>
 
-  <!-- Main -->
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+  <!-- Main Content -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+
+    <!-- Title -->
     <section class="space-y-3">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Learn · Hospice
-      </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Hospice care: what it does—and what it does not—cover
+        Hospice Care & End-of-Life Support
       </h1>
+
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Hospice care focuses on comfort, dignity, and support in the final phase of life. Many
+        families are surprised by what hospice covers — and what it does not. Understanding this
+        early helps you prepare emotionally, financially, and practically.
+      </p>
+
+      <p class="text-xs text-slate-600">
+        This page is based on publicly available information. It does not replace medical,
+        financial, or legal advice.
+      </p>
+    </section>
+
+    <!-- What Hospice Is -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">What hospice actually is</h2>
       <p class="text-sm sm:text-base text-slate-700">
-        Hospice is a model of care focused on comfort, symptom management, and quality of life when
-        a serious illness is not expected to be cured. It is about support and dignity, not giving
-        up. Many people and families are surprised by what hospice does and does not pay for.
+        Hospice is comfort-focused care for people with a life expectancy of six months or less,
+        as certified by physicians. The focus shifts from curative treatment to:
       </p>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Coverage details depend on the payer (for example, Medicare vs. private insurance) and local
-        policies. This page focuses on general patterns that are often misunderstood.
-      </p>
-    </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        What hospice is designed to provide
-      </h2>
-      <p class="text-sm text-slate-700">
-        Hospice services commonly include:
-      </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Regular visits from a hospice team (nurses, aides, social workers, chaplains).</li>
-        <li>Medications related to comfort and symptom control for the terminal diagnosis.</li>
-        <li>Certain medical equipment and supplies (for example, hospital bed, oxygen, dressings).</li>
-        <li>Support for caregivers, including training, respite options, and grief support.</li>
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>relief from pain and symptoms</li>
+        <li>emotional and spiritual support</li>
+        <li>comfort and dignity in the final stage of life</li>
+        <li>family guidance and support</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Hospice care can be provided at home, in a facility, or in dedicated inpatient hospice
-        units, depending on the situation and local availability.
-      </p>
-    </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        A key point: hospice usually does not pay for room and board
-      </h2>
       <p class="text-sm text-slate-700">
-        One of the most important clarifications is that hospice <span class="font-semibold">does
-        not usually cover room and board costs</span> in a facility such as assisted living or a
-        nursing home.
-      </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Hospice may pay for the hospice team and related services.</li>
-        <li>The daily “bed” charge in a facility is often billed separately and remains the patient’s or family’s responsibility, unless another payer (like Medicaid) is involved.</li>
-      </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        This distinction can have a major impact on costs, especially if someone moves to a
-        facility for the first time while starting hospice.
+        Hospice is not giving up. It is choosing comfort, calm, and quality of life.
       </p>
     </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Hospice at home versus in a facility
-      </h2>
+    <!-- What Hospice Covers -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">What hospice usually covers</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">Hospice typically includes:</p>
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>nursing visits and symptom management</li>
+        <li>medications related to comfort and pain control</li>
+        <li>medical equipment such as hospital beds, wheelchairs, oxygen</li>
+        <li>home health aides for brief personal care</li>
+        <li>access to social workers, chaplains, and counselors</li>
+        <li>24/7 on-call support for emergencies or symptom changes</li>
+      </ul>
+
       <p class="text-sm text-slate-700">
-        Many people receive hospice at home, where the patient or family does not pay “room and
-        board” in the same way. The main questions at home often involve:
-      </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Who will provide day-to-day hands-on care?</li>
-        <li>Whether additional paid caregivers are needed, beyond what hospice staff can provide.</li>
-        <li>How family and friends can share responsibilities in a manageable way.</li>
-      </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        In a facility, the hospice team is added on top of the facility’s own staff and charges,
-        which can make the financial picture more complex.
+        These services can take place at home, in assisted living, in a facility, or at a hospice center.
       </p>
     </section>
 
-    <!-- Contact block -->
-    <div id="contact-block"></div>
+    <!-- What Hospice Does NOT Cover -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-red-700">What hospice does NOT cover</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Many families discover this too late — hospice does <strong>not</strong> pay for:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li><strong>Room and board</strong> in assisted living, memory care, or nursing homes</li>
+        <li><strong>24/7 caregivers</strong> at home (Medicare does not cover round-the-clock sitters)</li>
+        <li><strong>Non-medical help</strong> like cleaning, laundry, cooking, shopping</li>
+        <li><strong>Private-duty caregivers</strong> unless paid separately by the family</li>
+      </ul>
+
+      <p class="text-sm text-slate-700 font-medium">
+        This is one of the most important things to understand about hospice:  
+        <span class="text-red-700">Hospice provides medical support — not daily living support.</span>
+      </p>
+    </section>
+
+    <!-- Hospice at Home -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Hospice at home</h2>
+      <p class="text-sm sm:text-base text-slate-700">
+        Many older adults prefer to remain at home. Hospice can help make that possible, but families
+        need to understand the balance:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>nurses visit a few times a week (more if needed)</li>
+        <li>aides visit briefly for bathing or personal care</li>
+        <li>most day-to-day support still falls to family or hired caregivers</li>
+        <li>hospice provides equipment, supplies, and medications related to comfort</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        For many families, combining hospice + part-time caregiver support + family coordination
+        provides the most comfort and stability.
+      </p>
+    </section>
+
+    <!-- Hospice in Assisted Living or Nursing Homes -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">
+        Hospice in assisted living or nursing homes
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700">
+        Hospice can be added wherever someone lives — but the facility still charges its usual
+        monthly rent or daily rate. Hospice covers the medical layer; the facility covers the care layer.
+      </p>
+    </section>
+
+    <!-- Family Support -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">
+        Support for families during hospice
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700">
+        Hospice is more than medical care — it also supports families emotionally and practically.
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>guidance during symptom changes</li>
+        <li>help understanding what to expect</li>
+        <li>support with difficult conversations</li>
+        <li>bereavement services after a loved one passes</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Many families say hospice helped them feel less alone during one of life's hardest moments.
+      </p>
+    </section>
+
+    <!-- Planning Section -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Why planning early matters</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Talking about hospice early doesn’t bring it on sooner — it gives you more control.  
+        Early conversations help families:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>explore where a person wants to be at the end of life</li>
+        <li>plan for caregiver needs before they become urgent</li>
+        <li>understand facility vs. home options</li>
+        <li>avoid rushed decisions in a crisis</li>
+      </ul>
+    </section>
+
+    <!-- Return Block -->
+    <div id="return-block"></div>
     <script>
       fetch('contact-block.html')
         .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
+        .then(h => (document.getElementById('return-block').innerHTML = h));
     </script>
 
   </main>
 
-  <!-- Footer -->
+  <!-- Shared Footer -->
   <div id="site-footer"></div>
   <script>
     fetch('footer.html')
       .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
+      .then(h => (document.getElementById('site-footer').innerHTML = h));
   </script>
+
+  <!-- Feedback Button -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+     Give Feedback
+  </a>
+
 </body>
 </html>
