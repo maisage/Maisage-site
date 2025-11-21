@@ -2,151 +2,217 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Medicaid and long-term care | Maisage</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Medicaid & Long-Term Care | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="min-h-screen bg-white text-slate-900">
-  <!-- Header -->
+
+  <!-- Shared Header -->
   <div id="site-header"></div>
   <script>
     fetch('header.html')
       .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
+      .then(h => document.getElementById('site-header').innerHTML = h);
   </script>
 
-  <!-- Breadcrumb: Home / Learn / Medicaid -->
+  <!-- Breadcrumb -->
   <script>
-    window.breadcrumbParent = "Learn";
-    window.breadcrumbParentLink = "learn.html";
-    window.breadcrumbCurrent = "Medicaid and long-term care";
+    window.breadcrumbParentLabel = "Learn";
+    window.breadcrumbParentHref = "learn.html";
+    window.breadcrumbCurrent = "Medicaid & Long-Term Care";
   </script>
   <div id="breadcrumb"></div>
   <script>
     fetch('breadcrumb.html')
       .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById('breadcrumb');
-        if (el) el.innerHTML = html;
-      })
-      .catch(err => console.error("Breadcrumb failed to load:", err));
+      .then(h => document.getElementById('breadcrumb').innerHTML = h);
   </script>
 
   <!-- Main -->
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
 
+    <!-- Title -->
     <section class="space-y-3">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Learn · Medicaid
-      </p>
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Medicaid and long-term care
+        Medicaid & Long-Term Care
       </h1>
+
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Medicaid plays a major role in long-term care in the United States. Many families use it
+        only when savings are gone, but understanding how it works earlier can help you plan with
+        more choice and far less crisis.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        This page uses only publicly available information — no legal advice, no financial advice,
+        and no assumptions about your situation. The goal is clarity.
+      </p>
+    </section>
+
+    <!-- Section: What Medicaid Is -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">What Medicaid actually is</h2>
       <p class="text-sm sm:text-base text-slate-700">
-        Medicaid is a joint federal–state program that can pay for long-term care when certain
-        financial and eligibility rules are met. For many people, it becomes the default plan only
-        after savings are gone — often without much advance planning.
+        Medicaid is a federal-state program that helps pay for long-term care for people with
+        limited income and assets. Unlike Medicare, which mainly covers medical care, Medicaid is
+        the primary payer for long-term care in nursing homes and for many home-based services.
       </p>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Rules vary by state and change over time. This page gives general concepts only. For your
-        specific situation, state Medicaid offices and qualified professionals are essential
-        resources.
-      </p>
-    </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Basic ideas behind Medicaid and long-term care
-      </h2>
       <p class="text-sm text-slate-700">
-        In many states, Medicaid is a primary payer for long-term nursing facility care. To qualify,
-        a person usually must:
-      </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Meet medical or functional criteria (needing a certain level of care).</li>
-        <li>Have income and assets below specific limits, with some protections for a spouse.</li>
-        <li>Follow rules about transfers and gifts within a “lookback” period.</li>
-      </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Details such as asset limits, protections for a spouse, and home treatment differ by state.
+        Every state runs Medicaid differently, but the core rules are similar: you must meet
+        medical criteria and financial criteria to qualify.
       </p>
     </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        What “spend-down” means
-      </h2>
+    <!-- Section: What Medicaid Pays For -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">What Medicaid pays for</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">Medicaid may cover:</p>
+
+      <ul class="list-disc pl-6 text-sm sm:text-base text-slate-700 space-y-1">
+        <li>Nursing home long-term care (room, board, and basic services)</li>
+        <li>Some in-home caregiver services under Home & Community Based Services (HCBS)</li>
+        <li>Medical transportation in some situations</li>
+        <li>Medical equipment and supplies</li>
+        <li>Certain therapies depending on the state</li>
+      </ul>
+
       <p class="text-sm text-slate-700">
-        Many families hear the phrase “you have to spend down to qualify for Medicaid.” In practice,
-        this can mean:
+        Medicaid <strong>does not</strong> typically cover:
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Paying for care and other allowed expenses until assets fall below Medicaid thresholds.</li>
-        <li>Converting certain resources into exempt forms (according to state rules).</li>
-        <li>Tracking timing to avoid penalties related to gifts or transfers made within the lookback period.</li>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>Assisted living room and board</li>
+        <li>Memory care room and board</li>
+        <li>Private caregivers hired outside Medicaid programs</li>
+        <li>Rent, utilities, or everyday household costs</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Because the rules are technical, many people choose to consult with elder law or Medicaid
-        planning professionals when they approach this stage.
-      </p>
     </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Estate recovery and why it matters
+    <!-- Section: Spend-down -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">
+        What is “spend-down” and why does it matter?
       </h2>
-      <p class="text-sm text-slate-700">
-        In many cases, states are required to seek recovery of certain Medicaid payments from a
-        person’s estate after death, especially for long-term care services.
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Many families hear: <em>“When the money runs out, Medicaid will take over.”</em>
+        In reality, Medicaid has strict asset and income rules. To qualify, many people must first
+        spend their savings down to their state’s limits.
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Estate recovery rules vary by state and can depend on factors like surviving spouses or disabled children.</li>
-        <li>In some situations, claims may be delayed or waived; in others, they may result in liens or claims on property.</li>
+
+      <p class="text-sm text-slate-700">Important notes:</p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>The amount you must spend varies by state.</li>
+        <li>Some assets are protected (your home, in many cases).</li>
+        <li>Transfers to family can be penalized under 5-year look-back rules.</li>
+        <li>Your spouse may keep more under “spousal impoverishment” protections.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Understanding estate recovery early can help families avoid surprises later.
+
+      <p class="text-sm text-slate-700">
+        Understanding these rules <strong>before</strong> a crisis helps you plan with more control.
       </p>
     </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Using Medicaid as one part of the plan
+    <!-- Section: Look-back -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">The 5-year look-back</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Medicaid reviews financial activity for the 5 years before applying to ensure assets were
+        not given away to qualify. If they were, Medicaid applies a penalty period — a time during
+        which Medicaid will not pay for care.
+      </p>
+
+      <p class="text-sm text-slate-700">
+        This makes early planning important. A small, thoughtful adjustment made today may avoid a
+        crisis later.
+      </p>
+    </section>
+
+    <!-- Section: Nursing home + HCBS -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Nursing homes vs. home-based Medicaid</h2>
+
+      <p class="text-sm text-slate-700">
+        Many states now offer home-based long-term care through HCBS waivers. These programs:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>aim to let people stay at home longer</li>
+        <li>may cover caregivers, adult day programs, or respite services</li>
+        <li>often have waitlists</li>
+        <li>have strict eligibility rules</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Nursing homes do not have waitlists for Medicaid — but they may not have open Medicaid
+        beds, and families must call to verify availability.
+      </p>
+    </section>
+
+    <!-- Section: Why planning early matters -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Why early planning matters</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Families often wait until a medical event forces a rushed decision. At that point, choices
+        shrink and stress rises. Understanding Medicaid early lets you:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>compare nearby facilities before you need one</li>
+        <li>plan financially for multiple care paths</li>
+        <li>talk openly with family about expectations</li>
+        <li>prepare documents and accounts while things are calm</li>
+      </ul>
+    </section>
+
+    <!-- Section: What Medicaid doesn't decide -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">
+        What Medicaid cannot decide for you
       </h2>
-      <p class="text-sm text-slate-700">
-        Medicaid can be an essential safety net, but relying on “Medicaid will take over” as the
-        only plan can leave you with fewer choices and more stress. Many families:
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Medicaid determines eligibility and pays providers — but it does not choose your facility,
+        make care decisions, or guide your family through options. Those decisions still fall to
+        you and your loved ones.
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Use private pay and family support earlier in the journey.</li>
-        <li>Plan for a possible Medicaid phase later, with realistic expectations.</li>
-        <li>Talk openly about what matters most if choice becomes more limited.</li>
-      </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Understanding the basics now makes it easier to fit Medicaid into a broader plan instead of
-        turning to it only in an emergency.
+
+      <p class="text-sm text-slate-700">
+        Planning ahead lets you keep more control over your future.
       </p>
     </section>
 
-    <!-- Contact block -->
-    <div id="contact-block"></div>
+    <!-- Return Block -->
+    <div id="return-block"></div>
     <script>
       fetch('contact-block.html')
         .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
+        .then(h => document.getElementById('return-block').innerHTML = h);
     </script>
 
   </main>
 
-  <!-- Footer -->
+  <!-- Shared Footer -->
   <div id="site-footer"></div>
   <script>
     fetch('footer.html')
       .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
+      .then(h => document.getElementById('site-footer').innerHTML = h);
   </script>
+
+  <!-- Feedback -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+     Give Feedback
+  </a>
+
 </body>
 </html>
