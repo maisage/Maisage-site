@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>What Matters Most | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParentLabel = "Home";
+    window.breadcrumbParentHref = "index.html";
+    window.breadcrumbCurrent = "What Matters Most";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+
+    <!-- Intro -->
+    <section class="space-y-3">
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        What Matters Most
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Every person ages differently. Some worry most about staying independent. Others are focused
+        on medication costs, safe facilities, or simply staying connected to family. This page is a
+        place to highlight what matters most to you, so Maisage can keep improving the topics,
+        tools, and guides it offers.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600 max-w-3xl">
+        This page is for themes, not politics. It does not collect or publish private information.
+        It simply helps organize the questions and concerns older adults and families care about.
+      </p>
+    </section>
+
+    <!-- Topic Voting Grid -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">
+        Which topics matter most to you right now?
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700">
+        Tap any topic below that feels important in your life or your family’s life. This simple
+        “signal” helps guide where Maisage should focus explanations, examples, and tools.
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3" id="topics-grid">
+
+        <!-- Topic card template pattern: data-topic-id and local counters -->
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="independence">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Staying independent</h3>
+            <p class="text-xs text-slate-700">
+              Designing life so you can stay at home, keep your routines, and have support that fits
+              your pace — not just defaulting into a facility.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="medication-costs">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Medication costs & transparency</h3>
+            <p class="text-xs text-slate-700">
+              Understanding why prices change, how to compare options, and where the money actually
+              goes in the pharmacy and drug pricing system.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="facilities">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Finding trustworthy facilities</h3>
+            <p class="text-xs text-slate-700">
+              Making sense of ratings, inspections, ownership changes, and real-world experiences
+              when choosing assisted living, memory care, or nursing homes.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="medicare-medicaid">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Understanding Medicare & Medicaid</h3>
+            <p class="text-xs text-slate-700">
+              Seeing clearly what each program does and does not cover, and how they interact with
+              private pay, savings, and family help.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="daily-living-support">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Daily living support at home</h3>
+            <p class="text-xs text-slate-700">
+              Meals, housekeeping, transportation, medication reminders, and small supports that
+              keep you at home longer without burning out your family.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="travel">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Safe & enjoyable travel</h3>
+            <p class="text-xs text-slate-700">
+              Planning trips that fit your health, mobility, and energy — with realistic pacing,
+              accessibility, and backup plans, while still leaving room for joy.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="social-connection">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Social connection & loneliness</h3>
+            <p class="text-xs text-slate-700">
+              Staying emotionally connected through community, clubs, gardening, faith, hobbies,
+              or gentle online tools without being overwhelmed.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="technology-support">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Technology help & reminders</h3>
+            <p class="text-xs text-slate-700">
+              Making phones, tablets, reminders, and safety devices work for you without feeling
+              judged, rushed, or confused.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 bg-white p-4 flex flex-col justify-between"
+                 data-topic-id="money-protection">
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold text-slate-900">Money, scams & protection</h3>
+            <p class="text-xs text-slate-700">
+              Understanding common scams, phone calls, and offers that target older adults, and how
+              to protect accounts and decision-making.
+            </p>
+          </div>
+          <div class="mt-3 flex items-center justify-between">
+            <button type="button"
+                    class="topic-vote inline-flex items-center rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium px-3 py-1">
+              This matters to me
+            </button>
+            <span class="text-[11px] text-slate-500">
+              Signals: <span class="topic-count font-semibold">0</span>
+            </span>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="text-[11px] text-slate-500 mt-2">
+        These counts are local to your browser and for illustration only. They are not stored as
+        personal data and will reset when the page is refreshed.
+      </p>
+    </section>
+
+    <!-- Free-text input -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">
+        Is there something else that matters to you?
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        If there’s a topic you don’t see here, you can share it below. This is not a request form
+        for individual advice — it helps guide which plain-language explanations Maisage should
+        build next.
+      </p>
+
+      <form class="space-y-3 max-w-xl" id="what-matters-form">
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">
+            What would you like Maisage to explain more clearly?
+          </label>
+          <textarea
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600"
+            rows="4"
+            placeholder="Example: I want to understand how to compare assisted living vs. staying home with part-time help."></textarea>
+        </div>
+
+        <p class="text-[11px] text-slate-500">
+          For privacy, please avoid including names, addresses, or detailed health information.
+        </p>
+
+        <button type="button"
+                id="what-matters-submit"
+                class="inline-flex items-center rounded-md bg-slate-900 text-white text-xs font-medium px-3 py-2 hover:bg-slate-800">
+          Save this idea (local only)
+        </button>
+        <p id="what-matters-confirm" class="hidden text-[11px] text-emerald-700 mt-1">
+          Thank you — your note has been saved locally on this page.
+        </p>
+      </form>
+    </section>
+
+    <!-- Example "What others are naming" -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">
+        Examples of what people often name as “what matters most”
+      </h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        These are composite examples based on common questions and themes older adults and families
+        frequently raise. They are not from any one person.
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>“I want to stay at home, but I don’t want to overwhelm my children.”</li>
+        <li>“I need to understand how my medications and Medicare plan actually work together.”</li>
+        <li>“I’m worried about choosing the wrong facility if I ever have to move.”</li>
+        <li>“My spouse and I need a clear plan so our kids aren’t guessing in a crisis.”</li>
+        <li>“I want to keep traveling, but I need to know how to do it safely with my health issues.”</li>
+        <li>“I don’t want to be pressured into decisions I don’t understand.”</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Maisage’s goal is to turn patterns like these into clear, neutral explanations and planning
+        tools that you can use with your family.
+      </p>
+    </section>
+
+    <!-- Contact Block -->
+    <div id="return-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('return-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed:", err));
+    </script>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+  <!-- Floating Feedback Button -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
+
+  <!-- Simple local-only JS to make the page feel alive -->
+  <script>
+    // Local-only topic vote counters
+    document.querySelectorAll('.topic-vote').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('[data-topic-id]');
+        if (!card) return;
+        const countEl = card.querySelector('.topic-count');
+        if (!countEl) return;
+        const current = parseInt(countEl.textContent || '0', 10);
+        countEl.textContent = current + 1;
+        btn.blur();
+      });
+    });
+
+    // Local-only "save" for free-text idea (no backend, just visual confirmation)
+    const ideaBtn = document.getElementById('what-matters-submit');
+    const ideaConfirm = document.getElementById('what-matters-confirm');
+    if (ideaBtn && ideaConfirm) {
+      ideaBtn.addEventListener('click', () => {
+        ideaConfirm.classList.remove('hidden');
+        setTimeout(() => ideaConfirm.classList.add('hidden'), 4000);
+      });
+    }
+  </script>
+
+</body>
+</html>
