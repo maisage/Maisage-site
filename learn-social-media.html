@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Social Media & Older Adults | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParentLabel = "Learn";
+    window.breadcrumbParentHref = "learn.html";
+    window.breadcrumbCurrent = "Social Media & Older Adults";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
+      .catch(err => console.error("Breadcrumb failed:", err));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
+
+    <!-- Title -->
+    <section class="space-y-3">
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Social Media & Older Adults
+      </h1>
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Social media can be an incredible way for older adults to stay connected with family, follow
+        community updates, share memories, and feel less alone — but it can also feel overwhelming,
+        confusing, or unsafe without the right guidance. This page explains how seniors can use
+        social media confidently and safely with simple, practical tips based on publicly available information.
+      </p>
+    </section>
+
+    <!-- Section 1: Staying Connected -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Why social media matters for older adults</h2>
+      <p class="text-sm text-slate-700">
+        When used in a calm and intentional way, social media helps seniors:
+      </p>
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>stay in touch with children and grandchildren</li>
+        <li>see photos, family updates, and special moments</li>
+        <li>connect with church groups or neighborhood communities</li>
+        <li>stay aware of local events and safety alerts</li>
+        <li>share memories or participate in hobbies</li>
+        <li>feel less isolated, especially if mobility or health is changing</li>
+      </ul>
+      <p class="text-sm text-slate-700">
+        The goal is connection, not overwhelm — and seniors can control exactly what they see and who they interact with.
+      </p>
+    </section>
+
+    <!-- Section 2: Reducing Noise -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Making social media simple, calm, and enjoyable</h2>
+      <p class="text-sm text-slate-700">Seniors often stop using social media because the feed becomes loud, chaotic, or confusing. Here are simple ways to make it peaceful:</p>
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>Unfollow pages or people that cause stress or confusion.</li>
+        <li>Mark close family as “favorites” to always see their updates.</li>
+        <li>Join only a few meaningful groups (church, local community, hobbies).</li>
+        <li>Limit notifications — most platforms let you turn almost all of them off.</li>
+        <li>Use larger text settings and simplified layouts where available.</li>
+      </ul>
+    </section>
+
+    <!-- Section 3: Staying Safe -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Safety and privacy for older adults</h2>
+      <p class="text-sm text-slate-700">Most risks on social media come from strangers, not family. Seniors can avoid most issues by using a few simple habits:</p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>Never respond to messages requesting money, gift cards, or personal information.</li>
+        <li>Be cautious of friend requests from people you don’t recognize — especially duplicates of people you already know.</li>
+        <li>Do not click links in messages unless they come from someone you trust.</li>
+        <li>Use privacy settings so only friends can see your posts.</li>
+        <li>Set up two-factor authentication for account protection.</li>
+        <li>Know that screenshots, photos, and text can be edited or faked online.</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        These are educational tips only — seniors always maintain full control of their accounts. Maisage never accesses passwords or private messages.
+      </p>
+    </section>
+
+    <!-- Section 4: Understanding Content -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Understanding what you see online</h2>
+      <p class="text-sm text-slate-700">Social media blends personal updates, advertisements, opinions, and sometimes misleading content. Seniors can stay grounded with simple “pause and check” habits:</p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>Look at where the post came from — is it a real family member or an unknown page?</li>
+        <li>Avoid sharing posts unless you know exactly who created them.</li>
+        <li>Remember that ads may appear disguised as posts.</li>
+        <li>If something seems alarming or too surprising, check with a trusted family member.</li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Getting Set Up -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Setting up apps and devices</h2>
+      <p class="text-sm text-slate-700">
+        Many older adults want to connect online but feel unsure how to start. Maisage can guide you through:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>installing social media apps you choose</li>
+        <li>adjusting font size and accessibility settings</li>
+        <li>setting up simple video calling tools with family</li>
+        <li>turning off overwhelming pop-ups and notifications</li>
+        <li>understanding how to use messaging safely</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        You always stay in control — Maisage does not access your passwords or accounts.
+      </p>
+    </section>
+
+    <!-- Section 6: When families want to stay gently connected -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Helping families stay connected (without feeling invasive)</h2>
+      <p class="text-sm text-slate-700">
+        Some seniors appreciate gentle connection tools that help loved ones stay aware of daily routines without using cameras or constant check-ins. These can include:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>shared family calendars for appointments</li>
+        <li>daily “I’m okay” check-in messages</li>
+        <li>movement reminders (drinking water, stretching, medications)</li>
+        <li>simple wearable safety devices</li>
+        <li>private family group chats</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Technology should support independence — not replace it.
+      </p>
+    </section>
+
+    <!-- Contact Block -->
+    <div id="return-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('return-block').innerHTML = html))
+        .catch(err => console.error("Return block failed:", err));
+    </script>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+  <!-- Floating Feedback -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
+
+</body>
+</html>
