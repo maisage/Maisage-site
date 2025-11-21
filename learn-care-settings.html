@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Care Settings: Assisted Living, Nursing Homes & Memory Care | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(h => (document.getElementById('site-header').innerHTML = h))
+      .catch(e => console.error("Header failed:", e));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParentLabel = "Learn";
+    window.breadcrumbParentHref = "learn.html";
+    window.breadcrumbCurrent = "Care Settings";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(h => (document.getElementById('breadcrumb').innerHTML = h))
+      .catch(e => console.error("Breadcrumb failed:", e));
+  </script>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+
+    <!-- Title -->
+    <section class="space-y-3">
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Care Settings: Assisted Living, Nursing Homes & Memory Care
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        Many buildings look the same from the outside — but “assisted living,” “memory care,”
+        “skilled nursing,” and “independent living” all follow different rules, have different
+        expectations, and are paid for in different ways. This page uses publicly available
+        information to explain the basics in plain language.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        This is educational only. It is not legal, financial, or medical advice, and does not
+        recommend any specific facility or product.
+      </p>
+    </section>
+
+    <!-- Independent Living -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Independent living (senior apartments, 55+ communities)</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Independent living is usually housing for older adults who can live mostly on their own,
+        with optional services layered on top.
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>Looks like apartments or cottages.</li>
+        <li>Often age-restricted (55+ or 62+).</li>
+        <li>Focus is on housing, not hands-on care.</li>
+        <li>Meals, housekeeping, and transportation may be offered as extras.</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        <strong>Payment:</strong> Usually private pay (rent + optional services). Medicare and Medicaid
+        generally do not pay for rent here.
+      </p>
+    </section>
+
+    <!-- Assisted Living -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Assisted living</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Assisted living is designed for people who need help with daily activities but do not
+        require full nursing home care.
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>Help with dressing, bathing, medications, meals, and housekeeping.</li>
+        <li>Staff on site, but not the same level as a hospital or nursing home.</li>
+        <li>Private or semi-private apartments/rooms with shared dining and activities.</li>
+        <li>Some memory care units are located inside assisted living communities.</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        <strong>Payment:</strong> Mostly private pay. Some states have Medicaid waiver programs that
+        help with <em>services</em>, but families usually still pay room and board.
+      </p>
+    </section>
+
+    <!-- Memory Care -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Memory care</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Memory care is structured for people with Alzheimer’s disease or other dementias who need
+        a secure environment and more cueing or supervision.
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>Secure units or buildings to reduce wandering risk.</li>
+        <li>Staff trained in dementia communication and behavior support.</li>
+        <li>Routines and activities tailored for memory support.</li>
+        <li>Often located inside assisted living or as stand-alone communities.</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        <strong>Payment:</strong> Largely private pay. Medicaid coverage, where available, often
+        helps with services but not room and board. Rules vary by state.
+      </p>
+    </section>
+
+    <!-- Skilled Nursing / Nursing Home -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Skilled nursing facilities (nursing homes)</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Nursing homes provide the highest level of ongoing medical and personal care outside a hospital.
+        They may have both short-stay rehab and long-term care units.
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>24-hour nursing supervision.</li>
+        <li>Help with all activities of daily living.</li>
+        <li>Medication management and medical monitoring.</li>
+        <li>On-site or visiting therapies (physical, occupational, speech).</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        <strong>Payment:</strong>
+      </p>
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>Medicare: often covers short-term rehab after a qualifying hospital stay.</li>
+        <li>Medicaid: the main payer for long-term nursing home care for people who qualify financially and medically.</li>
+        <li>Private pay: families may pay out of pocket until Medicaid eligibility is met.</li>
+      </ul>
+    </section>
+
+    <!-- Short-Term Rehab vs Long-Term -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Short-term rehab vs. long-term placement</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        The same building may serve two very different roles:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li><strong>Short-term rehab:</strong> focused on recovery after hospitalization or surgery, usually for days to weeks.</li>
+        <li><strong>Long-term care:</strong> ongoing residence for those who cannot return home safely.</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Families often don’t realize when a stay is shifting from “temporary rehab” to “long-term,”
+        which has very different financial and emotional implications.
+      </p>
+    </section>
+
+    <!-- Questions to Ask -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Questions to ask any facility</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Regardless of level of care, families can use publicly available information and direct questions
+        to get a clearer picture:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>How is this setting licensed in this state?</li>
+        <li>What care is included in the base rate, and what costs extra?</li>
+        <li>Do you accept Medicaid now? If so, under what circumstances?</li>
+        <li>How many residents here are on Medicaid or assistance programs?</li>
+        <li>What happens if a resident’s money runs out?</li>
+        <li>How are staffing levels monitored and reported?</li>
+        <li>Can I review recent inspection or survey reports?</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Public reports (such as state inspections and federal datasets) can provide additional context,
+        but they rarely tell the full story on their own.
+      </p>
+    </section>
+
+    <!-- Planning & Fit -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Matching setting to needs and preferences</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        No single care setting fits everyone. Choosing between staying home, moving to assisted
+        living, or transitioning to nursing home care often depends on:
+      </p>
+
+      <ul class="list-disc pl-6 text-sm text-slate-700 space-y-1">
+        <li>how much daily help is needed</li>
+        <li>medical complexity and safety risks</li>
+        <li>budget and benefit options (Medicare, Medicaid, VA, private pay)</li>
+        <li>location and proximity to family</li>
+        <li>personal preferences about privacy, community, and routine</li>
+      </ul>
+
+      <p class="text-sm text-slate-700">
+        Understanding how each setting works makes it easier to weigh options instead of deciding
+        in fear or confusion.
+      </p>
+    </section>
+
+    <!-- Return Block -->
+    <div id="return-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(h => (document.getElementById('return-block').innerHTML = h))
+        .catch(e => console.error("Return block failed:", e));
+    </script>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(h => (document.getElementById('site-footer').innerHTML = h))
+      .catch(e => console.error("Footer failed:", e));
+  </script>
+
+  <!-- Floating Feedback -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
+
+</body>
+</html>
