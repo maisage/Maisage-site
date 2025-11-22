@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Community & Volunteers | Maisage</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Community & Connection | Maisage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -15,7 +16,7 @@
     fetch('header.html')
       .then(r => r.text())
       .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
+      .catch(err => console.error("Header failed:", err));
   </script>
 
   <!-- Breadcrumb -->
@@ -29,132 +30,131 @@
     fetch('breadcrumb.html')
       .then(r => r.text())
       .then(html => (document.getElementById('breadcrumb').innerHTML = html))
-      .catch(err => console.error("Breadcrumb failed to load:", err));
+      .catch(err => console.error("Breadcrumb failed:", err));
   </script>
 
-  <!-- Main Content -->
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">
+  <!-- MAIN CONTENT -->
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
 
     <!-- Intro -->
-    <section class="space-y-4">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Community & Volunteers
-      </p>
-
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Building a community of clarity, care, and support
-      </h1>
+    <section class="space-y-3">
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Community & Connection</h1>
 
       <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        Maisage is not just a website — it's a community of people who want aging to be clearer,
-        calmer, and more human. Whether you're someone planning for your own future, helping
-        a loved one, or simply interested in improving how families navigate aging, there’s
-        a place for you here.
+        Staying connected — to people, routines, interests, and the world — is one of the strongest
+        predictors of well-being in older age. Community does not have to be large or complicated.
+        It simply needs to feel like you.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600 max-w-3xl">
+        These ideas are based on public resources, common community programs, and practical ways
+        older adults stay engaged, active, and supported.
       </p>
     </section>
 
-    <!-- Become a Navigator -->
-    <section class="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 space-y-4">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Become a Maisage Navigator
-      </h2>
+    <!-- COMMUNITY SECTIONS GRID -->
+    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        Navigators are volunteers who help gather information, share experiences, or help identify
-        real gaps in the system. You don’t need credentials or certifications — only honesty,
-        commitment, and a willingness to help others find clarity.
-      </p>
-
-      <ul class="list-disc pl-5 text-sm sm:text-base text-slate-700 space-y-1 max-w-3xl">
-        <li>Help review local resources and agencies in your area.</li>
-        <li>Contribute insight about housing, home care, or facility quality.</li>
-        <li>Share experiences that may help others avoid confusion or crisis.</li>
-        <li>Assist in gathering publicly available data for the Living Map.</li>
-      </ul>
-
-      <a
-        href="start-here.html"
-        class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-emerald-600 text-white text-sm hover:bg-emerald-700"
-      >
-        Sign up to learn more
-      </a>
-    </section>
-
-    <!-- Volunteer Map -->
-    <section class="space-y-4">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Volunteer coverage (mock example)
-      </h2>
-
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        As the community grows, this map will show where Navigators are available to help
-        families find information, review facility options, or gather facts about local services.
-      </p>
-
-      <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 flex items-center justify-center">
-        <p class="text-xs text-slate-500 text-center">
-          Volunteer map coming soon — this will display regions with active Navigators.<br />
-          (Mock placeholder here)
+      <!-- Gardening -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Gardening & Outdoor Activities</h2>
+        <p class="text-sm text-slate-700">
+          Gardening, walking groups, and gentle outdoor projects offer purpose and companionship
+          without pressure. Many communities have senior-friendly gardening clubs, community plots,
+          and neighborhood beautification groups you can join.
         </p>
       </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="space-y-4">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Stories from the community
-      </h2>
-
-      <div class="grid gap-6 sm:grid-cols-2">
-        <div class="border border-slate-200 rounded-xl p-4 bg-white">
-          <p class="text-sm text-slate-700">
-            “I wish I had this when my dad needed care — it would have saved months of stress.
-            Thank you for making this information finally accessible.”
-          </p>
-          <p class="mt-2 text-xs text-slate-500">— Community Member</p>
-        </div>
-
-        <div class="border border-slate-200 rounded-xl p-4 bg-white">
-          <p class="text-sm text-slate-700">
-            “Helping send in a few facility reports felt small, but knowing it helps someone else
-            understand their options makes it worth it.”
-          </p>
-          <p class="mt-2 text-xs text-slate-500">— Volunteer Navigator</p>
-        </div>
+      <!-- Clubs -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Clubs & Social Groups</h2>
+        <p class="text-sm text-slate-700">
+          Book clubs, craft circles, church groups, senior centers, cultural groups, and skill
+          meetups give you chances to connect on your terms. Even a small circle can improve
+          mood and reduce isolation.
+        </p>
       </div>
 
-      <p class="text-xs text-slate-500">
-        (These are illustrative placeholders — real community stories will be added later.)
-      </p>
-    </section>
+      <!-- Safe Travel -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Safe & Enjoyable Travel</h2>
+        <p class="text-sm text-slate-700">
+          Travel remains possible — and joyful — at any age with the right pacing and planning.
+          Many older adults prefer smaller, slower itineraries with built-in rest days, accessible
+          lodging, and simple “backup plans” for comfort and safety.
+        </p>
+      </div>
 
-    <!-- Contact CTA -->
-    <section class="space-y-3">
-      <h2 class="text-sm sm:text-base font-semibold text-slate-900">
-        Want to get involved?
-      </h2>
+      <!-- Tech & Family -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Technology That Brings You Closer</h2>
+        <p class="text-sm text-slate-700">
+          You don't need to be “tech savvy” to stay connected. Simple tools like shared calendars,
+          reminders, photo streams, and video calls can help family stay involved without hovering.
+        </p>
+      </div>
 
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        Whether you're looking to share your experience, help gather data, or simply want to be
-        notified when new volunteer opportunities open, we’d love to hear from you.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a
-          href="start-here.html"
-          class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-emerald-600 text-white text-sm hover:bg-emerald-700"
-        >
-          Start Here
-        </a>
-
-        <a
-          href="contact.html"
-          class="inline-flex items-center justify-center px-4 py-2 rounded-md border border-emerald-600 text-emerald-700 text-sm hover:bg-emerald-50"
-        >
-          Contact Maisage
+      <!-- Social media -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Social Media, Safely</h2>
+        <p class="text-sm text-slate-700">
+          Many older adults use social media to follow family, faith groups, hobbies, or news —
+          but it can get overwhelming. Maisage explains safe, simple use without judgement.
+        </p>
+        <a href="learn-social-media.html"
+           class="text-xs font-medium text-emerald-700 hover:text-emerald-800 underline">
+          Learn more →
         </a>
       </div>
+
+      <!-- Volunteering -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Volunteering & Purpose</h2>
+        <p class="text-sm text-slate-700">
+          Many seniors find fulfillment in small volunteer roles — welcoming visitors at museums,
+          reading at libraries, supporting community events, or helping at food banks. Even a few
+          hours a month can restore purpose and structure.
+        </p>
+      </div>
+
+      <!-- Intergenerational -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Intergenerational Programs</h2>
+        <p class="text-sm text-slate-700">
+          Programs that pair older adults with students, youth groups, or special-needs programs
+          are growing quickly and can add meaning, companionship, and confidence.
+        </p>
+      </div>
+
+      <!-- Staying connected -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Staying Connected in Your Own Way</h2>
+        <p class="text-sm text-slate-700">
+          Whether it's a weekly phone call with a friend, FaceTime with grandkids, shared hobbies,
+          group meals, or quiet church events — connection can be small, simple, and steady.
+        </p>
+      </div>
+
+      <!-- Family involvement -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <h2 class="text-lg font-semibold text-slate-900">Gentle Family Involvement</h2>
+        <p class="text-sm text-slate-700">
+          Many families want to be involved but don’t know how. Maisage helps you include loved
+          ones in a way that feels supportive, not intrusive — especially around shared calendars,
+          reminders, appointments, and planning together.
+        </p>
+      </div>
+
     </section>
+
+    <!-- Contact Block -->
+    <div id="return-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('return-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed:", err));
+    </script>
 
   </main>
 
@@ -164,8 +164,15 @@
     fetch('footer.html')
       .then(r => r.text())
       .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
+      .catch(err => console.error("Footer failed:", err));
   </script>
+
+  <!-- Floating Feedback Button -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700
+            text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
 
 </body>
 </html>
