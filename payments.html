@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Payments & Donations | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(err => console.error("Header failed to load:", err));
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParentLabel = "Services";
+    window.breadcrumbParentHref = "services.html";
+    window.breadcrumbCurrent = "Payments & Donations";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
+      .catch(err => console.error("Breadcrumb failed to load:", err));
+  </script>
+
+  <!-- MAIN CONTENT -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
+
+    <!-- Intro -->
+    <section class="space-y-3">
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Payments & Donations
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Maisage is designed to be simple and transparent. You are the only paying party:
+        there are no commissions, referral fees, or product markups. Payments are for time
+        spent researching, organizing, and explaining publicly available information so
+        you and your family can make clearer decisions.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        All examples and structures below are for information only until Square payment
+        links are activated.
+      </p>
+    </section>
+
+    <!-- Your Care Path Session -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Your Care Path Session</h2>
+
+      <div class="rounded-2xl border border-emerald-100 bg-emerald-50 p-4 sm:p-5 space-y-3">
+        <p class="text-sm sm:text-base text-emerald-900">
+          A structured 60–90 minute working session to look at your current situation,
+          worries, and goals, and to outline realistic paths for the years ahead.
+        </p>
+        <ul class="list-disc pl-5 text-xs sm:text-sm text-emerald-900 space-y-1">
+          <li>Clarify your priorities (independence, money, location, family roles).</li>
+          <li>Review key systems: Medicare, Medicaid, facilities, home support, benefits.</li>
+          <li>Compare possible care paths in plain language.</li>
+          <li>Outline simple next steps you can share with family.</li>
+        </ul>
+
+        <div class="border-t border-emerald-100 pt-3 flex flex-col gap-2">
+          <p class="text-xs sm:text-sm text-emerald-900">
+            When Square is enabled, this will be a flat-fee payment (for example: Your Care
+            Path Session – $<span class="italic">TBD</span>). No extra charges without prior agreement.
+          </p>
+
+          <!-- Placeholder button for future Square link -->
+          <button
+            type="button"
+            class="inline-flex items-center justify-center rounded-full bg-emerald-600 text-white text-xs sm:text-sm font-medium px-4 py-2 opacity-60 cursor-not-allowed">
+            Square payment link coming soon
+          </button>
+          <!--
+            When ready, replace the button above with a real Square link, for example:
+            <a href="https://square.link/your-care-path-session" class="...">
+              Pay for Your Care Path Session
+            </a>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional research / project-style work -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Additional research & project-style work</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Some situations need deeper research: multiple facilities, complex benefit combinations,
+        or ongoing support over several weeks. In those cases, Maisage can extend beyond the
+        initial session on a clear, time-and-materials basis.
+      </p>
+
+      <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1">
+        <li>Facility comparison with inspection patterns and ownership history (public data).</li>
+        <li>Benefits mapping across Medicare, Medicaid concepts, VA programs, and housing resources.</li>
+        <li>Structured follow-up calls to refine your plan with new information.</li>
+        <li>Help organizing documents, checklists, and “family explainer” summaries.</li>
+      </ul>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        Before any extended work starts, you’ll agree on the scope, estimated time, and payment
+        structure. No automatic renewals, no hidden charges.
+      </p>
+
+      <!-- Placeholder for future additional-work link if you want a separate Square product -->
+      <button
+        type="button"
+        class="inline-flex items-center justify-center rounded-full bg-slate-900 text-white text-xs sm:text-sm font-medium px-4 py-2 opacity-60 cursor-not-allowed">
+        Square link for extended work (coming later)
+      </button>
+    </section>
+
+    <!-- Voluntary donations -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">Voluntary donations (optional)</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Some people may wish to support the ongoing development of Maisage’s free guides,
+        tools, and facility transparency work. Small donations – even as little as $1 – help
+        cover the time spent turning public data into plain-language resources.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-700">
+        Donations are always optional, never expected, and completely separate from any paid
+        sessions or project work.
+      </p>
+
+      <div class="flex flex-wrap gap-2">
+        <!-- Placeholder buttons for future Square donation links -->
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-full border border-emerald-600 text-emerald-700 text-xs sm:text-sm font-medium px-3 py-1.5 opacity-60 cursor-not-allowed">
+          Donate $1 (coming soon)
+        </button>
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-full border border-emerald-600 text-emerald-700 text-xs sm:text-sm font-medium px-3 py-1.5 opacity-60 cursor-not-allowed">
+          Donate $5 (coming soon)
+        </button>
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-full border border-emerald-600 text-emerald-700 text-xs sm:text-sm font-medium px-3 py-1.5 opacity-60 cursor-not-allowed">
+          Custom amount (coming soon)
+        </button>
+      </div>
+
+      <!--
+        Later you can replace each button above with real Square payment links such as:
+        <a href="https://square.link/donate-1" class="...">Donate $1</a>
+      -->
+    </section>
+
+    <!-- What happens after payment -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold text-slate-900">What happens after you pay</h2>
+
+      <p class="text-sm sm:text-base text-slate-700">
+        Once payment links are enabled, the general flow will look like this:
+      </p>
+
+      <ol class="list-decimal pl-5 text-xs sm:text-sm text-slate-700 space-y-1">
+        <li>You complete payment securely through Square on a hosted checkout page.</li>
+        <li>You receive a confirmation email/receipt directly from Square.</li>
+        <li>You are prompted to:
+          <ul class="list-disc pl-5 mt-1 space-y-1">
+            <li>fill out the <a href="start-here.html" class="text-emerald-700 underline">Start Here</a> form, or</li>
+            <li>schedule a call time (details will be confirmed by email).</li>
+          </ul>
+        </li>
+        <li>You and Maisage confirm the scope and next steps in writing before deeper work begins.</li>
+      </ol>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        If anything ever feels unclear, you can pause and ask questions before moving forward.
+      </p>
+    </section>
+
+    <!-- Contact Block -->
+    <div id="return-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('return-block').innerHTML = html))
+        .catch(err => console.error("Contact block failed to load:", err));
+    </script>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(err => console.error("Footer failed to load:", err));
+  </script>
+
+  <!-- Floating Feedback Button -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700
+            text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
+
+</body>
+</html>
