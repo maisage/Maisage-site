@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Learn: Your Medical Team | Maisage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900">
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-header').innerHTML = html))
+      .catch(console.error);
+  </script>
+
+  <!-- Breadcrumb -->
+  <script>
+    window.breadcrumbParentLabel = "Learn";
+    window.breadcrumbParentHref = "learn.html";
+    window.breadcrumbCurrent = "Understanding Your Medical Team";
+  </script>
+  <div id="breadcrumb"></div>
+  <script>
+    fetch('breadcrumb.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
+      .catch(console.error);
+  </script>
+
+  <!-- MAIN CONTENT -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+
+    <!-- INTRO -->
+    <section class="space-y-4">
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Understanding Your Medical Team
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
+        As we age, our medical care often involves more than one doctor — but most people are
+        never shown how each clinician fits together or who to turn to for what. This page explains
+        the most common roles using only publicly available information, so you can feel more in
+        control and more confident during appointments.
+      </p>
+
+      <p class="text-xs sm:text-sm text-slate-600">
+        This information is educational only and does not provide medical advice.
+      </p>
+    </section>
+
+    <!-- MAIN SECTIONS -->
+    <section class="space-y-8">
+
+      <!-- Primary Care -->
+      <div class="space-y-3">
+        <h2 class="text-xl font-semibold text-slate-900">Primary Care (Family Medicine / Internal Medicine)</h2>
+        <p class="text-sm text-slate-700">
+          This is your central point of contact — the clinician who knows your history, monitors
+          long-term conditions, and coordinates referrals. They help spot changes early and keep
+          your overall care on track.
+        </p>
+      </div>
+
+      <!-- Geriatrician -->
+      <div class="space-y-3">
+        <h2 class="text-xl font-semibold text-slate-900">Geriatrician</h2>
+        <p class="text-sm text-slate-700">
+          A geriatrician focuses specifically on the needs of older adults — including memory,
+          mobility, fall risk, medications, and complex, multi-condition situations. They can help
+          simplify care and reduce unnecessary medications.
+        </p>
+      </div>
+
+      <!-- Key Specialists -->
+      <div class="space-y-3">
+        <h2 class="text-xl font-semibold text-slate-900">Specialists</h2>
+        <p class="text-sm text-slate-700">
+          You may see several specialists depending on your health needs. Common ones include:
+        </p>
+        <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+          <li>Cardiology — heart and circulation</li>
+          <li>Neurology — memory, brain, nerves</li>
+          <li>Pulmonology — lungs and breathing</li>
+          <li>Oncology — cancer care</li>
+          <li>Endocrinology — diabetes, thyroid, hormones</li>
+        </ul>
+        <p class="text-sm text-slate-700">
+          Specialists focus deeply on one area, so it’s important for your primary doctor to stay
+          updated to ensure everything works together.
+        </p>
+      </div>
+
+      <!-- Pharmacist -->
+      <div class="space-y-3">
+        <h2 class="text-xl font-semibold text-slate-900">Pharmacist</h2>
+        <p class="text-sm text-slate-700">
+          Pharmacists are one of the most underused resources in healthcare. They can explain
+          medication interactions, side effects, timing, cost differences, and how best to take
+          your prescriptions.
+        </p>
+      </div>
+
+      <!-- Rehab Professionals -->
+      <div class="space-y-3">
+        <h2 class="text-xl font-semibold text-slate-900">Rehabilitation Professionals</h2>
+        <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+          <li>Physical therapy — strength, balance, mobility</li>
+          <li>Occupational therapy — daily tasks, home safety, independence</li>
+          <li>Speech therapy — swallowing, communication, memory strategies</li>
+        </ul>
+      </div>
+
+      <!-- Mental Health -->
+      <div class="space-y-3">
+        <h2 class="text-xl font-semibold text-slate-900">Emotional & Mental Health Support</h2>
+        <p class="text-sm text-slate-700">
+          Aging brings many transitions — grief, loneliness, role changes, and shifting identity.
+          Counselors, therapists, and group programs can help you cope and stay grounded.
+        </p>
+      </div>
+
+      <!-- Palliative -->
+      <div class="space-y-3">
+        <h2 class="text-xl font-semibold text-slate-900">Palliative Care</h2>
+        <p class="text-sm text-slate-700">
+          Palliative care focuses on comfort, pain control, and aligning care with your goals.
+          Contrary to common belief, it is not limited to end-of-life — many people benefit from it
+          while still receiving regular medical treatment.
+        </p>
+      </div>
+
+      <!-- Hospice -->
+      <div class="space-y-3">
+        <h2 class="text-xl font-semibold text-slate-900">Hospice</h2>
+        <p class="text-sm text-slate-700">
+          Hospice is for people who choose comfort-focused care during the last stage of life.
+          The hospice team supports both the patient and family, usually wherever the person lives.
+        </p>
+      </div>
+
+      <!-- Disclaimer -->
+      <p class="text-xs text-slate-500">
+        Maisage does not recommend specific doctors or treatments. The goal is simply to help you
+        understand the types of professionals who may be involved so you can make informed choices
+        and ask clearer questions.
+      </p>
+
+    </section>
+
+    <!-- Contact Block -->
+    <div id="return-block"></div>
+    <script>
+      fetch('contact-block.html')
+        .then(r => r.text())
+        .then(html => (document.getElementById('return-block').innerHTML = html))
+        .catch(console.error);
+    </script>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => (document.getElementById('site-footer').innerHTML = html))
+      .catch(console.error);
+  </script>
+
+  <!-- Floating Feedback Button -->
+  <a href="feedback.html"
+     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700
+            text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
+    Give Feedback
+  </a>
+
+</body>
+</html>
