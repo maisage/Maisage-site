@@ -1,102 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport"
-        content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Contact | Maisage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="min-h-screen bg-white text-slate-900">
-
-  <!-- Shared Header -->
-  <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
-  </script>
-
-  <!-- Breadcrumb -->
-  <script>
-    window.breadcrumbParentLabel = "Home";
-    window.breadcrumbParentHref = "index.html";
-    window.breadcrumbCurrent = "Contact";
-  </script>
-  <div id="breadcrumb"></div>
-  <script>
-    fetch('breadcrumb.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
-      .catch(err => console.error("Breadcrumb failed to load:", err));
-  </script>
-
-  <!-- MAIN CONTENT -->
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
-
-    <section class="space-y-4">
-
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Contact Maisage</h1>
-
-      <p class="text-sm sm:text-base text-slate-700 max-w-2xl">
-        If you have questions, suggestions, corrections, or need help finding clear information,
-        you can reach out anytime. Maisage is here to help you understand your options and plan ahead
-        with confidence.
-      </p>
-
-      <p class="text-xs sm:text-sm text-slate-600">
-        You will receive a response within <span class="font-semibold">24 hours</span>.
-      </p>
-
-      <!-- Contact Card -->
-      <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Email</h2>
-        <p class="text-sm text-slate-700">
-          <a href="mailto:samai@maisage.com" class="text-emerald-700 underline hover:text-emerald-800">
-            samai@maisage.com
-          </a>
-        </p>
-
-        <h2 class="text-lg font-semibold text-slate-900 pt-4">Your Contact</h2>
-        <p class="text-sm text-slate-700">
-          <span class="font-medium">Mai Lindsey</span>
-        </p>
-      </div>
-
-      <!-- Helpful Links -->
-      <div class="space-y-2 pt-4">
-        <a href="index.html"
-           class="text-xs sm:text-sm text-emerald-700 underline hover:text-emerald-800">
-          ← Return to Main Page
-        </a>
-        <br />
-        <a href="start-here.html"
-           class="text-xs sm:text-sm text-emerald-700 underline hover:text-emerald-800">
-          Go to Start Here →
-        </a>
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- Shared Footer -->
-  <div id="site-footer"></div>
-  <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
-  </script>
-
-  <!-- Floating Feedback Button -->
-  <a href="feedback.html"
-     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700
-            text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
-    Give Feedback
-  </a>
-
-</body>
-</html>
+<!-- contact-block.html -->
+<div class="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5 space-y-2">
+  <h2 class="text-sm sm:text-base font-semibold text-slate-900">
+    Need more help or see something that looks off?
+  </h2>
+  <p class="text-xs sm:text-sm text-slate-700">
+    If you’d like personal help applying this information to your own situation,
+    you can <a href="start-here.html" class="text-emerald-700 underline hover:text-emerald-800">Start Here</a>.
+    For corrections, accessibility issues, or general questions about the site,
+    please use the <a href="contact.html" class="text-emerald-700 underline hover:text-emerald-800">Contact</a> page.
+  </p>
+</div>
