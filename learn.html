@@ -1,226 +1,598 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Learn | Maisage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <title>Understand the Basics – Learn | Maisage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A calm starting point to understand the basics of care decisions: who is involved, what choices are really on the table, and how to use Maisage tools without being rushed or sold to." />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --accent-soft: #e3f2ea;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: --bg;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .hero {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(1.7rem, 2.5vw + 0.5rem, 2.1rem);
+      margin: 0 0 0.5rem;
+    }
+
+    .page-subtitle {
+      margin: 0 0 0.9rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      font-size: 0.97rem;
+    }
+
+    .hero-footnote {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.1rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .hero-card p {
+      margin: 0 0 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0 0.3rem;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    .hero-card li + li {
+      margin-top: 0.15rem;
+    }
+
+    .section {
+      margin-top: 2.3rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin: 0 0 0.3rem;
+    }
+
+    .section-subtitle {
+      margin: 0 0 0.7rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 42rem;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.6rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 1.1rem 1.1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+    }
+
+    .card p {
+      margin: 0 0 0.5rem;
+      color: var(--text-muted);
+    }
+
+    ul.basic-list {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0 0.2rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    ul.basic-list li + li {
+      margin-top: 0.15rem;
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .disclaimer {
+      margin-top: 2rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-card);
+      border: 1px solid #f2c3c0;
+      background: #fff5f4;
+      font-size: 0.78rem;
+      color: var(--danger);
+    }
+
+    .disclaimer strong {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      margin-top: 2.5rem;
+      padding: 1rem 1rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      color: #8c94a0;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
 </head>
+<body>
+  <!-- Maisage Learn - v1.0 - 2025-12-06 -->
 
-<body class="min-h-screen bg-white text-slate-900">
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">M</div>
+        <div>Maisage</div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="facility-insights.html">Facility Insights</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="tools.html#medications">Medications</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <!-- Shared Header -->
-  <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
-  </script>
+  <main>
+    <section class="hero" aria-label="Learn the basics">
+      <div>
+        <div class="badge">
+          <span class="pill-dot"></span>
+          Start with the basics
+        </div>
+        <h1>Understand the basics before you’re rushed into decisions</h1>
+        <p class="page-subtitle">
+          This page is meant to do one thing: give you a clear mental map of what’s going on, what usually matters in care decisions, and how to use the rest of Maisage without feeling like you’re already behind.
+        </p>
+        <p class="hero-footnote">
+          You don’t have to get everything “right” today. The goal here is to get your bearings, not to pick a perfect plan on the first try.
+        </p>
+      </div>
 
-  <!-- Breadcrumb -->
-  <script>
-    window.breadcrumbParentLabel = "Home";
-    window.breadcrumbParentHref = "index.html";
-    window.breadcrumbCurrent = "Learn";
-  </script>
-  <div id="breadcrumb"></div>
-  <script>
-    fetch('breadcrumb.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
-      .catch(err => console.error("Breadcrumb failed:", err));
-  </script>
-
-  <!-- Main Content -->
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
-
-    <!-- Intro -->
-    <section class="space-y-3">
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Learn — Plain-language guides for aging, care, and costs
-      </h1>
-
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        This section of Maisage focuses on explanations — not sales, not pressure. Each topic
-        is based on publicly available information and aims to help you understand how key parts
-        of the aging and care system actually work, in plain language you can use.
-      </p>
-
-      <p class="text-xs sm:text-sm text-slate-600 max-w-3xl">
-        These pages do not provide legal, financial, or medical advice. They are meant to help
-        you see your options more clearly so you can ask better questions, plan with your family,
-        and make decisions that fit your life.
-      </p>
+      <aside class="hero-card" aria-label="Who this page is for">
+        <h2>Who this is for</h2>
+        <p>
+          This page is especially for you if any of these feel familiar:
+        </p>
+        <ul>
+          <li>You’ve had a hospital stay, fall, or new diagnosis and everything sped up overnight.</li>
+          <li>Family members are pushing different directions and you’re stuck in the middle.</li>
+          <li>You’re being shown options (home care, assisted living, rehab, “respite”) that all blur together.</li>
+          <li>The money side and the medication side both feel like a black box.</li>
+        </ul>
+        <p class="small-note">
+          If that’s where you are, you’re not behind. You’re in the exact place this page was written for.
+        </p>
+      </aside>
     </section>
 
-    <!-- Topic Grid -->
-    <section class="space-y-4">
-      <h2 class="text-xl font-semibold text-slate-900">
-        Explore topics
-      </h2>
+    <section class="section" aria-labelledby="five-parts-title">
+      <h2 id="five-parts-title" class="section-title">The basics of most care decisions</h2>
+      <p class="section-subtitle">
+        Every situation is different, but most big care decisions boil down to a few repeating pieces. Seeing those pieces clearly is often more important than finding the “perfect” option.
+      </p>
 
-      <div class="grid gap-6 md:grid-cols-2">
-
-        <!-- Medicare -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">
-            Medicare & medical coverage basics
-          </h3>
-          <p class="text-sm text-slate-700 mb-3">
-            Understand the foundation of Medicare — Parts A, B, C, and D — and how they work
-            together. Learn how Medicare Advantage and Medigap differ, what they do and don’t cover,
-            and why Medicare is a medical coverage base, not a complete aging plan.
+      <div class="cards-3">
+        <article class="card">
+          <h3>1. People</h3>
+          <p>
+            Who is involved now, and who is realistically available?
           </p>
-          <a href="learn-medicare.html"
-             class="inline-flex items-center text-sm font-medium text-emerald-700 hover:underline">
-            Read about Medicare basics
-          </a>
+          <ul class="basic-list">
+            <li>The person needing care (what do they want, fear, understand?).</li>
+            <li>Family or close friends and what they can actually do week to week.</li>
+            <li>Doctors, nurses, social workers, pharmacists, and other professionals already on the team.</li>
+          </ul>
+          <p class="small-note">
+            A clear picture of roles often matters more than any specific building or service.
+          </p>
         </article>
 
-        <!-- Medication Costs -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">
-            Medication costs & pharmacy pricing
-          </h3>
-          <p class="text-sm text-slate-700 mb-3">
-            Learn how medication prices are shaped by manufacturers, insurance, pharmacy benefit
-            managers (PBMs), and pharmacies. Understand why the same medicine can cost very
-            different amounts in different places, and how to use transparent pricing tools to
-            compare options.
+        <article class="card">
+          <h3>2. Place</h3>
+          <p>
+            Where is care happening now, and what are the realistic options?
           </p>
-          <a href="learn-medication-costs.html"
-             class="inline-flex items-center text-sm font-medium text-emerald-700 hover:underline">
-            Explore medication cost basics
-          </a>
+          <ul class="basic-list">
+            <li>Staying in the current home with more support.</li>
+            <li>Moving to a different home or in with family.</li>
+            <li>Moving to assisted living, memory care, or another facility.</li>
+          </ul>
+          <p class="small-note">
+            No place is perfect. Each location solves some problems and creates others.
+          </p>
         </article>
 
-        <!-- Medicaid & Long-Term Care -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">
-            Medicaid & long-term care
-          </h3>
-          <p class="text-sm text-slate-700 mb-3">
-            Medicaid is often treated as the default plan — “when the money runs out, Medicaid will
-            take over.” This guide explains, using public information, how Medicaid long-term care
-            works, where it does and does not pay, and what spend-down and look-back rules mean.
+        <article class="card">
+          <h3>3. Money</h3>
+          <p>
+            What can be sustained, not just paid for once?
           </p>
-          <a href="learn-medicaid.html"
-             class="inline-flex items-center text-sm font-medium text-emerald-700 hover:underline">
-            Learn about Medicaid & long-term care
-          </a>
+          <ul class="basic-list">
+            <li>Monthly income and savings that can reliably support care.</li>
+            <li>Insurance coverage limits and what happens after they’re reached.</li>
+            <li>Big one-time costs: moves, deposits, home changes, equipment.</li>
+          </ul>
+          <p class="small-note">
+            The better question is usually “Which path can we sustain for 6–24 months?” not “What’s the cheapest or fanciest thing we can manage once?”
+          </p>
         </article>
 
-        <!-- Hospice -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">
-            Hospice care & end-of-life support
-          </h3>
-          <p class="text-sm text-slate-700 mb-3">
-            Hospice can provide powerful support in the final phase of life, but it does not cover
-            everything. For example, hospice care generally does not cover room and board — a detail
-            that surprises many families. This guide explains what hospice usually covers,
-            what it doesn’t, and how families can plan around that gap.
+        <article class="card">
+          <h3>4. Medications</h3>
+          <p>
+            Are medications helping, confusing things, or quietly driving cost and risk?
           </p>
-          <a href="learn-hospice.html"
-             class="inline-flex items-center text-sm font-medium text-emerald-700 hover:underline">
-            Understand hospice coverage
-          </a>
+          <ul class="basic-list">
+            <li>How many medications are active and who is really managing them.</li>
+            <li>Which ones drive the pharmacy bill the most.</li>
+            <li>Whether the list reflects today’s needs or years of layering.</li>
+          </ul>
+          <p class="small-note">
+            Medication plans should always be reviewed with prescribers and pharmacists — this site can help you prepare for that conversation.
+          </p>
         </article>
 
-        <!-- Housing & Care Settings -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">
-            Housing & care settings
-          </h3>
-          <p class="text-sm text-slate-700 mb-3">
-            Assisted living, nursing homes, memory care, and independent living all look similar
-            from the outside, but they operate under very different rules and cost structures.
-            This guide walks through the major settings and how they are licensed, paid for, and evaluated.
+        <article class="card">
+          <h3>5. Time</h3>
+          <p>
+            What timeline are you really planning for?
           </p>
-          <a href="learn-care-settings.html"
-             class="inline-flex items-center text-sm font-medium text-emerald-700 hover:underline">
-            Learn about care settings
-          </a>
-        </article>
-
-        <!-- In-Home Care & Staying Home -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">
-            In-home care, caregivers & staying home
-          </h3>
-          <p class="text-sm text-slate-700 mb-3">
-            Many older adults want to stay at home as long as possible. This guide explains the
-            landscape of in-home caregivers, home health, companion services, and practical supports
-            like meal prep, transportation, laundry, and housekeeping, using public information.
+          <ul class="basic-list">
+            <li>Short-term stabilization (weeks to a few months).</li>
+            <li>Medium-term “let’s see how this goes” (6–18 months).</li>
+            <li>Longer-term “if nothing major changes” (2+ years).</li>
+          </ul>
+          <p class="small-note">
+            You don’t have to plan forever. Choosing a time frame helps keep conversations realistic and honest.
           </p>
-          <a href="learn-home-care.html"
-             class="inline-flex items-center text-sm font-medium text-emerald-700 hover:underline">
-            Explore staying home with support
-          </a>
         </article>
-
-        <!-- VA Benefits & Military-Connected -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">
-            VA benefits & military-connected support
-          </h3>
-          <p class="text-sm text-slate-700 mb-3">
-            For veterans and surviving spouses, VA benefits can be an important part of the care
-            and cost picture. This guide uses public information to outline Aid & Attendance,
-            basic eligibility concepts, and where it may fit into an overall plan.
-          </p>
-          <a href="learn-va-benefits.html"
-             class="inline-flex items-center text-sm font-medium text-emerald-700 hover:underline">
-            Learn about VA-related supports
-          </a>
-        </article>
-
-        <!-- Social Media & Online Connection -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">
-            Social media, safety & staying connected
-          </h3>
-          <p class="text-sm text-slate-700 mb-3">
-            Social media can help older adults stay close to family, community, and interests —
-            but it can also feel overwhelming or risky. This guide explains, in simple terms,
-            how to use social media more safely, avoid common scams, and stay connected without
-            losing control or privacy.
-          </p>
-          <a href="learn-social-media.html"
-             class="inline-flex items-center text-sm font-medium text-emerald-700 hover:underline">
-            Read about social media & older adults
-          </a>
-        </article>
-
       </div>
     </section>
 
-    <!-- Contact / Return Block -->
-    <div id="return-block"></div>
-    <script>
-      fetch('contact-block.html')
-        .then(r => r.text())
-        .then(html => (document.getElementById('return-block').innerHTML = html))
-        .catch(err => console.error("Return block failed:", err));
-    </script>
+    <section class="section" aria-labelledby="use-maisage-title">
+      <h2 id="use-maisage-title" class="section-title">How to use Maisage alongside these basics</h2>
+      <p class="section-subtitle">
+        Once you see the pieces, the rest of the site makes more sense. You’re not expected to use everything at once.
+      </p>
 
+      <div class="cards-3">
+        <article class="card">
+          <h3>Start Here snapshot</h3>
+          <p>
+            If your thoughts feel jumbled, begin with the <strong>Start Here</strong> page.
+          </p>
+          <ul class="basic-list">
+            <li>Capture what changed, who’s involved, and what feels urgent.</li>
+            <li>Write in plain language — this is for you first.</li>
+            <li>Use it as the “front page” when talking to family or professionals.</li>
+          </ul>
+          <p class="small-note">
+            Link: <a href="start-here.html">Start Here snapshot →</a>
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Facility Insights</h3>
+          <p>
+            If “place” is the loudest question, use the <strong>Facility Insights</strong> view.
+          </p>
+          <ul class="basic-list">
+            <li>Look at inspections, staffing, complaints, and ownership patterns.</li>
+            <li>Use it to decide which facilities deserve a closer look.</li>
+            <li>Bring the patterns, not the website, into your conversations.</li>
+          </ul>
+          <p class="small-note">
+            Link: <a href="facility-insights.html">Facility Insights dashboard →</a>
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Tools & Medications section</h3>
+          <p>
+            If money and pharmacy costs are the biggest pain point, use the <strong>Tools</strong> page, especially the medications section.
+          </p>
+          <ul class="basic-list">
+            <li>Identify likely cost drivers and questions for your prescribers.</li>
+            <li>Get a simple process for checking price differences across pharmacies.</li>
+            <li>Prepare to talk about deprescribing, adjustments, or alternatives.</li>
+          </ul>
+          <p class="small-note">
+            Link: <a href="tools.html#medications">Medication cost & complexity →</a>
+          </p>
+        </article>
+      </div>
+
+      <div class="cards-3" style="margin-top:1.2rem;">
+        <article class="card">
+          <h3>Scenario planning tool</h3>
+          <p>
+            If you’re stuck between “stay or move,” use the scenario tool on the <strong>Tools</strong> page.
+          </p>
+          <ul class="basic-list">
+            <li>Compare 2–3 realistic paths side by side.</li>
+            <li>List workload, money, and likely stress for each.</li>
+            <li>Summarize the trade-offs in one page for family discussion.</li>
+          </ul>
+          <p class="small-note">
+            Link: <a href="tools.html">See planning tools →</a>
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Services (optional)</h3>
+          <p>
+            If you want structured help, you can book one-time sessions.
+          </p>
+          <ul class="basic-list">
+            <li>Orientation call if you’re not sure where to start.</li>
+            <li>Facility or scenario sessions if you’re comparing concrete options.</li>
+            <li>Medication-focused session if pharmacy costs keep spiking.</li>
+          </ul>
+          <p class="small-note">
+            Link: <a href="services.html">Services & pricing →</a>
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Community & stories (early)</h3>
+          <p>
+            Over time, the <strong>Community</strong> space will highlight patterns, stories, and lessons learned from real families and caregivers.
+          </p>
+          <p class="small-note">
+            Link: <a href="community.html">Community (early stage) →</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="traps-title">
+      <h2 id="traps-title" class="section-title">Common traps to watch for</h2>
+      <p class="section-subtitle">
+        You’re already under pressure. A few common patterns tend to make things worse. Knowing them ahead of time helps you push back calmly.
+      </p>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>“You have to decide today.”</h3>
+          <p>
+            True emergencies exist, but most housing and service decisions are not one-day deadlines.
+          </p>
+          <ul class="basic-list">
+            <li>Ask what happens if you wait 24–72 hours.</li>
+            <li>Ask what specifically will change if you don’t sign immediately.</li>
+          </ul>
+          <p class="small-note">
+            A decision you don’t understand is rarely a good decision, even if it’s fast.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>“This is the only way.”</h3>
+          <p>
+            There is almost always more than one path — each with different costs and trade-offs.
+          </p>
+          <ul class="basic-list">
+            <li>Ask what other families in similar situations have done.</li>
+            <li>Ask what a “Plan B” or “Plan C” might look like.</li>
+          </ul>
+          <p class="small-note">
+            You don’t need every option, just a small set of honest ones.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>“Don’t worry about the details.”</h3>
+          <p>
+            If a contract, discharge plan, or marketing packet feels vague, it probably is.
+          </p>
+          <ul class="basic-list">
+            <li>Ask for specifics in writing: who, how often, what is included, what is extra.</li>
+            <li>Ask how to escalate concerns if promises aren’t met.</li>
+          </ul>
+          <p class="small-note">
+            You’re allowed to slow things down long enough for the details to make sense.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <div class="disclaimer">
+      <strong>IMPORTANT</strong><br />
+      This page is for orientation and education only. It does not provide medical care, diagnosis, treatment, legal services, financial planning, tax advice, or insurance brokerage. All decisions about medications, housing, services, and finances should be made in consultation with licensed professionals who know your full situation. Data and examples are general and may not fit your specific case.
+    </div>
   </main>
 
-  <!-- Shared Footer -->
-  <div id="site-footer"></div>
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
+      </div>
+      <div class="footer-meta">
+        Learn v1.0 – 2025-12-06
+      </div>
+    </div>
+  </footer>
+
   <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
-  <!-- Floating Feedback -->
-  <a href="feedback.html"
-     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
-    Give Feedback
-  </a>
-
 </body>
 </html>
