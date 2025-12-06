@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tools – See Options More Clearly | Maisage</title>
+  <title>Tools – Plan, Compare, Prepare | Maisage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Practical tools to help families compare care scenarios, look past glossy facility marketing, and understand medication cost drivers before making decisions." />
+  <meta name="description" content="Practical tools to help families compare care scenarios, understand medication costs and complexity, and prepare better questions for doctors, facilities, and advisors." />
   <style>
     :root {
       --bg: #f7f8fa;
@@ -20,9 +20,7 @@
       --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -32,11 +30,9 @@
       line-height: 1.5;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
+    /* nav styles (used by nav.html) */
     header {
       background: #ffffff;
       border-bottom: 1px solid var(--border-soft);
@@ -91,9 +87,7 @@
       font-weight: 500;
     }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+    nav a:hover { color: var(--accent); }
 
     main {
       max-width: var(--max-width);
@@ -102,47 +96,31 @@
     }
 
     h1 {
-      font-size: clamp(1.7rem, 2.5vw + 0.5rem, 2.1rem);
-      margin: 0 0 0.4rem;
+      font-size: clamp(1.8rem, 3vw + 0.3rem, 2.2rem);
+      margin: 0 0 0.7rem;
     }
 
-    .page-subtitle {
-      margin: 0 0 1.1rem;
+    .subtitle {
       color: var(--text-muted);
+      font-size: 0.98rem;
       max-width: 42rem;
-      font-size: 0.97rem;
+      margin-bottom: 1.6rem;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 600;
-      margin-bottom: 0.7rem;
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
+    .section {
+      margin-top: 2.3rem;
     }
 
     .section-title {
       font-size: 1.1rem;
-      margin: 2rem 0 0.3rem;
+      margin: 0 0 0.3rem;
     }
 
     .section-subtitle {
       margin: 0 0 0.7rem;
       color: var(--text-muted);
       font-size: 0.9rem;
-      max-width: 40rem;
+      max-width: 42rem;
     }
 
     .cards-3 {
@@ -155,71 +133,45 @@
     .card {
       background: var(--card-bg);
       border-radius: var(--radius-card);
-      padding: 1.1rem 1.1rem;
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
+      padding: 1.1rem 1.1rem 1.2rem;
       font-size: 0.9rem;
     }
 
-    .card h2,
     .card h3 {
-      margin: 0 0 0.4rem;
+      margin: 0 0 0.3rem;
       font-size: 1rem;
     }
 
     .card p {
-      margin: 0 0 0.5rem;
+      margin: 0 0 0.4rem;
       color: var(--text-muted);
     }
 
-    .tool-section {
-      margin-top: 2rem;
-    }
-
-    .tool-list {
+    ul.tool-list {
+      margin: 0.3rem 0 0;
       padding-left: 1.2rem;
-      margin: 0.4rem 0;
       color: var(--text-muted);
       font-size: 0.88rem;
     }
 
-    .tool-list li + li {
-      margin-top: 0.15rem;
+    ul.tool-list li + li {
+      margin-top: 0.2rem;
     }
 
-    .btn-primary,
-    .btn-outline {
-      border-radius: 999px;
-      padding: 0.55rem 1.2rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
+    .quick-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #ffffff;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(0.97);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--accent);
-      background: #ffffff;
+      gap: 0.3rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-top: 0.4rem;
       color: var(--accent);
     }
 
-    .btn-outline:hover {
-      background: #f0faf4;
+    .quick-link span {
+      font-size: 1rem;
     }
 
     .small-note {
@@ -246,11 +198,11 @@
 
     footer {
       border-top: 1px solid var(--border-soft);
-      margin-top: 2.5rem;
-      padding: 1rem 1rem 1.5rem;
+      background: #ffffff;
+      padding: 1rem 1rem 1.4rem;
+      margin-top: 3rem;
       font-size: 0.8rem;
       color: var(--text-muted);
-      background: #ffffff;
     }
 
     .footer-inner {
@@ -258,7 +210,7 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .footer-meta {
@@ -267,210 +219,285 @@
     }
 
     @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
+      nav ul { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Maisage Tools - v1.2 - 2025-12-06 -->
+  <!-- Shared Navigation -->
   <div id="nav-placeholder"></div>
-<script>
-  fetch("nav.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("nav-placeholder").innerHTML = html;
-    });
-</script>
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+  </script>
 
   <main>
-    <header>
-      <div class="badge">
-        <span class="pill-dot"></span>
-        Planning tools – use on your own or with support
-      </div>
-      <h1>Tools to see your options before you’re rushed</h1>
-      <p class="page-subtitle">
-        These tools are meant to help you get your arms around the situation before you’re in a “sign here now” moment — whether that’s about staying home, moving, or keeping medications sustainable.
-      </p>
-    </header>
+    <h1>Tools to plan, compare, and prepare</h1>
+    <p class="subtitle">
+      These tools are meant to give you a clearer picture of what’s happening, what’s possible, and what to ask next — not to tell you what to do. Use as few or as many as you need, in any order.
+    </p>
 
-    <section aria-labelledby="overview-title">
-      <h2 id="overview-title" class="section-title">What’s on this page</h2>
+    <!-- Overview / entry points -->
+    <section class="section" aria-labelledby="overview-title">
+      <h2 id="overview-title" class="section-title">Where to start with the tools</h2>
       <p class="section-subtitle">
-        Everything here is deliberately simple. You can use it on your own, or alongside one-on-one sessions if you want help turning the results into a plan.
+        If you’re not sure where to begin, these are common entry points depending on what’s stressing you most: “what’s going on?”, “stay or move?”, or “why are medications and bills such a mess?”
       </p>
 
       <div class="cards-3">
         <article class="card">
-          <h3>Care scenario comparison</h3>
+          <h3>Start Here snapshot</h3>
           <p>
-            Rough-in what “stay at home,” “move to assisted living,” or “hybrid” paths might look like for the next 6–24 months — tasks, costs, and family workload.
+            A simple page to capture what changed, who’s involved, and what decisions seem to be on the table. It becomes a front page for your situation.
+          </p>
+          <a href="start-here.html" class="quick-link">
+            Go to Start Here
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            Good first step if your thoughts feel scattered and you need one place to collect them.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Learn hub</h3>
+          <p>
+            Plain-language guides about assisted living, home care, nursing facilities, Medicare, Medicaid, medications, VA benefits, and more.
+          </p>
+          <a href="learn.html" class="quick-link">
+            Go to Learn hub
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            Good if you want to understand the landscape before using any calculators or planning tools.
           </p>
         </article>
 
         <article class="card">
           <h3>Facility Insights dashboard</h3>
           <p>
-            Link over to a view that helps you look at inspections, staffing, complaints, and ownership stability instead of only star ratings and brochures.
+            A way to look beyond marketing by using patterns in inspections, staffing, complaints, and ownership stability.
           </p>
-          <a href="facility-insights.html" class="btn-outline" style="margin-top:0.4rem;">Open Facility Insights →</a>
+          <a href="facility-insights.html" class="quick-link">
+            Open Facility Insights
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            Good if you’re actively comparing facilities or deciding where to visit next.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Scenario planning tools -->
+    <section class="section" aria-labelledby="scenario-title">
+      <h2 id="scenario-title" class="section-title">Scenario planning tools</h2>
+      <p class="section-subtitle">
+        These tools help you compare realistic paths side by side — not fantasy versions. The goal is to see trade-offs in money, workload, and stress, not to find a perfect plan.
+      </p>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>Stay vs. move comparison</h3>
+          <p>
+            Compare “stay at home,” “move to assisted living,” and one hybrid option (such as moving in with family plus outside help).
+          </p>
+          <ul class="tool-list">
+            <li>List monthly costs for each path.</li>
+            <li>Capture who does what (driving, meds, night checks, coordination).</li>
+            <li>Note likely stress points and what could break each plan.</li>
+          </ul>
+          <a href="plan-stay-vs-move.html" class="quick-link">
+            Open stay vs. move tool
+            <span>→</span>
+          </a>
         </article>
 
         <article class="card">
-          <h3>Medication cost & complexity view</h3>
+          <h3>Short-term vs. long-term view</h3>
           <p>
-            A focused process for mapping which medications are driving cost and what to ask your prescribers and pharmacist about — not changing meds here.
+            Compare “stabilize for the next 3–6 months” with “what if we keep doing this for 1–2 years.”
           </p>
-          <a href="#medications" class="btn-outline" style="margin-top:0.4rem;">Jump to Medications →</a>
+          <ul class="tool-list">
+            <li>See which plans are sustainable vs. just possible once.</li>
+            <li>Flag where you’d likely need to adjust or move again.</li>
+          </ul>
+          <a href="plan-timeframes.html" class="quick-link">
+            Open timeframe planning tool
+            <span>→</span>
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>What Matters Most alignment</h3>
+          <p>
+            A short exercise to line up care decisions with the person’s values, preferences, and non-negotiables.
+          </p>
+          <ul class="tool-list">
+            <li>Clarify what they care about most day to day.</li>
+            <li>Check whether current options honor that or conflict with it.</li>
+          </ul>
+          <a href="what-matters-most.html" class="quick-link">
+            Go to What Matters Most
+            <span>→</span>
+          </a>
         </article>
       </div>
     </section>
 
-    <section class="tool-section" aria-labelledby="scenarios-title">
-      <div class="badge">
-        <span class="pill-dot"></span>
-        6–24 Month Care Scenarios
-      </div>
-      <h2 id="scenarios-title">Compare “stay home vs. move” without guessing</h2>
+    <!-- Medications section (anchor for nav link) -->
+    <section class="section" id="medications" aria-labelledby="meds-title">
+      <h2 id="meds-title" class="section-title">Medications: cost & complexity tools</h2>
       <p class="section-subtitle">
-        This is a thinking tool. You’re not promising anything to anyone. You’re just making the trade-offs visible.
+        These tools do not change prescriptions. They help you see which medications may be driving cost and complexity and prepare better questions for prescribers and pharmacists.
       </p>
 
-      <div class="card">
-        <h3>Step 1 – Name your likely paths</h3>
-        <p>
-          Most families are really choosing between 2–3 realistic paths, for example:
-        </p>
-        <ul class="tool-list">
-          <li>Path A – Stay at home with increased family help and some paid support.</li>
-          <li>Path B – Move to assisted living within 6–12 months.</li>
-          <li>Path C – Short-term home focus, then reassess after rehab or stabilization.</li>
-        </ul>
-        <p class="small-note">
-          Write your own A/B/C in simple language you’d use with a friend.
-        </p>
-      </div>
+      <div class="cards-3">
+        <article class="card">
+          <h3>Medication list & tiers</h3>
+          <p>
+            Map current medications, note who prescribed each one, and group them by importance and suspected cost.
+          </p>
+          <ul class="tool-list">
+            <li>List all prescriptions, over-the-counter drugs, and supplements.</li>
+            <li>Mark which ones seem essential, helpful, or “not sure.”</li>
+            <li>Note any you suspect are expensive or hard to manage.</li>
+          </ul>
+          <a href="meds-list-tool.html" class="quick-link">
+            Open medication list tool
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            Pairs well with the Learn page on medication costs.
+          </p>
+        </article>
 
-      <div class="card">
-        <h3>Step 2 – List the work in each path</h3>
-        <p>
-          For each path, sketch out:
-        </p>
-        <ul class="tool-list">
-          <li>Daily tasks: meds, meals, bathing, transfers, bathroom trips, night checks.</li>
-          <li>Weekly tasks: appointments, groceries, laundry, cleaning, driving.</li>
-          <li>Emotional load: supervision, confusion, conflict, family strain.</li>
-        </ul>
-        <p class="small-note">
-          Then note who would actually be doing these in each path: which family members, what paid care, and what you hope the facility would take over.
-        </p>
-      </div>
+        <article class="card">
+          <h3>Pharmacy cost comparison helper</h3>
+          <p>
+            A simple structure for checking prices for key medications across pharmacies or discount programs.
+          </p>
+          <ul class="tool-list">
+            <li>Pick a small set of high-cost medications to compare.</li>
+            <li>Record quotes from different pharmacies or programs.</li>
+            <li>Prepare questions about formulary and alternatives.</li>
+          </ul>
+          <a href="meds-cost-compare.html" class="quick-link">
+            Open cost comparison helper
+            <span>→</span>
+          </a>
+        </article>
 
-      <div class="card">
-        <h3>Step 3 – Add rough money to the picture</h3>
-        <p>
-          You don’t need perfect math to see patterns. For each path:
-        </p>
-        <ul class="tool-list">
-          <li>List rent/mortgage, utilities, food, and transportation that stay the same.</li>
-          <li>Estimate care costs (home care hours, facility monthly rate, co-pays).</li>
-          <li>Note one-time costs (moves, deposits, equipment, home modifications).</li>
-        </ul>
-        <p class="small-note">
-          The question is not “Can we afford perfection?” but “Which trade-offs are we willing to live with?”
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Step 4 – Turn it into a one-page summary</h3>
-        <p>
-          For each path, write 3–5 bullet points on:
-        </p>
-        <ul class="tool-list">
-          <li>What will likely feel better in this path.</li>
-          <li>What will likely feel harder or riskier.</li>
-          <li>What would have to be true for this path to work for at least 6–12 months.</li>
-        </ul>
-        <p class="small-note">
-          This one-page comparison is what you show family, doctors, or advisors when you say, “Here’s how I’m seeing our options. What am I missing?”
-        </p>
+        <article class="card">
+          <h3>Questions for prescribers & pharmacists</h3>
+          <p>
+            A structured set of questions to bring to your next appointment or medication review.
+          </p>
+          <ul class="tool-list">
+            <li>Clarify purpose, benefits, and realistic expectations.</li>
+            <li>Ask about side effects that matter most in daily life.</li>
+            <li>Ask whether any medications could be simplified.</li>
+          </ul>
+          <a href="meds-questions-checklist.html" class="quick-link">
+            Open medication questions checklist
+            <span>→</span>
+          </a>
+        </article>
       </div>
     </section>
 
-    <!-- Medications section: primary anchor for nav link and homepage button -->
-    <section id="medications" class="tool-section" aria-labelledby="meds-title">
-      <div class="badge">
-        <span class="pill-dot"></span>
-        Medication Cost & Complexity
-      </div>
-      <h2 id="meds-title">Find affordable medication options</h2>
+    <!-- Checklists and question sets -->
+    <section class="section" aria-labelledby="checklists-title">
+      <h2 id="checklists-title" class="section-title">Checklists & question sets</h2>
       <p class="section-subtitle">
-        A straightforward way to understand which medications are driving costs, where substitutions might be possible, and what questions to ask your prescribers and pharmacist. No clinical decisions are made here — this is for clarity and preparation.
+        These aren’t meant to be filled out perfectly. They’re there so you don’t have to remember everything in the moment.
       </p>
 
-      <div class="card">
-        <h3>1. Identify your likely cost drivers</h3>
-        <p>
-          High pharmacy bills usually come from a small set of medications. Use this checklist to narrow where the cost pressure is coming from:
-        </p>
-        <ul class="tool-list">
-          <li>Brand-name medications with no generic equivalent.</li>
-          <li>Combination medications that can be split into cheaper single agents.</li>
-          <li>Inhalers, injectables, patches, or specialty drugs.</li>
-          <li>Drugs on higher insurance tiers (Tier 3–5).</li>
-          <li>Older prescriptions that haven’t been reviewed in a while.</li>
-        </ul>
-        <p class="small-note">
-          You don’t need exact prices yet. Start by marking which of your meds fall into these categories.
-        </p>
-      </div>
+      <div class="cards-3">
+        <article class="card">
+          <h3>Questions to ask facilities</h3>
+          <p>
+            A checklist of practical questions for tours and calls with assisted living, memory care, or nursing facilities.
+          </p>
+          <a href="facility-questions-checklist.html" class="quick-link">
+            Open facility questions
+            <span>→</span>
+          </a>
+        </article>
 
-      <div class="card">
-        <h3>2. Questions to bring to your prescriber</h3>
-        <p>
-          These questions help you safely clarify options without suggesting changes yourself:
-        </p>
-        <ul class="tool-list">
-          <li>“Is there a generic or therapeutically equivalent alternative to this?”</li>
-          <li>“Is this medication still necessary, or is it left over from an older plan?”</li>
-          <li>“If cost is a concern, which of these could we review first?”</li>
-          <li>“Are any of these interacting with each other in a way that increases risk or cost?”</li>
-        </ul>
-        <p class="small-note">
-          You are not asking for different medications — you’re asking which conversations matter most.
-        </p>
-      </div>
+        <article class="card">
+          <h3>Family roles & workload</h3>
+          <p>
+            A way to map who is doing what now, and what would change under different scenarios.
+          </p>
+          <a href="family-roles-tool.html" class="quick-link">
+            Open family roles tool
+            <span>→</span>
+          </a>
+        </article>
 
-      <div class="card">
-        <h3>3. Compare prices the simple way</h3>
-        <p>
-          Prices vary widely across pharmacies. A practical workflow:
-        </p>
-        <ul class="tool-list">
-          <li>List your medications with dose and quantity.</li>
-          <li>Check prices at: Costco, Walmart, CVS/Walgreens, and at least one supermarket pharmacy.</li>
-          <li>Check a discount card price (GoodRx, WellRx, etc.) and compare to your insurance copay.</li>
-          <li>Flag any medication where paying cash is cheaper than using insurance.</li>
-        </ul>
-        <p class="small-note">
-          You do not need to switch pharmacies yet — this step simply shows where the biggest gaps might be.
-        </p>
+        <article class="card">
+          <h3>Appointment prep sheet</h3>
+          <p>
+            A simple page to prepare for a primary care, specialist, or care planning visit so the most important points don’t get lost.
+          </p>
+          <a href="appointment-prep.html" class="quick-link">
+            Open appointment prep
+            <span>→</span>
+          </a>
+        </article>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>If you want structured help</h3>
-        <p>
-          You can book a one-time medication cost and complexity review if you want help mapping your full list and preparing questions for your prescribers.
-        </p>
-        <a href="services.html" class="btn-outline">See medication review service →</a>
+    <!-- Services tie-in -->
+    <section class="section" aria-labelledby="services-link-title">
+      <h2 id="services-link-title" class="section-title">Using these tools with one-on-one support</h2>
+      <p class="section-subtitle">
+        Everything on this page can be used on your own. If you prefer to walk through the tools with someone neutral, you can book a one-time session.
+      </p>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>Orientation call</h3>
+          <p>
+            Use this if you want help choosing which tools to focus on and how to pull them together into a clearer picture.
+          </p>
+          <a href="services.html" class="quick-link">
+            See orientation call details
+            <span>→</span>
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Scenario planning session</h3>
+          <p>
+            Use this if you want to build or refine stay vs. move comparisons or medium-term plans together.
+          </p>
+          <a href="services.html" class="quick-link">
+            See planning session details
+            <span>→</span>
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Medication review support</h3>
+          <p>
+            Use this if your main concern is the medication list and pharmacy costs, and you want help preparing for conversations with prescribers.
+          </p>
+          <a href="services.html" class="quick-link">
+            See medication-focused support
+            <span>→</span>
+          </a>
+        </article>
       </div>
     </section>
 
     <div class="disclaimer">
       <strong>IMPORTANT</strong><br />
-      The tools on this page are for planning and education only. They do not provide medical, legal, financial, or insurance advice, and they do not replace guidance from professionals who know your full situation. All changes to care plans, medications, housing, or financial arrangements should be made with licensed professionals. Maisage does not receive commissions or referral fees from facilities, insurers, pharmacies, or brokers.
+      These tools are for orientation and planning support only. They do not provide medical care, diagnosis, treatment, legal advice, financial planning, tax guidance, or insurance brokerage. Always review decisions with licensed professionals who understand your specific situation and local rules.
     </div>
   </main>
 
@@ -478,16 +505,16 @@
     <div class="footer-inner">
       <div>© <span id="year"></span> Maisage. All rights reserved.</div>
       <div class="footer-meta">
-        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
       </div>
       <div class="footer-meta">
-        Tools v1.2 – 2025-12-06
+        Tools v1.0 – 2025-12-06
       </div>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
