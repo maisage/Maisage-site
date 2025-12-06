@@ -1,385 +1,592 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport"
-        content="width=device-width,initial-scale=1,maximum-width=1" />
-  <title>Services | Maisage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <title>Maisage Services – 1:1 Navigation & Planning Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maisage offers neutral, one-on-one guidance to help families interpret data, outline care options, and prepare questions for doctors, facilities, and advisors." />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --accent-soft: #e3f2ea;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta a {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #f5fbf7;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    h1 {
+      font-size: clamp(1.7rem, 2.5vw + 0.5rem, 2.1rem);
+      margin: 0 0 0.4rem;
+    }
+
+    .page-subtitle {
+      margin: 0 0 1.2rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      font-size: 0.98rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 1.25rem 1.2rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0 0 0.6rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin: 1.75rem 0 0.4rem;
+    }
+
+    .section-subtitle {
+      margin: 0 0 0.7rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    select,
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      font-family: inherit;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .inline-inputs {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .inline-inputs > div {
+      flex: 1 1 120px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(0.97);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: #f0faf4;
+    }
+
+    .cart-summary {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .cart-items {
+      margin: 0.5rem 0 0.4rem;
+      padding-left: 1.2rem;
+    }
+
+    .cart-items li {
+      margin-bottom: 0.15rem;
+    }
+
+    .cart-total {
+      font-weight: 600;
+      margin-top: 0.2rem;
+      color: var(--text-main);
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    .care-team-list {
+      list-style: disc;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0.4rem 0 0.4rem;
+    }
+
+    .disclaimer {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-card);
+      border: 1px solid #f2c3c0;
+      background: #fff5f4;
+      font-size: 0.78rem;
+      color: var(--danger);
+    }
+
+    .disclaimer strong {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      margin-top: 2.5rem;
+      padding: 1rem 1rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      color: #8c94a0;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .nav-cta {
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
-
-<body class="min-h-screen bg-white text-slate-900">
-
-  <!-- Shared Header -->
-  <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed:", err));
-  </script>
-
-  <!-- Breadcrumb -->
-  <script>
-    window.breadcrumbParentLabel = "Home";
-    window.breadcrumbParentHref = "index.html";
-    window.breadcrumbCurrent = "Services";
-  </script>
-  <div id="breadcrumb"></div>
-  <script>
-    fetch('breadcrumb.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
-      .catch(err => console.error("Breadcrumb failed:", err));
-  </script>
-
-  <!-- MAIN CONTENT -->
-  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
-
-    <!-- Intro -->
-    <section class="space-y-3">
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Services</h1>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        Maisage provides research, guidance, and support using publicly available information to help
-        you understand options, compare paths, and take next steps with clarity — without pressure,
-        products, or commissions.
-      </p>
-
-      <p class="text-[11px] text-slate-500">
-        Maisage does not provide medical, legal, or financial advice. All services are based on publicly
-        available information and are meant to support your own decision-making.
-      </p>
-    </section>
-
-    <!-- CARE PATH SESSION -->
-    <section class="space-y-4">
-      <h2 class="text-xl font-semibold text-slate-900">Your Care Path Session</h2>
-
-      <div class="rounded-2xl border border-emerald-100 bg-emerald-50 p-5 space-y-3">
-        <p class="text-sm sm:text-base text-emerald-900">
-          A structured 60–90 minute working session where we review your situation, concerns, and goals.
-          Together, we outline realistic pathways for the years ahead.
-        </p>
-
-        <ul class="list-disc pl-5 text-xs sm:text-sm text-emerald-900 space-y-1">
-          <li>Clarify your priorities (independence, finances, family roles, health)</li>
-          <li>Review Medicare, Medicaid basics, facilities, home care, benefits, and safety</li>
-          <li>Map realistic options based on your preferences</li>
-          <li>Outline clear next steps you can share with family</li>
-        </ul>
-
-        <p class="text-xs text-emerald-900">
-          When payments are enabled, this will be a flat-fee service with clear pricing agreed before booking.
-        </p>
+<body>
+  <!-- Maisage services - v1.1 - 2025-12-06 -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">M</div>
+        <div>Maisage</div>
       </div>
-    </section>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="facility-insights.html">Facility Insights</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a href="start-here.html">Start Here</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- CATEGORY: Facility Support -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Facility Support</h2>
-
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-        <li>Research nursing homes, assisted living, memory care, and senior apartments</li>
-        <li>Call facilities to check Medicaid bed availability and new-resident status</li>
-        <li>Review publicly available inspection and enforcement history</li>
-        <li>Flag ownership changes and complaint patterns where public data exists</li>
-        <li>Summarize findings in plain language with questions to bring to tours and meetings</li>
-      </ul>
-    </section>
-
-    <!-- CATEGORY: Benefits & Applications -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Benefits & Applications</h2>
-
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-        <li>Explain Medicare basics, enrollment windows, Medigap, and Advantage plan roles</li>
-        <li>Walk through public Medicaid information (eligibility concepts, spend-down, estate recovery)</li>
-        <li>Review VA benefits information such as Aid & Attendance (public sources only)</li>
-        <li>Point to Social Security and SSI rules using official resources</li>
-        <li>Locate low-income senior housing programs and public directories</li>
-        <li>Find utility assistance and property tax relief programs where available</li>
-      </ul>
-
-      <p class="text-xs sm:text-sm text-slate-700">
-        For more background, see
-        <a href="learn-medicare.html" class="text-emerald-700 underline hover:text-emerald-800">
-          Learn – Medicare overview
-        </a>.
+  <main>
+    <header>
+      <div class="badge">
+        <span class="pill-dot"></span>
+        Optional 1:1 support — no sales pitch attached
+      </div>
+      <h1>Services: Structured help making sense of your options</h1>
+      <p class="page-subtitle">
+        The tools on Maisage are designed so you can work independently. If your situation is complex or you simply want another brain on it, you can book structured, neutral support — focused on clarity, not selling you a policy or placement.
       </p>
-    </section>
+    </header>
 
-    <!-- CATEGORY: Medication & Medical -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Medication & Medical Cost Support</h2>
+    <div class="layout">
+      <!-- LEFT: Service selection and description -->
+      <section aria-labelledby="service-packages-title">
+        <div class="card">
+          <h2 id="service-packages-title">Choose the type of help you need</h2>
+          <p>
+            Use the dropdown to pick the kind of support that fits where you are in the process. You can add more than one service if needed.
+          </p>
 
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-        <li>Use public tools to compare medication prices by pharmacy</li>
-        <li>Explain, in simple terms, how the pharmacy and drug pricing system functions</li>
-        <li>Identify public programs and tools that may reduce medication or device costs</li>
-      </ul>
-
-      <p class="text-xs sm:text-sm text-slate-700">
-        You can learn more in
-        <a href="learn-medication-costs.html" class="text-emerald-700 underline hover:text-emerald-800">
-          Learn – medication costs
-        </a>.
-      </p>
-    </section>
-
-    <!-- CATEGORY: Understanding Your Medical Team -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Understanding Your Medical Team</h2>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        Many people see several doctors but aren’t sure who is responsible for what, or how they
-        all fit together. Maisage can help you understand the common roles in a care team so you
-        can ask clearer questions and decide who you want involved.
-      </p>
-
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-        <li><span class="font-medium">Primary care doctor</span> – coordinates your overall care</li>
-        <li><span class="font-medium">Geriatrician</span> – focuses on complex older adult needs</li>
-        <li><span class="font-medium">Specialists</span> – cardiology, neurology, pulmonology, oncology, endocrinology and more</li>
-        <li><span class="font-medium">Pharmacist</span> – checks interactions, timing, and simplification of medications</li>
-        <li><span class="font-medium">Rehab professionals</span> – physical, occupational, and speech therapy for function and independence</li>
-        <li><span class="font-medium">Mental health support</span> – counseling and emotional support around aging, loss, or caregiving</li>
-        <li><span class="font-medium">Palliative care</span> – comfort-focused support at any stage of serious illness</li>
-        <li><span class="font-medium">Hospice</span> – comfort-focused care near the end of life</li>
-      </ul>
-
-      <p class="text-xs sm:text-sm text-slate-700">
-        For a deeper explanation, visit
-        <a href="learn-medical-team.html" class="text-emerald-700 underline hover:text-emerald-800">
-          Learn – your medical team
-        </a>.
-      </p>
-
-      <p class="text-[11px] text-slate-500">
-        Maisage does not provide medical advice or recommend specific clinicians.
-      </p>
-    </section>
-
-    <!-- CATEGORY: Daily Living Support -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Daily Living Support</h2>
-
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-        <li>Research home-care and companion services</li>
-        <li>Identify meal programs, grocery and meal delivery, and community kitchens</li>
-        <li>Locate housekeeping, laundry, and light chore support options</li>
-        <li>Explore lawn care, minor home repairs, and safety-oriented improvements</li>
-        <li>Look up transportation options for older adults in your area</li>
-      </ul>
-    </section>
-
-    <!-- CATEGORY: Technology, Safety & Staying Connected -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Technology, Safety & Connection</h2>
-
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-        <li>Help set up simple reminders and communication on phones or tablets</li>
-        <li>Explain safety technologies in plain language</li>
-        <li>Help use shared calendars, chats, or photo sharing with family</li>
-        <li>Support safe, simple social media use</li>
-        <li>Help stay connected without feeling monitored</li>
-      </ul>
-    </section>
-
-    <!-- CATEGORY: Safe Travel -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Safe & Enjoyable Travel</h2>
-
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-        <li>Research accessibility for trips, cruises, or tours</li>
-        <li>Plan realistic itineraries that match your energy and mobility</li>
-        <li>Prepare questions to ask travel providers about access and support</li>
-      </ul>
-    </section>
-
-    <!-- CATEGORY: Life Administration -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-semibold text-slate-900">Life Administration & Organization</h2>
-
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
-        <li>Help categorize bills, accounts, and recurring obligations</li>
-        <li>Identify where simplification might be possible</li>
-        <li>Create checklists you can share with trusted family members</li>
-        <li>Point to public fraud-prevention and scam-awareness resources</li>
-      </ul>
-    </section>
-
-    <!-- HOW PAYMENT WILL WORK -->
-    <section class="space-y-4">
-      <h2 class="text-xl font-semibold text-slate-900">How payment will work</h2>
-
-      <p class="text-sm sm:text-base text-slate-700">
-        You’ll see flat-fee pricing for Your Care Path Session and simple, clear pricing for additional work.
-        There are no commissions, referral fees, or product markups — you are the only paying party.
-      </p>
-
-      <p class="text-xs sm:text-sm text-slate-700">
-        When you’re ready to pay for a session or service, you’ll be able to use secure online checkout:
-        <a href="payments.html" class="text-emerald-700 underline hover:text-emerald-800">
-          go to Payments & Donations
-        </a>.
-      </p>
-
-      <p class="text-xs sm:text-sm text-slate-700">
-        Not sure where to begin? Use
-        <a href="start-here.html" class="text-emerald-700 underline hover:text-emerald-800">
-          Start Here
-        </a>
-        to share a bit about your situation, and we can decide together which services make sense.
-      </p>
-    </section>
-
-    <!-- CART DEMO (PLANNING ONLY) -->
-    <section class="space-y-4 border-t border-slate-200 pt-6">
-      <h2 class="text-xl font-semibold text-slate-900">Plan your service request (example)</h2>
-
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        This example lets you think through what you might want help with and see a sample total.
-        Actual checkout and final pricing will happen on the Payments page.
-      </p>
-
-      <!-- Selector -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-4 space-y-3">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <label class="text-sm font-medium text-slate-800" for="service-select">
-            Choose a service:
-          </label>
-          <select id="service-select"
-                  class="w-full sm:max-w-md rounded-md border border-slate-300 px-3 py-2 text-sm">
-            <option value="care-path" data-price="150">
-              Your Care Path Session – sample $150
+          <label for="service-select">Service type</label>
+          <select id="service-select">
+            <option value="" data-price="0">Select a service…</option>
+            <option value="orientation" data-price="125">
+              Situation & Options Orientation Call (60 minutes)
             </option>
-            <option value="facility-research" data-price="90">
-              Facility research & calls – sample $90
+            <option value="facility-shortlist" data-price="175">
+              Facility Shortlist & Question List (asynchronous + call)
             </option>
-            <option value="benefits-mapping" data-price="80">
-              Benefits mapping – sample $80
+            <option value="medications-review" data-price="150">
+              Medication Cost & Complexity Review (asynchronous + call)
             </option>
-            <option value="medication-cost" data-price="60">
-              Medication cost research – sample $60
+            <option value="scenario-planning" data-price="225">
+              6–24 Month Care Scenario Planning Session
             </option>
-            <option value="daily-living-support" data-price="70">
-              Daily living research – sample $70
-            </option>
-            <option value="tech-connection" data-price="60">
-              Technology & connection help – sample $60
-            </option>
-            <option value="travel-planning" data-price="75">
-              Safe travel planning – sample $75
-            </option>
-            <option value="life-admin" data-price="70">
-              Life administration help – sample $70
+            <option value="document-review" data-price="150">
+              Review of Existing Plans / Letters / Facility Proposals
             </option>
           </select>
 
-          <button id="add-service-btn"
-                  class="inline-flex items-center justify-center rounded-md bg-emerald-600 text-white text-xs sm:text-sm font-medium px-4 py-2 hover:bg-emerald-700">
-            Add to list
+          <div class="inline-inputs">
+            <div>
+              <label for="service-quantity">Quantity</label>
+              <input type="number" id="service-quantity" min="1" value="1" />
+            </div>
+          </div>
+
+          <button type="button" class="btn-primary" id="add-to-cart-btn">
+            Add to cart
           </button>
+
+          <div class="cart-summary" id="cart-summary">
+            <p><strong>Cart</strong> (currently empty)</p>
+            <ul class="cart-items" id="cart-items"></ul>
+            <div class="cart-total" id="cart-total"></div>
+            <p class="small-note">
+              When you proceed to checkout, you’ll be able to enter contact details and preferred time windows. You will receive a confirmation email with next steps.
+            </p>
+          </div>
+
+          <button type="button" class="btn-outline" id="checkout-btn" onclick="window.location.href='payments.html';">
+            Go to checkout
+          </button>
+
+          <p class="small-note">
+            You will not be charged on this page. Checkout and payment processing happen on a secure payment page (Square or similar).
+          </p>
         </div>
 
-        <p class="text-[11px] text-slate-500">
-          All amounts here are sample pricing only and not final.
+        <h2 class="section-title">What these services do (and don’t) include</h2>
+        <p class="section-subtitle">
+          These sessions are about clarity and planning, not clinical diagnosis or legal advice.
         </p>
-      </div>
 
-      <!-- Cart -->
-      <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 space-y-3">
-        <h3 class="text-sm font-semibold text-slate-900">Selected services (example)</h3>
+        <div class="card">
+          <h2>What you can expect</h2>
+          <p><strong>Orientation call</strong> (60 minutes):</p>
+          <ul class="care-team-list">
+            <li>Walk through your current situation and who is involved.</li>
+            <li>Clarify what decisions are urgent and what can wait.</li>
+            <li>Identify information gaps and questions to take back to your providers.</li>
+          </ul>
 
-        <p id="cart-empty" class="text-xs text-slate-500">
-          No services added yet.
-        </p>
+          <p><strong>Facility shortlist & question list:</strong></p>
+          <ul class="care-team-list">
+            <li>Use publicly available data and your constraints to build a short, realistic list.</li>
+            <li>Highlight inspection, staffing, complaint, and ownership patterns to watch.</li>
+            <li>Provide a written list of questions to bring on tours or calls.</li>
+          </ul>
 
-        <ul id="cart-list" class="hidden text-xs sm:text-sm text-slate-800 space-y-1"></ul>
+          <p><strong>Medication cost & complexity review:</strong></p>
+          <ul class="care-team-list">
+            <li>Identify high-cost medications and potential alternatives to ask your prescribers about.</li>
+            <li>Flag combination risk areas to clarify with your pharmacist or prescribing team.</li>
+          </ul>
 
-        <div class="flex items-center justify-between pt-2 border-t border-slate-200">
-          <span class="text-xs sm:text-sm font-medium text-slate-900">Example total:</span>
-          <span id="cart-total" class="text-sm sm:text-base font-semibold text-emerald-700">$0</span>
+          <p><strong>Scenario planning session (6–24 months):</strong></p>
+          <ul class="care-team-list">
+            <li>Compare “stay at home,” “move to assisted living,” or mixed approaches.</li>
+            <li>Outline likely care tasks, costs, and family roles in each path.</li>
+            <li>Capture trade-offs in a simple written summary.</li>
+          </ul>
+
+          <p class="small-note">
+            All summaries are written in plain language that you can share with your own medical, legal, and financial professionals.
+          </p>
+        </div>
+      </section>
+
+      <!-- RIGHT: Care team + expectations -->
+      <aside aria-label="Care team guidance and expectations">
+        <div class="card">
+          <h2>The care team you should build around you</h2>
+          <p>
+            No single person or website can replace a proper care team. As you use Maisage and any services here, it’s important to loop in the right professionals.
+          </p>
+          <ul class="care-team-list">
+            <li><strong>Primary care physician (PCP)</strong> – anchor for overall care.</li>
+            <li><strong>Geriatrician</strong> – for aging-related complexity and multiple conditions.</li>
+            <li><strong>Neurologist</strong> – if there are dementia, stroke, or movement concerns.</li>
+            <li><strong>Cardiologist</strong> – for heart disease, heart failure, or complex cardiac meds.</li>
+            <li><strong>Pharmacist</strong> – for medication interactions, deprescribing discussions, and cost options.</li>
+            <li><strong>Care manager or social worker</strong> – to help coordinate services and benefits.</li>
+            <li><strong>Elder law / estate attorney</strong> – for POA, guardianship, and asset protection questions.</li>
+            <li><strong>Financial planner / advisor</strong> – to understand long-term affordability and trade-offs.</li>
+          </ul>
+          <p class="small-note">
+            Maisage is meant to help you prepare for conversations with these professionals — not replace them.
+          </p>
         </div>
 
-        <div class="pt-3">
-          <a href="payments.html"
-             class="inline-flex items-center justify-center rounded-md bg-slate-900 text-white text-xs sm:text-sm font-medium px-4 py-2 hover:bg-slate-800">
-            Go to Payments (when enabled)
-          </a>
+        <div class="card">
+          <h2>How scheduling and response works</h2>
+          <p>
+            Once you complete checkout on the payment page, you’ll receive a confirmation email summarizing your selections and asking for a bit of context (if not already provided).
+          </p>
+          <p>
+            You can generally expect an initial response from <strong>Mai Lindsey</strong> within <strong>24 hours</strong> on business days, with scheduling options and any clarifying questions needed to make your time together count.
+          </p>
+          <p class="small-note">
+            If your situation is urgent or life-threatening, skip this site and contact emergency services or your healthcare team directly.
+          </p>
         </div>
-      </div>
-    </section>
 
+        <div class="disclaimer">
+          <strong>IMPORTANT</strong><br />
+          These services are for planning and education only. They are not medical, legal, financial, or insurance advice, and do not create a professional-client relationship. All decisions should be independently verified with licensed professionals who know your full situation. Maisage does not receive commissions or referral fees from facilities, insurers, pharmacies, or brokers.
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <!-- Shared Footer -->
-  <div id="site-footer"></div>
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
+      </div>
+      <div class="footer-meta">
+        Services v1.1 – 2025-12-06
+      </div>
+    </div>
+  </footer>
+
   <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer load failed:", err));
-  </script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  <!-- Floating Feedback Button -->
-  <a href="feedback.html"
-     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700
-            text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
-    Give Feedback
-  </a>
+    const services = {
+      orientation: { name: "Situation & Options Orientation Call (60 minutes)", price: 125 },
+      "facility-shortlist": { name: "Facility Shortlist & Question List", price: 175 },
+      "medications-review": { name: "Medication Cost & Complexity Review", price: 150 },
+      "scenario-planning": { name: "6–24 Month Care Scenario Planning Session", price: 225 },
+      "document-review": { name: "Review of Existing Plans / Letters / Facility Proposals", price: 150 }
+    };
 
-  <!-- Simple Cart Logic -->
-  <script>
-    (function () {
-      const select = document.getElementById('service-select');
-      const addBtn = document.getElementById('add-service-btn');
-      const list = document.getElementById('cart-list');
-      const totalEl = document.getElementById('cart-total');
-      const emptyEl = document.getElementById('cart-empty');
+    let cart = [];
 
-      let items = [];
+    function renderCart() {
+      const itemsList = document.getElementById("cart-items");
+      const totalEl = document.getElementById("cart-total");
+      const summary = document.getElementById("cart-summary");
+
+      itemsList.innerHTML = "";
       let total = 0;
 
-      function renderCart() {
-        if (items.length === 0) {
-          emptyEl.classList.remove('hidden');
-          list.classList.add('hidden');
-          list.innerHTML = '';
-          totalEl.textContent = '$0';
-          return;
-        }
-
-        emptyEl.classList.add('hidden');
-        list.classList.remove('hidden');
-        list.innerHTML = '';
-
-        items.forEach(item => {
-          const li = document.createElement('li');
-          li.textContent = `${item.label} – $${item.price.toFixed(2)}`;
-          list.appendChild(li);
-        });
-
-        totalEl.textContent = '$' + total.toFixed(2);
+      if (cart.length === 0) {
+        summary.querySelector("p").textContent = "Cart (currently empty)";
+        totalEl.textContent = "";
+        return;
       }
 
-      addBtn.addEventListener('click', () => {
-        const opt = select.options[select.selectedIndex];
-        if (!opt) return;
-
-        const label = opt.textContent.trim();
-        const price = parseFloat(opt.dataset.price || '0');
-        if (isNaN(price)) return;
-
-        items.push({ label, price });
-        total += price;
-        renderCart();
+      summary.querySelector("p").textContent = "Cart";
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.quantity} × ${item.name} – $${(item.price * item.quantity).toFixed(2)}`;
+        itemsList.appendChild(li);
+        total += item.price * item.quantity;
       });
 
-      renderCart();
-    })();
-  </script>
+      totalEl.textContent = `Estimated total (before tax/fees): $${total.toFixed(2)}`;
+    }
 
+    document.getElementById("add-to-cart-btn").addEventListener("click", () => {
+      const select = document.getElementById("service-select");
+      const quantityInput = document.getElementById("service-quantity");
+      const key = select.value;
+      const qty = parseInt(quantityInput.value, 10) || 1;
+
+      if (!key || !services[key]) {
+        alert("Please select a service first.");
+        return;
+      }
+
+      const existing = cart.find(item => item.key === key);
+      if (existing) {
+        existing.quantity += qty;
+      } else {
+        cart.push({
+          key,
+          name: services[key].name,
+          price: services[key].price,
+          quantity: qty
+        });
+      }
+
+      renderCart();
+    });
+  </script>
 </body>
 </html>
