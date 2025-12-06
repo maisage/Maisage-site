@@ -338,26 +338,14 @@
 </head>
 <body>
   <!-- Maisage services - v1.1 - 2025-12-06 -->
-  <header>
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="brand-logo">M</div>
-        <div>Maisage</div>
-      </div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="facility-insights.html">Facility Insights</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="community.html">Community</a></li>
-        </ul>
-      </nav>
-      <div class="nav-cta">
-        <a href="start-here.html">Start Here</a>
-      </div>
-    </div>
-  </header>
+  <div id="nav-placeholder"></div>
+<script>
+  fetch("nav.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("nav-placeholder").innerHTML = html;
+    });
+</script>
 
   <main>
     <header>
