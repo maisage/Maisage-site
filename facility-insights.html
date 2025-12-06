@@ -1,300 +1,706 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Facility Insights – State overview | Maisage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <meta charset="UTF-8" />
+  <title>Facility Insights – Beyond Ratings | Maisage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Facility Insights from Maisage helps you look past glossy ratings using inspection patterns, staffing, complaints, and ownership stability to decide where to look closer." />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --accent-soft: #e3f2ea;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
 
-<body class="min-h-screen bg-white text-slate-900">
+    * {
+      box-sizing: border-box;
+    }
 
-  <!-- Shared Header -->
-  <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
-  </script>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
 
-  <!-- Breadcrumb: Home / Facility Insights -->
-  <script>
-    window.breadcrumbCurrent = "Facility Insights";
-  </script>
-  <div id="breadcrumb"></div>
-  <script>
-    fetch('breadcrumb.html')
-      .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById('breadcrumb');
-        if (el) el.innerHTML = html;
-      })
-      .catch(err => console.error("Breadcrumb failed to load:", err));
-  </script>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  <!-- Main content -->
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10">
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
 
-    <!-- Hero / State selector -->
-    <section class="space-y-4 max-w-3xl">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Facility Insights
-      </p>
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Facility Insights – understand patterns before you zoom in
-      </h1>
-      <p class="text-sm sm:text-base text-slate-700">
-        This view helps you explore state-level patterns before drilling down to ZIP codes or individual
-        facilities. All numbers are mock examples meant to show layout and structure only.
-      </p>
-      <p class="text-xs sm:text-sm text-slate-500">
-        In a live version, all values would come from public CMS datasets and state inspection archives.
-      </p>
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-      <div class="mt-4 rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3 text-sm">
-        <label for="state-select" class="block text-xs font-medium text-slate-800 uppercase tracking-wide">
-          Select a state to view a mock overview
-        </label>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
 
-        <select
-          id="state-select"
-          class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-600"
-        >
-          <option value="">Choose a state…</option>
-          <option value="TX">Texas (sample overview)</option>
-          <option value="OTHER">Other states (coming later)</option>
-        </select>
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
 
-        <p class="text-[11px] text-slate-500">
-          For now, only Texas has a detailed mock example.
-        </p>
-      </div>
-    </section>
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
 
-    <!-- Safety Pulse legend -->
-    <section class="space-y-3 max-w-3xl">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Safety Pulse – what the colors mean
-      </h2>
-      <p class="text-xs sm:text-sm text-slate-700">
-        The Safety Pulse indicator summarizes patterns in publicly available data. It is not a grade or
-        recommendation — it’s simply a guide for where you may want to look closer.
-      </p>
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
 
-      <div class="grid gap-3 sm:grid-cols-3 text-xs sm:text-sm">
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1.5">
-          <p class="font-semibold text-slate-900">🟩 Green – Generally stable</p>
-          <p class="text-slate-700">
-            Public indicators show no concerning patterns.
-          </p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1.5">
-          <p class="font-semibold text-slate-900">🟨 Yellow – Mixed signals</p>
-          <p class="text-slate-700">
-            Some signals in inspections or staffing suggest closer review.
-          </p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-3 space-y-1.5">
-          <p class="font-semibold text-slate-900">🟥 Red – Elevated concern</p>
-          <p class="text-slate-700">
-            Recent harm-level or repeated issues reported in public records.
-          </p>
-        </div>
-      </div>
-    </section>
+    nav a:hover {
+      color: var(--accent);
+    }
 
-    <!-- Texas overview -->
-    <section id="state-tx" class="hidden space-y-10">
+    .nav-cta a {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #f5fbf7;
+    }
 
-      <!-- Summary tiles -->
-      <div class="space-y-3">
-        <h2 class="text-lg sm:text-xl font-semibold text-slate-900">Texas – Facility Insights (mock)</h2>
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
 
-        <div class="grid gap-4 sm:gap-6 md:grid-cols-4 text-xs sm:text-sm">
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Certified facilities</p>
-            <p class="text-xl sm:text-2xl font-bold text-slate-900">1,220</p>
-            <p class="text-[11px] text-slate-500">Mock example</p>
-          </div>
+    h1 {
+      font-size: clamp(1.7rem, 2.5vw + 0.5rem, 2.1rem);
+      margin: 0 0 0.4rem;
+    }
 
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Harm-level citations</p>
-            <p class="text-xl sm:text-2xl font-bold text-slate-900">28%</p>
-            <p class="text-[11px] text-slate-500">Last 3 years</p>
-          </div>
+    .page-subtitle {
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+      max-width: 42rem;
+      font-size: 0.97rem;
+    }
 
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Staffing signals</p>
-            <p class="text-xl sm:text-2xl font-bold text-slate-900">35%</p>
-            <p class="text-[11px] text-slate-500">Below state average</p>
-          </div>
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
 
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
-            <p class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Enforcement activity</p>
-            <p class="text-xl sm:text-2xl font-bold text-slate-900">65</p>
-            <p class="text-[11px] text-slate-500">Past 24 months</p>
-          </div>
-        </div>
-      </div>
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
 
-      <!-- Patterns worth attention -->
-      <div class="space-y-3">
-        <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-          Patterns that may deserve a closer look (mock)
-        </h3>
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
 
-        <div class="grid gap-4 md:grid-cols-3 text-xs sm:text-sm">
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 1.2rem 1.2rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+    }
 
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
-            <p class="font-semibold text-slate-900">🟥 Counties with more harm-level findings</p>
-            <p class="text-slate-700">
-              Certain Texas counties show a higher share of facilities with harm-level citations.
-            </p>
-          </div>
+    .card h2 {
+      margin: 0 0 0.45rem;
+      font-size: 1.1rem;
+    }
 
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
-            <p class="font-semibold text-slate-900">🟨 Mixed performance regions</p>
-            <p class="text-slate-700">
-              Large metros like Houston and DFW often show both strong and concerning facilities.
-            </p>
-          </div>
+    .card p {
+      margin: 0 0 0.5rem;
+      color: var(--text-muted);
+    }
 
-          <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4">
-            <p class="font-semibold text-slate-900">🟩 Regions with stable indicators</p>
-            <p class="text-slate-700">
-              Some regions may show fewer enforcement actions and more consistent staffing.
-            </p>
-          </div>
+    .section-title {
+      font-size: 1.1rem;
+      margin: 1.75rem 0 0.4rem;
+    }
 
-        </div>
-      </div>
+    .section-subtitle {
+      margin: 0 0 0.7rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-      <!-- Beds & payer mix -->
-      <div class="space-y-3 max-w-3xl">
-        <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-          Licensed beds & payer mix in Texas (mock)
-        </h3>
-        <ul class="list-disc pl-5 text-xs sm:text-sm text-slate-700 space-y-1.5">
-          <li>Approx. licensed beds statewide: <strong>145,000</strong></li>
-          <li>Medicaid-certified beds: <strong>90,000</strong></li>
-          <li>Medicare SNF beds: <strong>75,000</strong></li>
-          <li>State Veterans Homes: mock count based on public VA listings</li>
-          <li>Private-pay capacity is typically the remainder</li>
-        </ul>
-      </div>
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
 
-      <!-- Drill-down -->
-      <div class="space-y-3">
-        <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-          Drill down to facilities in your area
-        </h3>
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      font-family: inherit;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
 
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 space-y-3 text-xs sm:text-sm">
-          <div class="grid gap-4 sm:grid-cols-3">
-            <div>
-              <label class="block font-medium text-slate-800">ZIP code</label>
-              <input type="text" placeholder="e.g., 77008" class="w-full rounded-md border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-emerald-600"/>
-            </div>
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
 
-            <div>
-              <label class="block font-medium text-slate-800">Radius</label>
-              <select class="w-full rounded-md border border-slate-300 px-3 py-2">
-                <option>10 miles</option>
-                <option>25 miles</option>
-                <option>50 miles</option>
-                <option>State-wide</option>
-              </select>
-            </div>
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.25rem 0.75rem;
+      margin: 0.3rem 0 0.8rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
 
-            <div>
-              <label class="block font-medium text-slate-800">Facility type</label>
-              <select class="w-full rounded-md border border-slate-300 px-3 py-2">
-                <option>All types</option>
-                <option>Nursing facility</option>
-                <option>Assisted living</option>
-                <option>Memory care</option>
-                <option>Inpatient rehab</option>
-              </select>
-            </div>
-          </div>
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
 
-          <p class="text-[11px] text-slate-500">
-            Use these filters to narrow your search. To see a mock facility list layout:
-            <a href="facility-explorer.html" class="text-emerald-700 hover:underline">Facility Insights dashboard</a>.
-          </p>
-        </div>
-      </div>
+    .checkbox-group input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+    }
 
-      <!-- How to use this view -->
-      <div class="space-y-2 max-w-3xl text-xs sm:text-sm text-slate-700">
-        <h3 class="text-base sm:text-lg font-semibold text-slate-900">
-          How to use this state view
-        </h3>
-        <p>
-          This is a mock version of how Maisage could help families make sense of statewide care patterns,
-          not a judgment of any region or facility.
-        </p>
-        <ul class="list-disc pl-5 space-y-1.5">
-          <li>Use the patterns to know where to ask deeper questions.</li>
-          <li>Look at individual facilities, not just regional averages.</li>
-          <li>Your own visit and impressions remain the most important data point.</li>
-        </ul>
-      </div>
+    .btn-primary,
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
 
-      <!-- Inline CTA -->
-      <p class="text-center text-xs sm:text-sm text-slate-600 mt-6">
-        Need help understanding what this means for your situation?
-        <a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a>
-        or
-        <a href="contact.html" class="text-emerald-700 hover:underline">contact Maisage</a>.
-      </p>
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
 
-    </section>
+    .btn-primary:hover {
+      filter: brightness(0.97);
+    }
 
-    <!-- Placeholder for other states -->
-    <section id="state-other" class="hidden text-xs sm:text-sm space-y-4 max-w-3xl text-slate-700">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">Other states – coming soon</h2>
-      <p>
-        Future versions of this dashboard will include similar overviews for all states using the same
-        patterns and layout.
-      </p>
+    .btn-outline {
+      border: 1px solid var(--accent);
+      background: #ffffff;
+      color: var(--accent);
+    }
 
-      <p class="text-center text-xs sm:text-sm text-slate-600 mt-6">
-        Want help while this section is being built?
-        <a href="start-here.html" class="text-emerald-700 hover:underline">Start Here</a>
-        or
-        <a href="contact.html" class="text-emerald-700 hover:underline">contact Maisage</a>.
-      </p>
-    </section>
+    .btn-outline:hover {
+      background: #f0faf4;
+    }
 
-  </main>
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
 
-  <!-- Shared Footer -->
-  <div id="site-footer"></div>
-  <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
-  </script>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 0.5rem;
+    }
 
-  <!-- Simple state toggle -->
-  <script>
-    (function () {
-      const select = document.getElementById('state-select');
-      const tx = document.getElementById('state-tx');
-      const other = document.getElementById('state-other');
+    th,
+    td {
+      padding: 0.45rem 0.4rem;
+      border-bottom: 1px solid #eaedf1;
+      text-align: left;
+      vertical-align: top;
+    }
 
-      function update() {
-        const v = select.value;
-        tx.classList.toggle('hidden', v !== 'TX');
-        other.classList.toggle('hidden', v !== 'OTHER');
+    th {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      background: #f4f6f8;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .flag-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border: 1px solid #f4c3bf;
+      background: #fff5f4;
+      color: #8b1f19;
+      margin-right: 0.25rem;
+    }
+
+    .flag-pill.yellow {
+      border-color: #ffe4a3;
+      background: #fff9e8;
+      color: #8a5b00;
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    li + li {
+      margin-top: 0.15rem;
+    }
+
+    .callout {
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-card);
+      border: 1px dashed var(--accent);
+      background: #f5fbf7;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    .disclaimer {
+      margin-top: 1.5rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-card);
+      border: 1px solid #f2c3c0;
+      background: #fff5f4;
+      font-size: 0.78rem;
+      color: var(--danger);
+    }
+
+    .disclaimer strong {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      margin-top: 2.5rem;
+      padding: 1rem 1rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      color: #8c94a0;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
       }
 
-      select.addEventListener('change', update);
-    })();
-  </script>
+      nav ul {
+        display: none;
+      }
 
+      .nav-cta {
+        margin-left: auto;
+      }
+
+      th,
+      td {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Maisage Facility Insights - v1.1 - 2025-12-06 -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">M</div>
+        <div>Maisage</div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="facility-insights.html">Facility Insights</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a href="start-here.html">Start Here</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header>
+      <div class="badge">
+        <span class="pill-dot"></span>
+        Facility Insights dashboard
+      </div>
+      <h1>Look past glossy ratings before you tour</h1>
+      <p class="page-subtitle">
+        Facility Insights pulls together patterns from inspections, complaints, staffing, enforcement actions, and ownership changes so you can decide where to look closer — and what to ask when you get there.
+      </p>
+    </header>
+
+    <div class="layout">
+      <!-- LEFT: Filters and results -->
+      <section aria-labelledby="filters-title">
+        <article class="card">
+          <h2 id="filters-title">Rough in your search area</h2>
+          <p>
+            This dashboard is designed as a planning surface. In the live version, filters will pull from public data sources; for now, you can use it as a structured worksheet as you research facilities online.
+          </p>
+
+          <label for="search-text">City, ZIP, or facility name</label>
+          <input type="text" id="search-text" placeholder="e.g., 77005, Ithaca NY, or facility name" />
+
+          <div class="filters-grid">
+            <div>
+              <label for="state-select">State</label>
+              <select id="state-select">
+                <option value="">Any state</option>
+                <option value="CA">CA – California</option>
+                <option value="TX">TX – Texas</option>
+                <option value="NY">NY – New York</option>
+                <option value="FL">FL – Florida</option>
+                <option value="PA">PA – Pennsylvania</option>
+                <!-- Add more as needed -->
+              </select>
+            </div>
+            <div>
+              <label for="type-select">Facility type</label>
+              <select id="type-select">
+                <option value="">Any type</option>
+                <option value="snf">Skilled nursing facility</option>
+                <option value="alf">Assisted living</option>
+                <option value="memory">Memory care</option>
+                <option value="ccrc">Continuing care (CCRC)</option>
+              </select>
+            </div>
+            <div>
+              <label for="radius-select">Approx. radius</label>
+              <select id="radius-select">
+                <option value="">No limit</option>
+                <option value="10">Within ~10 miles</option>
+                <option value="25">Within ~25 miles</option>
+                <option value="50">Within ~50 miles</option>
+              </select>
+            </div>
+          </div>
+
+          <label>Prioritize facilities where…</label>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" />
+              Inspection issues are trending <strong>down</strong>
+            </label>
+            <label>
+              <input type="checkbox" />
+              Staffing appears <strong>stable or improving</strong>
+            </label>
+            <label>
+              <input type="checkbox" />
+              No recent major enforcement actions
+            </label>
+            <label>
+              <input type="checkbox" />
+              Ownership has been stable in recent years
+            </label>
+          </div>
+
+          <div class="button-row">
+            <button type="button" class="btn-primary">
+              Apply filters (conceptual)
+            </button>
+            <button type="button" class="btn-outline">
+              Clear
+            </button>
+          </div>
+
+          <p class="small-note">
+            In a future build, these filters can pull directly from CMS and state-level datasets. For now, use this as a template to capture what you find across multiple sites.
+          </p>
+        </article>
+
+        <article class="card" aria-label="Example facilities table">
+          <h2>Example view of facilities in your list</h2>
+          <p>
+            This is a sample layout showing how you might track facilities you’re considering. You can adapt the columns to what matters most for your family.
+          </p>
+
+          <div style="max-height: 260px; overflow: auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Facility</th>
+                  <th>Type</th>
+                  <th>Recent inspections</th>
+                  <th>Staffing & complaints</th>
+                  <th>Ownership & notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Maple Grove Care Center<br />
+                    <span class="small-note">10–15 min drive</span>
+                  </td>
+                  <td>SNF</td>
+                  <td>
+                    <span class="flag-pill yellow">Some issues</span><br />
+                    Deficiencies trending down last 2 years. No immediate jeopardy tags in last 3 surveys.
+                  </td>
+                  <td>
+                    <span class="flag-pill yellow">Mixed</span><br />
+                    Staffing slightly below state avg; a few complaints about response time but improving trend.
+                  </td>
+                  <td>
+                    Same owner for 8+ years. No major enforcement actions. Independent, not part of a large chain.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Lakeside Living & Memory Care<br />
+                    <span class="small-note">20–25 min drive</span>
+                  </td>
+                  <td>Assisted living + memory</td>
+                  <td>
+                    <span class="flag-pill">Red flags</span><br />
+                    Several higher-severity deficiencies in last 24 months; follow-up reinspections recently.
+                  </td>
+                  <td>
+                    <span class="flag-pill">Red flags</span><br />
+                    Multiple complaints about neglect and turnover. Staffing well below state average benchmarks.
+                  </td>
+                  <td>
+                    Ownership change 18 months ago. Part of a regional chain. Worth asking why prior operator exited.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Oak Meadow Assisted Living<br />
+                    <span class="small-note">5–10 min drive</span>
+                  </td>
+                  <td>Assisted living</td>
+                  <td>
+                    No major deficiencies in last 3 years. Minor issues corrected quickly.
+                  </td>
+                  <td>
+                    Staffing at or above benchmarks. Complaint volume low, with issues resolved.
+                  </td>
+                  <td>
+                    Long-tenured administrator. Same ownership for 10+ years. Stable environment, but verify pricing details.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="small-note">
+            None of the entries above are recommendations. They’re examples of how you might summarize what you find in state and federal databases.
+          </p>
+        </article>
+      </section>
+
+      <!-- RIGHT: How to read / red vs yellow / next steps -->
+      <aside aria-label="How to interpret facility patterns">
+        <article class="card">
+          <h2>How to read what you’re seeing</h2>
+          <p>
+            Numbers and flags don’t tell the whole story, but they do tell you <em>where to ask harder questions.</em>
+          </p>
+          <ul>
+            <li>
+              A facility with some past issues but clear improvement can be very different from a facility with ongoing, unresolved problems.
+            </li>
+            <li>
+              Ownership and administrator stability often correlate with culture and follow-through.
+            </li>
+            <li>
+              Complaint volume matters, but so does how quickly issues are addressed and closed out.
+            </li>
+            <li>
+              Staffing numbers are a clue, not a guarantee — you still need to visit and observe.
+            </li>
+          </ul>
+          <p class="small-note">
+            Always pair the data with in-person visits, conversations, and what you see and feel on the ground.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Red flags vs. “yellow” flags</h2>
+          <p>
+            Not every imperfection is a deal-breaker. This is one way to think about different signals:
+          </p>
+          <ul>
+            <li>
+              <strong>Red flags:</strong> repeated serious deficiencies, ongoing enforcement actions, major staffing gaps, or patterns of neglect in complaints.
+            </li>
+            <li>
+              <strong>Yellow flags:</strong> minor repeated issues, moderate complaints about communication or delays, staffing that’s borderline but improving.
+            </li>
+            <li>
+              <strong>Context matters:</strong> a facility that openly explains past issues and shows what changed may be safer than one that deflects or minimizes.
+            </li>
+          </ul>
+          <p class="small-note">
+            Use the red/yellow framing to decide which facilities need deeper questioning — not to automatically rule them in or out.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>What to do after using this dashboard</h2>
+          <p>
+            Once you have a short list from Facility Insights:
+          </p>
+          <ul>
+            <li>Schedule tours and unannounced visits at different times of day.</li>
+            <li>Bring a written list of questions based on the patterns you saw.</li>
+            <li>Ask staff directly about turnover, enforcement, and how they responded.</li>
+            <li>Talk with your primary care physician, specialists, or care manager about whether choices match the level of care needed.</li>
+          </ul>
+          <p class="small-note">
+            If you want help turning the patterns into plain-language questions, you can use the tools page or optional 1:1 services to prepare.
+          </p>
+        </article>
+
+        <div class="disclaimer">
+          <strong>IMPORTANT</strong><br />
+          Facility Insights is an informational dashboard only. Data comes from public sources that may be incomplete, delayed, or updated without notice. Nothing here is a recommendation, rating, endorsement, or guarantee of safety or quality. Always verify information directly with state regulators, facilities, and licensed professionals, and base decisions on your own judgment and advice from your care team. Maisage does not receive commissions or referral fees from any facilities.
+        </div>
+      </aside>
+    </div>
+
+    <section aria-labelledby="export-section-title">
+      <h2 id="export-section-title" class="section-title">Capturing and sharing what you find</h2>
+      <p class="section-subtitle">
+        The point of this dashboard is not to be “right” on its own — it’s to help you collect, organize, and then share what you’re seeing.
+      </p>
+      <div class="callout">
+        In later phases, this page can support saving your facility list and exporting it as a simple PDF or spreadsheet. For now, you can copy this structure into your own notes or spreadsheet and bring it to appointments with doctors, care managers, and family members.
+      </div>
+    </section>
+
+    <div class="disclaimer">
+      <strong>LEGAL & DATA NOTICE</strong><br />
+      Maisage relies on publicly available data and manual research. No single source captures the full picture of a facility’s safety or quality. Use this as one input among many, not as the final word. Maisage is not responsible for decisions, outcomes, or legal claims arising from how this information is used.
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
+      </div>
+      <div class="footer-meta">
+        Facility Insights v1.1 – 2025-12-06
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
