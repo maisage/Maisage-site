@@ -294,26 +294,14 @@
 
 <body>
   <!-- Maisage Homepage - v1.4 - 2025-12-06 -->
-
-  <header>
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="brand-logo">M</div>
-        <div>Maisage</div>
-      </div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="facility-insights.html">Facility Insights</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="tools.html#medications">Medications</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="community.html">Community</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<div id="nav-placeholder"></div>
+<script>
+  fetch("/nav.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("nav-placeholder").innerHTML = html;
+    });
+</script>
 
   <main>
     <section class="hero" aria-label="Maisage overview">
