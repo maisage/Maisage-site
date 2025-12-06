@@ -20,9 +20,7 @@
       --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -32,10 +30,7 @@
       line-height: 1.5;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     header {
       background: #ffffff;
@@ -179,15 +174,8 @@
       gap: 0.35rem;
     }
 
-    .card h3 {
-      margin: 0;
-      font-size: 1rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--text-muted);
-    }
+    .card h3 { margin: 0; font-size: 1rem; }
+    .card p { margin: 0; color: var(--text-muted); }
 
     .topic-link {
       margin-top: 0.4rem;
@@ -199,9 +187,7 @@
       gap: 0.3rem;
     }
 
-    .topic-link span {
-      font-size: 1rem;
-    }
+    .topic-link span { font-size: 1rem; }
 
     .small-note {
       font-size: 0.8rem;
@@ -242,10 +228,7 @@
       gap: 0.5rem;
     }
 
-    .footer-meta {
-      font-size: 0.75rem;
-      color: #8c94a0;
-    }
+    .footer-meta { font-size: 0.75rem; color: #8c94a0; }
 
     @media (max-width: 768px) {
       nav ul { display: none; }
@@ -253,274 +236,19 @@
   </style>
 </head>
 <body>
-  <!-- Maisage Learn - v1.2 - 2025-12-06 -->
+  <!-- Maisage Learn - v1.3 - 2025-12-06 -->
 
-  <header>
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="brand-logo">M</div>
-        <div>Maisage</div>
-      </div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="facility-insights.html">Facility Insights</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="tools.html#medications">Medications</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="community.html">Community</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+  </script>
 
   <main>
-    <section class="hero" aria-label="Learn the basics">
-      <div>
-        <div class="badge">
-          <span class="pill-dot"></span>
-          Learn – start with the basics
-        </div>
-        <h1>Understand the basics before you’re pushed into decisions</h1>
-        <p class="page-subtitle">
-          This page is a hub. From here, you can jump into focused guides on care settings, assisted living, home care, hospice, Medicare, Medicaid, medications, VA benefits, and paying for care — without being steered toward a particular product or facility.
-        </p>
-        <p class="hero-footnote">
-          You don’t need to read everything. Start with the topic that matches what’s loudest right now: housing, money, medications, or “what happens if we do nothing.”
-        </p>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="settings-title">
-      <h2 id="settings-title" class="section-title">Where care happens: core settings</h2>
-      <p class="section-subtitle">
-        Most care decisions boil down to a few settings: home, assisted living, nursing facilities, hospice, and mixes of these. These guides explain what each really means in practice.
-      </p>
-
-      <div class="cards-3">
-        <article class="card">
-          <h3>Care settings overview</h3>
-          <p>
-            Big-picture view of common care settings and how they relate to each other — home, assisted living, nursing homes, rehab, and hospice.
-          </p>
-          <a href="learn-care-settings.html" class="topic-link">
-            Open care settings overview
-            <span>→</span>
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Assisted living basics</h3>
-          <p>
-            What assisted living actually does and doesn’t do, how it differs from nursing facilities, and common surprises for families.
-          </p>
-          <a href="learn-assisted-living.html" class="topic-link">
-            Open assisted living basics
-            <span>→</span>
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Nursing facilities & rehab</h3>
-          <p>
-            How nursing facilities work, how they differ from assisted living, and how short-term rehab stays fit into the picture.
-          </p>
-          <a href="learn-nursing-facilities.html" class="topic-link">
-            Open nursing facility basics
-            <span>→</span>
-          </a>
-        </article>
-      </div>
-
-      <div class="cards-3" style="margin-top:1.2rem;">
-        <article class="card">
-          <h3>Home care & in-home help</h3>
-          <p>
-            What “home care” really means, typical services, limits, and what it takes to make staying at home work beyond a few weeks.
-          </p>
-          <!-- filename in repo is learn-home-care.hmtl (with typo); link matches that -->
-          <a href="learn-home-care.hmtl" class="topic-link">
-            Open home care basics
-            <span>→</span>
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Hospice basics</h3>
-          <p>
-            What hospice is (and is not), when people can qualify, and how it changes the focus of care at home or in a facility.
-          </p>
-          <a href="learn-hospice.html" class="topic-link">
-            Open hospice basics
-            <span>→</span>
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Working with the medical team</h3>
-          <p>
-            How to think about roles of primary care, specialists, hospitalists, and others — and how to get clearer answers instead of vague reassurances.
-          </p>
-          <a href="learn-medical-team.html" class="topic-link">
-            Open medical team basics
-            <span>→</span>
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="money-title">
-      <h2 id="money-title" class="section-title">Paying for care: Medicare, Medicaid, VA & private pay</h2>
-      <p class="section-subtitle">
-        These topics won’t build a full financial plan, but they can keep you from being blindsided by how care is actually paid for in the U.S.
-      </p>
-
-      <div class="cards-3">
-        <article class="card">
-          <h3>Medicare basics</h3>
-          <p>
-            Plain-language overview of Parts A, B, C, and D, what they typically cover, and common misunderstandings around rehab and long-term care.
-          </p>
-          <a href="learn-medicare.html" class="topic-link">
-            Open Medicare basics
-            <span>→</span>
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Medicaid basics</h3>
-          <p>
-            High-level view of Medicaid as a safety net, how it interacts with nursing facilities, and why rules vary so much by state.
-          </p>
-          <a href="learn-medicaid.html" class="topic-link">
-            Open Medicaid basics
-            <span>→</span>
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>VA benefits overview</h3>
-          <p>
-            Key VA programs that sometimes help with care, who might qualify, and good questions to bring to a veterans’ services officer.
-          </p>
-          <a href="learn-va-benefits.html" class="topic-link">
-            Open VA benefits basics
-            <span>→</span>
-          </a>
-        </article>
-      </div>
-
-      <div class="cards-3" style="margin-top:1.2rem;">
-        <article class="card">
-          <h3>Private pay & out-of-pocket</h3>
-          <p>
-            How private pay usually works for assisted living, home care, and other services, and how to think in terms of “what’s sustainable.”
-          </p>
-          <a href="learn-private-pay.html" class="topic-link">
-            Open private pay basics
-            <span>→</span>
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Costs & trade-offs</h3>
-          <p>
-            How to compare costs across options in a way that includes time, workload, and stress — not just the monthly bill.
-          </p>
-          <a href="plan.html" class="topic-link">
-            Go to planning tools
-            <span>→</span>
-          </a>
-          <p class="small-note">
-            Uses the main planning tools page rather than a separate learn file.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="meds-title">
-      <h2 id="meds-title" class="section-title">Medications, information, and noise</h2>
-      <p class="section-subtitle">
-        Medications and information overload both drive a lot of stress. These guides focus on getting enough clarity to ask better questions.
-      </p>
-
-      <div class="cards-3">
-        <article class="card">
-          <h3>Medication costs & complexity</h3>
-          <p>
-            How to map current medications, spot likely cost drivers, and prepare questions for your prescribers and pharmacist.
-          </p>
-          <a href="learn-medication-costs.html" class="topic-link">
-            Open medication cost basics
-            <span>→</span>
-          </a>
-          <p class="small-note">
-            Works well alongside the Medications section on the Tools page.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Social media, ads & “advice”</h3>
-          <p>
-            Sorting helpful information from noise when you’re seeing posts, ads, and stories about care, facilities, and miracle cures.
-          </p>
-          <a href="learn-social-media.html" class="topic-link">
-            Open social media & information basics
-            <span>→</span>
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>What matters most</h3>
-          <p>
-            A simple way to think about values, preferences, and non-negotiables, so medical and housing decisions line up with what matters to the person.
-          </p>
-          <a href="what-matters-most.html" class="topic-link">
-            Go to What Matters Most
-            <span>→</span>
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="how-to-use-title">
-      <h2 id="how-to-use-title" class="section-title">How to use these learn pages</h2>
-      <p class="section-subtitle">
-        These are meant to be skimmed and used as conversation fuel — not memorized.
-      </p>
-
-      <div class="cards-3">
-        <article class="card">
-          <h3>1. Pick one or two topics</h3>
-          <p>
-            Start with whatever is causing the most stress: housing, money, meds, or “what happens next.” Read only those pages first.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>2. Turn notes into questions</h3>
-          <p>
-            For each page, write down a few questions you want to bring to doctors, social workers, facilities, or financial professionals.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>3. Pair with tools & services</h3>
-          <p>
-            When ready, use the Tools page to compare scenarios, or the Services page if you want structured help walking through options.
-          </p>
-          <p class="small-note">
-            Links: <a href="tools.html">Tools →</a> · <a href="services.html">Services →</a>
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <div class="disclaimer">
-      <strong>IMPORTANT</strong><br />
-      These learn pages are for orientation and education only. They do not provide medical care, diagnosis, treatment, legal services, financial planning, tax advice, or insurance brokerage. Always review decisions with licensed professionals who understand your specific situation and local rules.
-    </div>
+    <!-- keep the learn hub content we just built here -->
   </main>
 
   <footer>
@@ -530,13 +258,13 @@
         Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
       </div>
       <div class="footer-meta">
-        Learn v1.2 – 2025-12-06
+        Learn v1.3 – 2025-12-06
       </div>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
