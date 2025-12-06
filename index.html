@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Maisage – Clear, Neutral Guidance for Aging & Care Decisions</title>
+  <title>Maisage – Clearer Care Decisions, Without the Sales Pitch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Maisage helps families navigate elder-care, medication costs, and long-term care decisions with transparent, neutral, AI-assisted guidance." />
+  <meta name="description" content="Maisage is a neutral care-navigation project that helps families make clearer decisions about aging, housing, care, and medications using public data, practical tools, and plain language." />
   <style>
     :root {
       --bg: #f7f8fa;
@@ -95,45 +95,21 @@
       color: var(--accent);
     }
 
-    .nav-cta a {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 600;
-      background: #f5fbf7;
-    }
-
     main {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 1.5rem 1rem 3rem;
     }
 
-    /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(240px, 2fr);
-      gap: 2.5rem;
-      align-items: center;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      gap: 2rem;
       margin-top: 1.5rem;
-      margin-bottom: 2.5rem;
+      align-items: start;
     }
 
-    .hero-title {
-      font-size: clamp(2.0rem, 3vw + 0.5rem, 2.7rem);
-      margin: 0 0 0.6rem;
-    }
-
-    .hero-subtitle {
-      margin: 0 0 1.2rem;
-      color: var(--text-muted);
-      max-width: 34rem;
-      font-size: 0.98rem;
-    }
-
-    .hero-highlight {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
@@ -141,9 +117,9 @@
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.7rem;
     }
 
     .pill-dot {
@@ -153,19 +129,30 @@
       background: var(--accent);
     }
 
+    h1 {
+      font-size: clamp(1.9rem, 3vw + 0.5rem, 2.4rem);
+      margin: 0 0 0.5rem;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 1.1rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      font-size: 0.98rem;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 0.6rem;
+      gap: 0.6rem;
+      margin-bottom: 0.9rem;
     }
 
     .btn-primary,
-    .btn-ghost,
     .btn-outline {
       border-radius: 999px;
-      padding: 0.65rem 1.2rem;
-      font-size: 0.95rem;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.9rem;
       font-weight: 600;
       border: none;
       cursor: pointer;
@@ -196,171 +183,121 @@
       background: #f0faf4;
     }
 
-    .hero-caption {
-      font-size: 0.8rem;
+    .hero-footnote {
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    .hero-panel {
+    .hero-card {
       background: var(--card-bg);
       border-radius: var(--radius-card);
-      padding: 1.25rem 1.2rem;
-      box-shadow: var(--shadow-soft);
       border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.1rem 1.1rem;
       font-size: 0.9rem;
     }
 
-    .hero-panel h2 {
-      margin: 0 0 0.4rem;
+    .hero-card h2 {
       font-size: 1rem;
-    }
-
-    .hero-panel p {
       margin: 0 0 0.4rem;
+    }
+
+    .hero-card p {
+      margin: 0 0 0.5rem;
       color: var(--text-muted);
     }
 
-    .hero-panel ul {
-      margin: 0.4rem 0 0.6rem 1.1rem;
-      padding: 0;
+    .hero-card ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0 0.3rem;
       color: var(--text-muted);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
     }
 
-    .hero-panel li + li {
+    .hero-card li + li {
       margin-top: 0.15rem;
     }
 
-    /* Quick links */
+    .section {
+      margin-top: 2.2rem;
+    }
+
     .section-title {
-      margin-top: 0;
-      margin-bottom: 0.3rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      margin: 0 0 0.3rem;
     }
 
     .section-subtitle {
-      margin: 0 0 1rem;
-      font-size: 0.9rem;
+      margin: 0 0 0.7rem;
       color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
-    .quick-links {
+    .cards-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.6rem;
     }
 
-    .ql-card {
+    .card {
       background: var(--card-bg);
       border-radius: var(--radius-card);
-      padding: 1rem;
+      padding: 1.1rem 1.1rem;
       border: 1px solid var(--border-soft);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 150px;
-      transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
-    }
-
-    .ql-card:hover {
       box-shadow: var(--shadow-soft);
-      transform: translateY(-2px);
-      border-color: var(--accent-soft);
-    }
-
-    .ql-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .ql-title {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-
-    .ql-body {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .ql-link {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      margin-top: auto;
-    }
-
-    /* How it works */
-    .how-it-works {
-      margin-bottom: 2.5rem;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .step-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-card);
-      padding: 1rem;
-      border: 1px solid var(--border-soft);
       font-size: 0.9rem;
     }
 
-    .step-number {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.8rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-
-    .step-card h3 {
-      margin: 0 0 0.3rem;
+    .card h3 {
+      margin: 0 0 0.35rem;
       font-size: 1rem;
     }
 
-    .step-card p {
-      margin: 0;
+    .card p {
+      margin: 0 0 0.5rem;
       color: var(--text-muted);
     }
 
-    /* Disclaimer */
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-top: 0.4rem;
+      color: var(--accent);
+    }
+
+    .quick-link span {
+      font-size: 1rem;
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
     .disclaimer {
-      margin-top: 1rem;
+      margin-top: 2rem;
       padding: 0.9rem 1rem;
       border-radius: var(--radius-card);
       border: 1px solid #f2c3c0;
       background: #fff5f4;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--danger);
     }
 
     .disclaimer strong {
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
     }
 
     footer {
       border-top: 1px solid var(--border-soft);
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       padding: 1rem 1rem 1.5rem;
       font-size: 0.8rem;
       color: var(--text-muted);
@@ -388,15 +325,11 @@
       nav ul {
         display: none;
       }
-
-      .nav-cta {
-        margin-left: auto;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- Maisage homepage - v1.1 - 2025-12-06 -->
+  <!-- Maisage Homepage - v1.2 - 2025-12-06 -->
   <header>
     <div class="nav-inner">
       <div class="brand">
@@ -408,177 +341,185 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="facility-insights.html">Facility Insights</a></li>
           <li><a href="tools.html">Tools</a></li>
+          <li><a href="tools.html#medications">Medications</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="community.html">Community</a></li>
         </ul>
       </nav>
-      <div class="nav-cta">
-        <a href="start-here.html">Start Here</a>
-      </div>
+      <!-- No separate Start Here nav button now; hero button is the single primary CTA -->
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-label="Maisage overview">
       <div>
-        <div class="hero-highlight">
+        <div class="hero-badge">
           <span class="pill-dot"></span>
-          Neutral, non-commission guidance for real families
+          Neutral care-navigation project (early stage)
         </div>
-        <h1 id="hero-title" class="hero-title">
-          Make aging and care decisions with clarity, not guesswork.
-        </h1>
+        <h1>Care decisions are hard. The information around them shouldn’t be.</h1>
         <p class="hero-subtitle">
-          Maisage helps you understand care options, facility patterns, and medication costs using public data, real-world experience, and AI-assisted tools — without selling you a plan, policy, or facility.
+          Maisage helps families sort out the basics: what’s really happening, what choices are on the table, and what questions to bring to doctors, facilities, and advisors — without trying to sell you a policy or a placement.
         </p>
+
         <div class="hero-actions">
           <a href="start-here.html" class="btn-primary">
-            Start Here
+            Start here
           </a>
           <a href="tools.html#medications" class="btn-outline">
-            Find Affordable Medications
+            Find affordable medication options
           </a>
         </div>
-        <p class="hero-caption">
-          No commissions. No sponsored placements. Just information you can double-check and use with your own advisors.
+
+        <p class="hero-footnote">
+          You can use everything on this site on your own, or add optional one-time sessions with <strong>Mai Lindsey</strong> if you want structured help.
         </p>
       </div>
 
-      <aside class="hero-panel" aria-label="What Maisage does">
-        <h2>What Maisage can help you with</h2>
+      <aside class="hero-card" aria-label="What you can use Maisage for today">
+        <h2>What you can use Maisage for today</h2>
         <p>
-          Use Maisage as a planning companion when you’re trying to answer questions like:
+          This early version focuses on a few high-impact areas families struggle with the most:
         </p>
         <ul>
-          <li>“Can we realistically keep Mom at home for 2–5 years?”</li>
-          <li>“What are we not seeing in this facility’s glossy brochure?”</li>
-          <li>“Are there lower-cost options for these medications?”</li>
-          <li>“How will this choice affect our finances over time?”</li>
+          <li>Getting a clear snapshot of what’s going on at home right now.</li>
+          <li>Comparing “stay home vs. move” and mixed care scenarios.</li>
+          <li>Looking past glossy marketing when researching facilities.</li>
+          <li>Seeing which medications may be driving cost and complexity.</li>
         </ul>
-        <p>
-          Our tools surface patterns, trade-offs, and questions to ask — you stay in control of the decisions.
+        <p class="small-note">
+          The goal is not to tell you what to do, but to make it easier to see your options and walk into real conversations prepared.
         </p>
       </aside>
     </section>
 
-    <!-- QUICK LINKS -->
-    <section aria-labelledby="quick-links-title">
-      <h2 id="quick-links-title" class="section-title">Quick paths to get started</h2>
+    <section class="section" aria-labelledby="quick-start-title">
+      <h2 id="quick-start-title" class="section-title">Three ways to get oriented</h2>
       <p class="section-subtitle">
-        Start with a single step — you don’t have to solve everything today.
+        You don’t have to use everything at once. Start where the pain is loudest right now.
       </p>
-      <div class="quick-links">
-        <a href="start-here.html" class="ql-card">
-          <div>
-            <div class="ql-label">Orientation</div>
-            <div class="ql-title">Start Here</div>
-            <div class="ql-body">
-              A short intake-style guide that helps you organize what’s happening, who’s involved, and what decisions are actually on the table.
-            </div>
-          </div>
-          <div class="ql-link">
-            Begin the walkthrough →
-          </div>
-        </a>
 
-        <a href="facility-insights.html" class="ql-card">
-          <div>
-            <div class="ql-label">Facility Insights dashboard</div>
-            <div class="ql-title">Look past glossy ratings</div>
-            <div class="ql-body">
-              Beyond CMS ratings — real patterns in inspections, staffing, complaints,
-              enforcement actions, and ownership stability to guide where you look closer.
-            </div>
-          </div>
-          <div class="ql-link">
-            Open Facility Insights →
-          </div>
-        </a>
+      <div class="cards-3">
+        <article class="card">
+          <h3>1. “Start Here” snapshot</h3>
+          <p>
+            A simple, private page to capture who needs care, what’s changing, how urgent it feels, and what decisions seem to be on the table.
+          </p>
+          <a href="start-here.html" class="quick-link">
+            Go to Start Here
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            Good if everything feels tangled and you’re not even sure how to describe what’s going on.
+          </p>
+        </article>
 
-        <a href="tools.html#medications" class="ql-card">
-          <div>
-            <div class="ql-label">Medications</div>
-            <div class="ql-title">Medication cost transparency</div>
-            <div class="ql-body">
-              Map out what medications you’re dealing with, where the biggest cost drivers are, and what questions to ask about lower-cost but clinically sound options.
-            </div>
-          </div>
-          <div class="ql-link">
-            Explore medication tools →
-          </div>
-        </a>
+        <article class="card">
+          <h3>2. Facility Insights dashboard</h3>
+          <p>
+            Look beyond star ratings using patterns in inspections, staffing, complaints, and ownership stability to decide where to look closer.
+          </p>
+          <a href="facility-insights.html" class="quick-link">
+            Explore Facility Insights
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            Good if you’re starting to tour or compare facilities and don’t want to rely only on marketing.
+          </p>
+        </article>
 
-        <a href="services.html" class="ql-card">
-          <div>
-            <div class="ql-label">Services</div>
-            <div class="ql-title">1:1 navigation support</div>
-            <div class="ql-body">
-              For families who want structured help interpreting the data, outlining options, and preparing questions for doctors, facilities, or advisors.
-            </div>
-          </div>
-          <div class="ql-link">
-            See service options →
-          </div>
-        </a>
-
-        <a href="tools.html" class="ql-card">
-          <div>
-            <div class="ql-label">Tools</div>
-            <div class="ql-title">Compare scenarios & trade-offs</div>
-            <div class="ql-body">
-              Use interactive tools to compare “stay home vs. move,” different care mixes, and simple financial scenarios over time — without anybody trying to sell you a product.
-            </div>
-          </div>
-          <div class="ql-link">
-            Go to tools →
-          </div>
-        </a>
+        <article class="card">
+          <h3>3. Medication cost & complexity view</h3>
+          <p>
+            Map current medications, flag likely cost drivers, and prepare questions for your prescribers and pharmacist about safer, more affordable options.
+          </p>
+          <a href="tools.html#medications" class="quick-link">
+            Go to Medications section
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            Good if the pharmacy counter is where your budget keeps getting hit the hardest.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="how-it-works" aria-labelledby="how-it-works-title">
-      <h2 id="how-it-works-title" class="section-title">How Maisage fits into your decisions</h2>
+    <section class="section" aria-labelledby="services-overview-title">
+      <h2 id="services-overview-title" class="section-title">If you want one-on-one help</h2>
       <p class="section-subtitle">
-        Think of Maisage as a quiet, neutral partner that helps you see the whole board before you commit.
+        Most people will use the free tools first. If your situation is complex or you want a structured session, you can book one-time services with clear pricing — no subscriptions, no long-term contracts.
       </p>
-      <div class="steps">
-        <article class="step-card">
-          <div class="step-number">1</div>
-          <h3>Get oriented</h3>
-          <p>
-            Use <strong>Start Here</strong> to summarize your situation: who needs care, current diagnoses, living setup, time pressure, and financial boundaries. This becomes your “one-page snapshot.”
-          </p>
-        </article>
-        <article class="step-card">
-          <div class="step-number">2</div>
-          <h3>Look at facilities & options</h3>
-          <p>
-            Use <strong>Facility Insights</strong> to see inspection patterns, staffing and ownership trends, and complaint history so you know where to dig and what questions to ask on tours.
-          </p>
-        </article>
-        <article class="step-card">
-          <div class="step-number">3</div>
-          <h3>Map out costs and medications</h3>
-          <p>
-            Use the <strong>medication transparency</strong> and planning tools to understand which meds drive cost, and how different care paths (home, assisted living, nursing facility) might play out financially over time.
-          </p>
-        </article>
-        <article class="step-card">
-          <div class="step-number">4</div>
-          <h3>Decide with your own team</h3>
-          <p>
-            Bring what you learn to your doctors, pharmacists, care managers, and legal/financial advisors. Maisage gives you better questions and clearer trade-offs — not a sales pitch.
-          </p>
-        </article>
-      </div>
 
-      <div class="disclaimer">
-        <strong>IMPORTANT</strong><br />
-        Maisage is an informational and planning resource only. Information is drawn from public sources and practical experience and may be incomplete or out of date. Maisage does not take commissions, referral fees, or paid placement from facilities, insurers, pharmacies, or brokers. All decisions should be independently verified with licensed medical, legal, and financial professionals. Maisage is not providing professional advice and is not responsible for decisions, outcomes, or legal claims arising from how this information is used.
+      <div class="cards-3">
+        <article class="card">
+          <h3>Orientation call (60 minutes)</h3>
+          <p>
+            Walk through your situation, untangle what’s urgent vs. important, and leave with a short written summary of options and next questions.
+          </p>
+          <a href="services.html" class="quick-link">
+            See services & pricing
+            <span>→</span>
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Scenario & facility planning</h3>
+          <p>
+            Use the tools together to compare realistic paths (home, assisted living, hybrid options) and turn them into something your family can react to.
+          </p>
+          <a href="services.html" class="quick-link">
+            Learn about planning sessions
+            <span>→</span>
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Medication cost & plan review</h3>
+          <p>
+            Focus on high-cost medications, likely alternatives to ask about, and questions for your care team — without changing prescriptions here.
+          </p>
+          <a href="services.html" class="quick-link">
+            See medication-focused support
+            <span>→</span>
+          </a>
+        </article>
       </div>
     </section>
+
+    <section class="section" aria-labelledby="philosophy-title">
+      <h2 id="philosophy-title" class="section-title">What makes Maisage different</h2>
+      <p class="section-subtitle">
+        This project exists because many caregivers are tired of hidden incentives, rushed decisions, and information that feels more like marketing than truth.
+      </p>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>No commissions, no referral fees</h3>
+          <p>
+            Maisage is not paid by facilities, insurers, pharmacies, or brokers. If money ever comes from partnerships in the future, it will be disclosed clearly and prominently.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Plain language, not jargon</h3>
+          <p>
+            Tools, summaries, and checklists are written so a tired family member can understand them at 11 p.m. after a long day — not just professionals.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Designed to work with your care team</h3>
+          <p>
+            Everything here is meant to make conversations with doctors, pharmacists, attorneys, and financial planners sharper — not to replace them.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <div class="disclaimer">
+      <strong>IMPORTANT</strong><br />
+      Maisage is an informational and planning resource only. It does not provide medical care, diagnosis, treatment, legal services, financial planning, tax advice, or insurance brokerage. All decisions should be made in consultation with licensed professionals who know your full situation. Data used on this site comes from public and third-party sources that may be incomplete or updated without notice. Maisage does not receive commissions or referral fees from facilities, insurers, pharmacies, or brokers.
+    </div>
   </main>
 
   <footer>
@@ -588,14 +529,12 @@
         Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
       </div>
       <div class="footer-meta">
-        <!-- Version marker for tracking changes -->
-        Homepage v1.1 – 2025-12-06
+        Homepage v1.2 – 2025-12-06
       </div>
     </div>
   </footer>
 
   <script>
-    // Keep copyright year current
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
