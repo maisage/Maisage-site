@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <title>Learn – Understand the Basics | Maisage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Plain-language guides to help families understand the basics of assisted living, home care, nursing homes, Medicare, Medicaid, medications, and more." />
+  <meta
+    name="description"
+    content="Plain-language guides to help families understand the basics of care settings, medications, and coverage before they’re pushed into big decisions."
+  />
 
   <style>
     :root {
@@ -21,6 +24,8 @@
       --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
     }
 
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -34,7 +39,7 @@
       text-decoration: none;
     }
 
-    /* nav reserved to match nav.html */
+    /* nav styles (used by nav.html) */
     header {
       background: #ffffff;
       border-bottom: 1px solid var(--border-soft);
@@ -43,6 +48,54 @@
       z-index: 20;
     }
 
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover { color: var(--accent); }
+
     main {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -50,7 +103,7 @@
     }
 
     h1 {
-      font-size: clamp(1.8rem, 3vw + 0.3rem, 2.3rem);
+      font-size: clamp(1.8rem, 3vw + 0.3rem, 2.2rem);
       margin: 0 0 0.6rem;
     }
 
@@ -58,11 +111,11 @@
       max-width: 42rem;
       color: var(--text-muted);
       font-size: 0.97rem;
-      margin-bottom: 1.8rem;
+      margin: 0 0 1.7rem;
     }
 
     .section {
-      margin-top: 2.4rem;
+      margin-top: 2.3rem;
     }
 
     .section-title {
@@ -88,7 +141,7 @@
       background: var(--card-bg);
       border-radius: var(--radius-card);
       border: 1px solid var(--border-soft);
-      padding: 1.1rem 1.2rem;
+      padding: 1.1rem 1.1rem;
       box-shadow: var(--shadow-soft);
       font-size: 0.9rem;
     }
@@ -117,9 +170,15 @@
       font-size: 1rem;
     }
 
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
     .disclaimer {
       margin-top: 2.3rem;
-      padding: 1rem 1.1rem;
+      padding: 0.9rem 1.1rem;
       border-radius: var(--radius-card);
       border: 1px solid #f2c3c0;
       background: #fff5f4;
@@ -162,136 +221,194 @@
 </head>
 
 <body>
-
-  <!-- Shared Navigation Include -->
+  <!-- Shared nav -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
       .then(r => r.text())
-      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
   </script>
 
   <main>
-    <h1>Understand the basics</h1>
+    <h1>Learn: understand the basics before everything speeds up</h1>
     <p class="subtitle">
-      These guides explain how different types of care, coverage, and medications work — in plain language and without sales pressure. Each topic can be read quickly and used as a starting point for deeper conversations with your family or care team.
+      This page is a hub for plain-language guides. You don’t need to read everything. Start with the topic that matches what’s loudest right now — housing, medications, or how coverage really works.
     </p>
 
-    <!-- Care Setting Basics -->
-    <section class="section">
-      <h2 class="section-title">Care settings</h2>
+    <!-- Care settings -->
+    <section class="section" aria-labelledby="care-title">
+      <h2 id="care-title" class="section-title">Where care happens</h2>
       <p class="section-subtitle">
-        Start here if you're comparing “stay home vs. move,” trying to understand assisted living, or evaluating what a nursing facility actually does day to day.
+        Start here if you’re asking “stay home or move?” or trying to understand what assisted living actually does compared to nursing homes or rehab.
       </p>
 
       <div class="cards-3">
         <article class="card">
-          <h3>Assisted living</h3>
-          <p>What assisted living actually provides, what it doesn’t, how staffing works, and what signs suggest it might be time to consider it.</p>
-          <a href="learn-assisted-living.html" class="quick-link">Open assisted living guide <span>→</span></a>
+          <h3>Assisted living basics</h3>
+          <p>
+            What assisted living usually provides, what it doesn’t, and common surprises for families the first year.
+          </p>
+          <a href="learn-assisted-living.html" class="quick-link">
+            Open assisted living basics
+            <span>→</span>
+          </a>
         </article>
 
         <article class="card">
-          <h3>Home care</h3>
-          <p>How in-home care works, typical costs, what caregivers can and can’t do, and how families often blend home care with other supports.</p>
-          <a href="learn-home-care.html" class="quick-link">Open home care guide <span>→</span></a>
+          <h3>Staying at home</h3>
+          <p>
+            What it really takes to keep someone at home safely: support, costs, and common blind spots.
+          </p>
+          <a href="learn-housing.html" class="quick-link">
+            Open staying-at-home guide
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            If your filename is different, update this link to match your actual home-care / housing learn page.
+          </p>
         </article>
 
         <article class="card">
-          <h3>Nursing homes</h3>
-          <p>A clear explanation of skilled nursing, rehab stays, long-term placement, and how inspections and staffing levels affect quality.</p>
-          <a href="learn-nursing-homes.html" class="quick-link">Open nursing home guide <span>→</span></a>
+          <h3>Nursing facilities & rehab</h3>
+          <p>
+            How nursing facilities differ from assisted living, and how short-term rehab stays really work.
+          </p>
+          <a href="learn-nursing-facilities.html" class="quick-link">
+            Open nursing facility basics
+            <span>→</span>
+          </a>
         </article>
       </div>
     </section>
 
-    <!-- Coverage & Benefits -->
-    <section class="section">
-      <h2 class="section-title">Coverage, programs, and benefits</h2>
+    <!-- Medications + Medicare/coverage -->
+    <section class="section" aria-labelledby="meds-title">
+      <h2 id="meds-title" class="section-title">Medications & coverage</h2>
       <p class="section-subtitle">
-        Insurance rules can be confusing. These guides offer a straightforward look at what each program generally does and doesn’t cover.
+        Start here if the pharmacy counter and insurance explanations are where things feel the most confusing or expensive.
       </p>
 
       <div class="cards-3">
+        <article class="card">
+          <h3>Medications: cost and complexity</h3>
+          <p>
+            Why some medications drive cost and confusion, how to map the current list, and which questions to bring to prescribers and pharmacists.
+          </p>
+          <a href="learn-medication.html" class="quick-link">
+            Open medication basics
+            <span>→</span>
+          </a>
+        </article>
+
         <article class="card">
           <h3>Medicare basics</h3>
-          <p>What Medicare covers, how Part D works, what “observation” status means, and what costs families still carry.</p>
-          <a href="learn-medicare.html" class="quick-link">Open Medicare basics <span>→</span></a>
+          <p>
+            A plain-language overview of Medicare parts, what they usually cover, and what families often assume but isn’t true.
+          </p>
+          <a href="learn-medicare.html" class="quick-link">
+            Open Medicare basics
+            <span>→</span>
+          </a>
         </article>
 
         <article class="card">
-          <h3>Medicaid & long-term care</h3>
-          <p>Income rules, asset rules, estate recovery, and how Medicaid interacts with assisted living and nursing homes.</p>
-          <a href="learn-medicaid.html" class="quick-link">Open Medicaid guide <span>→</span></a>
-        </article>
-
-        <article class="card">
-          <h3>VA benefits</h3>
-          <p>Overview of Aid & Attendance and other support programs veterans and surviving spouses may qualify for.</p>
-          <a href="learn-va-benefits.html" class="quick-link">Open VA benefits guide <span>→</span></a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Medications -->
-    <section class="section">
-      <h2 class="section-title">Medications & pharmacy costs</h2>
-      <p class="section-subtitle">
-        These explain why some medications are expensive, how formularies work, and how to prepare questions for prescribers.
-      </p>
-
-      <div class="cards-3">
-        <article class="card">
-          <h3>Understanding medication costs</h3>
-          <p>Why some drugs cost what they do, what “tiers” mean, and which questions help uncover lower-cost options.</p>
-          <a href="learn-medications.html" class="quick-link">Open medication cost guide <span>→</span></a>
-        </article>
-
-        <article class="card">
-          <h3>Pharmacy options</h3>
-          <p>The differences between retail, mail-order, discount programs, and insurance-preferred pharmacies.</p>
-          <a href="learn-pharmacy-options.html" class="quick-link">Open pharmacy overview <span>→</span></a>
-        </article>
-
-        <article class="card">
-          <h3>Preparing for a medication review</h3>
-          <p>How to organize your medication list and what to ask at your next appointment.</p>
-          <a href="learn-medication-review.html" class="quick-link">Open review prep <span>→</span></a>
+          <h3>Other coverage questions</h3>
+          <p>
+            How private insurance, Medicaid, or other programs may interact with your situation and why answers vary so much by state and plan.
+          </p>
+          <a href="learn-coverage.html" class="quick-link">
+            Open coverage overview
+            <span>→</span>
+          </a>
+          <p class="small-note">
+            Point this to whichever learn page covers broader insurance / benefits in your site.
+          </p>
         </article>
       </div>
     </section>
 
-    <!-- Family Dynamics & Planning -->
-    <section class="section">
-      <h2 class="section-title">Family roles & decision-making</h2>
+    <!-- Money / family / planning -->
+    <section class="section" aria-labelledby="family-title">
+      <h2 id="family-title" class="section-title">Money, roles, and what’s sustainable</h2>
       <p class="section-subtitle">
-        Guides that help families talk about expectations, boundaries, and sustainable workload — before burnout hits.
+        These guides help you think in terms of what you can sustain — not just what you can technically do for a few weeks.
       </p>
 
       <div class="cards-3">
         <article class="card">
-          <h3>Family conversations</h3>
-          <p>How to talk about safety, driving, finances, and future plans with less conflict and more clarity.</p>
-          <a href="learn-family-conversations.html" class="quick-link">Open conversation guide <span>→</span></a>
+          <h3>Costs and trade-offs</h3>
+          <p>
+            How to think about “we can pay for this once” versus “we can hold this together for 6–24 months.”
+          </p>
+          <a href="learn-costs.html" class="quick-link">
+            Open costs & trade-offs
+            <span>→</span>
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Family roles and workload</h3>
+          <p>
+            Mapping who is doing what now, what would change under different options, and how to have those conversations.
+          </p>
+          <a href="learn-family.html" class="quick-link">
+            Open family roles basics
+            <span>→</span>
+          </a>
         </article>
 
         <article class="card">
           <h3>What matters most</h3>
-          <p>A short exercise to help anchor decisions in the person’s values, preferences, and non-negotiables.</p>
-          <a href="learn-what-matters.html" class="quick-link">Open values exercise <span>→</span></a>
+          <p>
+            A simple exercise to anchor decisions in the person’s values and non-negotiables instead of just “what’s available.”
+          </p>
+          <a href="what-matters-most.html" class="quick-link">
+            Go to What Matters Most
+            <span>→</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- How to use -->
+    <section class="section" aria-labelledby="how-title">
+      <h2 id="how-title" class="section-title">How to use these Learn pages</h2>
+      <p class="section-subtitle">
+        These are not meant to be memorized. They’re meant to give you enough clarity to ask better questions and make calmer decisions.
+      </p>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>1. Skim, don’t study</h3>
+          <p>
+            First pass, skim only the topics that match your biggest worries. Mark anything that sounds like your situation.
+          </p>
         </article>
 
         <article class="card">
-          <h3>Coordinating care</h3>
-          <p>How families can divide roles, prevent duplication, and lighten the emotional load.</p>
-          <a href="learn-care-coordination.html" class="quick-link">Open coordination guide <span>→</span></a>
+          <h3>2. Turn notes into questions</h3>
+          <p>
+            For each page you read, write 3–5 questions to bring to doctors, social workers, facilities, or financial professionals.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>3. Pair with tools & services</h3>
+          <p>
+            When you’re ready, use the Tools page to compare scenarios, or the Services page if you want structured one-time support.
+          </p>
+          <p class="small-note">
+            Links: <a href="tools.html">Tools →</a> · <a href="services.html">Services →</a>
+          </p>
         </article>
       </div>
     </section>
 
     <div class="disclaimer">
       <strong>IMPORTANT</strong><br />
-      These guides are for understanding and planning. They do not provide medical care, diagnosis, treatment, legal advice, financial planning, tax guidance, or insurance brokerage. Always review decisions with licensed professionals who understand your situation.
+      These Learn pages are for orientation and education. They do not provide medical care, diagnosis, treatment, legal advice, financial planning, tax guidance, or insurance brokerage. Always review decisions with licensed professionals who understand your situation and local rules.
     </div>
   </main>
 
@@ -301,13 +418,14 @@
       <div class="footer-meta">
         Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
       </div>
-      <div class="footer-meta">Learn hub v1.4 – 2025-12-06</div>
+      <div class="footer-meta">
+        Learn v1.5 – 2025-12-06
+      </div>
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
