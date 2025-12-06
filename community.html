@@ -1,178 +1,477 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport"
-        content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Community & Connection | Maisage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <title>Community – Families & Care Teams | Maisage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guidance for using Maisage with family, friends, and care teams — including how to share information, set boundaries, and prepare for hard conversations about aging and care." />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --accent-soft: #e3f2ea;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta a {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #f5fbf7;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    h1 {
+      font-size: clamp(1.7rem, 2.5vw + 0.5rem, 2.1rem);
+      margin: 0 0 0.4rem;
+    }
+
+    .page-subtitle {
+      margin: 0 0 1.1rem;
+      color: var(--text-muted);
+      max-width: 42rem;
+      font-size: 0.97rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 1.2rem 1.2rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.45rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0 0 0.6rem;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.4rem;
+    }
+
+    .section-subtitle {
+      margin: 0 0 0.6rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.4rem 0 0.6rem;
+    }
+
+    .pill {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: #ffffff;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    li + li {
+      margin-top: 0.15rem;
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .callout {
+      margin-top: 0.6rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: var(--radius-card);
+      border: 1px dashed var(--accent);
+      background: #f5fbf7;
+      font-size: 0.84rem;
+      color: var(--text-main);
+    }
+
+    .quote {
+      border-left: 3px solid var(--accent-soft);
+      padding-left: 0.75rem;
+      margin: 0.5rem 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .disclaimer {
+      margin-top: 1.5rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-card);
+      border: 1px solid #f2c3c0;
+      background: #fff5f4;
+      font-size: 0.78rem;
+      color: var(--danger);
+    }
+
+    .disclaimer strong {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      margin-top: 2.5rem;
+      padding: 1rem 1rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      color: #8c94a0;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .nav-cta {
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
+<body>
+  <!-- Maisage Community - v1.1 - 2025-12-06 -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">M</div>
+        <div>Maisage</div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="facility-insights.html">Facility Insights</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a href="start-here.html">Start Here</a>
+      </div>
+    </div>
+  </header>
 
-<body class="min-h-screen bg-white text-slate-900">
-
-  <!-- Shared Header -->
-  <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed:", err));
-  </script>
-
-  <!-- Breadcrumb -->
-  <script>
-    window.breadcrumbParentLabel = "Home";
-    window.breadcrumbParentHref = "index.html";
-    window.breadcrumbCurrent = "Community";
-  </script>
-  <div id="breadcrumb"></div>
-  <script>
-    fetch('breadcrumb.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('breadcrumb').innerHTML = html))
-      .catch(err => console.error("Breadcrumb failed:", err));
-  </script>
-
-  <!-- MAIN CONTENT -->
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
-
-    <!-- Intro -->
-    <section class="space-y-3">
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Community & Connection</h1>
-
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        Staying connected — to people, routines, interests, and the world — is one of the strongest
-        predictors of well-being in older age. Community does not have to be large or complicated.
-        It simply needs to feel like you.
+  <main>
+    <header>
+      <div class="badge">
+        <span class="pill-dot"></span>
+        Community – you’re not the only one figuring this out
+      </div>
+      <h1>Using Maisage with your family and care team</h1>
+      <p class="page-subtitle">
+        This page is about how to bring other people into the process — without losing control, getting steamrolled, or turning every conversation into a fight about who’s “doing enough.”
       </p>
+    </header>
 
-      <p class="text-xs sm:text-sm text-slate-600 max-w-3xl">
-        These ideas are based on public resources, common community programs, and practical ways
-        older adults stay engaged, active, and supported.
-      </p>
-    </section>
+    <div class="layout">
+      <!-- LEFT: Family + care team use -->
+      <section aria-label="Using Maisage with others">
+        <article class="card">
+          <h2>Share the work, not just the stress</h2>
+          <p>
+            Caring for someone almost always involves more than one person — siblings, spouses, adult children, friends, neighbors, paid caregivers, and professionals. Maisage can help you put shared reality on the table.
+          </p>
+          <span class="label">Ways to use this site together</span>
+          <ul>
+            <li>
+              Fill out the <strong>Start Here</strong> snapshot, then email or text a PDF to key family members and ask, “Does this match how you see things?”
+            </li>
+            <li>
+              Use the <strong>Tools</strong> page during a family call to compare “stay home vs. move” scenarios in real time.
+            </li>
+            <li>
+              Bring <strong>Facility Insights</strong> notes to tours and ask staff about specific patterns you noticed.
+            </li>
+            <li>
+              Use the <strong>medication view</strong> as a shared list between family and whoever refills or organizes meds.
+            </li>
+          </ul>
+          <div class="small-note">
+            You don’t need everyone to agree on everything. It’s enough to agree on what’s happening and what the realistic options are.
+          </div>
+        </article>
 
-    <!-- COMMUNITY SECTIONS GRID -->
-    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="card">
+          <h2>Hard conversations with less chaos</h2>
+          <p>
+            The data and tools don’t replace hard conversations, but they give you something concrete to point to when emotions are high.
+          </p>
 
-      <!-- Gardening -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Gardening & Outdoor Activities</h2>
-        <p class="text-sm text-slate-700">
-          Gardening, walking groups, and gentle outdoor projects offer purpose and companionship
-          without pressure. Many communities have senior-friendly gardening clubs, community plots,
-          and neighborhood beautification groups you can join.
-        </p>
-      </div>
+          <span class="label">Examples of things you might say</span>
+          <div class="quote">
+            “I’m not saying we have to choose this option. I just want us to look at what the next 6–12 months might actually feel like if we keep things exactly as they are.”
+          </div>
+          <div class="quote">
+            “Can we look at these three facilities side-by-side based on inspections and staffing first — before we get swayed by the décor and sales pitch?”
+          </div>
+          <div class="quote">
+            “I’m at my limit on nights and weekends. Here’s what I can realistically keep doing, and here’s what I can’t.”
+          </div>
 
-      <!-- Clubs -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Clubs & Social Groups</h2>
-        <p class="text-sm text-slate-700">
-          Book clubs, craft circles, church groups, senior centers, cultural groups, and skill
-          meetups give you chances to connect on your terms. Even a small circle can improve
-          mood and reduce isolation.
-        </p>
-      </div>
+          <span class="label">Tips that tend to help</span>
+          <ul>
+            <li>Talk about the situation, not who is “good” or “bad” at caregiving.</li>
+            <li>Use “I” statements: “I’m worried about…”, “I notice…”, “I can commit to…”</li>
+            <li>Stay anchored to what the person needing care would want if they could see the full picture.</li>
+          </ul>
+        </article>
 
-      <!-- Safe Travel -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Safe & Enjoyable Travel</h2>
-        <p class="text-sm text-slate-700">
-          Travel remains possible — and joyful — at any age with the right pacing and planning.
-          Many older adults prefer smaller, slower itineraries with built-in rest days, accessible
-          lodging, and simple “backup plans” for comfort and safety.
-        </p>
-      </div>
+        <article class="card">
+          <h2>When family members disagree</h2>
+          <p>
+            Disagreement doesn’t automatically mean you’re doing something wrong. It often means people are scared, tired, or holding different pieces of the story.
+          </p>
+          <ul>
+            <li>Use written snapshots (from <strong>Start Here</strong> or the tools) to give everyone the same baseline information.</li>
+            <li>Ask, “What part of this do you see differently?” rather than “Why won’t you help?”</li>
+            <li>When needed, bring in a neutral third party: a care manager, social worker, or counselor.</li>
+          </ul>
+          <div class="callout">
+            If a dynamic feels abusive, manipulative, or unsafe, protecting yourself matters too. It’s okay to set limits, even in families that “don’t do that.”
+          </div>
+        </article>
+      </section>
 
-      <!-- Tech & Family -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Technology That Brings You Closer</h2>
-        <p class="text-sm text-slate-700">
-          You don't need to be “tech savvy” to stay connected. Simple tools like shared calendars,
-          reminders, photo streams, and video calls can help family stay involved without hovering.
-        </p>
-      </div>
+      <!-- RIGHT: Future community + boundaries + support -->
+      <aside aria-label="Community philosophy and future plans">
+        <article class="card">
+          <h2>What “community” means here</h2>
+          <p>
+            Many caregiver communities online are overloaded with ads, upsells, or unverified advice. Maisage is intentionally quieter.
+          </p>
+          <p>
+            The emphasis is on:
+          </p>
+          <div class="pill-row">
+            <span class="pill">Clarity over hype</span>
+            <span class="pill">No commissions</span>
+            <span class="pill">Realistic options</span>
+            <span class="pill">Respect for limits</span>
+          </div>
+          <p class="small-note">
+            As the project grows, any “community” features (forums, small groups, events) will be optional, privacy-minded, and clearly separated from advertising.
+          </p>
+        </article>
 
-      <!-- Social media -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Social Media, Safely</h2>
-        <p class="text-sm text-slate-700">
-          Many older adults use social media to follow family, faith groups, hobbies, or news —
-          but it can get overwhelming. Maisage explains safe, simple use without judgement.
-        </p>
-        <a href="learn-social-media.html"
-           class="text-xs font-medium text-emerald-700 hover:text-emerald-800 underline">
-          Learn more →
-        </a>
-      </div>
+        <article class="card">
+          <h2>Future possibilities for this page</h2>
+          <p>
+            Over time, this space may include:
+          </p>
+          <ul>
+            <li>Short, anonymous stories about real decisions families have had to make.</li>
+            <li>Sample questions to bring to doctors, pharmacists, attorneys, and financial planners.</li>
+            <li>Office-hours–style small group sessions focused on specific topics (e.g., “first facility move,” “Medicaid and housing,” “sibling conflict”).</li>
+          </ul>
+          <p class="small-note">
+            None of that exists yet. For now, this page is about helping you use the rest of the site <em>with</em> other people in your life.
+          </p>
+        </article>
 
-      <!-- Volunteering -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Volunteering & Purpose</h2>
-        <p class="text-sm text-slate-700">
-          Many seniors find fulfillment in small volunteer roles — welcoming visitors at museums,
-          reading at libraries, supporting community events, or helping at food banks. Even a few
-          hours a month can restore purpose and structure.
-        </p>
-      </div>
+        <article class="card">
+          <h2>Support that is not Maisage</h2>
+          <p>
+            There are times when you need more than planning tools:
+          </p>
+          <ul>
+            <li>Crisis or emergency: call local emergency services or your on-call medical team.</li>
+            <li>Mental health strain: consider talking with a therapist, counselor, or clergy you trust.</li>
+            <li>Legal conflict over care or money: consult an attorney who practices elder law in your state.</li>
+          </ul>
+          <p class="small-note">
+            Community doesn’t mean you have to do everything within the family. Bringing in outside help is often the most loving move you can make.
+          </p>
+        </article>
 
-      <!-- Intergenerational -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Intergenerational Programs</h2>
-        <p class="text-sm text-slate-700">
-          Programs that pair older adults with students, youth groups, or special-needs programs
-          are growing quickly and can add meaning, companionship, and confidence.
-        </p>
-      </div>
-
-      <!-- Staying connected -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Staying Connected in Your Own Way</h2>
-        <p class="text-sm text-slate-700">
-          Whether it's a weekly phone call with a friend, FaceTime with grandkids, shared hobbies,
-          group meals, or quiet church events — connection can be small, simple, and steady.
-        </p>
-      </div>
-
-      <!-- Family involvement -->
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
-        <h2 class="text-lg font-semibold text-slate-900">Gentle Family Involvement</h2>
-        <p class="text-sm text-slate-700">
-          Many families want to be involved but don’t know how. Maisage helps you include loved
-          ones in a way that feels supportive, not intrusive — especially around shared calendars,
-          reminders, appointments, and planning together.
-        </p>
-      </div>
-
-    </section>
-
-    <!-- Contact Block -->
-    <div id="return-block"></div>
-    <script>
-      fetch('contact-block.html')
-        .then(r => r.text())
-        .then(html => (document.getElementById('return-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed:", err));
-    </script>
-
+        <div class="disclaimer">
+          <strong>IMPORTANT</strong><br />
+          Any future community features on Maisage will be moderated and optional. Nothing shared here should be treated as medical, legal, financial, or insurance advice, and it should never replace direct guidance from licensed professionals who know your situation.
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <!-- Shared Footer -->
-  <div id="site-footer"></div>
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
+      </div>
+      <div class="footer-meta">
+        Community v1.1 – 2025-12-06
+      </div>
+    </div>
+  </footer>
+
   <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed:", err));
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
-  <!-- Floating Feedback Button -->
-  <a href="feedback.html"
-     class="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 shadow-lg bg-emerald-600 hover:bg-emerald-700
-            text-white px-3 py-2 rounded-full text-xs sm:text-sm font-medium">
-    Give Feedback
-  </a>
-
 </body>
 </html>
