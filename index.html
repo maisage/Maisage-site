@@ -32,7 +32,6 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* nav-related styles stay here so nav.html can use them */
     header {
       background: #ffffff;
       border-bottom: 1px solid var(--border-soft);
@@ -142,36 +141,22 @@
       margin-bottom: 0.9rem;
     }
 
-    .btn-primary,
-    .btn-outline {
+    .btn-primary {
       border-radius: 999px;
       padding: 0.6rem 1.25rem;
       font-size: 0.9rem;
       font-weight: 600;
       border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
       background: var(--accent);
       color: #ffffff;
       box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
     }
 
     .btn-primary:hover { filter: brightness(0.97); }
-
-    .btn-outline {
-      border: 1px solid var(--accent);
-      background: #ffffff;
-      color: var(--accent);
-    }
-
-    .btn-outline:hover { background: #f0faf4; }
 
     .hero-footnote {
       font-size: 0.78rem;
@@ -192,7 +177,10 @@
       margin: 0 0 0.4rem;
     }
 
-    .hero-card p { margin: 0 0 0.5rem; color: var(--text-muted); }
+    .hero-card p {
+      margin: 0 0 0.5rem;
+      color: var(--text-muted);
+    }
 
     .hero-card ul {
       padding-left: 1.2rem;
@@ -201,9 +189,9 @@
       font-size: 0.86rem;
     }
 
-    .hero-card li + li { margin-top: 0.15rem; }
-
-    .section { margin-top: 2.2rem; }
+    .section {
+      margin-top: 2.2rem;
+    }
 
     .section-title {
       font-size: 1.1rem;
@@ -233,7 +221,6 @@
     }
 
     .card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
-
     .card p { margin: 0 0 0.5rem; color: var(--text-muted); }
 
     .quick-link {
@@ -245,8 +232,6 @@
       margin-top: 0.4rem;
       color: var(--accent);
     }
-
-    .quick-link span { font-size: 1rem; }
 
     .small-note {
       font-size: 0.8rem;
@@ -264,12 +249,6 @@
       color: var(--danger);
     }
 
-    .disclaimer strong {
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.72rem;
-    }
-
     footer {
       border-top: 1px solid var(--border-soft);
       margin-top: 2.5rem;
@@ -279,9 +258,13 @@
       background: #ffffff;
     }
 
-    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: flex; flex-direction: column; gap: 0.5rem; }
-
-    .footer-meta { font-size: 0.75rem; color: #8c94a0; }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
 
     @media (max-width: 768px) {
       nav ul { display: none; }
@@ -291,8 +274,7 @@
 </head>
 
 <body>
-  <!-- Maisage Homepage - v1.5 - 2025-12-06 -->
-
+  <!-- Shared nav -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
@@ -303,7 +285,8 @@
   </script>
 
   <main>
-    <section class="hero" aria-label="Maisage overview">
+    <!-- HERO -->
+    <section class="hero">
       <div>
         <div class="hero-badge">
           <span class="pill-dot"></span>
@@ -317,9 +300,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="learn.html" class="btn-primary">
-            Understand the basics
-          </a>
+          <a href="learn.html" class="btn-primary">Understand the basics</a>
         </div>
 
         <p class="hero-footnote">
@@ -327,19 +308,118 @@
         </p>
       </div>
 
-      <!-- rest of page unchanged from v1.4 ... -->
-      <!-- (keep your “Three ways to get oriented”, services, philosophy, disclaimer, footer) -->
+      <aside class="hero-card">
+        <h2>What you can use Maisage for today</h2>
+        <p>This early version focuses on a few high-impact areas families struggle with the most:</p>
+
+        <ul>
+          <li>Getting a clear snapshot of what’s going on at home.</li>
+          <li>Comparing “stay home vs. move” scenarios.</li>
+          <li>Looking past marketing when researching facilities.</li>
+          <li>Understanding which medications drive cost and complexity.</li>
+        </ul>
+
+        <p class="small-note">
+          The goal is not to tell you what to do — but to help you see your options clearly and walk into conversations prepared.
+        </p>
+      </aside>
+    </section>
+
+    <!-- THREE WAYS -->
+    <section class="section">
+      <h2 class="section-title">Three ways to get oriented</h2>
+      <p class="section-subtitle">Start where the stress is loudest. You don’t need all three at once.</p>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>1. “Start Here” snapshot</h3>
+          <p>A simple, private page to capture what's changing and what decisions seem to be on the table.</p>
+          <a href="start-here.html" class="quick-link">Go to Start Here →</a>
+        </article>
+
+        <article class="card">
+          <h3>2. Facility Insights dashboard</h3>
+          <p>Look beyond star ratings with patterns in inspections, staffing, complaints, and ownership stability.</p>
+          <a href="facility-insights.html" class="quick-link">Explore Facility Insights →</a>
+        </article>
+
+        <article class="card">
+          <h3>3. Medications map</h3>
+          <p>See which medications may be driving cost or complexity and prepare questions for your prescriber or pharmacist.</p>
+          <a href="tools.html#medications" class="quick-link">Go to Medications →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section">
+      <h2 class="section-title">If you want one-on-one help</h2>
+      <p class="section-subtitle">
+        Most people start with the free tools, but you can book structured sessions with transparent pricing if you want support.
+      </p>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>Orientation call (60 minutes)</h3>
+          <p>Walk through your situation and leave with a short written summary of realistic options.</p>
+          <a href="services.html" class="quick-link">See services & pricing →</a>
+        </article>
+
+        <article class="card">
+          <h3>Scenario & facility planning</h3>
+          <p>Use the tools together to compare options and build something your family can react to.</p>
+          <a href="services.html" class="quick-link">Learn about planning sessions →</a>
+        </article>
+
+        <article class="card">
+          <h3>Medication cost & plan review</h3>
+          <p>Focus on high-cost medications and prepare questions for your care team.</p>
+          <a href="services.html" class="quick-link">See medication-focused support →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section">
+      <h2 class="section-title">What makes Maisage different</h2>
+      <p class="section-subtitle">
+        Families deserve clear information without pressure or hidden incentives.
+      </p>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>No commissions or referral fees</h3>
+          <p>Maisage is not paid by facilities, pharmacies, insurers, or brokers.</p>
+        </article>
+
+        <article class="card">
+          <h3>Plain language over jargon</h3>
+          <p>Everything is written so a tired family member can understand it at 11 p.m.</p>
+        </article>
+
+        <article class="card">
+          <h3>Designed to work with your care team</h3>
+          <p>These tools support conversations with doctors, pharmacists, and financial planners — not replace them.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer">
+      <strong>IMPORTANT</strong><br />
+      Maisage is an informational and planning resource. It does not provide medical care, diagnosis, treatment, legal advice, financial planning, tax guidance, or insurance brokerage. All decisions should be reviewed with licensed professionals who understand your situation.
+    </div>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div>© <span id="year"></span> Maisage. All rights reserved.</div>
       <div class="footer-meta">
-        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
       </div>
-      <div class="footer-meta">
-        Homepage v1.5 – 2025-12-06
-      </div>
+      <div class="footer-meta">Homepage v1.6 – 2025-12-06</div>
     </div>
   </footer>
 
