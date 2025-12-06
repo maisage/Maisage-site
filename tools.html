@@ -1,210 +1,453 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Tools – Maisage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <title>Maisage Tools – Compare Scenarios, Facilities, and Medications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive planning tools from Maisage to compare care scenarios, explore facility patterns, and understand medication costs and trade-offs." />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --accent-soft: #e3f2ea;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta a {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #f5fbf7;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    h1 {
+      font-size: clamp(1.7rem, 2.5vw + 0.5rem, 2.1rem);
+      margin: 0 0 0.4rem;
+    }
+
+    .page-subtitle {
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      font-size: 0.98rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 1.25rem 1.2rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0 0 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin: 1.75rem 0 0.4rem;
+    }
+
+    .section-subtitle {
+      margin: 0 0 0.7rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .tool-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .tool-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 1rem;
+      border: 1px solid var(--border-soft);
+      font-size: 0.88rem;
+    }
+
+    .tool-card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1rem;
+    }
+
+    .tool-card p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0;
+      color: var(--text-muted);
+    }
+
+    li + li {
+      margin-top: 0.15rem;
+    }
+
+    .callout {
+      margin-top: 1.5rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-card);
+      border: 1px dashed var(--accent);
+      background: #f5fbf7;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    .disclaimer {
+      margin-top: 1.5rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-card);
+      border: 1px solid #f2c3c0;
+      background: #fff5f4;
+      font-size: 0.78rem;
+      color: var(--danger);
+    }
+
+    .disclaimer strong {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      margin-top: 2.5rem;
+      padding: 1rem 1rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      color: #8c94a0;
+    }
+
+    @media (max-width: 768px) {
+      .tool-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .nav-cta {
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
-
-<body class="min-h-screen bg-white text-slate-900">
-
-  <!-- Shared Header -->
-  <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
-  </script>
-
-  <!-- Breadcrumb -->
-  <p class="text-xs text-slate-500 mt-4 mb-2 px-4 sm:px-6 lg:px-8">
-    <a href="index.html" class="hover:text-emerald-700">Home</a>
-    <span class="mx-1">/</span>
-    <span class="text-slate-700">Tools</span>
-  </p>
-
-  <!-- Main content -->
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
-
-    <!-- Intro -->
-    <section class="space-y-3">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Tools
-      </p>
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Tools to help you see your options more clearly
-      </h1>
-      <p class="text-sm sm:text-base text-slate-700 max-w-3xl">
-        This page gathers the tools Maisage offers (and is building) to help you understand costs,
-        compare facilities, and navigate choices around aging, care, and support. Everything here is
-        designed to be informational and neutral — no referral fees, no paid placement, and no
-        hidden incentives.
-      </p>
-      <p class="text-xs sm:text-sm text-slate-500 max-w-3xl">
-        Many of these tools use public data only (from CMS, state health agencies, and other
-        official sources) and simple inputs from you. They are meant to give you a clearer view of
-        tradeoffs and patterns so that decisions feel more informed and less rushed.
-      </p>
-    </section>
-
-    <!-- Facility-focused tools -->
-    <section class="space-y-4">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Facility data and safety tools
-      </h2>
-
-      <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
-        <!-- Facility Explorer -->
-        <a href="facility-explorer.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <h3 class="text-sm sm:text-base font-semibold text-slate-900">
-              Facility Explorer – public data on facilities
-            </h3>
-            <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] sm:text-[11px]">
-              Prototype
-            </span>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-700">
-            A hub page for exploring how Maisage can use public data (CMS, state health agencies,
-            and other official records) to help you review and compare facilities. This includes
-            inspection history, staffing patterns, and other key signals.
-          </p>
-          <p class="mt-2 text-[11px] text-slate-500">
-            As the platform grows, this area can expand into state-level lists, comparison tables,
-            and watchlists for facilities in your area.
-          </p>
-        </a>
-
-        <!-- Facility Safety Signals example -->
-        <a href="facility-safety-example.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-emerald-50/40 transition-colors">
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <h3 class="text-sm sm:text-base font-semibold text-slate-900">
-              Facility Safety Signals – single-facility view
-            </h3>
-            <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-2 py-0.5 text-[10px] sm:text-[11px]">
-              Example
-            </span>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-700">
-            A prototype dashboard showing how staffing changes, EMS activity, reportable incidents,
-            and regulatory actions could be combined into a “safety pulse” view for one facility,
-            using only public information.
-          </p>
-          <p class="mt-2 text-[11px] text-slate-500">
-            The data on this page is mocked for illustration, but the structure is ready to be
-            connected to real data later.
-          </p>
-        </a>
+<body>
+  <!-- Maisage tools - v1.1 - 2025-12-06 -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">M</div>
+        <div>Maisage</div>
       </div>
-    </section>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="facility-insights.html">Facility Insights</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a href="start-here.html">Start Here</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Planning and cost tools -->
-    <section class="space-y-4">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Planning and cost tools
-      </h2>
+  <main>
+    <header>
+      <div class="badge">
+        <span class="pill-dot"></span>
+        Planning tools — you stay in control of decisions
+      </div>
+      <h1>Tools to see trade-offs before you commit</h1>
+      <p class="page-subtitle">
+        These tools are meant to help you frame decisions, compare paths, and spot questions to bring to your doctors, care team, and advisors. They don’t replace professional advice — they help you prepare for it.
+      </p>
+    </header>
 
-      <div class="grid gap-4 sm:gap-6 md:grid-cols-2">
-        <!-- Long-term care / cost planning (future) -->
-        <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50/70 p-4 sm:p-5">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            Long-term care and cost planner (coming soon)
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            A tool to help you estimate the cost of different paths — staying at home with support,
-            moving to assisted living, or entering a nursing facility — and compare those paths to
-            your income, savings, and family contributions.
-          </p>
-          <p class="mt-2 text-[11px] text-slate-500">
-            This planner will be based on public cost estimates and simple inputs from you, not on
-            selling any particular product or placement.
-          </p>
+    <section id="medications" aria-labelledby="medications-title" class="tool-grid">
+      <article class="card">
+        <h2 id="medications-title">Medication cost & complexity view</h2>
+        <p>
+          Medications are often a hidden driver of both cost and complexity. This section is built to help you map out what’s on the list, see where the cost drivers are, and identify questions to bring back to your prescribers and pharmacist.
+        </p>
+        <ul>
+          <li>List current medications, doses, and frequencies.</li>
+          <li>Flag meds that are typically higher-cost or need prior authorization.</li>
+          <li>Identify combinations that may warrant a pharmacist or prescriber review.</li>
+          <li>Capture questions like “Is there a generic?” or “Can this be safely deprescribed?”</li>
+        </ul>
+        <p>
+          The goal is not to tell you what to stop or change — it’s to help you have a more focused, productive conversation with the people who know your medical history.
+        </p>
+        <div class="callout">
+          In a future release, this area can be wired to external pricing tools and formularies. For now, it functions as a structured planning worksheet that you can download or bring to appointments.
         </div>
+      </article>
 
-        <!-- Scenarios link -->
-        <a href="scenarios.html"
-           class="block rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 hover:border-emerald-200 hover:bg-slate-50 transition-colors">
-          <h3 class="text-sm sm:text-base font-semibold text-slate-900 mb-1">
-            Family scenarios – see how different paths play out
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-700">
-            Walk through example situations (Medicaid spend-down, family-supported hybrid, reverse
-            equity blends) to see how costs, control, and timing change across each approach.
+      <aside class="card" aria-label="Using the medications tool well">
+        <h2>How to use this with your care team</h2>
+        <p>
+          When you’ve filled out the medication view:
+        </p>
+        <ul>
+          <li>Share it with your primary care physician and any specialists.</li>
+          <li>Schedule a dedicated medication review visit or pharmacist consult.</li>
+          <li>Ask about cost, side effects, interactions, and deprescribing options.</li>
+          <li>Confirm before making any changes — never stop meds on your own.</li>
+        </ul>
+        <p>
+          Think of this tool as the “prep work” for a better, safer conversation about medications and budget.
+        </p>
+      </aside>
+    </section>
+
+    <section aria-labelledby="scenario-tools-title">
+      <h2 id="scenario-tools-title" class="section-title">Care scenario & financial tools</h2>
+      <p class="section-subtitle">
+        These tools help you compare “what if we do X vs. Y?” over the next 6–24 months, using rough planning numbers rather than precise forecasts.
+      </p>
+
+      <div class="tool-list">
+        <article class="tool-card">
+          <h3>Home vs. Assisted Living comparison</h3>
+          <p>
+            Outline a simple picture of what staying at home would require (hours of help, family time, equipment) versus moving to an assisted living or similar setting. Includes high-level cost ranges and non-financial trade-offs.
           </p>
-          <p class="mt-2 text-[11px] text-slate-500">
-            These are illustrations only — not advice — meant to help you think through tradeoffs
-            before you’re forced to choose in a crisis.
+        </article>
+
+        <article class="tool-card">
+          <h3>Care mix planner (family + paid help)</h3>
+          <p>
+            Sketch a realistic mix of family help, paid caregivers, adult day programs, and respite. Get a clearer sense of what’s sustainable for both the person needing care and the people providing it.
           </p>
-        </a>
+        </article>
+
+        <article class="tool-card">
+          <h3>Simple cash-flow view for care</h3>
+          <p>
+            Map out current income, key fixed expenses, and estimated care costs to see whether a plan looks workable, tight, or unrealistic — before you sign anything binding.
+          </p>
+        </article>
+
+        <article class="tool-card">
+          <h3>“What are we forgetting?” checklist</h3>
+          <p>
+            A structured checklist that prompts you about transportation, nights/weekends coverage, backup plans, legal documents, and family dynamics that often get missed in the rush.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- Map / geographic tools -->
-    <section class="space-y-4">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Location and availability tools
-      </h2>
+    <section aria-labelledby="facility-tools-title">
+      <h2 id="facility-tools-title" class="section-title">Facility research tools</h2>
+      <p class="section-subtitle">
+        These tools tie into the Facility Insights dashboard and help you turn patterns in the data into practical next steps.
+      </p>
 
-      <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50/70 p-4 sm:p-5 text-xs sm:text-sm text-slate-700 space-y-2">
-        <p>
-          In the future, the Living Map section will help you understand how options and costs vary
-          by location — for example, how many facilities accept Medicaid in your area, how assisted
-          living prices shift across regions, and where waitlists are more common.
-        </p>
-        <p class="text-[11px] text-slate-500">
-          For now, this is a placeholder to show where those geographic and “by ZIP code” tools will
-          live once the underlying data is prepared.
-        </p>
-        <p class="text-[11px] text-slate-500">
-          Any maps or location tools added here will continue to rely on public data and clearly
-          describe their sources and limitations.
-        </p>
+      <div class="tool-list">
+        <article class="tool-card">
+          <h3>Shortlist builder</h3>
+          <p>
+            Start from facilities that look promising on paper (or that you already have in mind) and apply filters based on distance, budget, care level, inspection history, and ownership stability.
+          </p>
+        </article>
+
+        <article class="tool-card">
+          <h3>Tour & call question generator</h3>
+          <p>
+            Turn facility patterns — recent deficiencies, staffing flags, ownership changes — into concrete, plain-language questions to ask on tours and phone calls.
+          </p>
+        </article>
+
+        <article class="tool-card">
+          <h3>Apples-to-apples comparison sheet</h3>
+          <p>
+            Compare 2–4 facilities on a single page: base rates, care level, staffing, inspection issues, “fine print” fees, and subjective notes from your family’s impressions.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- Neutrality / transparency reminder -->
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Why these tools exist
-      </h2>
-      <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-4 sm:p-5 text-xs sm:text-sm text-slate-700 space-y-2">
-        <p>
-          Most tools in the aging and care space are tied, directly or indirectly, to placement fees,
-          referral contracts, or product sales. Maisage is built to be different: the tools here are
-          meant to help you see how systems and options really work, using public information and
-          simple, transparent calculations.
-        </p>
-        <p>
-          These tools do not decide for you. They are here to support your judgment, your values, and
-          your pace — and to give your family a clearer shared picture when you’re ready to bring
-          them in.
-        </p>
+    <section aria-labelledby="using-tools-title">
+      <h2 id="using-tools-title" class="section-title">Using these tools alongside real professionals</h2>
+      <p class="section-subtitle">
+        These tools are designed to make your conversations with doctors, pharmacists, care managers, attorneys, and financial planners sharper — not to replace those conversations.
+      </p>
+
+      <div class="callout">
+        When in doubt, share what you’ve built in Maisage with your care team and ask them where the plan looks realistic, where it’s optimistic, and what “red flags” they see. A modest, workable plan is better than a perfect but impossible one.
+      </div>
+
+      <div class="disclaimer">
+        <strong>IMPORTANT</strong><br />
+        Maisage tools are for planning and education only. They use public information, general patterns, and simplified assumptions that may not match your exact situation. These tools are not medical, legal, financial, or insurance advice, and do not replace individualized guidance from licensed professionals. Maisage does not receive commissions or referral fees from facilities, insurers, pharmacies, or brokers.
       </div>
     </section>
-
-    <!-- Contact / navigation block -->
-    <div id="contact-block"></div>
-    <script>
-      fetch('contact-block.html')
-        .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
-    </script>
-
   </main>
 
-  <!-- Shared Footer -->
-  <div id="site-footer"></div>
-  <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
-  </script>
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
+      </div>
+      <div class="footer-meta">
+        Tools v1.1 – 2025-12-06
+      </div>
+    </div>
+  </footer>
 
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
