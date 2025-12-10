@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <title>Start Here | Maisage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="A simple place to describe who you’re helping, what’s changing, and what feels most urgent so you can decide which Maisage tools to use first."
-  />
+  <meta name="description"
+        content="A simple way to get oriented: who you're helping, what's changing, and what feels urgent. The best first step when everything is loud at once." />
 
   <style>
     :root {
@@ -37,18 +35,73 @@
 
     a { color: inherit; text-decoration: none; }
 
+    /* --- CONSISTENT NAV STYLES (copied from learn + applied to tools) --- */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    /* MAIN LAYOUT */
     main {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 2.75rem 1rem 3.5rem;
     }
 
-    /* Hero */
+    /* HERO */
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.6fr);
-      gap: 1.8rem;
-      align-items: flex-start;
+      max-width: 52rem;
       margin-bottom: 2.5rem;
     }
 
@@ -70,114 +123,37 @@
 
     .hero h1 {
       font-size: clamp(2.1rem, 3.4vw + 0.4rem, 2.7rem);
-      margin: 0 0 0.6rem;
+      margin: 0 0 0.7rem;
     }
 
     .hero-subtitle {
-      max-width: 40rem;
+      max-width: 44rem;
       color: var(--text-muted);
-      font-size: 0.98rem;
-      margin: 0 0 1.4rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
-      padding: 0.55rem 0.95rem;
-      border-radius: 999px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent);
-    }
-
-    .btn-ghost {
-      background: #ffffff;
-      color: var(--accent);
-      border-color: var(--accent-soft);
+      font-size: 1rem;
+      margin: 0 0 1.6rem;
     }
 
     .hero-note {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .hero-side-card {
-      background: #ffffff;
-      border-radius: var(--radius-card);
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      padding: 0.9rem 1rem;
-      font-size: 0.86rem;
-    }
-
-    .hero-side-card h2 {
-      font-size: 0.98rem;
-      margin: 0 0 0.45rem;
-    }
-
-    .hero-side-card p {
-      margin: 0 0 0.4rem;
-      color: var(--text-muted);
-    }
-
-    .hero-side-card ul {
-      margin: 0.3rem 0 0.5rem;
-      padding-left: 1.1rem;
-    }
-
-    .hero-side-card li {
       font-size: 0.84rem;
       color: var(--text-muted);
-      margin-bottom: 0.25rem;
+      margin-top: 0.5rem;
+      max-width: 40rem;
     }
 
-    .hero-side-card a {
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* Content sections */
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-
+    /* FORM BLOCK */
     .section {
-      margin-top: 2.2rem;
+      margin-top: 2.8rem;
     }
 
-    .section h2 {
-      font-size: 1.05rem;
-      margin: 0 0 0.5rem;
+    .section-title {
+      font-size: 1.3rem;
+      margin: 0 0 0.4rem;
     }
 
-    .section p {
-      font-size: 0.88rem;
+    .section-subtitle {
+      margin: 0 0 1.2rem;
       color: var(--text-muted);
-      margin: 0 0 0.7rem;
+      max-width: 38rem;
     }
 
     .card {
@@ -185,77 +161,47 @@
       border-radius: var(--radius-card);
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
-      padding: 1rem 1.1rem 1.1rem;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
+      padding: 1.3rem 1.4rem;
+      margin-bottom: 1.2rem;
     }
 
     label {
       display: block;
-      font-size: 0.83rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      margin: 0.5rem 0 0.2rem;
+      margin-bottom: 0.35rem;
     }
 
-    input[type="text"],
-    textarea {
+    input, textarea {
       width: 100%;
-      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      font-size: 0.9rem;
       border: 1px solid var(--border-soft);
-      padding: 0.4rem 0.55rem;
-      font-family: inherit;
-      font-size: 0.88rem;
-      resize: vertical;
-      background: #ffffff;
-    }
-
-    textarea { min-height: 72px; }
-
-    .hint {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.1rem;
-    }
-
-    .side-card {
-      background: #ffffff;
       border-radius: var(--radius-card);
-      border: 1px solid var(--border-soft);
-      padding: 0.9rem 1rem;
-      font-size: 0.86rem;
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
+      background: #fff;
     }
 
-    .side-card h3 {
-      font-size: 0.96rem;
-      margin: 0 0 0.4rem;
+    textarea {
+      min-height: 80px;
+      resize: vertical;
     }
 
-    .side-card p {
-      margin: 0 0 0.4rem;
-      color: var(--text-muted);
-    }
-
-    .side-card a {
+    .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      font-size: 0.84rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9rem;
       font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      margin-top: 0.3rem;
+      border: none;
+      cursor: pointer;
     }
 
-    .disclaimer {
-      margin-top: 2.8rem;
-      padding: 1rem 1.1rem;
-      border-radius: var(--radius-card);
-      border: 1px solid #f2c3c0;
-      background: #fff5f4;
-      color: var(--danger);
-      font-size: 0.78rem;
+    .btn-primary:hover {
+      opacity: 0.93;
     }
 
     footer {
@@ -279,195 +225,62 @@
       font-size: 0.75rem;
       color: #8c94a0;
     }
-
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
   </style>
 </head>
 
 <body>
+  <!-- Shared nav -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
       .then(r => r.text())
-      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+      .then(html => document.getElementById("nav-placeholder").innerHTML = html);
   </script>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
-      <div>
-        <div class="hero-kicker">Start Here</div>
-        <h1>Get your situation on one page</h1>
-        <p class="hero-subtitle">
-          Before you compare facilities or insurance, it helps to write down who you’re helping, what’s changed,
-          and what feels most urgent. This “snapshot” makes it easier to choose which Maisage tools to use first.
-        </p>
+      <div class="hero-kicker">Start Here</div>
+      <h1>A simple first step when everything feels urgent</h1>
+      <p class="hero-subtitle">
+        This short snapshot helps you name who you’re helping, what’s changing, and what feels loudest right now.  
+        Families tell us this is the most grounding place to start before diving into tools or decisions.
+      </p>
 
-        <div class="hero-actions">
-          <a href="#snapshot-form" class="btn-primary">Fill out the Start Here snapshot</a>
-          <a href="tools.html" class="btn-ghost">Jump straight to tools</a>
-        </div>
-
-        <p class="hero-note">
-          You can print this page, save it as a PDF, or copy/paste your answers into an email or shared document.
-        </p>
-      </div>
-
-      <aside class="hero-side-card">
-        <h2>What this page is for</h2>
-        <p>
-          This isn’t a legal form. It’s a way to make sure everyone is talking about the same situation:
-          the same person, the same changes, the same time frame.
-        </p>
-        <ul>
-          <li>Who is at the center of decisions.</li>
-          <li>What’s changing in health, memory, or function.</li>
-          <li>What feels urgent in the next few months.</li>
-          <li>Where money, medications, or housing feel stuck.</li>
-        </ul>
-        <p>
-          After this, tools like <strong>stay vs. move comparison</strong>, <strong>scenario planning</strong>, or
-          <strong>medication list</strong> tend to go much smoother.
-        </p>
-      </aside>
+      <p class="hero-note">
+        You can complete this in 3–5 minutes. It’s not a commitment — just a way to get oriented.
+      </p>
     </section>
 
-    <!-- MAIN CONTENT -->
-    <div class="two-col" id="snapshot-form">
-      <div>
-        <section class="section">
-          <div class="card">
-            <h2>1. Who is at the center of decisions?</h2>
-            <p>Use names and relationships that make sense to you. There’s no “correct format.”</p>
+    <!-- SECTION: FORM -->
+    <section class="section">
+      <h2 class="section-title">Start Here snapshot</h2>
+      <p class="section-subtitle">
+        Fill out whatever parts you can. There are no required fields — this is for you.
+      </p>
 
-            <label for="person-name">Name</label>
-            <input id="person-name" type="text" placeholder="Example: Maria Hernandez" />
+      <form action="https://formspree.io/f/xnqkykgo" method="POST">
+        <div class="card">
+          <label>Who are you helping?</label>
+          <input type="text" name="who" placeholder="Name, age, relationship…" />
 
-            <label for="person-relationship">Relationship to you</label>
-            <input id="person-relationship" type="text" placeholder="Example: my mom; my partner; my grandfather" />
+          <label>What’s changing or recently changed?</label>
+          <textarea name="changes" placeholder="Hospital stay, falls, memory changes, money strain, caregiver burnout…"></textarea>
 
-            <label for="who-else">Who else is regularly involved?</label>
-            <textarea id="who-else" placeholder="Example: My sister and I split most of the coordination; my uncle helps with rides; the facility nurse calls me."></textarea>
-          </div>
-        </section>
+          <label>What feels most urgent right now?</label>
+          <textarea name="urgent" placeholder="Medications, housing, safety, financing care, family dynamics…"></textarea>
 
-        <section class="section">
-          <div class="card">
-            <h2>2. What is changing or not working right now?</h2>
-            <p>Focus on concrete changes over the last 1–6 months.</p>
+          <label>Anything else you want us to know?</label>
+          <textarea name="other"></textarea>
 
-            <label for="changes">Key changes in health, memory, or function</label>
-            <textarea id="changes" placeholder="Example: More falls; getting lost in familiar places; big swings in energy or mood; harder to manage stairs or bathing."></textarea>
-
-            <label for="safety">Any safety issues you’re worried about?</label>
-            <textarea id="safety" placeholder="Example: Leaving the stove on; wandering; missing medications; driving concerns."></textarea>
-
-            <label for="current-support">What support is in place right now?</label>
-            <textarea id="current-support" placeholder="Example: 2 hours/day paid help; meals from family; home health nurse weekly; assisted living staff handle meds."></textarea>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="card">
-            <h2>3. What feels most urgent this month?</h2>
-            <p>There might be many problems, but urgency is usually about the next few weeks.</p>
-
-            <label for="urgent">Top 2–3 things that feel urgent</label>
-            <textarea id="urgent" placeholder="Example: Stop the falls; get night wandering under control; find coverage while I travel for work in March."></textarea>
-
-            <label for="time-window">What time frame are you planning for?</label>
-            <input id="time-window" type="text" placeholder="Example: the next 3–6 months; through this year; until after rehab." />
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="card">
-            <h2>4. Money, benefits, and stress points</h2>
-            <p>Rough notes are enough. Exact numbers can come later.</p>
-
-            <label for="money">What money questions are weighing on you?</label>
-            <textarea id="money" placeholder="Example: How long savings will last; whether we can afford assisted living; whether we’re missing benefits."></textarea>
-
-            <label for="benefits">What benefits are in the mix?</label>
-            <textarea id="benefits" placeholder="Example: Medicare only; Medicare + supplemental; long-term care insurance; Medicaid now or soon; VA benefits."></textarea>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="card">
-            <h2>5. Medications and medical complexity</h2>
-            <p>Note if medications are part of why things feel hard or expensive.</p>
-
-            <label for="meds-concerns">Any medication concerns?</label>
-            <textarea id="meds-concerns" placeholder="Example: Confusing list; high costs for 2–3 drugs; not sure what each does; worried about side effects."></textarea>
-
-            <p class="hint">
-              If medications are a big part of the stress, the
-              <strong>Tools → Medications</strong> section and the medication list tool may be a good next step.
-            </p>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="card">
-            <h2>6. Facilities or housing options you’re already considering</h2>
-            <p>Write down anything that’s even “just an idea.”</p>
-
-            <label for="options">Options on the table</label>
-            <textarea id="options" placeholder="Example: Stay home with more help; two assisted living communities; move in with my daughter temporarily."></textarea>
-
-            <label for="facility-shortlist">Specific facilities or locations you’re looking at</label>
-            <textarea id="facility-shortlist" placeholder="Example: Green Oaks Assisted Living; Maple Ridge Memory Care; staying in current apartment vs moving closer to family."></textarea>
-
-            <p class="hint">
-              If you already have a facility shortlist, the <strong>Facility Insights</strong> dashboard and
-              <strong>facility questions checklist</strong> can help you decide where to look more closely.
-            </p>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="card">
-            <h2>7. Anything else we haven’t captured yet</h2>
-            <p>Use this for dynamics, family disagreements, or anything that doesn’t fit neatly above.</p>
-
-            <label for="other-notes">Other context or concerns</label>
-            <textarea id="other-notes" placeholder="Example: Family members disagree about timelines; recent loss; cultural or language needs; religious community is very important."></textarea>
-          </div>
-        </section>
-      </div>
-
-      <aside>
-        <div class="side-card">
-          <h3>What to do after this page</h3>
-          <p>This snapshot is meant to point you toward a next step, not solve everything.</p>
-          <p><strong>If housing / safety is the main concern:</strong></p>
-          <p>Use the stay-vs-move comparison and scenario planning tools.</p>
-          <a href="tools.html">Open tools overview →</a>
-
-          <p style="margin-top: 0.7rem;"><strong>If medications and costs are the main concern:</strong></p>
-          <p>Start with the medication list tool and cost comparison helper.</p>
-          <a href="meds-list-tool.html">Medication list tool →</a>
+          <button class="btn-primary" type="submit">Submit snapshot</button>
         </div>
-
-        <div class="side-card">
-          <h3>If you want one-on-one help</h3>
-          <p>Maisage offers limited paid sessions to walk through these questions with you.</p>
-          <a href="services.html">See guidance & session options →</a>
-        </div>
-      </aside>
-    </div>
+      </form>
+    </section>
 
     <div class="disclaimer">
-      <strong>Important:</strong>
-      This page is for orientation and planning only. It does not provide medical, legal, financial, tax, or insurance advice, and it does not create any professional relationship. Decisions should be made with licensed professionals who understand your specific situation and local rules.
+      <strong>IMPORTANT</strong><br />
+      This form does not provide medical, legal, financial, or insurance advice.  
+      It simply helps you clarify your starting point. Decisions should be reviewed with licensed professionals.
     </div>
   </main>
 
@@ -477,7 +290,7 @@
       <div class="footer-meta">
         Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
       </div>
-      <div class="footer-meta">Start Here v1.4 – 2025-12-10</div>
+      <div class="footer-meta">Start Here v1.6 – 2025-12-10</div>
     </div>
   </footer>
 
