@@ -35,14 +35,22 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* Layout */
     main {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 2.75rem 1rem 3.5rem;
     }
 
-    .page-kicker {
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.6fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-kicker {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -58,20 +66,98 @@
       margin-bottom: 0.7rem;
     }
 
-    h1 {
-      font-size: clamp(1.9rem, 3vw + 0.4rem, 2.4rem);
+    .hero h1 {
+      font-size: clamp(2.1rem, 3.4vw + 0.4rem, 2.7rem);
       margin: 0 0 0.6rem;
     }
 
-    .subtitle {
-      max-width: 44rem;
+    .hero-subtitle {
+      max-width: 40rem;
       color: var(--text-muted);
       font-size: 0.98rem;
-      margin: 0 0 2rem;
+      margin: 0 0 1.4rem;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .btn-ghost {
+      background: #ffffff;
+      color: var(--accent);
+      border-color: var(--accent-soft);
+    }
+
+    .hero-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .hero-side-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem 1rem;
+      font-size: 0.86rem;
+    }
+
+    .hero-side-card h2 {
+      font-size: 0.98rem;
+      margin: 0 0 0.45rem;
+    }
+
+    .hero-side-card p {
+      margin: 0 0 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .hero-side-card ul {
+      margin: 0.3rem 0 0.5rem;
+      padding-left: 1.1rem;
+    }
+
+    .hero-side-card li {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-side-card a {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Sections/cards */
     .section {
-      margin-top: 2.8rem;
+      margin-top: 2.4rem;
     }
 
     .section-header {
@@ -213,11 +299,16 @@
       font-size: 0.75rem;
       color: #8c94a0;
     }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- This SHOULD match Learn / Services exactly -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
@@ -226,18 +317,48 @@
   </script>
 
   <main>
-    <div class="page-kicker">Tools</div>
-    <h1>Tools to plan, compare, and prepare</h1>
-    <p class="subtitle">
-      These tools don’t decide for you. They help you see the trade-offs — costs, workload, risks, and how well each path fits what matters most to the person at the center of decisions.
-    </p>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Tools</div>
+        <h1>Tools to plan, compare, and prepare</h1>
+        <p class="hero-subtitle">
+          These tools don’t decide for you. They help you see the trade-offs in front of you — costs, workload, risks,
+          and how well each option fits what matters most to the person at the center of decisions.
+        </p>
+
+        <div class="hero-actions">
+          <a href="start-here.html" class="btn-primary">Fill out Start Here first</a>
+          <a href="#planning-tools" class="btn-ghost">Browse all tools</a>
+        </div>
+
+        <p class="hero-note">
+          If everything feels urgent, Start Here is usually the best first step. If you’re already focused on a decision,
+          you can jump straight into a specific tool.
+        </p>
+      </div>
+
+      <aside class="hero-side-card">
+        <h2>How these tools are meant to help</h2>
+        <p>They’re designed for families to use on their own — in plain language, printable, and neutral.</p>
+        <ul>
+          <li>Compare stay vs. move and short vs. long-term paths.</li>
+          <li>Map out family workload and strain.</li>
+          <li>See where medication lists and costs are getting out of control.</li>
+          <li>Bring better questions to facilities and medical appointments.</li>
+        </ul>
+        <p>
+          You can use one tool at a time or a few together as you clarify next decisions.
+        </p>
+      </aside>
+    </section>
 
     <!-- Where to start -->
     <section class="section">
       <div class="section-header">
         <h2 class="section-title">Where to start</h2>
         <p class="section-subtitle">
-          Three simple places to begin if everything feels urgent.
+          If you’re not sure which tool fits, start with these three pages.
         </p>
       </div>
 
@@ -263,7 +384,7 @@
     </section>
 
     <!-- Planning tools -->
-    <section class="section">
+    <section class="section" id="planning-tools">
       <div class="section-header">
         <h2 class="section-title">Planning & comparison tools</h2>
         <p class="section-subtitle">
@@ -395,7 +516,7 @@
       <div class="footer-meta">
         Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
       </div>
-      <div class="footer-meta">Tools v1.4 – 2025-12-10</div>
+      <div class="footer-meta">Tools v1.5 – 2025-12-10</div>
     </div>
   </footer>
 
