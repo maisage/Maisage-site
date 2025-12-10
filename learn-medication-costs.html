@@ -1,141 +1,327 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>All about medication costs | Maisage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <title>Understanding Medication Costs | Maisage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="A plain-language guide to why medications cost what they do, how tiers and formularies work, and what levers families actually have."
+  />
+
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --accent-soft: #e3f2ea;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* nav styles for shared nav.html */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3vw + 0.3rem, 2.2rem);
+      margin: 0 0 0.6rem;
+    }
+
+    .subtitle {
+      max-width: 46rem;
+      color: var(--text-muted);
+      font-size: 0.97rem;
+      margin: 0 0 1.7rem;
+    }
+
+    .section {
+      margin-top: 2.2rem;
+    }
+
+    .section h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.3rem;
+    }
+
+    .section p {
+      margin: 0.3rem 0 0.7rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 46rem;
+    }
+
+    ul {
+      margin: 0.2rem 0 0.7rem;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 46rem;
+    }
+
+    ul li + li {
+      margin-top: 0.15rem;
+    }
+
+    .callout {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1rem 1.1rem;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .small-link {
+      font-size: 0.86rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .disclaimer {
+      margin-top: 2.3rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: var(--radius-card);
+      border: 1px solid #f2c3c0;
+      background: #fff5f4;
+      color: var(--danger);
+      font-size: 0.78rem;
+    }
+
+    .disclaimer strong {
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-soft);
+      margin-top: 3rem;
+      padding: 1rem 1rem 1.4rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      color: #8c94a0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+    }
+  </style>
 </head>
-
-<body class="min-h-screen bg-white text-slate-900">
-
-  <!-- Shared Header -->
-  <div id="site-header"></div>
+<body>
+  <!-- Shared Navigation -->
+  <div id="nav-placeholder"></div>
   <script>
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
-  </script>
-
-  <!-- Shared Breadcrumb: Home / Learn / All about medication costs -->
-  <script>
-    window.breadcrumbParent = "Learn";
-    window.breadcrumbParentLink = "learn.html";
-    window.breadcrumbCurrent = "All about medication costs";
-  </script>
-  <div id="breadcrumb"></div>
-  <script>
-    fetch('breadcrumb.html')
+    fetch("nav.html")
       .then(r => r.text())
       .then(html => {
-        const el = document.getElementById('breadcrumb');
-        if (el) el.innerHTML = html;
-      })
-      .catch(err => console.error("Breadcrumb failed to load:", err));
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
   </script>
 
-  <!-- Main content -->
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+  <main>
+    <h1>Understanding medication costs</h1>
+    <p class="subtitle">
+      This page is here so the pharmacy counter feels less like a black box. It explains why some medications are expensive, what “tiers” and formularies are, and what families can realistically push on — and what they can’t.
+    </p>
 
-    <section class="space-y-3">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Learn · Medications
+    <section class="section">
+      <h2>Why the same medication can cost wildly different amounts</h2>
+      <p>
+        The short version: the price you pay is a mix of list prices, insurance contracts, pharmacy benefit managers (PBMs), and which version of a drug your plan prefers. That’s why the same prescription can cost one amount at one pharmacy and something very different somewhere else.
       </p>
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        All about medication costs
-      </h1>
-      <p class="text-sm sm:text-base text-slate-700">
-        Medication pricing in the United States is complicated. Not because there is a single “bad”
-        actor, but because there are many separate pieces — manufacturers, wholesalers, pharmacy
-        benefit managers (PBMs), insurers, pharmacies, and discount programs — all interacting in
-        ways that are hard to see from the outside.
-      </p>
-      <p class="text-xs sm:text-sm text-slate-500">
-        The goal of this page is not to blame any one part of the system, but to help you understand
-        where costs can change and what you can pay attention to when filling prescriptions.
-      </p>
-    </section>
-
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Why the same medication can cost different amounts
-      </h2>
-      <p class="text-sm text-slate-700">
-        The same drug, dose, and quantity can have very different prices depending on:
-      </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Whether you use insurance, a cash price, or a discount card</li>
-        <li>Which pharmacy you choose, even within the same chain</li>
-        <li>Whether the prescription is filled as a brand-name or generic</li>
-        <li>How your insurance plan structures copays and preferred pharmacies</li>
-        <li>Whether there are manufacturer coupons or patient assistance programs available</li>
+      <p>In practice, this usually shows up as:</p>
+      <ul>
+        <li>You pay very little for some medications and a lot for a few others.</li>
+        <li>Pharmacies quote different prices for the same drug without a clear reason.</li>
+        <li>Small changes (different strength, formulation, or brand vs. generic) can change the price a lot.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        These differences can be large enough that it is sometimes cheaper to pay cash with a
-        discount program than to use insurance — and that is not always obvious at the counter.
-      </p>
     </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Key pieces in the medication pricing chain
-      </h2>
-      <p class="text-sm text-slate-700">
-        A simplified way to think about the system is:
+    <section class="section">
+      <h2>What “tiers” and formularies mean</h2>
+      <p>
+        Most insurance plans use a <strong>formulary</strong> — a list of medications they prefer — and put those drugs into cost “tiers.” Lower tiers usually mean lower copays. Higher tiers and drugs that are <em>off</em> the formulary usually mean higher out-of-pocket costs.
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li><span class="font-medium">Manufacturer</span> – sets a list price and may offer rebates or assistance programs.</li>
-        <li><span class="font-medium">Wholesaler</span> – moves the drug from manufacturer to pharmacies.</li>
-        <li><span class="font-medium">Pharmacy Benefit Manager (PBM)</span> – negotiates prices and rebates on behalf of insurers or plan sponsors.</li>
-        <li><span class="font-medium">Insurer or plan</span> – designs formularies (which drugs are preferred) and sets copay or coinsurance rules.</li>
-        <li><span class="font-medium">Pharmacy</span> – dispenses the medication and applies its own pricing structure for cash and discount programs.</li>
+      <p>In simple terms:</p>
+      <ul>
+        <li><strong>Tier 1–2:</strong> Usually generics and lower-cost preferred medications.</li>
+        <li><strong>Tier 3–4:</strong> Brand-name or more expensive medications.</li>
+        <li><strong>Non-formulary:</strong> Not favored by the plan; often highest cost or requires special approval.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        The medication pricing system is complex because these pieces interact with each other. The
-        structure itself matters as much as any single price.
-      </p>
+      <div class="callout">
+        <strong>Practical takeaway:</strong> when a medication is expensive, it’s often because of which tier it’s in or whether it’s on the formulary — not because the pharmacy is “overcharging” you personally.
+      </div>
     </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        Practical questions you can ask
-      </h2>
-      <p class="text-sm text-slate-700">
-        When you are filling a prescription, some questions you might consider include:
+    <section class="section">
+      <h2>What you can and can’t control</h2>
+      <p>
+        You can’t rewrite insurance contracts, but there are places where a family can push, ask questions, or make adjustments. The goal is not to chase the absolute lowest price at all costs, but to find something that works medically and financially.
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>Is there a lower-cost generic version of this medication?</li>
-        <li>Is the pharmacy using my insurance price, a cash price, or a discount program price?</li>
-        <li>Would the cost change at a different pharmacy in my area?</li>
-        <li>Does my plan have a preferred pharmacy that could reduce the copay?</li>
-        <li>Are there any manufacturer coupons or patient assistance options for this medication?</li>
+      <p>You generally <strong>can’t</strong> control:</p>
+      <ul>
+        <li>Which drugs your plan puts on which tier.</li>
+        <li>Whether a brand-name medication is covered at a low copay.</li>
+        <li>How the plan counts costs toward deductibles and out-of-pocket limits.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        The answers will not always reduce the cost, but asking these questions can help you see
-        what options exist instead of assuming there is only one price.
+      <p>You <strong>may</strong> be able to influence:</p>
+      <ul>
+        <li>Whether a medically appropriate generic or preferred alternative is possible.</li>
+        <li>Which pharmacy you use for the most expensive medications.</li>
+        <li>Whether any medications can be simplified, combined, or stopped (only with prescriber guidance).</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Good questions to bring to prescribers</h2>
+      <p>When one or two medications are driving costs, questions like these can help:</p>
+      <ul>
+        <li>“Are there any lower-cost alternatives that would still be appropriate for this condition?”</li>
+        <li>“Is this still needed at this dose and frequency, given how things look now?”</li>
+        <li>“If this is on a higher tier, are there preferred options my plan usually covers?”</li>
+        <li>“If we can’t change this medication, are there other parts of the list that could be simplified?”</li>
+      </ul>
+      <p>
+        You don’t have to ask all of these at once. Even one or two well-chosen questions can change the tone of the conversation.
+      </p>
+      <p class="small-link">
+        For a fillable checklist you can take to appointments, see:
+        <a href="meds-questions-checklist.html">Medication questions checklist →</a>
       </p>
     </section>
 
-    <!-- Reusable contact/navigation block -->
-    <div id="contact-block"></div>
-    <script>
-      fetch('contact-block.html')
-        .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
-    </script>
+    <section class="section">
+      <h2>Where to start if the whole list feels overwhelming</h2>
+      <p>If everything feels like too much, a simple starting sequence is:</p>
+      <ul>
+        <li>Use the <strong>medication list tool</strong> to write down everything in one place.</li>
+        <li>Mark which medications you suspect cost the most or cause the most confusion.</li>
+        <li>Pick just 3–5 of those to compare prices for.</li>
+        <li>Bring the list and comparison to your next appointment along with a short set of questions.</li>
+      </ul>
+      <div class="callout">
+        <p>
+          Tools that pair well with this page:
+        </p>
+        <ul>
+          <li><a href="meds-list-tool.html">Medication list & tiers tool</a></li>
+          <li><a href="meds-cost-compare.html">Pharmacy cost comparison helper</a></li>
+          <li><a href="meds-questions-checklist.html">Medication questions checklist</a></li>
+        </ul>
+      </div>
+    </section>
 
+    <div class="disclaimer">
+      <strong>IMPORTANT</strong><br />
+      This page is for orientation and education. It does not provide medical care, diagnosis, treatment, legal advice, financial planning, tax guidance, or insurance brokerage. Medication decisions should always be reviewed and made with licensed prescribers and pharmacists who understand your full situation.
+    </div>
   </main>
 
-  <!-- Shared Footer -->
-  <div id="site-footer"></div>
-  <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
-  </script>
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
+      </div>
+      <div class="footer-meta">
+        Understanding medication costs v1.0 – 2025-12-10
+      </div>
+    </div>
+  </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
