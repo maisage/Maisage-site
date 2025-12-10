@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <title>Tools | Maisage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Simple, neutral tools to help families compare options, map costs and workload, and prepare better questions for professionals."
-  />
+  <meta name="description"
+    content="Neutral tools to help families compare care options, understand costs and workload, and prepare better questions for professionals." />
+
   <style>
     :root {
       --bg: #f7f8fa;
@@ -34,15 +33,13 @@
       line-height: 1.5;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
+    /* Page layout */
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 1.5rem 1rem 3rem;
+      padding: 2.75rem 1rem 3.5rem; /* improved spacing */
     }
 
     .page-kicker {
@@ -58,31 +55,28 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.7rem;
     }
 
     h1 {
       font-size: clamp(1.9rem, 3vw + 0.4rem, 2.4rem);
-      margin: 0 0 0.4rem;
+      margin: 0 0 0.6rem;
     }
 
     .subtitle {
       max-width: 44rem;
       color: var(--text-muted);
       font-size: 0.98rem;
-      margin: 0 0 1.8rem;
+      margin: 0 0 2rem;
     }
 
-    .section {
-      margin-top: 2.2rem;
-    }
+    .section { margin-top: 2.8rem; }
 
     .section-header {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 0.7rem;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 0.9rem;
     }
 
     .section-title {
@@ -114,7 +108,7 @@
 
     .card h3 {
       font-size: 1rem;
-      margin: 0 0 0.35rem;
+      margin: 0 0 0.4rem;
     }
 
     .card p {
@@ -123,25 +117,11 @@
       font-size: 0.88rem;
     }
 
-    .quick-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      margin-top: 0.1rem;
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .quick-link span {
-      font-size: 1.1em;
-    }
-
     .pill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
-      margin-top: 0.1rem;
+      margin: 0.4rem 0 0.5rem;
     }
 
     .pill {
@@ -153,66 +133,63 @@
       background: #f9fafb;
     }
 
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .quick-link span { font-size: 1.1em; }
+
     .hint {
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: 0.4rem;
+      margin-top: 0.6rem;
     }
 
+    /* Callout section */
     .callout {
-      margin-top: 2.4rem;
+      margin-top: 2.6rem;
       padding: 1rem 1.1rem;
       border-radius: var(--radius-card);
       border: 1px dashed var(--border-soft);
       background: #f9fafb;
-      font-size: 0.9rem;
     }
 
-    .callout h3 {
-      margin: 0 0 0.3rem;
-      font-size: 1rem;
-    }
-
-    .callout p {
-      margin: 0 0 0.6rem;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
+    .callout h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+    .callout p { margin: 0 0 0.6rem; color: var(--text-muted); }
 
     .callout-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 0.2rem;
     }
 
     .callout-link {
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      padding: 0.35rem 0.7rem;
+      padding: 0.4rem 0.75rem;
       border-radius: var(--radius-pill);
       border: 1px solid var(--accent);
+      background: #f0faf4;
+      color: var(--accent);
       font-size: 0.84rem;
       font-weight: 600;
-      color: var(--accent);
-      background: #f0faf4;
     }
 
+    /* Disclaimer */
     .disclaimer {
-      margin-top: 2.6rem;
-      padding: 0.9rem 1.1rem;
+      margin-top: 3rem;
+      padding: 1rem 1.1rem;
       border-radius: var(--radius-card);
       border: 1px solid #f2c3c0;
       background: #fff5f4;
       color: var(--danger);
       font-size: 0.78rem;
-    }
-
-    .disclaimer strong {
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
     }
 
     footer {
@@ -236,280 +213,181 @@
       font-size: 0.75rem;
       color: #8c94a0;
     }
-
-    @media (max-width: 768px) {
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <!-- Shared nav will be injected here -->
+
+  <!-- Shared nav -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
       .then(r => r.text())
-      .then(html => {
-        document.getElementById("nav-placeholder").innerHTML = html;
-      });
+      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
   </script>
 
   <main>
+
     <div class="page-kicker">Tools</div>
     <h1>Tools to plan, compare, and prepare</h1>
     <p class="subtitle">
-      These tools don’t decide for you. They help you see the trade-offs in front of you — costs, workload, risks, and how well each option fits what matters most to the person at the center of decisions.
+      These tools don’t decide for you. They help you see the trade-offs — costs, workload, risks, and how well each path fits what matters most to the person at the center of decisions.
     </p>
 
-    <!-- Where to start with the tools -->
-    <section class="section" aria-labelledby="start-title">
+    <!-- Where to start -->
+    <section class="section">
       <div class="section-header">
-        <h2 id="start-title" class="section-title">Where to start with the tools</h2>
+        <h2 class="section-title">Where to start</h2>
         <p class="section-subtitle">
-          If everything feels urgent, start small. These three pages help you get your bearings before you dig into details.
+          Three simple places to begin if everything feels urgent.
         </p>
       </div>
 
       <div class="cards-3">
         <article class="card">
           <h3>Start Here snapshot</h3>
-          <p>
-            A quick way to name who you’re helping, what’s changing, and what feels most urgent. Good first step if you’re not sure which tool fits.
-          </p>
-          <a href="start-here.html" class="quick-link">
-            Go to Start Here
-            <span>→</span>
-          </a>
+          <p>A quick way to name who you're helping, what's changing, and what feels urgent.</p>
+          <a href="start-here.html" class="quick-link">Go to Start Here <span>→</span></a>
         </article>
 
         <article class="card">
-          <h3>Learn the basics first</h3>
-          <p>
-            Short explainers on housing options, Medicare and coverage, costs and trade-offs, family workload, and “what matters most.”
-          </p>
-          <a href="learn.html" class="quick-link">
-            Open Learn hub
-            <span>→</span>
-          </a>
+          <h3>Learn the basics</h3>
+          <p>Short explainers on housing, Medicare, costs, workload, and “what matters most.”</p>
+          <a href="learn.html" class="quick-link">Open Learn hub <span>→</span></a>
         </article>
 
         <article class="card">
           <h3>Facility Insights dashboard</h3>
-          <p>
-            If you’re already comparing facilities, this dashboard helps you look beyond marketing — inspections, staffing, complaints, and ownership.
-          </p>
-          <a href="facility-insights.html" class="quick-link">
-            Open Facility Insights
-            <span>→</span>
-          </a>
+          <p>Inspection, staffing, complaints, and ownership patterns for comparing facilities.</p>
+          <a href="facility-insights.html" class="quick-link">Open Facility Insights <span>→</span></a>
         </article>
       </div>
     </section>
 
-    <!-- Planning & comparison tools -->
-    <section class="section" aria-labelledby="plan-title">
+    <!-- Planning tools -->
+    <section class="section">
       <div class="section-header">
-        <h2 id="plan-title" class="section-title">Planning & comparison tools</h2>
-        <p class="section-subtitle">
-          Use these to compare realistic paths side by side instead of arguing about one decision in the abstract.
-        </p>
+        <h2 class="section-title">Planning & comparison tools</h2>
+        <p class="section-subtitle">Look at two or three realistic paths side by side instead of debating one option in isolation.</p>
       </div>
 
       <div class="cards-3">
         <article class="card">
           <h3>Stay vs. move comparison</h3>
-          <p>
-            A table to compare two or three options on one page — for example, stay home with help, move to assisted living, or move in with family.
-          </p>
+          <p>Compare stay-home, assisted living, or moving in with family across cost, safety, and workload.</p>
           <div class="pill-list">
-            <span class="pill">Costs</span>
-            <span class="pill">Safety</span>
-            <span class="pill">Workload</span>
+            <span class="pill">Costs</span><span class="pill">Safety</span><span class="pill">Workload</span>
           </div>
-          <a href="compare-options.html" class="quick-link">
-            Open stay vs. move tool
-            <span>→</span>
-          </a>
+          <a href="compare-options.html" class="quick-link">Open stay vs. move tool <span>→</span></a>
         </article>
 
         <article class="card">
           <h3>Short-term vs. long-term view</h3>
-          <p>
-            Outline two or three realistic scenarios and sketch cost, workload, and risk over 6–24 months instead of just this month.
-          </p>
+          <p>Sketch scenarios over 6–24 months and see how cost, risk, and workload shift over time.</p>
           <div class="pill-list">
-            <span class="pill">Scenarios</span>
-            <span class="pill">Trade-offs</span>
+            <span class="pill">Scenarios</span><span class="pill">Trade-offs</span>
           </div>
-          <a href="scenario-planning.html" class="quick-link">
-            Open timeframe planning tool
-            <span>→</span>
-          </a>
+          <a href="scenario-planning.html" class="quick-link">Open timeframe planning tool <span>→</span></a>
         </article>
 
         <article class="card">
           <h3>“What matters most” alignment</h3>
-          <p>
-            A short exercise to capture the person’s priorities in plain language, then use that to judge which options fit better or worse.
-          </p>
+          <p>Capture the person’s priorities so options can be judged against what truly matters.</p>
           <div class="pill-list">
-            <span class="pill">Values</span>
-            <span class="pill">Priorities</span>
+            <span class="pill">Values</span><span class="pill">Preferences</span>
           </div>
-          <a href="what-matters-most.html" class="quick-link">
-            Go to What Matters Most
-            <span>→</span>
-          </a>
+          <a href="what-matters-most.html" class="quick-link">Go to What Matters Most <span>→</span></a>
         </article>
       </div>
     </section>
 
-    <!-- Medications: cost & complexity -->
-    <section class="section" aria-labelledby="meds-title">
+    <!-- Medication tools -->
+    <section class="section">
       <div class="section-header">
-        <h2 id="meds-title" class="section-title">Medications: cost and complexity</h2>
+        <h2 class="section-title">Medications: cost & complexity</h2>
         <p class="section-subtitle">
-          If the pharmacy counter is where things feel most confusing or expensive, start here. These tools help you see the list, the costs, and your questions more clearly.
+          If the pharmacy counter feels confusing or expensive, start here.
         </p>
       </div>
 
       <div class="cards-3">
         <article class="card">
           <h3>Medication list & tiers</h3>
-          <p>
-            Capture all medications in one place, including what each is for (in your words) and whether it feels essential, helpful, or uncertain.
-          </p>
+          <p>Create a full list, including purpose and perceived importance.</p>
           <div class="pill-list">
-            <span class="pill">Full list</span>
-            <span class="pill">Perceived importance</span>
+            <span class="pill">List</span><span class="pill">Purpose</span>
           </div>
-          <a href="meds-list-tool.html" class="quick-link">
-            Open medication list tool
-            <span>→</span>
-          </a>
+          <a href="meds-list-tool.html" class="quick-link">Open medication list <span>→</span></a>
         </article>
 
         <article class="card">
-          <h3>Pharmacy cost comparison helper</h3>
-          <p>
-            Compare prices for a few high-impact medications across pharmacies or discount programs to prepare for cost conversations.
-          </p>
+          <h3>Pharmacy cost comparison</h3>
+          <p>Compare prices for high-impact medications across pharmacies and discount programs.</p>
           <div class="pill-list">
-            <span class="pill">High-cost meds</span>
-            <span class="pill">Price checks</span>
+            <span class="pill">Cost checks</span><span class="pill">High-impact meds</span>
           </div>
-          <a href="meds-cost-compare.html" class="quick-link">
-            Open cost comparison helper
-            <span>→</span>
-          </a>
+          <a href="meds-cost-compare.html" class="quick-link">Open cost comparison <span>→</span></a>
         </article>
 
         <article class="card">
           <h3>Medication questions checklist</h3>
-          <p>
-            A printable checklist of questions to ask prescribers and pharmacists so important concerns don’t get lost in a rushed visit.
-          </p>
+          <p>Questions for prescribers and pharmacists — print-friendly and simple.</p>
           <div class="pill-list">
-            <span class="pill">Side effects</span>
-            <span class="pill">Cost options</span>
+            <span class="pill">Side effects</span><span class="pill">Cost options</span>
           </div>
-          <a href="meds-questions-checklist.html" class="quick-link">
-            Open medication questions checklist
-            <span>→</span>
-          </a>
+          <a href="meds-questions-checklist.html" class="quick-link">Open questions checklist <span>→</span></a>
         </article>
       </div>
 
       <p class="hint">
-        For background on why some medications are expensive or hard to manage, see the Learn page on medication costs and complexity:
-        <a href="learn-medication-costs.html" class="quick-link">
-          Understand the basics
-          <span>→</span>
-        </a>
+        Want background on medication costs and complexity?
+        <a href="learn-medication-costs.html" class="quick-link">Understand the basics <span>→</span></a>
       </p>
     </section>
 
-    <!-- Checklists & question sets -->
-    <section class="section" aria-labelledby="checklists-title">
+    <!-- Checklists -->
+    <section class="section">
       <div class="section-header">
-        <h2 id="checklists-title" class="section-title">Checklists & question sets</h2>
-        <p class="section-subtitle">
-          Use these when you’re talking with facilities or health professionals and want to be sure key topics are covered.
-        </p>
+        <h2 class="section-title">Checklists & question sets</h2>
+        <p class="section-subtitle">Use these during facility tours or medical visits.</p>
       </div>
 
       <div class="cards-3">
         <article class="card">
           <h3>Facility questions checklist</h3>
-          <p>
-            A structured set of questions for assisted living, memory care, and nursing facilities: staffing, safety, routines, costs, and contracts.
-          </p>
-          <div class="pill-list">
-            <span class="pill">Facility visits</span>
-            <span class="pill">Contracts</span>
-          </div>
-          <a href="facility-questions-checklist.html" class="quick-link">
-            Open facility questions
-            <span>→</span>
-          </a>
+          <p>Staffing, routines, safety, contracts — designed for assisted living, memory care, and nursing facilities.</p>
+          <a href="facility-questions-checklist.html" class="quick-link">Open facility questions <span>→</span></a>
         </article>
 
         <article class="card">
           <h3>Family roles & workload tool</h3>
-          <p>
-            Map who is doing what now, where strain is building, and where you might need to rebalance or add help.
-          </p>
-          <div class="pill-list">
-            <span class="pill">Tasks</span>
-            <span class="pill">Strain</span>
-          </div>
-          <a href="roles-workload-tool.html" class="quick-link">
-            Open family roles tool
-            <span>→</span>
-          </a>
+          <p>Map who is doing what, identify strain, and rebalance tasks.</p>
+          <a href="roles-workload-tool.html" class="quick-link">Open family roles tool <span>→</span></a>
         </article>
 
         <article class="card">
           <h3>Appointment prep sheet</h3>
-          <p>
-            One page to organize top goals, changes since the last visit, key questions, and follow-up tasks for medical or care-related appointments.
-          </p>
-          <div class="pill-list">
-            <span class="pill">Visit goals</span>
-            <span class="pill">Follow-up</span>
-          </div>
-          <a href="appointment-prep.html" class="quick-link">
-            Open appointment prep
-            <span>→</span>
-          </a>
+          <p>Organize visit goals, changes since last time, key questions, and follow-up steps.</p>
+          <a href="appointment-prep.html" class="quick-link">Open appointment prep <span>→</span></a>
         </article>
       </div>
     </section>
 
-    <!-- Services callout -->
-    <section class="callout" aria-labelledby="services-callout-title">
-      <h3 id="services-callout-title">If you want a person, not just tools</h3>
-      <p>
-        The tools are designed so families can use them on their own. If you prefer to walk through them with someone, Maisage offers limited one-on-one guidance.
-      </p>
+    <!-- Callout -->
+    <section class="callout">
+      <h3>If you want a person, not just tools</h3>
+      <p>Maisage offers limited one-on-one guidance if you prefer to walk through decisions with someone.</p>
       <div class="callout-actions">
-        <a href="services.html" class="callout-link">
-          See guidance & session options
-          <span>→</span>
-        </a>
-        <a href="start-here.html" class="callout-link">
-          Fill out Start Here first
-          <span>→</span>
-        </a>
+        <a href="services.html" class="callout-link">See guidance options <span>→</span></a>
+        <a href="start-here.html" class="callout-link">Fill out Start Here first <span>→</span></a>
       </div>
     </section>
 
     <div class="disclaimer">
-      <strong>IMPORTANT</strong><br />
-      These tools are for orientation and planning only. They do not provide medical, legal, financial, tax, or insurance advice, and they do not replace professional evaluation or care. Decisions should be made with licensed professionals who understand your specific situation and local rules.
+      <strong>Important:</strong>
+      These tools do not provide medical, legal, financial, tax, or insurance advice. Decisions should be made with licensed professionals familiar with your situation.
     </div>
+
   </main>
 
   <footer>
@@ -518,11 +396,13 @@
       <div class="footer-meta">
         Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
       </div>
-      <div class="footer-meta">Tools v1.2 – 2025-12-10</div>
+      <div class="footer-meta">Tools v1.3 – 2025-12-10</div>
     </div>
   </footer>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
