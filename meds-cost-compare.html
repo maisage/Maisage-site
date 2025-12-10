@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Medication Cost Comparison Helper | Maisage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Compare prices for a few high-impact medications across pharmacies or discount programs to prepare for conversations with prescribers and pharmacists."
+  />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body { margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text-main);line-height:1.5; }
+    a { color:inherit;text-decoration:none; }
+
+    header { background:#fff;border-bottom:1px solid var(--border-soft);position:sticky;top:0;z-index:20; }
+    .nav-inner { max-width:var(--max-width);margin:0 auto;padding:0.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem; }
+    .brand { display:flex;align-items:center;gap:0.5rem;font-weight:600;letter-spacing:0.03em; }
+    .brand-logo { width:32px;height:32px;border-radius:999px;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:var(--accent);background:#f5fbf7; }
+    nav ul { list-style:none;margin:0;padding:0;display:flex;gap:1.5rem;font-size:0.95rem; }
+    nav a { color:var(--text-muted);font-weight:500; }
+    nav a:hover { color:var(--accent); }
+
+    main { max-width:var(--max-width);margin:0 auto;padding:1.5rem 1rem 3rem; }
+    h1 { font-size:clamp(1.8rem,3vw + 0.3rem,2.2rem);margin:0 0 0.6rem; }
+    .subtitle { max-width:46rem;color:var(--text-muted);font-size:0.97rem;margin:0 0 1.7rem; }
+
+    .hint { font-size:0.8rem;color:var(--text-muted);margin-top:0.3rem; }
+
+    .table-wrapper { overflow-x:auto;margin-top:1rem; }
+    table {
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.9rem;
+      background:var(--card-bg);
+      border-radius:var(--radius-card);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+    th, td { border:1px solid var(--border-soft);padding:0.45rem 0.5rem;vertical-align:top; }
+    th { background:#f1f5f9;font-size:0.86rem; }
+
+    input, textarea {
+      width:100%;
+      border:none;
+      font-family:inherit;
+      font-size:0.86rem;
+      padding:0.1rem 0.15rem;
+      background:transparent;
+      resize:vertical;
+    }
+    textarea { min-height:32px; }
+
+    .disclaimer { margin-top:2.3rem;padding:0.9rem 1.1rem;border-radius:var(--radius-card);border:1px solid #f2c3c0;background:#fff5f4;color:var(--danger);font-size:0.78rem; }
+    .disclaimer strong { text-transform:uppercase;font-size:0.72rem;letter-spacing:0.08em; }
+
+    footer { background:#fff;border-top:1px solid var(--border-soft);margin-top:3rem;padding:1rem 1rem 1.4rem;color:var(--text-muted);font-size:0.8rem; }
+    .footer-inner { max-width:var(--max-width);margin:0 auto;display:flex;flex-direction:column;gap:0.4rem; }
+    .footer-meta { font-size:0.75rem;color:#8c94a0; }
+
+    @media (max-width:768px){ nav ul{display:none;} }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+  </script>
+
+  <main>
+    <h1>Medication cost comparison helper</h1>
+    <p class="subtitle">
+      Pick a few medications that seem expensive or hard to afford and compare prices across pharmacies or discount programs. The goal is not perfection; it’s to get a clearer picture to bring to your prescriber or pharmacist.
+    </p>
+
+    <p class="hint">
+      For each medication, write the strength and quantity, then record prices from different sources (pharmacies, discount cards, mail order, etc.).
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Medication (name, strength, quantity)</th>
+            <th>Source 1<br><span style="font-weight:400;">(pharmacy/program)</span></th>
+            <th>Source 2</th>
+            <th>Source 3 (optional)</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><textarea placeholder="Example: Xarelto 20 mg, 30 tablets"></textarea></td>
+            <td><textarea placeholder="Pharmacy / program name + price"></textarea></td>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+            <td><textarea placeholder="Coverage notes, coupons, mail order options, etc."></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+            <td><textarea></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="hint">
+      Use this as a conversation starter: “We checked prices and this medication is especially expensive for us. Are there safe alternatives or ways to reduce the cost?”
+    </p>
+
+    <div class="disclaimer">
+      <strong>IMPORTANT</strong><br />
+      This tool is for orientation and planning only. Prices can change, and this table does not reflect real-time costs or coverage. Do not change, start, or stop medications based on cost alone. Medication decisions must be made with licensed prescribers and pharmacists who understand your full situation.
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
+      </div>
+      <div class="footer-meta">Medication cost comparison tool v1.0 – 2025-12-10</div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
