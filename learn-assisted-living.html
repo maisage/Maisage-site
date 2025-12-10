@@ -1,115 +1,229 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Assisted living and memory care | Maisage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <title>Assisted Living & Memory Care | Maisage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Plain-language guide to assisted living and memory care: what they typically offer, how costs are structured, and what patterns to watch for when comparing communities."
+  />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+    nav a { color: var(--text-muted); font-weight: 500; }
+    nav a:hover { color: var(--accent); }
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 3vw + 0.3rem, 2.3rem);
+      margin: 0 0 0.6rem;
+    }
+    .subtitle {
+      max-width: 46rem;
+      color: var(--text-muted);
+      font-size: 0.97rem;
+      margin: 0 0 1.7rem;
+    }
+    .section {
+      margin-top: 2.2rem;
+    }
+    .section h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.3rem;
+    }
+    .section p {
+      margin: 0.3rem 0 0.7rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 46rem;
+    }
+    ul {
+      margin: 0.2rem 0 0.7rem;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 46rem;
+    }
+    ul li + li { margin-top: 0.15rem; }
+    .disclaimer {
+      margin-top: 2.3rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: var(--radius-card);
+      border: 1px solid #f2c3c0;
+      background: #fff5f4;
+      color: var(--danger);
+      font-size: 0.78rem;
+    }
+    .disclaimer strong {
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-soft);
+      margin-top: 3rem;
+      padding: 1rem 1rem 1.4rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .footer-meta {
+      font-size: 0.75rem;
+      color: #8c94a0;
+    }
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+    }
+  </style>
 </head>
-
-<body class="min-h-screen bg-white text-slate-900">
-  <!-- Header -->
-  <div id="site-header"></div>
+<body>
+  <div id="nav-placeholder"></div>
   <script>
-    fetch('header.html')
+    fetch("nav.html")
       .then(r => r.text())
-      .then(html => (document.getElementById('site-header').innerHTML = html))
-      .catch(err => console.error("Header failed to load:", err));
+      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
   </script>
 
-  <!-- Breadcrumb -->
-  <script>
-    window.breadcrumbParent = "Learn";
-    window.breadcrumbParentLink = "learn.html";
-    window.breadcrumbCurrent = "Assisted living and memory care";
-  </script>
-  <div id="breadcrumb"></div>
-  <script>
-    fetch('breadcrumb.html')
-      .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById('breadcrumb');
-        if (el) el.innerHTML = html;
-      })
-      .catch(err => console.error("Breadcrumb failed to load:", err));
-  </script>
+  <main>
+    <h1>Assisted living and memory care</h1>
+    <p class="subtitle">
+      Assisted living and memory care communities provide housing, meals, and help with daily activities. They are not the same as nursing homes, and they are often paid for differently. This page focuses on patterns to watch for when you are comparing options.
+    </p>
 
-  <!-- Main -->
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
-
-    <section class="space-y-3">
-      <p class="text-sm uppercase tracking-wide text-emerald-700 font-medium">
-        Learn · Assisted Living
-      </p>
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">
-        Assisted living and memory care
-      </h1>
-      <p class="text-sm sm:text-base text-slate-700">
-        Assisted living and memory care communities are designed to provide housing, meals, and
-        help with daily activities, with varying levels of support and supervision. They are not the
-        same as nursing homes, and they are often paid for differently.
-      </p>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Regulations, services, and costs vary widely by state and by community. This page focuses on
-        patterns to pay attention to when you are comparing options.
-      </p>
-    </section>
-
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        What assisted living typically offers
-      </h2>
-      <p class="text-sm text-slate-700">
-        Many assisted living communities include:
-      </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
+    <section class="section">
+      <h2>What assisted living typically offers</h2>
+      <p>Many assisted living communities include:</p>
+      <ul>
         <li>A private or semi-private apartment or room.</li>
         <li>Meals, housekeeping, and basic maintenance.</li>
         <li>Help with daily activities such as bathing, dressing, or medication reminders.</li>
         <li>Social activities, transportation options, and on-site staff availability.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Memory care units are usually designed for people living with dementia and may have higher
-        supervision, secure environments, and different staffing patterns.
+      <p>
+        Memory care units are usually designed for people living with dementia and may have higher supervision, secure environments, and different staffing patterns.
       </p>
     </section>
 
-    <section class="space-y-3">
-      <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-        How costs are often structured
-      </h2>
-      <p class="text-sm text-slate-700">
-        Assisted living and memory care are often paid for privately, with:
+    <section class="section">
+      <h2>How costs are often structured</h2>
+      <p>
+        Assisted living and memory care are often paid for privately. Most communities use some combination of:
       </p>
-      <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1.5">
-        <li>A base monthly rate (housing, basic services).</li>
+      <ul>
+        <li>A base monthly rate (housing and basic services).</li>
         <li>Additional charges for higher levels of care or extra services.</li>
-        <li>Separate fees for things like transportation, supplies, or special programs.</li>
+        <li>Separate fees for transportation, supplies, or special programs.</li>
       </ul>
-      <p class="text-xs sm:text-sm text-slate-500">
-        Understanding what is included in the base rate versus billed separately can make a big
-        difference when comparing communities.
+      <p>
+        Understanding what is included in the base rate versus billed separately can make a big difference when comparing communities.
       </p>
     </section>
 
-    <!-- Contact block -->
-    <div id="contact-block"></div>
-    <script>
-      fetch('contact-block.html')
-        .then(r => r.text())
-        .then(html => (document.getElementById('contact-block').innerHTML = html))
-        .catch(err => console.error("Contact block failed to load:", err));
-    </script>
+    <section class="section">
+      <h2>Questions to ask when comparing communities</h2>
+      <p>You don’t have to ask everything at once, but a few focused questions can reveal a lot:</p>
+      <ul>
+        <li>“What is included in the base monthly rate, and what is billed separately?”</li>
+        <li>“How do you decide when someone needs a higher level of care, and how is that priced?”</li>
+        <li>“What happens if my needs change — do I have to move to a different building or unit?”</li>
+        <li>“How do you communicate changes in condition with families?”</li>
+      </ul>
+      <p>
+        You can pair this page with the Tools and Facility Insights pages to build a clearer picture of specific communities you’re considering.
+      </p>
+    </section>
 
+    <div class="disclaimer">
+      <strong>IMPORTANT</strong><br />
+      This page is for orientation and education. It does not provide medical care, diagnosis, treatment, legal advice, financial planning, tax guidance, or insurance brokerage. Decisions about housing and care should be made with licensed professionals who understand your specific situation and local rules.
+    </div>
   </main>
 
-  <!-- Footer -->
-  <div id="site-footer"></div>
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
+      </div>
+      <div class="footer-meta">Learn – Assisted living v1.0 – 2025-12-10</div>
+    </div>
+  </footer>
   <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => (document.getElementById('site-footer').innerHTML = html))
-      .catch(err => console.error("Footer failed to load:", err));
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
