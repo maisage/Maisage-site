@@ -24,9 +24,7 @@
       --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -39,15 +37,6 @@
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    /* Header / nav host (actual nav pulled from nav.html) */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--border-soft);
-      position: sticky;
-      top: 0;
-      z-index: 20;
     }
 
     main {
@@ -257,11 +246,14 @@
   </style>
 </head>
 <body>
+  <!-- Shared nav will be injected here -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
       .then(r => r.text())
-      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
   </script>
 
   <main>
@@ -364,7 +356,7 @@
           </p>
           <div class="pill-list">
             <span class="pill">Values</span>
-            <span class="pill">Preferences</span>
+            <span class="pill">Priorities</span>
           </div>
           <a href="what-matters-most.html" class="quick-link">
             Go to What Matters Most
@@ -431,7 +423,7 @@
       </div>
 
       <p class="hint">
-        For background on why some medications are expensive or hard to manage, see the Learn page on medication costs and complexity.
+        For background on why some medications are expensive or hard to manage, see the Learn page on medication costs and complexity:
         <a href="learn-medication-costs.html" class="quick-link">
           Understand the basics
           <span>→</span>
@@ -526,7 +518,7 @@
       <div class="footer-meta">
         Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
       </div>
-      <div class="footer-meta">Tools v1.1 – 2025-12-10</div>
+      <div class="footer-meta">Tools v1.2 – 2025-12-10</div>
     </div>
   </footer>
   <script>
