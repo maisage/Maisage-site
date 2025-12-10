@@ -43,7 +43,16 @@
       padding: 2.75rem 1rem 3.5rem;
     }
 
-    .page-kicker {
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.6fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-kicker {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -59,24 +68,96 @@
       margin-bottom: 0.7rem;
     }
 
-    h1 {
-      font-size: clamp(1.9rem, 3vw + 0.4rem, 2.4rem);
+    .hero h1 {
+      font-size: clamp(2.1rem, 3.4vw + 0.4rem, 2.7rem);
       margin: 0 0 0.6rem;
     }
 
-    .subtitle {
-      max-width: 44rem;
+    .hero-subtitle {
+      max-width: 40rem;
       color: var(--text-muted);
       font-size: 0.98rem;
-      margin: 0 0 2rem;
+      margin: 0 0 1.4rem;
     }
 
-    .intro-note {
-      font-size: 0.85rem;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .btn-ghost {
+      background: #ffffff;
+      color: var(--accent);
+      border-color: var(--accent-soft);
+    }
+
+    .hero-note {
+      font-size: 0.82rem;
       color: var(--text-muted);
-      margin-bottom: 1.4rem;
+      margin: 0;
     }
 
+    .hero-side-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem 1rem;
+      font-size: 0.86rem;
+    }
+
+    .hero-side-card h2 {
+      font-size: 0.98rem;
+      margin: 0 0 0.45rem;
+    }
+
+    .hero-side-card p {
+      margin: 0 0 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .hero-side-card ul {
+      margin: 0.3rem 0 0.5rem;
+      padding-left: 1.1rem;
+    }
+
+    .hero-side-card li {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-side-card a {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Content sections */
     .two-col {
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
@@ -117,7 +198,6 @@
     }
 
     input[type="text"],
-    input[type="email"],
     textarea {
       width: 100%;
       border-radius: 8px;
@@ -129,30 +209,12 @@
       background: #ffffff;
     }
 
-    textarea {
-      min-height: 72px;
-    }
+    textarea { min-height: 72px; }
 
     .hint {
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-top: 0.1rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-    }
-
-    .pill {
-      font-size: 0.78rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid #e3e7ef;
-      background: #f9fafb;
-      color: var(--text-muted);
     }
 
     .side-card {
@@ -162,6 +224,7 @@
       padding: 0.9rem 1rem;
       font-size: 0.86rem;
       box-shadow: var(--shadow-soft);
+      margin-bottom: 1rem;
     }
 
     .side-card h3 {
@@ -174,29 +237,15 @@
       color: var(--text-muted);
     }
 
-    .side-card ul {
-      margin: 0.3rem 0 0.6rem;
-      padding-left: 1.1rem;
-    }
-
-    .side-card li {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .side-card a.quick-link {
+    .side-card a {
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
       font-size: 0.84rem;
       font-weight: 600;
       color: var(--accent);
-      margin-top: 0.4rem;
-    }
-
-    .side-card a.quick-link span {
-      font-size: 1.1em;
+      text-decoration: none;
+      margin-top: 0.3rem;
     }
 
     .disclaimer {
@@ -231,7 +280,10 @@
       color: #8c94a0;
     }
 
-    @media (max-width: 840px) {
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
       .two-col {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -240,7 +292,6 @@
 </head>
 
 <body>
-  <!-- Shared nav -->
   <div id="nav-placeholder"></div>
   <script>
     fetch("nav.html")
@@ -249,18 +300,47 @@
   </script>
 
   <main>
-    <div class="page-kicker">Start Here</div>
-    <h1>Start Here snapshot</h1>
-    <p class="subtitle">
-      A simple place to write down who you’re helping, what’s changing, and what feels most urgent. Once this is clear, it’s easier to know whether to focus first on housing, medications, money, or family workload.
-    </p>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Start Here</div>
+        <h1>Get your situation on one page</h1>
+        <p class="hero-subtitle">
+          Before you compare facilities or insurance, it helps to write down who you’re helping, what’s changed,
+          and what feels most urgent. This “snapshot” makes it easier to choose which Maisage tools to use first.
+        </p>
 
-    <p class="intro-note">
-      This page is for your own use. You can print it, save it as a PDF, or copy/paste the text into an email, document, or message to share with others.
-    </p>
+        <div class="hero-actions">
+          <a href="#snapshot-form" class="btn-primary">Fill out the Start Here snapshot</a>
+          <a href="tools.html" class="btn-ghost">Jump straight to tools</a>
+        </div>
 
-    <div class="two-col">
-      <!-- Main form-ish content -->
+        <p class="hero-note">
+          You can print this page, save it as a PDF, or copy/paste your answers into an email or shared document.
+        </p>
+      </div>
+
+      <aside class="hero-side-card">
+        <h2>What this page is for</h2>
+        <p>
+          This isn’t a legal form. It’s a way to make sure everyone is talking about the same situation:
+          the same person, the same changes, the same time frame.
+        </p>
+        <ul>
+          <li>Who is at the center of decisions.</li>
+          <li>What’s changing in health, memory, or function.</li>
+          <li>What feels urgent in the next few months.</li>
+          <li>Where money, medications, or housing feel stuck.</li>
+        </ul>
+        <p>
+          After this, tools like <strong>stay vs. move comparison</strong>, <strong>scenario planning</strong>, or
+          <strong>medication list</strong> tend to go much smoother.
+        </p>
+      </aside>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="two-col" id="snapshot-form">
       <div>
         <section class="section">
           <div class="card">
@@ -364,31 +444,23 @@
         </section>
       </div>
 
-      <!-- Right-hand guidance column -->
       <aside>
         <div class="side-card">
-          <h3>What to do after you fill this out</h3>
-          <p>This page helps you pick a starting point, not solve everything at once.</p>
-          <ul>
-            <li><strong>If housing / safety is the main concern:</strong> use the stay-vs-move comparison and scenario planning tools.</li>
-            <li><strong>If medications and costs are the main concern:</strong> start with the medication list tool and cost comparison helper.</li>
-            <li><strong>If you’re overwhelmed by decisions:</strong> the “What matters most” tool can help anchor the conversations.</li>
-          </ul>
-          <a href="tools.html" class="quick-link">
-            Open tools overview
-            <span>→</span>
-          </a>
+          <h3>What to do after this page</h3>
+          <p>This snapshot is meant to point you toward a next step, not solve everything.</p>
+          <p><strong>If housing / safety is the main concern:</strong></p>
+          <p>Use the stay-vs-move comparison and scenario planning tools.</p>
+          <a href="tools.html">Open tools overview →</a>
+
+          <p style="margin-top: 0.7rem;"><strong>If medications and costs are the main concern:</strong></p>
+          <p>Start with the medication list tool and cost comparison helper.</p>
+          <a href="meds-list-tool.html">Medication list tool →</a>
         </div>
 
-        <div class="side-card" style="margin-top: 1rem;">
+        <div class="side-card">
           <h3>If you want one-on-one help</h3>
-          <p>
-            Maisage offers limited paid sessions to walk through scenarios and questions using the same tools on this site.
-          </p>
-          <a href="services.html" class="quick-link">
-            See guidance & session options
-            <span>→</span>
-          </a>
+          <p>Maisage offers limited paid sessions to walk through these questions with you.</p>
+          <a href="services.html">See guidance & session options →</a>
         </div>
       </aside>
     </div>
@@ -405,7 +477,7 @@
       <div class="footer-meta">
         Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
       </div>
-      <div class="footer-meta">Start Here v1.3 – 2025-12-10</div>
+      <div class="footer-meta">Start Here v1.4 – 2025-12-10</div>
     </div>
   </footer>
 
