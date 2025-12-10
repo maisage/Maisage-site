@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Costs and Trade-offs | Maisage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="How to think about short-term and long-term costs, not just 'can we pay this once,' when comparing care options."
+  />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body { margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text-main);line-height:1.5; }
+    a { color:inherit;text-decoration:none; }
+
+    header { background:#fff;border-bottom:1px solid var(--border-soft);position:sticky;top:0;z-index:20; }
+    .nav-inner { max-width:var(--max-width);margin:0 auto;padding:0.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem; }
+    .brand { display:flex;align-items:center;gap:0.5rem;font-weight:600;letter-spacing:0.03em; }
+    .brand-logo { width:32px;height:32px;border-radius:999px;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:var(--accent);background:#f5fbf7; }
+    nav ul { list-style:none;margin:0;padding:0;display:flex;gap:1.5rem;font-size:0.95rem; }
+    nav a { color:var(--text-muted);font-weight:500; }
+    nav a:hover { color:var(--accent); }
+
+    main { max-width:var(--max-width);margin:0 auto;padding:1.5rem 1rem 3rem; }
+    h1 { font-size:clamp(1.8rem,3vw + 0.3rem,2.3rem);margin:0 0 0.6rem; }
+    .subtitle { max-width:46rem;color:var(--text-muted);font-size:0.97rem;margin:0 0 1.7rem; }
+
+    .section { margin-top:2.2rem; }
+    .section h2 { font-size:1.1rem;margin:0 0 0.3rem; }
+    .section p { margin:0.3rem 0 0.7rem;color:var(--text-muted);font-size:0.92rem;max-width:46rem; }
+    ul { margin:0.2rem 0 0.7rem;padding-left:1.2rem;color:var(--text-muted);font-size:0.9rem;max-width:46rem; }
+    ul li + li { margin-top:0.15rem; }
+
+    .disclaimer { margin-top:2.3rem;padding:0.9rem 1.1rem;border-radius:var(--radius-card);border:1px solid #f2c3c0;background:#fff5f4;color:var(--danger);font-size:0.78rem; }
+    .disclaimer strong { text-transform:uppercase;font-size:0.72rem;letter-spacing:0.08em; }
+
+    footer { background:#fff;border-top:1px solid var(--border-soft);margin-top:3rem;padding:1rem 1rem 1.4rem;color:var(--text-muted);font-size:0.8rem; }
+    .footer-inner { max-width:var(--max-width);margin:0 auto;display:flex;flex-direction:column;gap:0.4rem; }
+    .footer-meta { font-size:0.75rem;color:#8c94a0; }
+
+    @media (max-width:768px){ nav ul{display:none;} }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+  </script>
+
+  <main>
+    <h1>Costs and trade-offs</h1>
+    <p class="subtitle">
+      The real question is rarely “Can we pay this one bill?” It’s “Can we carry this for 6, 12, or 24 months without breaking something else?” This page helps you think about both money and human workload when comparing options.
+    </p>
+
+    <section class="section">
+      <h2>One-time versus ongoing costs</h2>
+      <p>
+        Families often focus on one-time numbers: a big home modification, a move-in fee, a deposit. These matter, but a plan can fall apart just as easily under ongoing pressure:
+      </p>
+      <ul>
+        <li>Monthly rent or facility fees.</li>
+        <li>Regular caregiver hours at home.</li>
+        <li>Transportation, meals, and errands.</li>
+        <li>Lost work hours for family members.</li>
+      </ul>
+      <p>
+        When comparing options, it helps to translate them into “what does this roughly cost per month, and for how long might we need to do that?”
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Money and time are both real costs</h2>
+      <p>
+        A plan can look affordable on paper but fail because it demands too much unpaid time and emotional labor. For each option, ask:
+      </p>
+      <ul>
+        <li>“Who is doing the driving, paperwork, logistics, and emotional work?”</li>
+        <li>“What gets dropped or stressed in their own life to make this possible?”</li>
+        <li>“What would it look like for this to be sustainable for a year, not just a month?”</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>A simple way to compare two or three paths</h2>
+      <p>You don’t need a perfect spreadsheet to learn something useful. For each path (for example, stay home, move to assisted living, move in with family), sketch:</p>
+      <ul>
+        <li>Approximate monthly cash cost (housing, care, transportation, medications).</li>
+        <li>Who is doing what (driving, coordination, night checks, hands-on care).</li>
+        <li>Biggest risk or pressure point for that plan (“we burn savings fast,” “one person is on duty constantly,” etc.).</li>
+      </ul>
+      <p>
+        The Tools page includes planning tools to help structure this, but even a basic sketch can make trade-offs easier to see and discuss.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Questions to guide decisions</h2>
+      <p>When money and workload feel overwhelming, questions like these can help reframe the conversation:</p>
+      <ul>
+        <li>“If we choose this option, what are we trading away in terms of savings, time, or health?”</li>
+        <li>“If we hold off on this change, what’s the risk or cost of waiting?”</li>
+        <li>“What could make this option more sustainable — or what would make it clearly unsustainable?”</li>
+      </ul>
+    </section>
+
+    <div class="disclaimer">
+      <strong>IMPORTANT</strong><br />
+      This page is for orientation and education. It is not financial, tax, or legal advice. Decisions about spending, savings, and long-term plans should be reviewed with qualified professionals who understand your full situation.
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
+      </div>
+      <div class="footer-meta">Learn – Costs and trade-offs v1.0 – 2025-12-10</div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
