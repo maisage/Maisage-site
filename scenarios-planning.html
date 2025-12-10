@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scenario Planning Tool | Maisage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Structure your thinking about two or three possible care paths, including where care happens, who is involved, and what it might cost."
+  />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --accent: #2f7d4a;
+      --text-main: #1b1f23;
+      --text-muted: #5b6470;
+      --border-soft: #dde2e8;
+      --danger: #b3261e;
+      --max-width: 1120px;
+      --radius-card: 14px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #f5fbf7;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+    nav a { color: var(--text-muted); font-weight: 500; }
+    nav a:hover { color: var(--accent); }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3vw + 0.3rem, 2.2rem);
+      margin: 0 0 0.6rem;
+    }
+    .subtitle {
+      max-width: 46rem;
+      color: var(--text-muted);
+      font-size: 0.97rem;
+      margin: 0 0 1.7rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin: 2rem 0 0.4rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .card h2 {
+      font-size: 1rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .field-label {
+      font-size: 0.83rem;
+      font-weight: 600;
+      margin-top: 0.6rem;
+      margin-bottom: 0.15rem;
+    }
+
+    textarea, input {
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.88rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-soft);
+      padding: 0.4rem 0.5rem;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 64px;
+    }
+
+    .hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .disclaimer {
+      margin-top: 2.3rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: var(--radius-card);
+      border: 1px solid #f2c3c0;
+      background: #fff5f4;
+      color: var(--danger);
+      font-size: 0.78rem;
+    }
+    .disclaimer strong {
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-soft);
+      margin-top: 3rem;
+      padding: 1rem 1rem 1.4rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .footer-meta {
+      font-size: 0.75rem;
+      color: #8c94a0;
+    }
+
+    @media (max-width: 768px) { nav ul { display: none; } }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+  </script>
+
+  <main>
+    <h1>Scenario planning tool</h1>
+    <p class="subtitle">
+      Use this page to outline two or three realistic paths you’re considering. You don’t need perfect numbers — rough sketches are enough to show trade-offs in cost, workload, and risk.
+    </p>
+
+    <h2 class="section-title">Scenarios</h2>
+    <p class="hint">
+      Example scenario names: “Stay home with added help,” “Move to assisted living near family,” “Short-term rehab then reassess.”
+    </p>
+
+    <div class="cards">
+      <!-- Scenario A -->
+      <section class="card">
+        <h2>Scenario A</h2>
+
+        <label class="field-label" for="a-name">Name or short label</label>
+        <input id="a-name" type="text" placeholder="Example: Stay home with added help" />
+
+        <label class="field-label" for="a-where">Where care happens</label>
+        <textarea id="a-where" placeholder="Home, assisted living, nursing facility, family home, mix of settings..."></textarea>
+
+        <label class="field-label" for="a-supports">Who is involved</label>
+        <textarea id="a-supports" placeholder="Family roles, paid caregivers, facility staff, friends/neighbors..."></textarea>
+
+        <label class="field-label" for="a-cost">Approximate monthly cost</label>
+        <textarea id="a-cost" placeholder="Rent/fees, care hours, transportation, medications, other recurring costs..."></textarea>
+
+        <label class="field-label" for="a-workload">Family workload</label>
+        <textarea id="a-workload" placeholder="Who drives, coordinates, covers nights/weekends, handles crises..."></textarea>
+
+        <label class="field-label" for="a-risk">Biggest risks or pressure points</label>
+        <textarea id="a-risk" placeholder="Burnout, cost, safety, social isolation, distance, unknowns..."></textarea>
+      </section>
+
+      <!-- Scenario B -->
+      <section class="card">
+        <h2>Scenario B</h2>
+
+        <label class="field-label" for="b-name">Name or short label</label>
+        <input id="b-name" type="text" placeholder="Example: Move to assisted living near family" />
+
+        <label class="field-label" for="b-where">Where care happens</label>
+        <textarea id="b-where"></textarea>
+
+        <label class="field-label" for="b-supports">Who is involved</label>
+        <textarea id="b-supports"></textarea>
+
+        <label class="field-label" for="b-cost">Approximate monthly cost</label>
+        <textarea id="b-cost"></textarea>
+
+        <label class="field-label" for="b-workload">Family workload</label>
+        <textarea id="b-workload"></textarea>
+
+        <label class="field-label" for="b-risk">Biggest risks or pressure points</label>
+        <textarea id="b-risk"></textarea>
+      </section>
+
+      <!-- Scenario C -->
+      <section class="card">
+        <h2>Scenario C (optional)</h2>
+
+        <label class="field-label" for="c-name">Name or short label</label>
+        <input id="c-name" type="text" placeholder="Optional third scenario" />
+
+        <label class="field-label" for="c-where">Where care happens</label>
+        <textarea id="c-where"></textarea>
+
+        <label class="field-label" for="c-supports">Who is involved</label>
+        <textarea id="c-supports"></textarea>
+
+        <label class="field-label" for="c-cost">Approximate monthly cost</label>
+        <textarea id="c-cost"></textarea>
+
+        <label class="field-label" for="c-workload">Family workload</label>
+        <textarea id="c-workload"></textarea>
+
+        <label class="field-label" for="c-risk">Biggest risks or pressure points</label>
+        <textarea id="c-risk"></textarea>
+      </section>
+    </div>
+
+    <div class="disclaimer">
+      <strong>IMPORTANT</strong><br />
+      This tool is for orientation and planning only. It does not provide medical, legal, financial, tax, or insurance advice. Decisions should be made with licensed professionals who understand your specific situation and local rules.
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+      <div class="footer-meta">
+        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
+      </div>
+      <div class="footer-meta">Scenario planning tool v1.0 – 2025-12-10</div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
