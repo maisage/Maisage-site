@@ -2,769 +2,307 @@
 
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>AI Care Navigator – Maisage</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Talk to Maisage's AI care navigator. Get plain-language help understanding care options, facilities, medications, and costs — with real-time research." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #f4f6f2;
-  --accent: #2f7d4a;
-  --accent-soft: #e3f2ea;
-  --accent-mid: #4a9e65;
-  --text-main: #1b1f23;
-  --text-muted: #5b6470;
-  --border: #dde2e8;
-  --card: #ffffff;
-  --shadow: 0 8px 32px rgba(15,23,42,0.09);
-  --radius: 16px;
-  --user-bubble: #2f7d4a;
-  --ai-bubble: #ffffff;
-  --search-color: #7c5cbf;
-  --search-bg: #f3f0fa;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask Mai – AI Care Navigator | Maisage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pine:      #3a5c3d;
+      --sage:      #5a7d5e;
+      --mist:      #8aab8e;
+      --foam:      #c8deca;
+      --parchment: #f5f0e8;
+      --cream:     #faf7f2;
+      --bark:      #2d3b2e;
+      --stone:     #6b7c6c;
+      --ghost:     #f0ece3;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--bark); background: var(--parchment); display: flex; flex-direction: column; }
+    h1,h2,h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+    button { font-family: 'DM Sans', sans-serif; cursor: pointer; }
+    textarea { font-family: 'DM Sans', sans-serif; }
+    textarea:focus { outline: none; }
+
+```
+/* NAV */
+nav { background: var(--pine); flex-shrink: 0; box-shadow: 0 2px 16px rgba(45,59,46,.18); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; height: 60px; gap: 4px; }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #fff; text-decoration: none; margin-right: auto; }
+.nav-link { color: rgba(255,255,255,.82); text-decoration: none; padding: 8px 13px; border-radius: 6px; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; transition: color .2s; }
+.nav-link:hover { color: #fff; }
+.nav-link.active { color: var(--foam); border-bottom-color: var(--foam); background: rgba(255,255,255,.12); }
+
+/* CHAT HEADER */
+.chat-header { background: linear-gradient(135deg, var(--pine) 0%, var(--sage) 100%); padding: 20px 28px; flex-shrink: 0; }
+.chat-header-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; gap: 14px; }
+.chat-avatar { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; font-size: 24px; border: 1.5px solid rgba(255,255,255,.2); flex-shrink: 0; }
+.chat-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #fff; font-weight: 500; }
+.chat-subtitle { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 2px; }
+.chat-badge { margin-left: auto; text-align: right; }
+.chat-badge-top { font-size: 10px; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .8px; }
+.chat-badge-bottom { font-size: 12px; color: rgba(255,255,255,.85); font-weight: 600; }
+
+/* MESSAGES */
+#messages {
+  flex: 1; overflow-y: auto; padding: 28px 24px 12px;
+  scroll-behavior: smooth;
 }
+#messages::-webkit-scrollbar { width: 5px; }
+#messages::-webkit-scrollbar-thumb { background: var(--foam); border-radius: 3px; }
+.msg-wrap { max-width: 800px; margin: 0 auto; }
 
-- { box-sizing: border-box; margin: 0; padding: 0; }
+/* WELCOME */
+.welcome { text-align: center; margin-bottom: 32px; animation: fadeUp .5s ease-out; }
+.welcome h2 { font-size: 22px; color: var(--bark); margin-bottom: 6px; }
+.welcome p { font-size: 14px; color: var(--stone); line-height: 1.6; }
+.chips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 9px; margin-bottom: 22px; }
+.chip { background: #fff; border: 1.5px solid var(--foam); color: var(--pine); padding: 11px 14px; border-radius: 10px; font-size: 13px; font-weight: 500; text-align: left; cursor: pointer; transition: all .2s; }
+.chip:hover { background: var(--pine); color: #fff; border-color: var(--pine); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(58,92,61,.2); }
+.disclaimer { background: var(--ghost); border-radius: 10px; padding: 10px 16px; font-size: 12px; color: var(--stone); line-height: 1.6; text-align: center; }
 
-body {
-font-family: ‘DM Sans’, sans-serif;
-background: var(–bg);
-color: var(–text-main);
-height: 100dvh;
-display: flex;
-flex-direction: column;
-overflow: hidden;
-}
+/* MESSAGES */
+.msg { display: flex; margin-bottom: 16px; animation: slideIn .25s ease-out; }
+.msg.user { justify-content: flex-end; }
+.msg-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--sage), var(--pine)); display: flex; align-items: center; justify-content: center; font-size: 16px; margin-right: 10px; flex-shrink: 0; margin-top: 2px; }
+.msg-bubble { max-width: 74%; padding: 13px 16px; border-radius: 18px; font-size: 14px; line-height: 1.7; white-space: pre-wrap; word-break: break-word; }
+.msg.bot .msg-bubble { background: #fff; color: var(--bark); border-radius: 18px 18px 18px 4px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.msg.user .msg-bubble { background: linear-gradient(135deg, var(--pine), var(--sage)); color: #fff; border-radius: 18px 18px 4px 18px; box-shadow: 0 2px 10px rgba(58,92,61,.22); }
 
-/* ── HEADER ── */
-header {
-background: #fff;
-border-bottom: 1px solid var(–border);
-padding: 0.7rem 1.25rem;
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-shrink: 0;
-z-index: 10;
-}
+/* TYPING */
+.typing-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.typing-bubble { background: #fff; border-radius: 18px 18px 18px 4px; padding: 13px 16px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.dots { display: flex; gap: 5px; align-items: center; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); animation: bounce 1.2s ease-in-out infinite; }
+.dot:nth-child(2) { animation-delay: .2s; }
+.dot:nth-child(3) { animation-delay: .4s; }
 
-.brand {
-display: flex;
-align-items: center;
-gap: 0.55rem;
-text-decoration: none;
-color: var(–text-main);
-}
+/* ERROR */
+.error-msg { background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 10px 14px; font-size: 13px; color: #dc2626; margin-bottom: 12px; }
 
-.brand-logo {
-width: 34px; height: 34px;
-border-radius: 999px;
-border: 2px solid var(–accent);
-display: flex; align-items: center; justify-content: center;
-font-family: ‘Lora’, serif;
-font-size: 17px; font-weight: 600;
-color: var(–accent);
-background: var(–accent-soft);
-}
+/* INPUT */
+.input-area { border-top: 1px solid var(--foam); background: var(--cream); padding: 13px 24px 18px; flex-shrink: 0; }
+.input-inner { max-width: 800px; margin: 0 auto; }
+.input-row { display: flex; gap: 10px; align-items: flex-end; background: #fff; border-radius: 16px; border: 1.5px solid var(--foam); padding: 10px 10px 10px 18px; box-shadow: 0 2px 8px rgba(0,0,0,.05); transition: border-color .2s; }
+.input-row:focus-within { border-color: var(--sage); }
+#chat-input { flex: 1; border: none; background: transparent; resize: none; font-size: 14px; line-height: 1.5; color: var(--bark); max-height: 120px; overflow-y: auto; }
+.send-btn { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--pine), var(--sage)); border: none; color: #fff; font-size: 17px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .2s; }
+.send-btn:hover:not(:disabled) { background: var(--bark); }
+.send-btn:disabled { opacity: .35; cursor: not-allowed; }
+.input-footer { text-align: center; margin-top: 8px; font-size: 11px; color: #b0bdb1; }
 
-.brand-name {
-font-family: ‘Lora’, serif;
-font-weight: 600;
-font-size: 1.05rem;
-letter-spacing: 0.01em;
-}
+@keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes slideIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes bounce { 0%,80%,100%{transform:translateY(0);opacity:.4} 40%{transform:translateY(-5px);opacity:1} }
+```
 
-.header-right {
-display: flex;
-align-items: center;
-gap: 0.75rem;
-}
-
-.status-dot {
-display: flex;
-align-items: center;
-gap: 0.4rem;
-font-size: 0.78rem;
-color: var(–text-muted);
-}
-
-.dot {
-width: 7px; height: 7px;
-border-radius: 999px;
-background: var(–accent);
-animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-0%, 100% { opacity: 1; }
-50% { opacity: 0.4; }
-}
-
-.clear-btn {
-font-size: 0.78rem;
-color: var(–text-muted);
-background: none;
-border: 1px solid var(–border);
-border-radius: 999px;
-padding: 0.25rem 0.7rem;
-cursor: pointer;
-font-family: inherit;
-transition: all 0.15s;
-}
-.clear-btn:hover { background: var(–bg); color: var(–text-main); }
-
-/* ── CHAT AREA ── */
-.chat-wrap {
-flex: 1;
-overflow-y: auto;
-padding: 1.5rem 1rem 0.5rem;
-display: flex;
-flex-direction: column;
-gap: 1.1rem;
-scroll-behavior: smooth;
-}
-
-.chat-wrap::-webkit-scrollbar { width: 5px; }
-.chat-wrap::-webkit-scrollbar-track { background: transparent; }
-.chat-wrap::-webkit-scrollbar-thumb { background: var(–border); border-radius: 99px; }
-
-/* ── WELCOME ── */
-.welcome {
-max-width: 640px;
-margin: 0 auto 0.5rem;
-text-align: center;
-padding: 2rem 1rem 1rem;
-}
-
-.welcome-icon {
-width: 52px; height: 52px;
-border-radius: 999px;
-background: var(–accent-soft);
-border: 2px solid var(–accent);
-display: flex; align-items: center; justify-content: center;
-margin: 0 auto 1rem;
-font-size: 22px;
-}
-
-.welcome h1 {
-font-family: ‘Lora’, serif;
-font-size: 1.5rem;
-font-weight: 600;
-margin-bottom: 0.5rem;
-line-height: 1.3;
-}
-
-.welcome p {
-color: var(–text-muted);
-font-size: 0.9rem;
-line-height: 1.6;
-max-width: 480px;
-margin: 0 auto 1.4rem;
-}
-
-.starters {
-display: flex;
-flex-wrap: wrap;
-gap: 0.5rem;
-justify-content: center;
-}
-
-.starter-btn {
-background: var(–card);
-border: 1px solid var(–border);
-border-radius: 999px;
-padding: 0.45rem 0.9rem;
-font-size: 0.82rem;
-font-family: inherit;
-color: var(–text-main);
-cursor: pointer;
-transition: all 0.15s;
-text-align: left;
-line-height: 1.3;
-}
-.starter-btn:hover {
-border-color: var(–accent);
-background: var(–accent-soft);
-color: var(–accent);
-}
-
-/* ── MESSAGES ── */
-.msg-row {
-display: flex;
-gap: 0.6rem;
-max-width: 780px;
-margin: 0 auto;
-width: 100%;
-animation: fadeUp 0.2s ease;
-}
-
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(6px); }
-to   { opacity: 1; transform: translateY(0); }
-}
-
-.msg-row.user { flex-direction: row-reverse; }
-
-.avatar {
-width: 30px; height: 30px;
-border-radius: 999px;
-flex-shrink: 0;
-display: flex; align-items: center; justify-content: center;
-font-size: 13px;
-font-weight: 600;
-margin-top: 2px;
-}
-
-.avatar.ai {
-background: var(–accent-soft);
-color: var(–accent);
-border: 1.5px solid var(–accent);
-font-family: ‘Lora’, serif;
-}
-
-.avatar.user {
-background: var(–accent);
-color: white;
-}
-
-.bubble {
-max-width: calc(100% - 44px);
-padding: 0.75rem 1rem;
-border-radius: 14px;
-font-size: 0.9rem;
-line-height: 1.65;
-}
-
-.bubble.ai {
-background: var(–ai-bubble);
-border: 1px solid var(–border);
-box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-border-radius: 4px 14px 14px 14px;
-}
-
-.bubble.user {
-background: var(–user-bubble);
-color: white;
-border-radius: 14px 4px 14px 14px;
-}
-
-.bubble.ai p { margin-bottom: 0.6rem; }
-.bubble.ai p:last-child { margin-bottom: 0; }
-.bubble.ai ul, .bubble.ai ol { padding-left: 1.3rem; margin: 0.4rem 0; }
-.bubble.ai li { margin-bottom: 0.25rem; }
-.bubble.ai strong { color: var(–text-main); font-weight: 600; }
-.bubble.ai h3 { font-size: 0.95rem; margin: 0.6rem 0 0.3rem; font-family: ‘Lora’, serif; }
-.bubble.ai a { color: var(–accent); text-decoration: underline; }
-.bubble.ai code {
-background: var(–bg);
-padding: 0.1em 0.35em;
-border-radius: 4px;
-font-size: 0.85em;
-}
-
-/* ── SEARCH INDICATOR ── */
-.search-indicator {
-max-width: 780px;
-margin: 0 auto;
-width: 100%;
-display: flex;
-gap: 0.6rem;
-align-items: flex-start;
-animation: fadeUp 0.2s ease;
-}
-
-.search-pill {
-background: var(–search-bg);
-border: 1px solid #d4c8f0;
-color: var(–search-color);
-border-radius: 999px;
-padding: 0.35rem 0.85rem;
-font-size: 0.8rem;
-display: flex;
-align-items: center;
-gap: 0.45rem;
-margin-top: 2px;
-}
-
-.search-spinner {
-width: 12px; height: 12px;
-border: 2px solid #d4c8f0;
-border-top-color: var(–search-color);
-border-radius: 999px;
-animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ── TYPING ── */
-.typing-dots {
-display: flex; gap: 3px; padding: 4px 0;
-}
-.typing-dots span {
-width: 7px; height: 7px;
-border-radius: 999px;
-background: var(–border);
-animation: bounce 1.2s ease-in-out infinite;
-}
-.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes bounce {
-0%, 100% { transform: translateY(0); background: var(–border); }
-50% { transform: translateY(-4px); background: var(–accent-mid); }
-}
-
-/* ── DISCLAIMER ── */
-.inline-disclaimer {
-max-width: 780px;
-margin: 0 auto;
-font-size: 0.73rem;
-color: var(–text-muted);
-text-align: center;
-padding: 0.25rem 0;
-}
-
-/* ── INPUT AREA ── */
-.input-area {
-background: #fff;
-border-top: 1px solid var(–border);
-padding: 0.75rem 1rem 1rem;
-flex-shrink: 0;
-}
-
-.input-inner {
-max-width: 780px;
-margin: 0 auto;
-display: flex;
-gap: 0.6rem;
-align-items: flex-end;
-}
-
-.input-box {
-flex: 1;
-background: var(–bg);
-border: 1.5px solid var(–border);
-border-radius: 14px;
-padding: 0.7rem 1rem;
-font-family: inherit;
-font-size: 0.92rem;
-color: var(–text-main);
-resize: none;
-outline: none;
-transition: border-color 0.15s;
-min-height: 46px;
-max-height: 140px;
-overflow-y: auto;
-line-height: 1.5;
-}
-.input-box:focus { border-color: var(–accent); }
-.input-box::placeholder { color: #9ba5b0; }
-
-.send-btn {
-width: 44px; height: 44px;
-border-radius: 12px;
-background: var(–accent);
-border: none;
-cursor: pointer;
-display: flex; align-items: center; justify-content: center;
-flex-shrink: 0;
-transition: all 0.15s;
-color: white;
-}
-.send-btn:hover:not(:disabled) { background: var(–accent-mid); }
-.send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-.send-btn svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-.input-footer {
-max-width: 780px;
-margin: 0.4rem auto 0;
-font-size: 0.7rem;
-color: var(–text-muted);
-text-align: center;
-}
-
-@media (max-width: 600px) {
-.welcome h1 { font-size: 1.25rem; }
-.starters { flex-direction: column; align-items: stretch; }
-.starter-btn { border-radius: 12px; }
-}
-</style>
-
+  </style>
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="brand">
-    <div class="brand-logo">M</div>
-    <span class="brand-name">Maisage</span>
-  </a>
-  <div class="header-right">
-    <div class="status-dot">
-      <div class="dot"></div>
-      AI Navigator · Live research
-    </div>
-    <button class="clear-btn" onclick="clearChat()">Clear</button>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">🌿 Maisage</a>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/learn.html" class="nav-link">Learn</a>
+    <a href="/tools.html" class="nav-link">Tools</a>
+    <a href="/services.html" class="nav-link">Services</a>
+    <a href="/ai-navigator.html" class="nav-link active">Ask Mai ✦</a>
   </div>
-</header>
+</nav>
 
-<div class="chat-wrap" id="chatWrap">
-  <div class="welcome" id="welcome">
-    <div class="welcome-icon">🧭</div>
-    <h1>Your care navigator is ready</h1>
-    <p>Ask anything about aging, care settings, facilities, medications, or costs. I'll research in real time and give you plain-language answers — no sales pitch.</p>
-    <div class="starters">
-      <button class="starter-btn" onclick="sendStarter(this)">What's the difference between assisted living and a nursing home?</button>
-      <button class="starter-btn" onclick="sendStarter(this)">How do I look past star ratings when researching a facility?</button>
-      <button class="starter-btn" onclick="sendStarter(this)">What questions should I ask at a facility tour?</button>
-      <button class="starter-btn" onclick="sendStarter(this)">My mom's medications are costing $800/month — what should I know?</button>
-      <button class="starter-btn" onclick="sendStarter(this)">How does Medicaid work for long-term care?</button>
-      <button class="starter-btn" onclick="sendStarter(this)">We're trying to decide between home care and moving to a facility.</button>
+<div class="chat-header">
+  <div class="chat-header-inner">
+    <div class="chat-avatar">🌿</div>
+    <div>
+      <div class="chat-title">Mai, Care Navigator</div>
+      <div class="chat-subtitle">Maisage AI · Neutral · No commissions · No referral fees</div>
+    </div>
+    <div class="chat-badge">
+      <div class="chat-badge-top">Powered by</div>
+      <div class="chat-badge-bottom">Maisage AI</div>
     </div>
   </div>
-  <div class="inline-disclaimer" id="disclaimer" style="display:none;">
-    AI can make mistakes. Always verify important decisions with licensed professionals.
+</div>
+
+<div id="messages">
+  <div class="msg-wrap">
+    <div class="welcome" id="welcome-screen">
+      <h2>How can I help your family today?</h2>
+      <p>I can guide facility research, analyze medication lists, help map care options, or explain Maisage services.<br>Everything I share is neutral — no commissions, no referrals, no sales pitch.</p>
+    </div>
+    <div class="chips-grid" id="chips-grid">
+      <button class="chip" onclick="sendChip('I\'d like to research a specific nursing home or assisted living facility.')">🏥 Research a facility</button>
+      <button class="chip" onclick="sendChip('I want to review a medication list for cost and complexity.')">💊 Analyze medications</button>
+      <button class="chip" onclick="sendChip('I\'m overwhelmed and not sure where to start with my family\'s care situation.')">🗺️ Understand my options</button>
+      <button class="chip" onclick="sendChip('What one-on-one sessions does Maisage offer and what do they cost?')">📅 Sessions & pricing</button>
+      <button class="chip" onclick="sendChip('Can you explain what Medicare does and doesn\'t cover for elder care?')">🏷️ Medicare coverage</button>
+      <button class="chip" onclick="sendChip('Help me think through whether my parent should stay home or move to a care facility.')">❓ Stay home or move?</button>
+    </div>
+    <div class="disclaimer" id="disclaimer">
+      ⓘ Informational only · Not medical, legal, or financial advice · All decisions should be reviewed with licensed professionals
+    </div>
   </div>
 </div>
 
 <div class="input-area">
   <div class="input-inner">
-    <textarea
-      class="input-box"
-      id="inputBox"
-      placeholder="Ask anything about care, facilities, medications, costs…"
-      rows="1"
-      onkeydown="handleKey(event)"
-      oninput="autoGrow(this)"
-    ></textarea>
-    <button class="send-btn" id="sendBtn" onclick="sendMessage()" disabled>
-      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    </button>
-  </div>
-  <div class="input-footer">
-    Maisage AI · No commissions · No referral arrangements · Not medical or legal advice
+    <div class="input-row">
+      <textarea id="chat-input" rows="1" placeholder="Name a facility, share a medication list, or describe your situation…"></textarea>
+      <button class="send-btn" id="send-btn" onclick="sendMessage()" disabled>➤</button>
+    </div>
+    <div class="input-footer">maisage.com · Neutral care navigation · No commissions or referral fees</div>
   </div>
 </div>
 
 <script>
-const SYSTEM_PROMPT = `You are Maisage's AI Care Navigator — a neutral, plain-language guide helping families navigate decisions about aging, long-term care, housing, facilities, and medications.
+  // ── ADD YOUR ANTHROPIC API KEY HERE ─────────────────────────────────────────
+  const API_KEY = "YOUR_ANTHROPIC_API_KEY_HERE";
+  // Get one at console.anthropic.com → API Keys
+  // ────────────────────────────────────────────────────────────────────────────
 
-Your core principles:
-- NEUTRAL: You have no financial relationship with any facility, pharmacy, insurer, or broker. You never recommend specific facilities or products in a promotional way.
-- PLAIN LANGUAGE: Write clearly. Assume the reader is a tired family member at 11pm trying to understand something difficult.
-- PROACTIVELY RESEARCH: Use web search to look up real data — CMS facility records, Medicare.gov ratings, drug pricing, Medicaid rules, inspection reports, policy details. Don't just answer from memory when you can verify.
-- PREPARE, DON'T DECIDE: Help families understand options, generate questions, and walk into conversations prepared. You support decisions; you don't make them.
-- HONEST ABOUT LIMITS: You're not a doctor, lawyer, financial planner, or social worker. When professional judgment is needed, say so clearly.
+  const SYSTEM = `You are Mai, the AI care navigator for Maisage (maisage.com) — a neutral elder care navigation platform. No commissions, no referral fees, no sales pressure.
 
-When researching facilities: look up CMS/Medicare.gov data, inspection history, staffing levels, ownership changes, complaint patterns.
-When researching medications: look up GoodRx, Medicare Part D coverage, generic alternatives, patient assistance programs.
-When researching costs: look up Genworth Cost of Care, Medicare.gov, state Medicaid waiver programs.
-When researching coverage: look up Medicare.gov, state Medicaid agency sites, VA benefits for veterans.
+FACILITY RESEARCH: When a user names a facility, guide them to:
+• CMS Care Compare (medicare.gov/care-compare) — staffing ratings, health inspections, quality measures
+• ProPublica Nursing Home Inspect (projects.propublica.org/nursing-homes) — raw deficiency citations
+Explain red flags (repeated serious deficiencies, enforcement actions, staffing gaps, ownership changes) vs yellow flags. Give 5–7 specific tour questions. Remind them star ratings are just a starting point.
 
-Format responses clearly. Use short paragraphs. Use bullet lists for questions or options. Bold key terms. When you search for something, tell the user what you're looking into and what you found.
+MEDICATION ANALYSIS: When a user shares a medication list, flag high-cost categories, Beers Criteria concerns for elderly patients, multiple-prescriber complexity. Give 3–5 questions for prescriber or pharmacist. NEVER advise on changing or stopping medications.
 
-End responses that involve significant decisions with a brief note about what kind of professional could help (elder law attorney, geriatric care manager, pharmacist, etc.).`;
+SITUATION ASSESSMENT: When families are overwhelmed, ask 2–3 gentle questions about what's changing, urgency, and timeline. Break "stay home or move" into smaller decisions.
 
-let messages = [];
-let isLoading = false;
+BOOKING (only suggest when it clearly fits):
+• Orientation Call (60 min): https://square.link/u/zCnuTDhu
+• Medication & Cost Review: https://square.link/u/8DJlUe0l
+• Scenario & Facility Planning: https://square.link/u/DCJe3iUq
+• Benefits & Coverage Review: https://square.link/u/mpv98Mhq
+• Follow-up Session: https://square.link/u/GpdgqD0Q
+All services: https://maisage.com/services.html
 
-const inputBox = document.getElementById('inputBox');
-const sendBtn = document.getElementById('sendBtn');
-const chatWrap = document.getElementById('chatWrap');
-const welcome = document.getElementById('welcome');
-const disclaimer = document.getElementById('disclaimer');
+TONE: Warm, plain language, like a knowledgeable friend. No jargon without explanation.
+LIMITS: No medical, legal, financial, or insurance advice. No facility recommendations. All decisions need licensed professional review.`;
 
-inputBox.addEventListener('input', () => {
-  sendBtn.disabled = inputBox.value.trim() === '' || isLoading;
-});
+  let messages = [];
+  let loading = false;
 
-function autoGrow(el) {
-  el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 140) + 'px';
-}
+  // Enable send button only when there's text
+  document.getElementById('chat-input').addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    document.getElementById('send-btn').disabled = !this.value.trim();
+  });
+  document.getElementById('chat-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
 
-function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    if (!sendBtn.disabled) sendMessage();
-  }
-}
-
-function sendStarter(btn) {
-  inputBox.value = btn.textContent;
-  autoGrow(inputBox);
-  sendBtn.disabled = false;
-  sendMessage();
-}
-
-function clearChat() {
-  messages = [];
-  chatWrap.innerHTML = '';
-  chatWrap.appendChild(welcome);
-  chatWrap.appendChild(disclaimer);
-  welcome.style.display = '';
-  disclaimer.style.display = 'none';
-}
-
-function scrollToBottom() {
-  chatWrap.scrollTop = chatWrap.scrollHeight;
-}
-
-function addMessage(role, content) {
-  if (welcome.style.display !== 'none') {
-    welcome.style.display = 'none';
-    disclaimer.style.display = 'block';
+  function sendChip(text) {
+    document.getElementById('chat-input').value = text;
+    document.getElementById('send-btn').disabled = false;
+    sendMessage();
   }
 
-  const row = document.createElement('div');
-  row.className = `msg-row ${role}`;
+  async function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text || loading) return;
 
-  const avatar = document.createElement('div');
-  avatar.className = `avatar ${role}`;
-  avatar.textContent = role === 'ai' ? 'M' : '👤';
+    if (API_KEY === 'YOUR_ANTHROPIC_API_KEY_HERE') {
+      appendError('API key not configured. Please add your Anthropic API key to the HTML file. Get one free at console.anthropic.com.');
+      return;
+    }
 
-  const bubble = document.createElement('div');
-  bubble.className = `bubble ${role}`;
-  bubble.innerHTML = role === 'ai' ? renderMarkdown(content) : escapeHtml(content);
+    // Hide welcome
+    const w = document.getElementById('welcome-screen');
+    const cg = document.getElementById('chips-grid');
+    const dc = document.getElementById('disclaimer');
+    if (w) w.style.display = 'none';
+    if (cg) cg.style.display = 'none';
+    if (dc) dc.style.display = 'none';
 
-  row.appendChild(avatar);
-  row.appendChild(bubble);
-  chatWrap.insertBefore(row, disclaimer);
-  scrollToBottom();
-  return bubble;
-}
+    messages.push({ role: 'user', content: text });
+    appendMsg('user', text);
+    input.value = '';
+    input.style.height = 'auto';
+    document.getElementById('send-btn').disabled = true;
 
-function addTypingIndicator() {
-  if (welcome.style.display !== 'none') {
-    welcome.style.display = 'none';
-    disclaimer.style.display = 'block';
-  }
-  const row = document.createElement('div');
-  row.className = 'msg-row ai';
-  row.id = 'typingRow';
+    loading = true;
+    const typing = appendTyping();
 
-  const avatar = document.createElement('div');
-  avatar.className = 'avatar ai';
-  avatar.textContent = 'M';
-
-  const bubble = document.createElement('div');
-  bubble.className = 'bubble ai';
-  bubble.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-
-  row.appendChild(avatar);
-  row.appendChild(bubble);
-  chatWrap.insertBefore(row, disclaimer);
-  scrollToBottom();
-  return row;
-}
-
-function removeTypingIndicator() {
-  const el = document.getElementById('typingRow');
-  if (el) el.remove();
-}
-
-function addSearchIndicator(query) {
-  const el = document.createElement('div');
-  el.className = 'search-indicator';
-  el.id = 'searchIndicator';
-
-  const avatar = document.createElement('div');
-  avatar.className = 'avatar ai';
-  avatar.style.background = '#f3f0fa';
-  avatar.style.borderColor = '#d4c8f0';
-  avatar.style.color = '#7c5cbf';
-  avatar.textContent = '🔍';
-
-  const pill = document.createElement('div');
-  pill.className = 'search-pill';
-  pill.innerHTML = `<div class="search-spinner"></div> Researching: <em>${escapeHtml(query)}</em>`;
-
-  el.appendChild(avatar);
-  el.appendChild(pill);
-  chatWrap.insertBefore(el, disclaimer);
-  scrollToBottom();
-  return el;
-}
-
-function removeSearchIndicator() {
-  const el = document.getElementById('searchIndicator');
-  if (el) el.remove();
-}
-
-async function sendMessage() {
-  const text = inputBox.value.trim();
-  if (!text || isLoading) return;
-
-  inputBox.value = '';
-  inputBox.style.height = 'auto';
-  sendBtn.disabled = true;
-  isLoading = true;
-
-  messages.push({ role: 'user', content: text });
-  addMessage('user', text);
-
-  const typingRow = addTypingIndicator();
-
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT,
-        tools: [{
-          type: 'web_search_20250305',
-          name: 'web_search'
-        }],
-        messages: messages
-      })
-    });
-
-    const data = await response.json();
-
-    // Handle multi-turn tool use loop
-    let fullMessages = [...messages];
-    let currentData = data;
-
-    while (currentData.stop_reason === 'tool_use') {
-      removeTypingIndicator();
-      removeSearchIndicator();
-
-      // Find tool use blocks
-      const toolUseBlocks = currentData.content.filter(b => b.type === 'tool_use');
-      const textBlocks = currentData.content.filter(b => b.type === 'text');
-
-      // Show any partial text
-      if (textBlocks.length > 0 && textBlocks.some(b => b.text.trim())) {
-        const partialText = textBlocks.map(b => b.text).join('\n').trim();
-        if (partialText) addMessage('ai', partialText);
-      }
-
-      // Show search indicators and collect results
-      const toolResults = [];
-      for (const toolBlock of toolUseBlocks) {
-        if (toolBlock.name === 'web_search') {
-          const query = toolBlock.input?.query || 'related information';
-          const searchEl = addSearchIndicator(query);
-
-          // Add assistant message with tool use to history
-          fullMessages.push({ role: 'assistant', content: currentData.content });
-
-          // Build tool result (we pass back a dummy — the API handles actual search)
-          toolResults.push({
-            type: 'tool_result',
-            tool_use_id: toolBlock.id,
-            content: 'Search completed.'
-          });
-
-          searchEl.remove();
-        }
-      }
-
-      // Add tool results and continue
-      fullMessages.push({ role: 'user', content: toolResults });
-
-      addTypingIndicator();
-
-      const continueResponse = await fetch('https://api.anthropic.com/v1/messages', {
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': API_KEY,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          tools: [{
-            type: 'web_search_20250305',
-            name: 'web_search'
-          }],
-          messages: fullMessages
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1200,
+          system: SYSTEM,
+          messages: messages
         })
       });
-
-      currentData = await continueResponse.json();
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+      const reply = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n').trim();
+      if (!reply) throw new Error('No response received');
+      messages.push({ role: 'assistant', content: reply });
+      typing.remove();
+      appendMsg('bot', reply);
+    } catch(e) {
+      typing.remove();
+      appendError(e.message || 'Something went wrong. Please try again.');
+      messages.pop();
+    } finally {
+      loading = false;
+      document.getElementById('send-btn').disabled = false;
     }
-
-    removeTypingIndicator();
-    removeSearchIndicator();
-
-    // Extract final text
-    const finalText = currentData.content
-      .filter(b => b.type === 'text')
-      .map(b => b.text)
-      .join('\n')
-      .trim();
-
-    if (finalText) {
-      addMessage('ai', finalText);
-      messages.push({ role: 'assistant', content: finalText });
-    } else {
-      throw new Error('No response text received.');
-    }
-
-  } catch (err) {
-    removeTypingIndicator();
-    removeSearchIndicator();
-    console.error(err);
-    addMessage('ai', '⚠️ Something went wrong. Please try again in a moment.');
   }
 
-  isLoading = false;
-  sendBtn.disabled = inputBox.value.trim() === '';
-  inputBox.focus();
-}
+  function appendMsg(role, text) {
+    const wrap = document.querySelector('.msg-wrap');
+    const d = document.createElement('div');
+    d.className = 'msg ' + role;
+    d.innerHTML = role === 'bot'
+      ? `<div class="msg-avatar">🌿</div><div class="msg-bubble">${esc(text)}</div>`
+      : `<div class="msg-bubble">${esc(text)}</div>`;
+    wrap.appendChild(d);
+    scrollBottom();
+  }
 
-// ── MARKDOWN RENDERER ──
-function renderMarkdown(text) {
-  let html = escapeHtml(text);
+  function appendTyping() {
+    const wrap = document.querySelector('.msg-wrap');
+    const d = document.createElement('div');
+    d.className = 'typing-wrap';
+    d.innerHTML = `<div class="msg-avatar">🌿</div><div class="typing-bubble"><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
+    wrap.appendChild(d);
+    scrollBottom();
+    return d;
+  }
 
-  // Bold
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // Italic
-  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  // Inline code
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  function appendError(msg) {
+    const wrap = document.querySelector('.msg-wrap');
+    const d = document.createElement('div');
+    d.className = 'error-msg';
+    d.textContent = '⚠️ ' + msg;
+    wrap.appendChild(d);
+    scrollBottom();
+  }
 
-  // Headers
-  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^# (.+)$/gm, '<h3>$1</h3>');
+  function scrollBottom() {
+    const m = document.getElementById('messages');
+    m.scrollTop = m.scrollHeight;
+  }
 
-  // Horizontal rule
-  html = html.replace(/^---$/gm, '<hr style="border:none;border-top:1px solid var(--border);margin:0.5rem 0">');
-
-  // Unordered lists
-  html = html.replace(/^[\s]*[-*•] (.+)$/gm, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>(\n|$))+/g, '<ul>$&</ul>');
-
-  // Numbered lists
-  html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
-
-  // Links
-  html = html.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-
-  // Paragraphs (double newlines)
-  html = html.split(/\n\n+/).map(block => {
-    block = block.trim();
-    if (!block) return '';
-    if (block.startsWith('<')) return block;
-    return `<p>${block.replace(/\n/g, '<br>')}</p>`;
-  }).join('\n');
-
-  return html;
-}
-
-function escapeHtml(text) {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-inputBox.focus();
+  function esc(t) {
+    return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+  }
 </script>
 
 </body>
