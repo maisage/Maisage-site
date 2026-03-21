@@ -1,694 +1,343 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Facility Insights – Beyond Ratings | Maisage</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Facility Insights from Maisage helps you look past glossy ratings using inspection patterns, staffing, complaints, and ownership stability to decide where to look closer." />
-  <style>
-    :root {
-      --bg: #f7f8fa;
-      --card-bg: #ffffff;
-      --accent: #2f7d4a;
-      --accent-soft: #e3f2ea;
-      --text-main: #1b1f23;
-      --text-muted: #5b6470;
-      --border-soft: #dde2e8;
-      --danger: #b3261e;
-      --max-width: 1120px;
-      --radius-card: 14px;
-      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
-    }
+<meta charset="UTF-8" />
+<title>Facility Insights – Beyond Ratings | Maisage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="AI-powered facility research. Type a facility name and location — Maisage searches CMS, Medicare.gov, and state databases in real time." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f8fa;
+  --card: #ffffff;
+  --accent: #2f7d4a;
+  --accent-soft: #e3f2ea;
+  --accent-mid: #4a9e65;
+  --text-main: #1b1f23;
+  --text-muted: #5b6470;
+  --border: #dde2e8;
+  --danger: #b3261e;
+  --warn: #8a5b00;
+  --warn-bg: #fff9e8;
+  --warn-border: #ffe4a3;
+  --search-color: #7c5cbf;
+  --search-bg: #f3f0fa;
+  --max-width: 1000px;
+  --radius: 14px;
+  --shadow: 0 8px 28px rgba(15,23,42,0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.55; }
+a { color: inherit; text-decoration: none; }
 
-    * {
-      box-sizing: border-box;
-    }
+header { background: #fff; border-bottom: 1px solid var(–border); position: sticky; top: 0; z-index: 20; }
+.nav-inner { max-width: var(–max-width); margin: 0 auto; padding: 0.7rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 0.5rem; font-family: ‘Lora’, serif; font-weight: 600; font-size: 1.05rem; }
+.brand-logo { width: 32px; height: 32px; border-radius: 999px; border: 2px solid var(–accent); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(–accent); background: var(–accent-soft); }
+nav ul { list-style: none; display: flex; gap: 1.5rem; font-size: 0.9rem; }
+nav a { color: var(–text-muted); font-weight: 500; }
+nav a:hover { color: var(–accent); }
+@media(max-width:700px){ nav ul { display: none; } }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      line-height: 1.5;
-    }
+main { max-width: var(–max-width); margin: 0 auto; padding: 2rem 1.25rem 4rem; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+.page-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.7rem; border-radius: 999px; background: var(–accent-soft); color: var(–accent); font-size: 0.75rem; font-weight: 600; margin-bottom: 0.65rem; }
+.dot { width: 6px; height: 6px; border-radius: 999px; background: var(–accent); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+h1 { font-family: ‘Lora’, serif; font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 0.45rem; }
+.page-sub { color: var(–text-muted); font-size: 0.93rem; max-width: 580px; margin-bottom: 2rem; }
 
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--border-soft);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
+.search-card { background: var(–card); border: 1px solid var(–border); border-radius: var(–radius); box-shadow: var(–shadow); padding: 1.5rem; margin-bottom: 1.5rem; }
+.search-card h2 { font-family: ‘Lora’, serif; font-size: 1.05rem; margin-bottom: 0.85rem; }
+.search-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.75rem; align-items: end; }
+@media(max-width:600px){ .search-row { grid-template-columns: 1fr; } }
+.field label { display: block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(–text-muted); margin-bottom: 0.3rem; }
+.field input { width: 100%; padding: 0.6rem 0.75rem; border: 1.5px solid var(–border); border-radius: 10px; font-family: inherit; font-size: 0.9rem; color: var(–text-main); background: var(–bg); outline: none; transition: border-color 0.15s; }
+.field input:focus { border-color: var(–accent); background: #fff; }
+.search-btn { padding: 0.65rem 1.35rem; background: var(–accent); color: #fff; border: none; border-radius: 10px; font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.45rem; white-space: nowrap; transition: background 0.15s; }
+.search-btn:hover:not(:disabled) { background: var(–accent-mid); }
+.search-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.search-hint { font-size: 0.77rem; color: var(–text-muted); margin-top: 0.7rem; }
 
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
+.status-bar { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 0.9rem; background: var(–search-bg); border: 1px solid #d4c8f0; border-radius: 10px; font-size: 0.83rem; color: var(–search-color); margin-bottom: 1rem; }
+.spinner { width: 13px; height: 13px; border: 2px solid #d4c8f0; border-top-color: var(–search-color); border-radius: 999px; animation: spin 0.7s linear infinite; flex-shrink: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
+.results-area { display: flex; flex-direction: column; gap: 1rem; }
 
-    .brand-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      border: 2px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--accent);
-      background: #f5fbf7;
-    }
+.result-card { background: var(–card); border: 1px solid var(–border); border-radius: var(–radius); box-shadow: var(–shadow); overflow: hidden; animation: fadeUp 0.25s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.result-header { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(–border); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.result-name { font-family: ‘Lora’, serif; font-size: 1.05rem; font-weight: 600; }
+.result-meta { font-size: 0.79rem; color: var(–text-muted); margin-top: 0.2rem; }
+.flag-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.1rem; }
+.flag { display: inline-flex; align-items: center; padding: 0.18rem 0.5rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600; }
+.flag.red { background:#fff5f4; border:1px solid #f4c3bf; color:#8b1f19; }
+.flag.yellow { background:var(–warn-bg); border:1px solid var(–warn-border); color:var(–warn); }
+.flag.green { background:var(–accent-soft); border:1px solid #b2dfc2; color:#1e5c33; }
+.flag.gray { background:#f0f2f5; border:1px solid var(–border); color:var(–text-muted); }
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.95rem;
-    }
+.result-body { padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; }
+.section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(–text-muted); margin-bottom: 0.3rem; }
+.section-content { font-size: 0.87rem; line-height: 1.65; }
+.section-content p { margin-bottom: 0.35rem; }
+.section-content p:last-child { margin-bottom: 0; }
 
-    nav a {
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+.questions-box { background: #f5fbf7; border: 1px dashed var(–accent); border-radius: 10px; padding: 0.9rem 1rem; }
+.qlabel { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(–accent); margin-bottom: 0.45rem; }
+.questions-box ul { padding-left: 1.15rem; font-size: 0.85rem; margin: 0; }
+.questions-box li { margin-bottom: 0.2rem; }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+.sources-row { font-size: 0.75rem; color: var(–text-muted); border-top: 1px solid var(–border); padding-top: 0.65rem; }
 
-    .nav-cta a {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 600;
-      background: #f5fbf7;
-    }
+.disclaimer { margin-top: 2rem; padding: 0.85rem 1rem; border-radius: var(–radius); border: 1px solid #f2c3c0; background: #fff5f4; font-size: 0.76rem; color: var(–danger); }
+.disclaimer strong { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; }
 
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.5rem 1rem 3rem;
-    }
+footer { background: #fff; border-top: 1px solid var(–border); margin-top: 3rem; padding: 1rem 1.25rem 1.5rem; font-size: 0.8rem; color: var(–text-muted); }
+.footer-inner { max-width: var(–max-width); margin: 0 auto; display: flex; flex-direction: column; gap: 0.4rem; }
+.footer-meta { font-size: 0.74rem; color: #8c94a0; }
+</style>
 
-    h1 {
-      font-size: clamp(1.7rem, 2.5vw + 0.5rem, 2.1rem);
-      margin: 0 0 0.4rem;
-    }
-
-    .page-subtitle {
-      margin: 0 0 1rem;
-      color: var(--text-muted);
-      max-width: 42rem;
-      font-size: 0.97rem;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 600;
-      margin-bottom: 0.7rem;
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-card);
-      padding: 1.2rem 1.2rem;
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      font-size: 0.9rem;
-    }
-
-    .card h2 {
-      margin: 0 0 0.45rem;
-      font-size: 1.1rem;
-    }
-
-    .card p {
-      margin: 0 0 0.5rem;
-      color: var(--text-muted);
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      margin: 1.75rem 0 0.4rem;
-    }
-
-    .section-subtitle {
-      margin: 0 0 0.7rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-    }
-
-    input[type="text"],
-    select {
-      width: 100%;
-      padding: 0.5rem 0.6rem;
-      border-radius: 8px;
-      border: 1px solid var(--border-soft);
-      font-family: inherit;
-      font-size: 0.9rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .filters-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .checkbox-group {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.25rem 0.75rem;
-      margin: 0.3rem 0 0.8rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .checkbox-group label {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      text-transform: none;
-      letter-spacing: 0;
-      font-weight: 500;
-      margin-bottom: 0;
-    }
-
-    .checkbox-group input[type="checkbox"] {
-      width: 14px;
-      height: 14px;
-    }
-
-    .btn-primary,
-    .btn-outline {
-      border-radius: 999px;
-      padding: 0.55rem 1.2rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #ffffff;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(0.97);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--accent);
-      background: #ffffff;
-      color: var(--accent);
-    }
-
-    .btn-outline:hover {
-      background: #f0faf4;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.2rem;
-      margin-bottom: 0.2rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
-      margin-top: 0.5rem;
-    }
-
-    th,
-    td {
-      padding: 0.45rem 0.4rem;
-      border-bottom: 1px solid #eaedf1;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      background: #f4f6f8;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-
-    .flag-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.1rem 0.4rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      border: 1px solid #f4c3bf;
-      background: #fff5f4;
-      color: #8b1f19;
-      margin-right: 0.25rem;
-    }
-
-    .flag-pill.yellow {
-      border-color: #ffe4a3;
-      background: #fff9e8;
-      color: #8a5b00;
-    }
-
-    .small-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-      margin: 0.4rem 0;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    li + li {
-      margin-top: 0.15rem;
-    }
-
-    .callout {
-      margin-top: 1.2rem;
-      padding: 0.9rem 1rem;
-      border-radius: var(--radius-card);
-      border: 1px dashed var(--accent);
-      background: #f5fbf7;
-      font-size: 0.85rem;
-      color: var(--text-main);
-    }
-
-    .disclaimer {
-      margin-top: 1.5rem;
-      padding: 0.9rem 1rem;
-      border-radius: var(--radius-card);
-      border: 1px solid #f2c3c0;
-      background: #fff5f4;
-      font-size: 0.78rem;
-      color: var(--danger);
-    }
-
-    .disclaimer strong {
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.72rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border-soft);
-      margin-top: 2.5rem;
-      padding: 1rem 1rem 1.5rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      background: #ffffff;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .footer-meta {
-      font-size: 0.75rem;
-      color: #8c94a0;
-    }
-
-    @media (max-width: 768px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      nav ul {
-        display: none;
-      }
-
-      .nav-cta {
-        margin-left: auto;
-      }
-
-      th,
-      td {
-        font-size: 0.8rem;
-      }
-    }
-  </style>
 </head>
 <body>
-  <!-- Maisage Facility Insights - v1.1 - 2025-12-06 -->
-  <div id="nav-placeholder"></div>
+
+<div id="nav-placeholder"></div>
 <script>
-  fetch("nav.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("nav-placeholder").innerHTML = html;
-    });
+fetch("nav.html").then(r => r.text()).then(html => {
+  document.getElementById("nav-placeholder").innerHTML = html;
+});
 </script>
 
-  <main>
-    <header>
-      <div class="badge">
-        <span class="pill-dot"></span>
-        Facility Insights dashboard
+<main>
+  <div class="page-badge"><span class="dot"></span> AI-powered · Live research</div>
+  <h1>Look past glossy ratings before you tour</h1>
+  <p class="page-sub">Type a facility name and location. Maisage's AI searches CMS, Medicare.gov, and state inspection databases in real time — then surfaces red flags, staffing patterns, and the questions to bring on your tour.</p>
+
+  <div class="search-card">
+    <h2>Research a facility</h2>
+    <div class="search-row">
+      <div class="field">
+        <label for="fac-name">Facility name</label>
+        <input type="text" id="fac-name" placeholder="e.g., Maple Grove Care Center" />
       </div>
-      <h1>Look past glossy ratings before you tour</h1>
-      <p class="page-subtitle">
-        Facility Insights pulls together patterns from inspections, complaints, staffing, enforcement actions, and ownership changes so you can decide where to look closer — and what to ask when you get there.
-      </p>
-    </header>
+      <div class="field">
+        <label for="fac-loc">City & state</label>
+        <input type="text" id="fac-loc" placeholder="e.g., Ithaca, NY" />
+      </div>
+      <button class="search-btn" id="search-btn" onclick="runSearch()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Research
+      </button>
+    </div>
+    <p class="search-hint">No account needed. Searches public CMS data, Medicare.gov Care Compare, and state records.</p>
+  </div>
 
-    <div class="layout">
-      <!-- LEFT: Filters and results -->
-      <section aria-labelledby="filters-title">
-        <article class="card">
-          <h2 id="filters-title">Rough in your search area</h2>
-          <p>
-            This dashboard is designed as a planning surface. In the live version, filters will pull from public data sources; for now, you can use it as a structured worksheet as you research facilities online.
-          </p>
+  <div id="status-area"></div>
+  <div class="results-area" id="results-area"></div>
 
-          <label for="search-text">City, ZIP, or facility name</label>
-          <input type="text" id="search-text" placeholder="e.g., 77005, Ithaca NY, or facility name" />
+  <div class="disclaimer">
+    <strong>Important</strong><br>
+    Facility Insights is informational only. Public data may be incomplete or delayed. Nothing here is a recommendation, endorsement, or guarantee of safety or quality. Always verify with state regulators, the facility directly, and licensed professionals. Maisage receives no commissions or referral fees from any facility.
+  </div>
+</main>
 
-          <div class="filters-grid">
-            <div>
-              <label for="state-select">State</label>
-              <select id="state-select">
-                <option value="">Any state</option>
-                <option value="CA">CA – California</option>
-                <option value="TX">TX – Texas</option>
-                <option value="NY">NY – New York</option>
-                <option value="FL">FL – Florida</option>
-                <option value="PA">PA – Pennsylvania</option>
-                <!-- Add more as needed -->
-              </select>
-            </div>
-            <div>
-              <label for="type-select">Facility type</label>
-              <select id="type-select">
-                <option value="">Any type</option>
-                <option value="snf">Skilled nursing facility</option>
-                <option value="alf">Assisted living</option>
-                <option value="memory">Memory care</option>
-                <option value="ccrc">Continuing care (CCRC)</option>
-              </select>
-            </div>
-            <div>
-              <label for="radius-select">Approx. radius</label>
-              <select id="radius-select">
-                <option value="">No limit</option>
-                <option value="10">Within ~10 miles</option>
-                <option value="25">Within ~25 miles</option>
-                <option value="50">Within ~50 miles</option>
-              </select>
-            </div>
-          </div>
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+    <div class="footer-meta">Neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.</div>
+    <div class="footer-meta">Facility Insights v2.0 – AI-powered</div>
+  </div>
+</footer>
 
-          <label>Prioritize facilities where…</label>
-          <div class="checkbox-group">
-            <label>
-              <input type="checkbox" />
-              Inspection issues are trending <strong>down</strong>
-            </label>
-            <label>
-              <input type="checkbox" />
-              Staffing appears <strong>stable or improving</strong>
-            </label>
-            <label>
-              <input type="checkbox" />
-              No recent major enforcement actions
-            </label>
-            <label>
-              <input type="checkbox" />
-              Ownership has been stable in recent years
-            </label>
-          </div>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
 
-          <div class="button-row">
-            <button type="button" class="btn-primary">
-              Apply filters (conceptual)
-            </button>
-            <button type="button" class="btn-outline">
-              Clear
-            </button>
-          </div>
+['fac-name','fac-loc'].forEach(id => {
+  document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
+});
 
-          <p class="small-note">
-            In a future build, these filters can pull directly from CMS and state-level datasets. For now, use this as a template to capture what you find across multiple sites.
-          </p>
-        </article>
+const SYSTEM = `You are Maisage's Facility Research AI — a neutral tool that helps families evaluate long-term care facilities using public data.
 
-        <article class="card" aria-label="Example facilities table">
-          <h2>Example view of facilities in your list</h2>
-          <p>
-            This is a sample layout showing how you might track facilities you’re considering. You can adapt the columns to what matters most for your family.
-          </p>
+When given a facility name and location:
+1. Search Medicare.gov Care Compare (care.medicare.gov) for overall rating, health inspection rating, staffing rating, quality measures rating
+2. Search for inspection history, deficiency patterns, and enforcement actions (CMPs, denials of payment)
+3. Search for staffing data (RN hours, total nurse staffing hours vs. state/national average)
+4. Search for complaint history and resolution patterns
+5. Search for ownership information — independent vs. chain, recent ownership changes
+6. Search for any recent news — lawsuits, closures, regulatory actions, notable incidents
 
-          <div style="max-height: 260px; overflow: auto;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Facility</th>
-                  <th>Type</th>
-                  <th>Recent inspections</th>
-                  <th>Staffing & complaints</th>
-                  <th>Ownership & notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Maple Grove Care Center<br />
-                    <span class="small-note">10–15 min drive</span>
-                  </td>
-                  <td>SNF</td>
-                  <td>
-                    <span class="flag-pill yellow">Some issues</span><br />
-                    Deficiencies trending down last 2 years. No immediate jeopardy tags in last 3 surveys.
-                  </td>
-                  <td>
-                    <span class="flag-pill yellow">Mixed</span><br />
-                    Staffing slightly below state avg; a few complaints about response time but improving trend.
-                  </td>
-                  <td>
-                    Same owner for 8+ years. No major enforcement actions. Independent, not part of a large chain.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Lakeside Living & Memory Care<br />
-                    <span class="small-note">20–25 min drive</span>
-                  </td>
-                  <td>Assisted living + memory</td>
-                  <td>
-                    <span class="flag-pill">Red flags</span><br />
-                    Several higher-severity deficiencies in last 24 months; follow-up reinspections recently.
-                  </td>
-                  <td>
-                    <span class="flag-pill">Red flags</span><br />
-                    Multiple complaints about neglect and turnover. Staffing well below state average benchmarks.
-                  </td>
-                  <td>
-                    Ownership change 18 months ago. Part of a regional chain. Worth asking why prior operator exited.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Oak Meadow Assisted Living<br />
-                    <span class="small-note">5–10 min drive</span>
-                  </td>
-                  <td>Assisted living</td>
-                  <td>
-                    No major deficiencies in last 3 years. Minor issues corrected quickly.
-                  </td>
-                  <td>
-                    Staffing at or above benchmarks. Complaint volume low, with issues resolved.
-                  </td>
-                  <td>
-                    Long-tenured administrator. Same ownership for 10+ years. Stable environment, but verify pricing details.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+Respond ONLY with a valid JSON object. No markdown fences, no prose outside the JSON. Structure:
+{
+  "name": "Official facility name from CMS or Medicare.gov",
+  "address": "Full address if found",
+  "type": "SNF / Assisted Living / Memory Care / CCRC / etc",
+  "cms_id": "CMS certification number if found, else null",
+  "overall_rating": "X out of 5 stars, or Not Rated",
+  "flags": [
+    { "level": "red", "label": "flag text" },
+    { "level": "yellow", "label": "flag text" },
+    { "level": "green", "label": "flag text" }
+  ],
+  "inspections": "2-4 sentence plain-language summary. Be specific about deficiency counts, severity levels, and trends.",
+  "staffing": "2-3 sentence summary. Include specific RN hours or staffing ratios if found. Compare to state average if available.",
+  "complaints": "2-3 sentence summary of complaint volume, types, and resolution speed.",
+  "ownership": "2-3 sentence summary. Name the owner/operator if found. Note chain vs. independent, years under current ownership.",
+  "news": "1-3 sentence summary of notable recent news, or null if nothing significant found.",
+  "bottom_line": "2-3 sentence honest assessment of what a family walking in should know. Be direct about what the data suggests.",
+  "questions": [
+    "Specific question 1 based on what you found",
+    "Specific question 2",
+    "Specific question 3",
+    "Specific question 4",
+    "Specific question 5"
+  ],
+  "sources": ["Source 1 name or URL", "Source 2"]
+}
 
-          <p class="small-note">
-            None of the entries above are recommendations. They’re examples of how you might summarize what you find in state and federal databases.
-          </p>
-        </article>
-      </section>
+If the facility cannot be found in public databases, be honest about that in bottom_line and still provide useful general guidance. Never fabricate specific ratings, dates, or incident details.`;
 
-      <!-- RIGHT: How to read / red vs yellow / next steps -->
-      <aside aria-label="How to interpret facility patterns">
-        <article class="card">
-          <h2>How to read what you’re seeing</h2>
-          <p>
-            Numbers and flags don’t tell the whole story, but they do tell you <em>where to ask harder questions.</em>
-          </p>
-          <ul>
-            <li>
-              A facility with some past issues but clear improvement can be very different from a facility with ongoing, unresolved problems.
-            </li>
-            <li>
-              Ownership and administrator stability often correlate with culture and follow-through.
-            </li>
-            <li>
-              Complaint volume matters, but so does how quickly issues are addressed and closed out.
-            </li>
-            <li>
-              Staffing numbers are a clue, not a guarantee — you still need to visit and observe.
-            </li>
-          </ul>
-          <p class="small-note">
-            Always pair the data with in-person visits, conversations, and what you see and feel on the ground.
-          </p>
-        </article>
+async function runSearch() {
+  const name = document.getElementById('fac-name').value.trim();
+  const loc = document.getElementById('fac-loc').value.trim();
+  if (!name) { document.getElementById('fac-name').focus(); return; }
 
-        <article class="card">
-          <h2>Red flags vs. “yellow” flags</h2>
-          <p>
-            Not every imperfection is a deal-breaker. This is one way to think about different signals:
-          </p>
-          <ul>
-            <li>
-              <strong>Red flags:</strong> repeated serious deficiencies, ongoing enforcement actions, major staffing gaps, or patterns of neglect in complaints.
-            </li>
-            <li>
-              <strong>Yellow flags:</strong> minor repeated issues, moderate complaints about communication or delays, staffing that’s borderline but improving.
-            </li>
-            <li>
-              <strong>Context matters:</strong> a facility that openly explains past issues and shows what changed may be safer than one that deflects or minimizes.
-            </li>
-          </ul>
-          <p class="small-note">
-            Use the red/yellow framing to decide which facilities need deeper questioning — not to automatically rule them in or out.
-          </p>
-        </article>
+  const btn = document.getElementById('search-btn');
+  btn.disabled = true;
+  btn.innerHTML = `<div class="spinner" style="border-color:#ffffff44;border-top-color:#fff"></div> Researching…`;
 
-        <article class="card">
-          <h2>What to do after using this dashboard</h2>
-          <p>
-            Once you have a short list from Facility Insights:
-          </p>
-          <ul>
-            <li>Schedule tours and unannounced visits at different times of day.</li>
-            <li>Bring a written list of questions based on the patterns you saw.</li>
-            <li>Ask staff directly about turnover, enforcement, and how they responded.</li>
-            <li>Talk with your primary care physician, specialists, or care manager about whether choices match the level of care needed.</li>
-          </ul>
-          <p class="small-note">
-            If you want help turning the patterns into plain-language questions, you can use the tools page or optional 1:1 services to prepare.
-          </p>
-        </article>
+  const statusEl = document.getElementById('status-area');
+  const resultsEl = document.getElementById('results-area');
+  resultsEl.innerHTML = '';
 
-        <div class="disclaimer">
-          <strong>IMPORTANT</strong><br />
-          Facility Insights is an informational dashboard only. Data comes from public sources that may be incomplete, delayed, or updated without notice. Nothing here is a recommendation, rating, endorsement, or guarantee of safety or quality. Always verify information directly with state regulators, facilities, and licensed professionals, and base decisions on your own judgment and advice from your care team. Maisage does not receive commissions or referral fees from any facilities.
+  const setStatus = msg => {
+    statusEl.innerHTML = `<div class="status-bar"><div class="spinner"></div><span>${msg}</span></div>`;
+  };
+
+  setStatus(`Searching CMS &amp; Medicare.gov for <strong>${esc(name)}</strong>${loc ? ' in ' + esc(loc) : ''}…`);
+
+  try {
+    const userMsg = `Research this care facility for a family evaluating it for a loved one:
+Facility: ${name}
+Location: ${loc || 'not specified'}
+
+Search Medicare.gov Care Compare, CMS databases, state inspection records, and news. Return JSON only.`;
+
+    let messages = [{ role: 'user', content: userMsg }];
+    let data = await callAPI(messages);
+    let iters = 0;
+
+    while (data.stop_reason === 'tool_use' && iters < 6) {
+      iters++;
+      const toolUse = data.content.filter(b => b.type === 'tool_use');
+      messages.push({ role: 'assistant', content: data.content });
+
+      const results = toolUse.map(tb => {
+        if (tb.name === 'web_search') setStatus(`Searching: <em>${esc(tb.input?.query || 'facility records')}</em>…`);
+        return { type: 'tool_result', tool_use_id: tb.id, content: 'Search completed.' };
+      });
+
+      messages.push({ role: 'user', content: results });
+      data = await callAPI(messages);
+    }
+
+    statusEl.innerHTML = '';
+
+    const raw = data.content.filter(b => b.type === 'text').map(b => b.text).join('').trim();
+    let parsed;
+    try {
+      parsed = JSON.parse(raw.replace(/^```json\s*/,'').replace(/```\s*$/,'').trim());
+    } catch {
+      resultsEl.innerHTML = `<div class="result-card"><div class="result-body"><div class="section-content"><p>${esc(raw)}</p></div></div></div>`;
+      return;
+    }
+
+    renderResult(parsed, resultsEl);
+
+  } catch(err) {
+    statusEl.innerHTML = '';
+    resultsEl.innerHTML = `<div class="status-bar" style="color:#8b1f19;background:#fff5f4;border-color:#f4c3bf">⚠️ Something went wrong. Please try again.</div>`;
+    console.error(err);
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Research`;
+}
+
+async function callAPI(messages) {
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system: SYSTEM,
+      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+      messages
+    })
+  });
+  return r.json();
+}
+
+function renderResult(d, container) {
+  const flagsHtml = (d.flags || []).map(f =>
+    `<span class="flag ${esc(f.level)}">${esc(f.label)}</span>`
+  ).join('');
+
+  const sections = [
+    { label: 'Bottom line', key: 'bottom_line', bold: true },
+    { label: 'Inspections & deficiencies', key: 'inspections' },
+    { label: 'Staffing', key: 'staffing' },
+    { label: 'Complaints', key: 'complaints' },
+    { label: 'Ownership & stability', key: 'ownership' },
+    { label: 'Notable news', key: 'news' },
+  ];
+
+  const sectionsHtml = sections
+    .filter(s => d[s.key])
+    .map(s => `
+      <div>
+        <div class="section-label">${s.label}</div>
+        <div class="section-content" ${s.bold ? 'style="font-weight:500"' : ''}><p>${esc(d[s.key])}</p></div>
+      </div>`)
+    .join('');
+
+  const questionsHtml = (d.questions || []).length
+    ? `<div class="questions-box">
+        <div class="qlabel">🗒 Questions to bring on your tour</div>
+        <ul>${(d.questions).map(q => `<li>${esc(q)}</li>`).join('')}</ul>
+       </div>`
+    : '';
+
+  const sourcesHtml = (d.sources || []).length
+    ? `<div class="sources-row">Sources: ${d.sources.map(esc).join(' · ')}</div>`
+    : '';
+
+  container.innerHTML = `
+    <div class="result-card">
+      <div class="result-header">
+        <div>
+          <div class="result-name">${esc(d.name || 'Facility')}</div>
+          <div class="result-meta">${[d.type, d.address].filter(Boolean).map(esc).join(' · ')}${d.cms_id ? ` · CMS #${esc(d.cms_id)}` : ''}</div>
+          <div class="result-meta" style="margin-top:0.2rem">Overall rating: <strong>${esc(d.overall_rating || 'Not found')}</strong></div>
         </div>
-      </aside>
-    </div>
-
-    <section aria-labelledby="export-section-title">
-      <h2 id="export-section-title" class="section-title">Capturing and sharing what you find</h2>
-      <p class="section-subtitle">
-        The point of this dashboard is not to be “right” on its own — it’s to help you collect, organize, and then share what you’re seeing.
-      </p>
-      <div class="callout">
-        In later phases, this page can support saving your facility list and exporting it as a simple PDF or spreadsheet. For now, you can copy this structure into your own notes or spreadsheet and bring it to appointments with doctors, care managers, and family members.
+        <div class="flag-row">${flagsHtml}</div>
       </div>
-    </section>
-
-    <div class="disclaimer">
-      <strong>LEGAL & DATA NOTICE</strong><br />
-      Maisage relies on publicly available data and manual research. No single source captures the full picture of a facility’s safety or quality. Use this as one input among many, not as the final word. Maisage is not responsible for decisions, outcomes, or legal claims arising from how this information is used.
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
-      <div class="footer-meta">
-        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No hidden referral arrangements.
+      <div class="result-body">
+        ${sectionsHtml}
+        ${questionsHtml}
+        ${sourcesHtml}
       </div>
-      <div class="footer-meta">
-        Facility Insights v1.1 – 2025-12-06
-      </div>
-    </div>
-  </footer>
+    </div>`;
+}
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+function esc(t) {
+  if (!t) return '';
+  return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+
 </body>
 </html>
