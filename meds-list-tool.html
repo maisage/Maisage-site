@@ -1,198 +1,469 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Medication List & Tiers Tool | Maisage</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Capture the full medication list in one place and highlight which drugs may be driving cost or complexity."
-  />
-  <style>
-    :root {
-      --bg: #f7f8fa;
-      --card-bg: #ffffff;
-      --accent: #2f7d4a;
-      --text-main: #1b1f23;
-      --text-muted: #5b6470;
-      --border-soft: #dde2e8;
-      --danger: #b3261e;
-      --max-width: 1120px;
-      --radius-card: 14px;
-      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
-    }
-    * { box-sizing: border-box; }
-    body { margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text-main);line-height:1.5; }
-    a { color:inherit;text-decoration:none; }
+<meta charset="UTF-8" />
+<title>Medication List & AI Analysis | Maisage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Capture your full medication list and let Maisage's AI research cost drivers, generic alternatives, Part D coverage, and questions to bring to your pharmacist." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f8fa;
+  --card: #ffffff;
+  --accent: #2f7d4a;
+  --accent-soft: #e3f2ea;
+  --accent-mid: #4a9e65;
+  --text-main: #1b1f23;
+  --text-muted: #5b6470;
+  --border: #dde2e8;
+  --danger: #b3261e;
+  --warn: #8a5b00;
+  --warn-bg: #fff9e8;
+  --search-color: #7c5cbf;
+  --search-bg: #f3f0fa;
+  --max-width: 1060px;
+  --radius: 14px;
+  --shadow: 0 8px 28px rgba(15,23,42,0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.55; }
+a { color: inherit; text-decoration: none; }
 
-    header { background:#fff;border-bottom:1px solid var(--border-soft);position:sticky;top:0;z-index:20; }
-    .nav-inner { max-width:var(--max-width);margin:0 auto;padding:0.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem; }
-    .brand { display:flex;align-items:center;gap:0.5rem;font-weight:600;letter-spacing:0.03em; }
-    .brand-logo { width:32px;height:32px;border-radius:999px;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:var(--accent);background:#f5fbf7; }
-    nav ul { list-style:none;margin:0;padding:0;display:flex;gap:1.5rem;font-size:0.95rem; }
-    nav a { color:var(--text-muted);font-weight:500; }
-    nav a:hover { color:var(--accent); }
+header { background: #fff; border-bottom: 1px solid var(–border); position: sticky; top: 0; z-index: 20; }
+.nav-inner { max-width: var(–max-width); margin: 0 auto; padding: 0.7rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 0.5rem; font-family: ‘Lora’, serif; font-weight: 600; font-size: 1.05rem; }
+.brand-logo { width: 32px; height: 32px; border-radius: 999px; border: 2px solid var(–accent); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(–accent); background: var(–accent-soft); }
+nav ul { list-style: none; display: flex; gap: 1.5rem; font-size: 0.9rem; }
+nav a { color: var(–text-muted); font-weight: 500; }
+nav a:hover { color: var(–accent); }
+@media(max-width:700px){ nav ul{display:none;} }
 
-    main { max-width:var(--max-width);margin:0 auto;padding:1.5rem 1rem 3rem; }
-    h1 { font-size:clamp(1.8rem,3vw + 0.3rem,2.2rem);margin:0 0 0.6rem; }
-    .subtitle { max-width:46rem;color:var(--text-muted);font-size:0.97rem;margin:0 0 1.7rem; }
+main { max-width: var(–max-width); margin: 0 auto; padding: 2rem 1.25rem 4rem; }
 
-    .hint { font-size:0.8rem;color:var(--text-muted);margin-top:0.3rem; }
+.page-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.7rem; border-radius: 999px; background: var(–accent-soft); color: var(–accent); font-size: 0.75rem; font-weight: 600; margin-bottom: 0.65rem; }
+.dot { width: 6px; height: 6px; border-radius: 999px; background: var(–accent); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+h1 { font-family: ‘Lora’, serif; font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 0.45rem; }
+.page-sub { color: var(–text-muted); font-size: 0.93rem; max-width: 600px; margin-bottom: 1.75rem; }
 
-    .table-wrapper { overflow-x:auto;margin-top:1rem; }
-    table {
-      width:100%;
-      border-collapse:collapse;
-      font-size:0.9rem;
-      background:var(--card-bg);
-      border-radius:var(--radius-card);
-      box-shadow:var(--shadow-soft);
-      overflow:hidden;
-    }
-    th, td {
-      border:1px solid var(--border-soft);
-      padding:0.45rem 0.5rem;
-      vertical-align:top;
-    }
-    th { background:#f1f5f9;font-size:0.86rem; }
+/* TABLE CARD */
+.table-card { background: var(–card); border: 1px solid var(–border); border-radius: var(–radius); box-shadow: var(–shadow); overflow: hidden; margin-bottom: 1rem; }
+.table-card-header { padding: 1rem 1.25rem; border-bottom: 1px solid var(–border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+.table-card-header h2 { font-family: ‘Lora’, serif; font-size: 1rem; }
 
-    input, textarea, select {
-      width:100%;
-      border:none;
-      font-family:inherit;
-      font-size:0.86rem;
-      padding:0.1rem 0.15rem;
-      background:transparent;
-      resize:vertical;
-    }
-    textarea { min-height:32px; }
+.btn { border-radius: 999px; padding: 0.5rem 1.1rem; font-family: inherit; font-size: 0.85rem; font-weight: 600; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.15s; }
+.btn-primary { background: var(–accent); color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(–accent-mid); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-outline { background: #fff; color: var(–accent); border: 1px solid var(–accent); }
+.btn-outline:hover { background: var(–accent-soft); }
+.btn-ghost { background: none; color: var(–text-muted); border: 1px solid var(–border); }
+.btn-ghost:hover { background: var(–bg); color: var(–text-main); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
-    .disclaimer { margin-top:2.3rem;padding:0.9rem 1.1rem;border-radius:var(--radius-card);border:1px solid #f2c3c0;background:#fff5f4;color:var(--danger);font-size:0.78rem; }
-    .disclaimer strong { text-transform:uppercase;font-size:0.72rem;letter-spacing:0.08em; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; min-width: 640px; }
+th { background: #f4f6f8; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(–text-muted); padding: 0.55rem 0.6rem; text-align: left; border-bottom: 1px solid var(–border); }
+td { padding: 0.4rem 0.6rem; border-bottom: 1px solid #f0f2f5; vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td textarea, td input, td select {
+width: 100%; border: none; font-family: inherit; font-size: 0.85rem; color: var(–text-main);
+background: transparent; padding: 0.15rem 0; resize: none; outline: none; line-height: 1.4;
+}
+td textarea { min-height: 36px; }
+td:focus-within { background: #fafffe; }
 
-    footer { background:#fff;border-top:1px solid var(--border-soft);margin-top:3rem;padding:1rem 1rem 1.4rem;color:var(--text-muted);font-size:0.8rem; }
-    .footer-inner { max-width:var(--max-width);margin:0 auto;display:flex;flex-direction:column;gap:0.4rem; }
-    .footer-meta { font-size:0.75rem;color:#8c94a0; }
+.add-row-btn { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(–accent); font-weight: 600; padding: 0.65rem 1.25rem; cursor: pointer; background: none; border: none; font-family: inherit; border-top: 1px solid var(–border); width: 100%; }
+.add-row-btn:hover { background: var(–accent-soft); }
 
-    @media (max-width:768px){ nav ul{display:none;} }
-  </style>
+/* STATUS */
+.status-bar { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 0.9rem; background: var(–search-bg); border: 1px solid #d4c8f0; border-radius: 10px; font-size: 0.83rem; color: var(–search-color); margin-bottom: 1rem; }
+.spinner { width: 13px; height: 13px; border: 2px solid #d4c8f0; border-top-color: var(–search-color); border-radius: 999px; animation: spin 0.7s linear infinite; flex-shrink: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* RESULTS */
+.analysis-section { display: flex; flex-direction: column; gap: 1rem; }
+
+.med-result-card { background: var(–card); border: 1px solid var(–border); border-radius: var(–radius); box-shadow: var(–shadow); overflow: hidden; animation: fadeUp 0.2s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+.med-header { padding: 0.85rem 1.1rem; border-bottom: 1px solid var(–border); display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+.med-name { font-family: ‘Lora’, serif; font-size: 1rem; font-weight: 600; }
+.med-desc { font-size: 0.78rem; color: var(–text-muted); margin-top: 0.1rem; }
+.cost-badge { display: inline-flex; align-items: center; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600; flex-shrink: 0; }
+.cost-high { background: #fff5f4; border: 1px solid #f4c3bf; color: #8b1f19; }
+.cost-med { background: var(–warn-bg); border: 1px solid #ffe4a3; color: var(–warn); }
+.cost-low { background: var(–accent-soft); border: 1px solid #b2dfc2; color: #1e5c33; }
+.cost-unknown { background: #f0f2f5; border: 1px solid var(–border); color: var(–text-muted); }
+
+.med-body { padding: 0.9rem 1.1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(–text-muted); margin-bottom: 0.25rem; }
+.section-content { font-size: 0.86rem; line-height: 1.6; }
+.section-content p { margin-bottom: 0.3rem; }
+.section-content p:last-child { margin-bottom: 0; }
+
+.questions-box { background: #f5fbf7; border: 1px dashed var(–accent); border-radius: 10px; padding: 0.8rem 0.9rem; }
+.qlabel { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(–accent); margin-bottom: 0.4rem; }
+.questions-box ul { padding-left: 1.1rem; font-size: 0.84rem; margin: 0; }
+.questions-box li { margin-bottom: 0.2rem; }
+
+/* OVERALL SUMMARY */
+.summary-card { background: var(–card); border: 1px solid var(–border); border-radius: var(–radius); box-shadow: var(–shadow); padding: 1.1rem 1.25rem; }
+.summary-card h3 { font-family: ‘Lora’, serif; font-size: 1rem; margin-bottom: 0.5rem; }
+.summary-content { font-size: 0.87rem; line-height: 1.65; }
+.summary-content p { margin-bottom: 0.4rem; }
+
+.disclaimer { margin-top: 2rem; padding: 0.85rem 1rem; border-radius: var(–radius); border: 1px solid #f2c3c0; background: #fff5f4; font-size: 0.76rem; color: var(–danger); }
+.disclaimer strong { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; }
+
+footer { background: #fff; border-top: 1px solid var(–border); margin-top: 3rem; padding: 1rem 1.25rem 1.5rem; font-size: 0.8rem; color: var(–text-muted); }
+.footer-inner { max-width: var(–max-width); margin: 0 auto; display: flex; flex-direction: column; gap: 0.4rem; }
+.footer-meta { font-size: 0.74rem; color: #8c94a0; }
+</style>
+
 </head>
 <body>
-  <div id="nav-placeholder"></div>
-  <script>
-    fetch("nav.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
-  </script>
 
-  <main>
-    <h1>Medication list & tiers tool</h1>
-    <p class="subtitle">
-      Use this table to capture all medications in one place and highlight which ones feel most important and which may be driving cost or complexity.
-    </p>
+<div id="nav-placeholder"></div>
+<script>
+fetch("nav.html").then(r => r.text()).then(html => {
+  document.getElementById("nav-placeholder").innerHTML = html;
+});
+</script>
 
-    <p class="hint">
-      Include prescriptions, over-the-counter medications, vitamins, and supplements.
-    </p>
+<main>
+  <div class="page-badge"><span class="dot"></span> AI-powered analysis</div>
+  <h1>Medication list & cost analysis</h1>
+  <p class="page-sub">Enter your medications below, then hit "Analyze with AI." Maisage will research cost drivers, generic alternatives, Part D tiers, and patient assistance programs for each drug — and generate questions to bring to your pharmacist.</p>
 
-    <div class="table-wrapper">
+  <div class="table-card">
+    <div class="table-card-header">
+      <h2>Your medications</h2>
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="clearTable()">Clear all</button>
+        <button class="btn btn-primary" id="analyze-btn" onclick="runAnalysis()">
+          ✦ Analyze with AI
+        </button>
+      </div>
+    </div>
+    <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Medication name</th>
-            <th>Dose & frequency</th>
-            <th>What it’s for (in your words)</th>
-            <th>Prescriber</th>
-            <th>How important does this feel?</th>
-            <th>Cost / complexity notes</th>
+            <th style="width:20%">Medication name</th>
+            <th style="width:15%">Dose & frequency</th>
+            <th style="width:20%">What it's for (in your words)</th>
+            <th style="width:13%">Prescriber</th>
+            <th style="width:17%">How important does this feel?</th>
+            <th style="width:15%">Cost / complexity notes</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><textarea placeholder="Example: Metformin"></textarea></td>
-            <td><textarea placeholder="500 mg, twice daily"></textarea></td>
-            <td><textarea placeholder="Blood sugar, diabetes"></textarea></td>
-            <td><textarea placeholder="Primary doctor, endocrinologist, etc."></textarea></td>
-            <td>
-              <select>
-                <option value="">Select...</option>
-                <option>Feels essential</option>
-                <option>Helps but not sure</option>
-                <option>Not sure we still need</option>
-              </select>
-            </td>
-            <td><textarea placeholder="High copay, frequent refills, hard to manage timing, side effects..."></textarea></td>
-          </tr>
-          <tr>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td>
-              <select>
-                <option value="">Select...</option>
-                <option>Feels essential</option>
-                <option>Helps but not sure</option>
-                <option>Not sure we still need</option>
-              </select>
-            </td>
-            <td><textarea></textarea></td>
-          </tr>
-          <tr>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td>
-              <select>
-                <option value="">Select...</option>
-                <option>Feels essential</option>
-                <option>Helps but not sure</option>
-                <option>Not sure we still need</option>
-              </select>
-            </td>
-            <td><textarea></textarea></td>
-          </tr>
-          <tr>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td><textarea></textarea></td>
-            <td>
-              <select>
-                <option value="">Select...</option>
-                <option>Feels essential</option>
-                <option>Helps but not sure</option>
-                <option>Not sure we still need</option>
-              </select>
-            </td>
-            <td><textarea></textarea></td>
-          </tr>
+        <tbody id="med-table-body">
         </tbody>
       </table>
     </div>
+    <button class="add-row-btn" onclick="addRow()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add medication
+    </button>
+  </div>
 
-    <p class="hint">
-      You can bring this list to appointments and pair it with the cost comparison and questions checklists on the Tools page.
-    </p>
+  <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:1.5rem">Include prescriptions, over-the-counter medications, vitamins, and supplements.</p>
 
-    <div class="disclaimer">
-      <strong>IMPORTANT</strong><br />
-      This tool is for orientation and planning only. Do not change, start, or stop any medications based on this tool alone. Medication decisions must be made with licensed prescribers and pharmacists who understand your full situation.
+  <div id="status-area"></div>
+  <div class="analysis-section" id="analysis-area"></div>
+
+  <div class="disclaimer">
+    <strong>Important</strong><br>
+    This tool is for orientation and planning only. Do not change, start, or stop any medication based on this tool alone. All medication decisions must be made with licensed prescribers and pharmacists who know your full situation.
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Maisage. All rights reserved.</div>
+    <div class="footer-meta">Neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.</div>
+    <div class="footer-meta">Medication List Tool v2.0 – AI-powered</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ── TABLE MANAGEMENT ──
+let rowCount = 0;
+
+function addRow(data = {}) {
+  rowCount++;
+  const tbody = document.getElementById('med-table-body');
+  const tr = document.createElement('tr');
+  tr.id = `row-${rowCount}`;
+  tr.innerHTML = `
+    <td><textarea placeholder="e.g., Metformin" rows="1" oninput="autoGrow(this)">${data.name || ''}</textarea></td>
+
+```
+<td><textarea placeholder="500mg twice daily" rows="1" oninput="autoGrow(this)">${data.dose || ''}</textarea></td>
+<td><textarea placeholder="Blood sugar / diabetes" rows="1" oninput="autoGrow(this)">${data.purpose || ''}</textarea></td>
+<td><textarea placeholder="Primary care" rows="1" oninput="autoGrow(this)">${data.prescriber || ''}</textarea></td>
+<td>
+  <select>
+    <option value="">Select…</option>
+    <option ${data.importance === 'essential' ? 'selected' : ''}>Feels essential</option>
+    <option ${data.importance === 'unsure' ? 'selected' : ''}>Helps but not sure</option>
+    <option ${data.importance === 'question' ? 'selected' : ''}>Not sure we still need it</option>
+  </select>
+</td>
+<td><textarea placeholder="High copay, complex timing, side effects…" rows="1" oninput="autoGrow(this)">${data.notes || ''}</textarea></td>`;
+```
+
+tbody.appendChild(tr);
+}
+
+function autoGrow(el) {
+el.style.height = ‘auto’;
+el.style.height = el.scrollHeight + ‘px’;
+}
+
+function clearTable() {
+document.getElementById(‘med-table-body’).innerHTML = ‘’;
+document.getElementById(‘analysis-area’).innerHTML = ‘’;
+document.getElementById(‘status-area’).innerHTML = ‘’;
+rowCount = 0;
+addRow(); addRow(); addRow(); addRow();
+}
+
+function getMeds() {
+const rows = document.querySelectorAll(’#med-table-body tr’);
+const meds = [];
+rows.forEach(row => {
+const cells = row.querySelectorAll(‘td’);
+const name = cells[0]?.querySelector(‘textarea’)?.value.trim();
+if (!name) return;
+meds.push({
+name,
+dose: cells[1]?.querySelector(‘textarea’)?.value.trim() || ‘’,
+purpose: cells[2]?.querySelector(‘textarea’)?.value.trim() || ‘’,
+prescriber: cells[3]?.querySelector(‘textarea’)?.value.trim() || ‘’,
+importance: cells[4]?.querySelector(‘select’)?.value || ‘’,
+notes: cells[5]?.querySelector(‘textarea’)?.value.trim() || ‘’,
+});
+});
+return meds;
+}
+
+// Initialize with 4 empty rows
+addRow(); addRow(); addRow(); addRow();
+
+// ── AI ANALYSIS ──
+const SYSTEM = `You are Maisage’s Medication Analysis AI — a neutral tool that helps families understand cost drivers, alternatives, and coverage options for a medication list.
+
+Given a list of medications, for EACH medication that has a name:
+
+1. Search GoodRx, RxSaver, or similar for typical retail price and any discount pricing
+1. Search for generic availability and generic name if it’s a brand-name drug
+1. Search for Medicare Part D tier placement (if relevant to older adults)
+1. Search for manufacturer patient assistance programs (PAP) if it’s a high-cost drug
+1. Note any Beers Criteria concerns for older adults if relevant
+1. Note if there are commonly used alternatives to ask the prescriber about
+
+Then return a JSON object ONLY — no prose, no markdown fences:
+{
+“summary”: “2-3 sentence plain-language overview of the full medication list — total cost burden estimate, key patterns, biggest opportunities”,
+“pharmacist_questions”: [
+“General question 1 for the pharmacist based on the full list”,
+“General question 2”,
+“General question 3”
+],
+“medications”: [
+{
+“name”: “Medication name as entered”,
+“generic_name”: “Generic name if applicable, else null”,
+“cost_level”: “high|medium|low|unknown”,
+“typical_cost”: “Plain-language cost description, e.g., ‘$200-400/month brand, $15-30 generic’”,
+“generic_available”: true or false,
+“part_d_tier”: “Tier description if relevant, e.g., ‘Tier 3 preferred brand’ or null”,
+“assistance_programs”: “Brief note on PAP or copay cards if applicable, else null”,
+“alternatives_to_ask”: “1-2 sentence note on therapeutic alternatives worth discussing with prescriber, or null”,
+“older_adult_note”: “Brief Beers Criteria or polypharmacy note if relevant, else null”,
+“questions”: [
+“Specific question about this drug to bring to pharmacist or prescriber”,
+“Second question if relevant”
+]
+}
+]
+}
+
+Be honest about data gaps. Never fabricate specific prices — use ranges and note they vary by location and plan. Keep language plain and direct.`;
+
+async function runAnalysis() {
+const meds = getMeds();
+if (!meds.length) {
+alert(‘Please enter at least one medication name.’);
+return;
+}
+
+const btn = document.getElementById(‘analyze-btn’);
+btn.disabled = true;
+btn.textContent = ‘Analyzing…’;
+
+const statusEl = document.getElementById(‘status-area’);
+const analysisEl = document.getElementById(‘analysis-area’);
+analysisEl.innerHTML = ‘’;
+
+const setStatus = msg => {
+statusEl.innerHTML = `<div class="status-bar"><div class="spinner"></div><span>${msg}</span></div>`;
+};
+
+setStatus(`Researching ${meds.length} medication${meds.length > 1 ? 's' : ''}…`);
+
+try {
+const medsText = meds.map((m, i) =>
+`${i+1}. ${m.name}${m.dose ? ` (${m.dose})`: ''}${m.purpose ?` — for: ${m.purpose}`: ''}${m.notes ?` — notes: ${m.notes}`: ''}${m.importance ?` — family rating: ${m.importance}` : ''}`
+).join(’\n’);
+
+```
+const userMsg = `Analyze these medications for a family managing care for an older adult. Research pricing, generics, coverage, and assistance programs for each.
+```
+
+Medications:
+${medsText}
+
+Return JSON only.`;
+
+```
+let messages = [{ role: 'user', content: userMsg }];
+let data = await callAPI(messages);
+let iters = 0;
+
+while (data.stop_reason === 'tool_use' && iters < 8) {
+  iters++;
+  const toolUse = data.content.filter(b => b.type === 'tool_use');
+  messages.push({ role: 'assistant', content: data.content });
+
+  const results = toolUse.map(tb => {
+    if (tb.name === 'web_search') setStatus(`Researching: <em>${esc(tb.input?.query || 'medication data')}</em>…`);
+    return { type: 'tool_result', tool_use_id: tb.id, content: 'Search completed.' };
+  });
+
+  messages.push({ role: 'user', content: results });
+  data = await callAPI(messages);
+}
+
+statusEl.innerHTML = '';
+
+const raw = data.content.filter(b => b.type === 'text').map(b => b.text).join('').trim();
+let parsed;
+try {
+  parsed = JSON.parse(raw.replace(/^```json\s*/,'').replace(/```\s*$/,'').trim());
+} catch {
+  analysisEl.innerHTML = `<div class="summary-card"><div class="summary-content"><p>${esc(raw)}</p></div></div>`;
+  return;
+}
+
+renderAnalysis(parsed, analysisEl);
+```
+
+} catch(err) {
+statusEl.innerHTML = ‘’;
+analysisEl.innerHTML = `<div class="status-bar" style="color:#8b1f19;background:#fff5f4;border-color:#f4c3bf">⚠️ Something went wrong. Please try again.</div>`;
+console.error(err);
+}
+
+btn.disabled = false;
+btn.textContent = ‘✦ Analyze with AI’;
+}
+
+async function callAPI(messages) {
+const r = await fetch(‘https://api.anthropic.com/v1/messages’, {
+method: ‘POST’,
+headers: { ‘Content-Type’: ‘application/json’ },
+body: JSON.stringify({
+model: ‘claude-sonnet-4-20250514’,
+max_tokens: 1000,
+system: SYSTEM,
+tools: [{ type: ‘web_search_20250305’, name: ‘web_search’ }],
+messages
+})
+});
+return r.json();
+}
+
+function renderAnalysis(d, container) {
+// Summary card
+if (d.summary || d.pharmacist_questions?.length) {
+const qHtml = (d.pharmacist_questions || []).length
+? `<div class="questions-box" style="margin-top:0.75rem"> <div class="qlabel">General questions for your pharmacist</div> <ul>${(d.pharmacist_questions).map(q => `<li>${esc(q)}</li>`).join('')}</ul> </div>`
+: ‘’;
+
+```
+const summaryCard = document.createElement('div');
+summaryCard.className = 'summary-card';
+summaryCard.innerHTML = `
+  <h3>Overall picture</h3>
+  <div class="summary-content"><p>${esc(d.summary || '')}</p></div>
+  ${qHtml}`;
+container.appendChild(summaryCard);
+```
+
+}
+
+// Per-med cards
+(d.medications || []).forEach(med => {
+const costClass = {high:‘cost-high’,medium:‘cost-med’,low:‘cost-low’}[med.cost_level] || ‘cost-unknown’;
+const costLabel = {high:‘High cost’,medium:‘Moderate cost’,low:‘Low cost’,unknown:‘Cost unclear’}[med.cost_level] || ‘Cost unclear’;
+
+```
+const sections = [];
+if (med.typical_cost) sections.push({ label: 'Typical pricing', text: med.typical_cost });
+if (med.generic_available !== undefined) {
+  const gText = med.generic_available
+    ? `Generic available${med.generic_name ? ` (${med.generic_name})` : ''} — often significantly cheaper.`
+    : `No generic currently available.`;
+  sections.push({ label: 'Generic status', text: gText });
+}
+if (med.part_d_tier) sections.push({ label: 'Medicare Part D', text: med.part_d_tier });
+if (med.assistance_programs) sections.push({ label: 'Assistance programs', text: med.assistance_programs });
+if (med.alternatives_to_ask) sections.push({ label: 'Alternatives to discuss', text: med.alternatives_to_ask });
+if (med.older_adult_note) sections.push({ label: 'Older adult note', text: med.older_adult_note });
+
+const sectionsHtml = sections.map(s =>
+  `<div><div class="section-label">${s.label}</div><div class="section-content"><p>${esc(s.text)}</p></div></div>`
+).join('');
+
+const questionsHtml = (med.questions || []).length
+  ? `<div class="questions-box">
+      <div class="qlabel">Questions to ask</div>
+      <ul>${med.questions.map(q => `<li>${esc(q)}</li>`).join('')}</ul>
+     </div>`
+  : '';
+
+const card = document.createElement('div');
+card.className = 'med-result-card';
+card.innerHTML = `
+  <div class="med-header">
+    <div>
+      <div class="med-name">${esc(med.name)}</div>
+      ${med.generic_name ? `<div class="med-desc">Generic: ${esc(med.generic_name)}</div>` : ''}
     </div>
-  </main>
+    <span class="cost-badge ${costClass}">${costLabel}</span>
+  </div>
+  <div class="med-body">
+    ${sectionsHtml}
+    ${questionsHtml}
+  </div>`;
+container.appendChild(card);
+```
 
-  <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Maisage. All rights reserved.</div>
-      <div class="footer-meta">
-        Maisage is a neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.
-      </div>
-      <div class="footer-meta">Medication list tool v1.0 – 2025-12-10</div>
-    </div>
-  </footer>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+});
+}
+
+function esc(t) {
+if (!t) return ‘’;
+return String(t).replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’).replace(/”/g,’"’);
+}
+</script>
+
 </body>
 </html>
