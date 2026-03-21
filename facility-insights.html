@@ -2,341 +2,634 @@
 
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Facility Insights – Beyond Ratings | Maisage</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="AI-powered facility research. Type a facility name and location — Maisage searches CMS, Medicare.gov, and state databases in real time." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facility Insights – Beyond Ratings | Maisage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── IMPORTANT: Add your Anthropic API key below ── */
+    /* Get one at console.anthropic.com                  */
+
+```
 :root {
-  --bg: #f7f8fa;
-  --card: #ffffff;
-  --accent: #2f7d4a;
-  --accent-soft: #e3f2ea;
-  --accent-mid: #4a9e65;
-  --text-main: #1b1f23;
-  --text-muted: #5b6470;
-  --border: #dde2e8;
-  --danger: #b3261e;
-  --warn: #8a5b00;
-  --warn-bg: #fff9e8;
-  --warn-border: #ffe4a3;
-  --search-color: #7c5cbf;
-  --search-bg: #f3f0fa;
-  --max-width: 1000px;
-  --radius: 14px;
-  --shadow: 0 8px 28px rgba(15,23,42,0.08);
+  --pine:      #3a5c3d;
+  --sage:      #5a7d5e;
+  --mist:      #8aab8e;
+  --foam:      #c8deca;
+  --parchment: #f5f0e8;
+  --cream:     #faf7f2;
+  --bark:      #2d3b2e;
+  --stone:     #6b7c6c;
+  --ghost:     #f0ece3;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.55; }
-a { color: inherit; text-decoration: none; }
 
-header { background: #fff; border-bottom: 1px solid var(–border); position: sticky; top: 0; z-index: 20; }
-.nav-inner { max-width: var(–max-width); margin: 0 auto; padding: 0.7rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 0.5rem; font-family: ‘Lora’, serif; font-weight: 600; font-size: 1.05rem; }
-.brand-logo { width: 32px; height: 32px; border-radius: 999px; border: 2px solid var(–accent); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(–accent); background: var(–accent-soft); }
-nav ul { list-style: none; display: flex; gap: 1.5rem; font-size: 0.9rem; }
-nav a { color: var(–text-muted); font-weight: 500; }
-nav a:hover { color: var(–accent); }
-@media(max-width:700px){ nav ul { display: none; } }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--bark); background: var(--parchment); }
+a { color: var(--pine); }
+h1,h2,h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
 
-main { max-width: var(–max-width); margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+/* ── NAV ── */
+nav {
+  background: var(--pine); position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 16px rgba(45,59,46,.18);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; height: 60px; gap: 4px;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600;
+  color: #fff; text-decoration: none; margin-right: auto;
+}
+.nav-link {
+  color: rgba(255,255,255,.82); text-decoration: none; padding: 8px 13px;
+  border-radius: 6px; font-size: 14px; font-weight: 500;
+  border-bottom: 2px solid transparent; transition: color .2s;
+}
+.nav-link:hover { color: #fff; }
+.nav-link.active { color: var(--foam); border-bottom-color: var(--foam); }
+.nav-link.cta { background: rgba(255,255,255,.12); }
 
-.page-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.7rem; border-radius: 999px; background: var(–accent-soft); color: var(–accent); font-size: 0.75rem; font-weight: 600; margin-bottom: 0.65rem; }
-.dot { width: 6px; height: 6px; border-radius: 999px; background: var(–accent); animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-h1 { font-family: ‘Lora’, serif; font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 0.45rem; }
-.page-sub { color: var(–text-muted); font-size: 0.93rem; max-width: 580px; margin-bottom: 2rem; }
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, var(--pine) 0%, var(--sage) 100%);
+  padding: 52px 24px; text-align: center;
+}
+.hero h1 { font-size: clamp(28px,5vw,42px); color: #fff; margin-bottom: 12px; }
+.hero p { color: rgba(255,255,255,.82); font-size: 16px; line-height: 1.7; max-width: 580px; margin: 0 auto; }
 
-.search-card { background: var(–card); border: 1px solid var(–border); border-radius: var(–radius); box-shadow: var(–shadow); padding: 1.5rem; margin-bottom: 1.5rem; }
-.search-card h2 { font-family: ‘Lora’, serif; font-size: 1.05rem; margin-bottom: 0.85rem; }
-.search-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.75rem; align-items: end; }
-@media(max-width:600px){ .search-row { grid-template-columns: 1fr; } }
-.field label { display: block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(–text-muted); margin-bottom: 0.3rem; }
-.field input { width: 100%; padding: 0.6rem 0.75rem; border: 1.5px solid var(–border); border-radius: 10px; font-family: inherit; font-size: 0.9rem; color: var(–text-main); background: var(–bg); outline: none; transition: border-color 0.15s; }
-.field input:focus { border-color: var(–accent); background: #fff; }
-.search-btn { padding: 0.65rem 1.35rem; background: var(–accent); color: #fff; border: none; border-radius: 10px; font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.45rem; white-space: nowrap; transition: background 0.15s; }
-.search-btn:hover:not(:disabled) { background: var(–accent-mid); }
-.search-btn:disabled { opacity: 0.45; cursor: not-allowed; }
-.search-hint { font-size: 0.77rem; color: var(–text-muted); margin-top: 0.7rem; }
+/* ── MAIN LAYOUT ── */
+.container { max-width: 1000px; margin: 0 auto; padding: 48px 24px 80px; }
 
-.status-bar { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 0.9rem; background: var(–search-bg); border: 1px solid #d4c8f0; border-radius: 10px; font-size: 0.83rem; color: var(–search-color); margin-bottom: 1rem; }
-.spinner { width: 13px; height: 13px; border: 2px solid #d4c8f0; border-top-color: var(–search-color); border-radius: 999px; animation: spin 0.7s linear infinite; flex-shrink: 0; }
-@keyframes spin { to { transform: rotate(360deg); } }
+/* ── SEARCH BOX ── */
+.search-card {
+  background: #fff; border-radius: 16px; padding: 28px;
+  border: 1px solid var(--foam); box-shadow: 0 2px 16px rgba(45,59,46,.07);
+  margin-bottom: 32px;
+}
+.search-card h2 { font-size: 22px; color: var(--bark); margin-bottom: 6px; }
+.search-card p { font-size: 14px; color: var(--stone); line-height: 1.6; margin-bottom: 20px; }
+.search-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 16px; }
+.search-row input {
+  flex: 1 1 260px; border: 1.5px solid var(--foam); border-radius: 8px;
+  padding: 11px 14px; font-size: 14px; font-family: 'DM Sans', sans-serif;
+  color: var(--bark); transition: border-color .2s;
+}
+.search-row input:focus { outline: none; border-color: var(--sage); }
+.btn-ask {
+  background: var(--pine); color: #fff; border: none; padding: 11px 20px;
+  border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; white-space: nowrap; transition: background .2s;
+}
+.btn-ask:hover { background: var(--bark); }
+.tip-box {
+  background: var(--ghost); border-radius: 8px; padding: 11px 14px;
+  font-size: 13px; color: var(--stone); line-height: 1.6;
+}
 
-.results-area { display: flex; flex-direction: column; gap: 1rem; }
+/* ── FLAGS ── */
+.flags-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 16px; margin-bottom: 32px; }
+.flag-card { border-radius: 12px; padding: 18px; }
+.flag-card .flag-icon { font-size: 20px; margin-bottom: 8px; }
+.flag-card .flag-label { font-weight: 600; font-size: 13px; margin-bottom: 10px; }
+.flag-card .flag-item { font-size: 12px; color: var(--bark); padding: 2px 0; }
+.flag-red   { background: #fef2f2; border: 1px solid #fecaca; }
+.flag-red   .flag-label { color: #dc2626; }
+.flag-yellow { background: #fffbeb; border: 1px solid #fde68a; }
+.flag-yellow .flag-label { color: #d97706; }
+.flag-green  { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.flag-green  .flag-label { color: #16a34a; }
 
-.result-card { background: var(–card); border: 1px solid var(–border); border-radius: var(–radius); box-shadow: var(–shadow); overflow: hidden; animation: fadeUp 0.25s ease; }
-@keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-.result-header { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(–border); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-.result-name { font-family: ‘Lora’, serif; font-size: 1.05rem; font-weight: 600; }
-.result-meta { font-size: 0.79rem; color: var(–text-muted); margin-top: 0.2rem; }
-.flag-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.1rem; }
-.flag { display: inline-flex; align-items: center; padding: 0.18rem 0.5rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600; }
-.flag.red { background:#fff5f4; border:1px solid #f4c3bf; color:#8b1f19; }
-.flag.yellow { background:var(–warn-bg); border:1px solid var(–warn-border); color:var(–warn); }
-.flag.green { background:var(–accent-soft); border:1px solid #b2dfc2; color:#1e5c33; }
-.flag.gray { background:#f0f2f5; border:1px solid var(–border); color:var(–text-muted); }
+/* ── TABLE ── */
+.table-wrap { border-radius: 14px; border: 1px solid var(--foam); overflow-x: auto; margin-bottom: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: var(--ghost); padding: 11px 14px; text-align: left; font-weight: 600; color: var(--bark); border-bottom: 1px solid var(--foam); }
+td { padding: 11px 14px; border-bottom: 1px solid var(--foam); }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--cream); }
+.note { font-size: 12px; color: var(--stone); line-height: 1.5; }
 
-.result-body { padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; }
-.section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(–text-muted); margin-bottom: 0.3rem; }
-.section-content { font-size: 0.87rem; line-height: 1.65; }
-.section-content p { margin-bottom: 0.35rem; }
-.section-content p:last-child { margin-bottom: 0; }
+/* ── INFO SECTIONS ── */
+.info-section { margin-bottom: 32px; }
+.info-section h2 { font-size: 24px; color: var(--bark); margin-bottom: 10px; }
+.info-section p, .info-section li { font-size: 14px; color: var(--stone); line-height: 1.7; margin-bottom: 8px; }
+.info-section ul { padding-left: 20px; }
 
-.questions-box { background: #f5fbf7; border: 1px dashed var(–accent); border-radius: 10px; padding: 0.9rem 1rem; }
-.qlabel { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(–accent); margin-bottom: 0.45rem; }
-.questions-box ul { padding-left: 1.15rem; font-size: 0.85rem; margin: 0; }
-.questions-box li { margin-bottom: 0.2rem; }
+.alert-box {
+  background: var(--cream); border: 1px solid var(--foam); border-radius: 12px;
+  padding: 18px 20px; font-size: 13px; color: var(--stone); line-height: 1.6; margin-bottom: 28px;
+}
+.alert-box strong { color: var(--pine); }
 
-.sources-row { font-size: 0.75rem; color: var(–text-muted); border-top: 1px solid var(–border); padding-top: 0.65rem; }
+/* ── FOOTER ── */
+footer { background: var(--bark); color: rgba(255,255,255,.6); padding: 36px 24px 26px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #fff; margin-bottom: 8px; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { color: rgba(255,255,255,.6); font-size: 13px; text-decoration: none; }
+.footer-links a:hover { color: #fff; }
+.footer-divider { border: none; border-top: 1px solid rgba(255,255,255,.1); margin-bottom: 16px; }
+.footer-legal { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,.4); }
 
-.disclaimer { margin-top: 2rem; padding: 0.85rem 1rem; border-radius: var(–radius); border: 1px solid #f2c3c0; background: #fff5f4; font-size: 0.76rem; color: var(–danger); }
-.disclaimer strong { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; }
+/* ════════════════════════════════════════
+   MAI CHAT WIDGET
+════════════════════════════════════════ */
+#mai-widget {
+  position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+}
+#mai-tooltip {
+  background: var(--bark); color: #fff;
+  border-radius: 9px 9px 0 9px; padding: 7px 13px;
+  font-size: 12px; white-space: nowrap; font-family: 'DM Sans', sans-serif;
+  box-shadow: 0 4px 14px rgba(45,59,46,.2);
+  animation: fadeIn .4s ease-out;
+}
+#mai-bubble {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pine), var(--sage));
+  border: none; color: #fff; font-size: 22px; cursor: pointer;
+  box-shadow: 0 6px 22px rgba(58,92,61,.35);
+  display: flex; align-items: center; justify-content: center;
+  animation: pulse 3s ease-in-out infinite; transition: transform .2s;
+  position: relative;
+}
+#mai-bubble:hover { transform: scale(1.06); animation: none; }
+#mai-dot {
+  position: absolute; top: -2px; right: -2px;
+  width: 11px; height: 11px; background: #ef4444;
+  border-radius: 50%; border: 2px solid #fff;
+}
+#mai-panel {
+  width: 340px; height: 480px; background: #fff; border-radius: 20px;
+  box-shadow: 0 16px 64px rgba(45,59,46,.2);
+  display: none; flex-direction: column; overflow: hidden;
+  border: 1px solid var(--foam); animation: slideUp .25s ease-out;
+}
+#mai-panel.open { display: flex; }
+#mai-header {
+  background: linear-gradient(135deg, var(--pine), var(--sage));
+  padding: 13px 14px; display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+#mai-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(255,255,255,.15); display: flex; align-items: center;
+  justify-content: center; font-size: 14px; flex-shrink: 0;
+}
+#mai-header-info { flex: 1; }
+#mai-header-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 15px;
+  color: #fff; font-weight: 500; line-height: 1.2;
+}
+#mai-header-sub { font-size: 10px; color: rgba(255,255,255,.7); }
+.mai-ctrl-btn {
+  background: rgba(255,255,255,.15); border: none; color: #fff;
+  padding: 3px 9px; border-radius: 5px; font-size: 11px; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+.mai-close-btn {
+  background: none; border: none; color: rgba(255,255,255,.8);
+  font-size: 20px; cursor: pointer; line-height: 1; margin-left: 4px;
+}
+#mai-messages {
+  flex: 1; overflow-y: auto; padding: 13px 13px 6px;
+  scroll-behavior: smooth;
+}
+#mai-messages::-webkit-scrollbar { width: 4px; }
+#mai-messages::-webkit-scrollbar-thumb { background: var(--foam); border-radius: 2px; }
+.mai-msg { display: flex; margin-bottom: 12px; animation: slideUp .25s ease-out; }
+.mai-msg.user { justify-content: flex-end; }
+.mai-msg-avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--sage), var(--pine));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; margin-right: 8px; flex-shrink: 0; margin-top: 2px;
+}
+.mai-msg-text {
+  max-width: 80%; padding: 10px 13px; border-radius: 14px;
+  font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-word;
+  font-family: 'DM Sans', sans-serif;
+}
+.mai-msg.bot .mai-msg-text {
+  background: #fff; color: var(--bark);
+  border-radius: 14px 14px 14px 3px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+}
+.mai-msg.user .mai-msg-text {
+  background: linear-gradient(135deg, var(--pine), var(--sage));
+  color: #fff; border-radius: 14px 14px 3px 14px;
+}
+.mai-welcome {
+  background: var(--ghost); border-radius: 13px 13px 13px 3px;
+  padding: 10px 12px; font-size: 13px; color: var(--bark);
+  line-height: 1.6; margin-bottom: 10px; font-family: 'DM Sans', sans-serif;
+}
+.mai-chips { display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; }
+.mai-chip {
+  background: var(--cream); border: 1.5px solid var(--foam); color: var(--pine);
+  padding: 8px 11px; border-radius: 8px; font-size: 12px; font-weight: 500;
+  text-align: left; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: all .2s;
+}
+.mai-chip:hover { background: var(--pine); color: #fff; border-color: var(--pine); }
+.mai-typing {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+}
+.mai-dots { display: flex; gap: 4px; align-items: center; padding: 9px 12px; background: var(--ghost); border-radius: 13px 13px 13px 3px; }
+.mai-dot-anim {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
+  animation: bounce 1.2s ease-in-out infinite;
+}
+.mai-dot-anim:nth-child(2) { animation-delay: .2s; }
+.mai-dot-anim:nth-child(3) { animation-delay: .4s; }
+#mai-input-area {
+  border-top: 1px solid var(--foam); padding: 8px 9px; flex-shrink: 0;
+}
+#mai-input-row {
+  display: flex; gap: 8px; align-items: flex-end;
+  background: var(--ghost); border-radius: 10px; padding: 7px 7px 7px 12px;
+}
+#mai-textarea {
+  flex: 1; border: none; background: transparent; resize: none;
+  font-size: 13px; line-height: 1.4; color: var(--bark);
+  font-family: 'DM Sans', sans-serif; max-height: 72px; overflow-y: auto;
+}
+#mai-textarea:focus { outline: none; }
+#mai-send {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pine), var(--sage));
+  border: none; color: #fff; font-size: 13px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: background .2s;
+}
+#mai-send:hover:not(:disabled) { background: var(--bark); }
+#mai-send:disabled { opacity: .35; cursor: not-allowed; }
+#mai-error {
+  font-size: 11px; color: #dc2626; padding: 4px 2px;
+  font-family: 'DM Sans', sans-serif; display: none;
+}
 
-footer { background: #fff; border-top: 1px solid var(–border); margin-top: 3rem; padding: 1rem 1.25rem 1.5rem; font-size: 0.8rem; color: var(–text-muted); }
-.footer-inner { max-width: var(–max-width); margin: 0 auto; display: flex; flex-direction: column; gap: 0.4rem; }
-.footer-meta { font-size: 0.74rem; color: #8c94a0; }
-</style>
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.07)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes slideUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes bounce { 0%,80%,100%{transform:translateY(0);opacity:.4} 40%{transform:translateY(-5px);opacity:1} }
+```
 
+  </style>
 </head>
 <body>
 
-<div id="nav-placeholder"></div>
-<script>
-fetch("nav.html").then(r => r.text()).then(html => {
-  document.getElementById("nav-placeholder").innerHTML = html;
-});
-</script>
+<!-- ── NAV ── -->
 
-<main>
-  <div class="page-badge"><span class="dot"></span> AI-powered · Live research</div>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">🌿 Maisage</a>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/learn.html" class="nav-link">Learn</a>
+    <a href="/facility-insights.html" class="nav-link active">Tools</a>
+    <a href="/services.html" class="nav-link">Services</a>
+    <a href="#mai-widget" class="nav-link cta" onclick="openMai(); return false;">Ask Mai ✦</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+
+<div class="hero">
   <h1>Look past glossy ratings before you tour</h1>
-  <p class="page-sub">Type a facility name and location. Maisage's AI searches CMS, Medicare.gov, and state inspection databases in real time — then surfaces red flags, staffing patterns, and the questions to bring on your tour.</p>
+  <p>Facility Insights helps you understand inspections, complaints, staffing, enforcement actions, and ownership changes — so you know exactly what to ask when you get there.</p>
+</div>
+
+<!-- ── MAIN ── -->
+
+<div class="container">
+
+  <!-- Search + Ask Mai -->
 
   <div class="search-card">
-    <h2>Research a facility</h2>
+    <h2>Research a specific facility</h2>
+    <p>Type a facility name below and ask Mai — she'll walk you through exactly what to look for in CMS Care Compare and ProPublica's inspection reports.</p>
     <div class="search-row">
-      <div class="field">
-        <label for="fac-name">Facility name</label>
-        <input type="text" id="fac-name" placeholder="e.g., Maple Grove Care Center" />
-      </div>
-      <div class="field">
-        <label for="fac-loc">City & state</label>
-        <input type="text" id="fac-loc" placeholder="e.g., Ithaca, NY" />
-      </div>
-      <button class="search-btn" id="search-btn" onclick="runSearch()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        Research
-      </button>
+      <input type="text" id="fac-input" placeholder="e.g. Sunrise Senior Living, Phoenix 85001…" />
+      <button class="btn-ask" onclick="askAboutFacility()">Ask Mai to research this →</button>
     </div>
-    <p class="search-hint">No account needed. Searches public CMS data, Medicare.gov Care Compare, and state records.</p>
+    <div class="tip-box">
+      💡 Mai will guide you through CMS Care Compare (medicare.gov/care-compare) and ProPublica Nursing Home Inspect — the two most reliable public data sources for facility quality.
+    </div>
   </div>
 
-  <div id="status-area"></div>
-  <div class="results-area" id="results-area"></div>
+  <!-- Flags -->
 
-  <div class="disclaimer">
-    <strong>Important</strong><br>
-    Facility Insights is informational only. Public data may be incomplete or delayed. Nothing here is a recommendation, endorsement, or guarantee of safety or quality. Always verify with state regulators, the facility directly, and licensed professionals. Maisage receives no commissions or referral fees from any facility.
+  <h2 style="font-size:24px; color:var(--bark); margin-bottom:16px;">How to read what you find</h2>
+  <div class="flags-grid">
+    <div class="flag-card flag-red">
+      <div class="flag-icon">🚨</div>
+      <div class="flag-label">Red flags</div>
+      <div class="flag-item">• Repeated serious deficiencies</div>
+      <div class="flag-item">• Ongoing enforcement actions</div>
+      <div class="flag-item">• Major staffing gaps</div>
+      <div class="flag-item">• Neglect patterns in complaints</div>
+    </div>
+    <div class="flag-card flag-yellow">
+      <div class="flag-icon">⚠️</div>
+      <div class="flag-label">Yellow flags</div>
+      <div class="flag-item">• Minor repeated issues</div>
+      <div class="flag-item">• Borderline but improving staffing</div>
+      <div class="flag-item">• Recent ownership change</div>
+      <div class="flag-item">• Moderate complaint volume</div>
+    </div>
+    <div class="flag-card flag-green">
+      <div class="flag-icon">✅</div>
+      <div class="flag-label">Positive signs</div>
+      <div class="flag-item">• Deficiencies trending down</div>
+      <div class="flag-item">• Stable, long-tenured ownership</div>
+      <div class="flag-item">• Staffing at/above state avg</div>
+      <div class="flag-item">• Issues corrected quickly</div>
+    </div>
   </div>
-</main>
+
+  <!-- Example table -->
+
+  <h2 style="font-size:22px; color:var(--bark); margin-bottom:14px;">Example facility comparison</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Facility</th><th>Type</th><th>Inspections</th><th>Staffing</th><th>Ownership</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Maple Grove Care</strong></td>
+          <td>SNF</td>
+          <td>✅ Trending down</td>
+          <td>⚠️ Slightly below avg</td>
+          <td>✅ 8+ yrs, independent</td>
+        </tr>
+        <tr>
+          <td><strong>Lakeside Memory Care</strong></td>
+          <td>AL + Memory</td>
+          <td>🚨 Multiple high-severity</td>
+          <td>🚨 Well below avg</td>
+          <td>⚠️ Ownership change 18 mo ago</td>
+        </tr>
+        <tr>
+          <td><strong>Oak Meadow AL</strong></td>
+          <td>Assisted Living</td>
+          <td>✅ No major issues 3yr</td>
+          <td>✅ At/above benchmarks</td>
+          <td>✅ Long-tenured, stable</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note" style="margin-bottom:32px;">Example facilities only — not real. Maisage receives no commissions or referral fees from any facility.</p>
+
+  <!-- Info sections -->
+
+  <div class="info-section">
+    <h2>Numbers tell you where to ask harder questions</h2>
+    <p>A facility with some past issues but clear improvement can be very different from one with ongoing, unresolved problems. Ownership and administrator stability often correlate with culture. Staffing numbers are a clue, not a guarantee — you still need to visit and observe.</p>
+  </div>
+
+  <div class="alert-box">
+    <strong>Important:</strong> Facility Insights is an informational resource only. Data comes from public sources that may be incomplete or delayed. Nothing here is a recommendation, rating, endorsement, or guarantee of safety or quality. Always verify information directly with state regulators, facilities, and licensed professionals. Maisage does not receive commissions or referral fees from any facilities.
+  </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
 
 <footer>
   <div class="footer-inner">
-    <div>© <span id="year"></span> Maisage. All rights reserved.</div>
-    <div class="footer-meta">Neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.</div>
-    <div class="footer-meta">Facility Insights v2.0 – AI-powered</div>
+    <div class="footer-logo">🌿 Maisage</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/learn.html">Learn</a>
+      <a href="/facility-insights.html">Tools</a>
+      <a href="/services.html">Services</a>
+      <a href="/start-here.html">Start Here</a>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-legal">© Maisage. All rights reserved. Neutral care-navigation platform. No sponsored listings. No commissions. No referral arrangements.<br>
+    Maisage is an informational and planning resource. It does not provide medical care, legal advice, financial planning, or insurance brokerage. All decisions should be reviewed with licensed professionals.</p>
   </div>
 </footer>
 
+<!-- ════════════════════════════════════════
+     MAI CHAT WIDGET
+════════════════════════════════════════ -->
+
+<div id="mai-widget">
+  <div id="mai-panel">
+    <div id="mai-header">
+      <div id="mai-avatar">🌿</div>
+      <div id="mai-header-info">
+        <div id="mai-header-name">Mai</div>
+        <div id="mai-header-sub">Maisage Care Navigator</div>
+      </div>
+      <a href="/services.html" class="mai-ctrl-btn">Book session</a>
+      <button class="mai-close-btn" onclick="closeMai()">×</button>
+    </div>
+    <div id="mai-messages">
+      <div class="mai-welcome">
+        👋 Hi! I'm Mai. Type any facility name and I'll walk you through how to research it using public data sources.
+      </div>
+      <div class="mai-chips">
+        <button class="mai-chip" onclick="sendChip('How do I research a nursing home using CMS Care Compare?')">🏥 How to research a facility</button>
+        <button class="mai-chip" onclick="sendChip('What are red flags to look for in nursing home inspection reports?')">🚨 Red flags to watch for</button>
+        <button class="mai-chip" onclick="sendChip('What questions should I ask on a facility tour?')">❓ Questions to ask on a tour</button>
+      </div>
+      <div id="mai-error"></div>
+    </div>
+    <div id="mai-input-area">
+      <div id="mai-input-row">
+        <textarea id="mai-textarea" rows="1" placeholder="Name a facility or ask a question…"></textarea>
+        <button id="mai-send" onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mai-tooltip">Ask Mai about any facility 🌿</div>
+
+  <button id="mai-bubble" onclick="toggleMai()">
+    🌿
+    <div id="mai-dot"></div>
+  </button>
+</div>
+
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+  // ── IMPORTANT: Replace with your Anthropic API key ──────────────────────────
+  // Get one free at console.anthropic.com → API Keys
+  // Note: For production, proxy this through a backend to protect your key.
+  const API_KEY = "YOUR_ANTHROPIC_API_KEY_HERE";
+  // ────────────────────────────────────────────────────────────────────────────
 
-['fac-name','fac-loc'].forEach(id => {
-  document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
-});
+  const SYSTEM_INSTRUCTIONS = `You are Mai, the AI care navigator for Maisage (maisage.com) — a neutral elder care navigation platform. No commissions, no referral fees, no sales pressure.
 
-const SYSTEM = `You are Maisage's Facility Research AI — a neutral tool that helps families evaluate long-term care facilities using public data.
+When a user names a facility, guide them to:
+• CMS Care Compare (medicare.gov/care-compare) — staffing ratings, health inspections, quality measures
+• ProPublica Nursing Home Inspect (projects.propublica.org/nursing-homes) — raw deficiency citations and complaint history
+Explain what red flags look like: repeated serious deficiencies, enforcement actions, major staffing gaps, ownership changes. Distinguish from yellow flags (minor issues, borderline staffing improving). Give 5–7 specific questions to ask on a facility tour. Remind them star ratings are just a starting point.
 
-When given a facility name and location:
-1. Search Medicare.gov Care Compare (care.medicare.gov) for overall rating, health inspection rating, staffing rating, quality measures rating
-2. Search for inspection history, deficiency patterns, and enforcement actions (CMPs, denials of payment)
-3. Search for staffing data (RN hours, total nurse staffing hours vs. state/national average)
-4. Search for complaint history and resolution patterns
-5. Search for ownership information — independent vs. chain, recent ownership changes
-6. Search for any recent news — lawsuits, closures, regulatory actions, notable incidents
+For medication questions: flag high-cost categories, Beers Criteria concerns for elderly patients, multiple-prescriber complexity. Give 3–5 questions for their prescriber or pharmacist. NEVER advise on changing or stopping medications.
 
-Respond ONLY with a valid JSON object. No markdown fences, no prose outside the JSON. Structure:
-{
-  "name": "Official facility name from CMS or Medicare.gov",
-  "address": "Full address if found",
-  "type": "SNF / Assisted Living / Memory Care / CCRC / etc",
-  "cms_id": "CMS certification number if found, else null",
-  "overall_rating": "X out of 5 stars, or Not Rated",
-  "flags": [
-    { "level": "red", "label": "flag text" },
-    { "level": "yellow", "label": "flag text" },
-    { "level": "green", "label": "flag text" }
-  ],
-  "inspections": "2-4 sentence plain-language summary. Be specific about deficiency counts, severity levels, and trends.",
-  "staffing": "2-3 sentence summary. Include specific RN hours or staffing ratios if found. Compare to state average if available.",
-  "complaints": "2-3 sentence summary of complaint volume, types, and resolution speed.",
-  "ownership": "2-3 sentence summary. Name the owner/operator if found. Note chain vs. independent, years under current ownership.",
-  "news": "1-3 sentence summary of notable recent news, or null if nothing significant found.",
-  "bottom_line": "2-3 sentence honest assessment of what a family walking in should know. Be direct about what the data suggests.",
-  "questions": [
-    "Specific question 1 based on what you found",
-    "Specific question 2",
-    "Specific question 3",
-    "Specific question 4",
-    "Specific question 5"
-  ],
-  "sources": ["Source 1 name or URL", "Source 2"]
-}
+For overwhelmed families: ask 2–3 gentle questions about what's changing, urgency, timeline. Break "stay home or move" into smaller decisions.
 
-If the facility cannot be found in public databases, be honest about that in bottom_line and still provide useful general guidance. Never fabricate specific ratings, dates, or incident details.`;
+Session booking (only when it clearly fits):
+• Orientation Call (60 min): https://square.link/u/zCnuTDhu
+• Medication & Cost Review: https://square.link/u/8DJlUe0l
+• Scenario & Facility Planning: https://square.link/u/DCJe3iUq
+• Benefits & Coverage Review: https://square.link/u/mpv98Mhq
+• Follow-up Session: https://square.link/u/GpdgqD0Q
 
-async function runSearch() {
-  const name = document.getElementById('fac-name').value.trim();
-  const loc = document.getElementById('fac-loc').value.trim();
-  if (!name) { document.getElementById('fac-name').focus(); return; }
+Tone: Warm, plain language, like a knowledgeable friend.
+Limits: No medical, legal, financial, or insurance advice. No facility recommendations. All decisions need licensed professional review.`;
 
-  const btn = document.getElementById('search-btn');
-  btn.disabled = true;
-  btn.innerHTML = `<div class="spinner" style="border-color:#ffffff44;border-top-color:#fff"></div> Researching…`;
+  let messages = [];
+  let isLoading = false;
+  let panelOpen = false;
 
-  const statusEl = document.getElementById('status-area');
-  const resultsEl = document.getElementById('results-area');
-  resultsEl.innerHTML = '';
-
-  const setStatus = msg => {
-    statusEl.innerHTML = `<div class="status-bar"><div class="spinner"></div><span>${msg}</span></div>`;
-  };
-
-  setStatus(`Searching CMS &amp; Medicare.gov for <strong>${esc(name)}</strong>${loc ? ' in ' + esc(loc) : ''}…`);
-
-  try {
-    const userMsg = `Research this care facility for a family evaluating it for a loved one:
-Facility: ${name}
-Location: ${loc || 'not specified'}
-
-Search Medicare.gov Care Compare, CMS databases, state inspection records, and news. Return JSON only.`;
-
-    let messages = [{ role: 'user', content: userMsg }];
-    let data = await callAPI(messages);
-    let iters = 0;
-
-    while (data.stop_reason === 'tool_use' && iters < 6) {
-      iters++;
-      const toolUse = data.content.filter(b => b.type === 'tool_use');
-      messages.push({ role: 'assistant', content: data.content });
-
-      const results = toolUse.map(tb => {
-        if (tb.name === 'web_search') setStatus(`Searching: <em>${esc(tb.input?.query || 'facility records')}</em>…`);
-        return { type: 'tool_result', tool_use_id: tb.id, content: 'Search completed.' };
-      });
-
-      messages.push({ role: 'user', content: results });
-      data = await callAPI(messages);
-    }
-
-    statusEl.innerHTML = '';
-
-    const raw = data.content.filter(b => b.type === 'text').map(b => b.text).join('').trim();
-    let parsed;
-    try {
-      parsed = JSON.parse(raw.replace(/^```json\s*/,'').replace(/```\s*$/,'').trim());
-    } catch {
-      resultsEl.innerHTML = `<div class="result-card"><div class="result-body"><div class="section-content"><p>${esc(raw)}</p></div></div></div>`;
-      return;
-    }
-
-    renderResult(parsed, resultsEl);
-
-  } catch(err) {
-    statusEl.innerHTML = '';
-    resultsEl.innerHTML = `<div class="status-bar" style="color:#8b1f19;background:#fff5f4;border-color:#f4c3bf">⚠️ Something went wrong. Please try again.</div>`;
-    console.error(err);
+  function toggleMai() {
+    panelOpen ? closeMai() : openMai();
   }
 
-  btn.disabled = false;
-  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Research`;
-}
+  function openMai() {
+    panelOpen = true;
+    document.getElementById('mai-panel').classList.add('open');
+    document.getElementById('mai-tooltip').style.display = 'none';
+    document.getElementById('mai-dot').style.display = 'none';
+    document.getElementById('mai-textarea').focus();
+  }
 
-async function callAPI(messages) {
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1000,
-      system: SYSTEM,
-      tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-      messages
-    })
+  function closeMai() {
+    panelOpen = false;
+    document.getElementById('mai-panel').classList.remove('open');
+  }
+
+  function sendChip(text) {
+    document.getElementById('mai-textarea').value = text;
+    sendMessage();
+  }
+
+  function askAboutFacility() {
+    const name = document.getElementById('fac-input').value.trim();
+    if (name) {
+      openMai();
+      document.getElementById('mai-textarea').value = 'Can you help me research ' + name + '?';
+      sendMessage();
+    } else {
+      openMai();
+    }
+  }
+
+  async function sendMessage() {
+    const ta = document.getElementById('mai-textarea');
+    const text = ta.value.trim();
+    if (!text || isLoading) return;
+
+    // Hide chips after first message
+    const chips = document.querySelector('.mai-chips');
+    if (chips) chips.style.display = 'none';
+    const welcome = document.querySelector('.mai-welcome');
+    if (welcome) welcome.style.display = 'none';
+
+    // Clear error
+    const errEl = document.getElementById('mai-error');
+    errEl.style.display = 'none';
+
+    // Add user message to UI
+    messages.push({ role: 'user', content: text });
+    appendMessage('user', text);
+    ta.value = '';
+    ta.style.height = 'auto';
+
+    // Show typing
+    isLoading = true;
+    document.getElementById('mai-send').disabled = true;
+    const typing = showTyping();
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': API_KEY,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: SYSTEM_INSTRUCTIONS,
+          messages: messages
+        })
+      });
+
+      const data = await response.json();
+      if (data.error) throw new Error(data.error.message);
+      const reply = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n').trim();
+      if (!reply) throw new Error('No response received');
+
+      messages.push({ role: 'assistant', content: reply });
+      typing.remove();
+      appendMessage('bot', reply);
+
+    } catch (e) {
+      typing.remove();
+      errEl.textContent = '⚠️ ' + (e.message || 'Something went wrong. Please try again.');
+      errEl.style.display = 'block';
+      // Remove last user message from history on error
+      messages.pop();
+    } finally {
+      isLoading = false;
+      document.getElementById('mai-send').disabled = false;
+    }
+  }
+
+  function appendMessage(role, text) {
+    const container = document.getElementById('mai-messages');
+    const div = document.createElement('div');
+    div.className = 'mai-msg ' + role;
+    if (role === 'bot') {
+      div.innerHTML = '<div class="mai-msg-avatar">🌿</div><div class="mai-msg-text">' + escapeHtml(text) + '</div>';
+    } else {
+      div.innerHTML = '<div class="mai-msg-text">' + escapeHtml(text) + '</div>';
+    }
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function showTyping() {
+    const container = document.getElementById('mai-messages');
+    const div = document.createElement('div');
+    div.className = 'mai-typing';
+    div.innerHTML = '<div class="mai-msg-avatar" style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#5a7d5e,#3a5c3d);display:flex;align-items:center;justify-content:center;font-size:12px;margin-right:8px;flex-shrink:0;">🌿</div><div class="mai-dots"><div class="mai-dot-anim"></div><div class="mai-dot-anim"></div><div class="mai-dot-anim"></div></div>';
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return div;
+  }
+
+  function escapeHtml(text) {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\n/g, '<br>');
+  }
+
+  // Auto-resize textarea
+  document.getElementById('mai-textarea').addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 72) + 'px';
   });
-  return r.json();
-}
 
-function renderResult(d, container) {
-  const flagsHtml = (d.flags || []).map(f =>
-    `<span class="flag ${esc(f.level)}">${esc(f.label)}</span>`
-  ).join('');
-
-  const sections = [
-    { label: 'Bottom line', key: 'bottom_line', bold: true },
-    { label: 'Inspections & deficiencies', key: 'inspections' },
-    { label: 'Staffing', key: 'staffing' },
-    { label: 'Complaints', key: 'complaints' },
-    { label: 'Ownership & stability', key: 'ownership' },
-    { label: 'Notable news', key: 'news' },
-  ];
-
-  const sectionsHtml = sections
-    .filter(s => d[s.key])
-    .map(s => `
-      <div>
-        <div class="section-label">${s.label}</div>
-        <div class="section-content" ${s.bold ? 'style="font-weight:500"' : ''}><p>${esc(d[s.key])}</p></div>
-      </div>`)
-    .join('');
-
-  const questionsHtml = (d.questions || []).length
-    ? `<div class="questions-box">
-        <div class="qlabel">🗒 Questions to bring on your tour</div>
-        <ul>${(d.questions).map(q => `<li>${esc(q)}</li>`).join('')}</ul>
-       </div>`
-    : '';
-
-  const sourcesHtml = (d.sources || []).length
-    ? `<div class="sources-row">Sources: ${d.sources.map(esc).join(' · ')}</div>`
-    : '';
-
-  container.innerHTML = `
-    <div class="result-card">
-      <div class="result-header">
-        <div>
-          <div class="result-name">${esc(d.name || 'Facility')}</div>
-          <div class="result-meta">${[d.type, d.address].filter(Boolean).map(esc).join(' · ')}${d.cms_id ? ` · CMS #${esc(d.cms_id)}` : ''}</div>
-          <div class="result-meta" style="margin-top:0.2rem">Overall rating: <strong>${esc(d.overall_rating || 'Not found')}</strong></div>
-        </div>
-        <div class="flag-row">${flagsHtml}</div>
-      </div>
-      <div class="result-body">
-        ${sectionsHtml}
-        ${questionsHtml}
-        ${sourcesHtml}
-      </div>
-    </div>`;
-}
-
-function esc(t) {
-  if (!t) return '';
-  return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+  // Send on Enter
+  document.getElementById('mai-textarea').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
 </script>
 
 </body>
